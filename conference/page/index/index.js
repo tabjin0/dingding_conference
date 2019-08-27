@@ -18,6 +18,7 @@ Page({
     },
     loginSystem() {
         dd.showLoading();
+        // 获取小程序免登授权码，这边是企业应用，个人应用也是可以的（时效5分钟）
         dd.getAuthCode({
             success:(res)=>{
                 this.setData({
