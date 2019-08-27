@@ -1,5 +1,5 @@
 <view>
-    <button type="primary" size="" onTap="loginSystem"> 点击登录 </button>
+    <button type="primary" size="" onTap="loginSystem"> 点击登录获取当前用户的info(用于免登)ok </button>
     <view class="row">CorpId:{{corpId}}</view>
 
     <view hidden="{{hideList}}">
@@ -8,6 +8,6 @@
         <view class="row">name:{{userName}}</view>
     </view>
 
-    <button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘ok</button>
-    
+    <button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘(含文件预览)ok</button>
+    <button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘</button>
 </view>
