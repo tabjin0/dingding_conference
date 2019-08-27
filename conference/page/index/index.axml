@@ -7,5 +7,7 @@
         <view class="row">userId:{{userId}}</view>
         <view class="row">name:{{userName}}</view>
     </view>
+
+    <button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘ok</button>
     
 </view>

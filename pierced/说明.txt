@@ -1,0 +1,3 @@
+
+windows
+ding -config=ding.cfg -subdomain=abcde 8080
