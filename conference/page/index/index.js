@@ -4,8 +4,8 @@ let app = getApp();
 //内网穿透工具介绍:
 // https://open-doc.dingtalk.com/microapp/debug/ucof2g
 //替换成开发者后台设置的安全域名
-// let domain = "http://localhost:8080";
-let domain = "https://tabjin.vaiwan.com:8081/";
+let domain = "http://localhost:8080";
+// let domain = "https://tabjin.vaiwan.com:8081/";
 let url = domain + '/login';
 
 Page({
