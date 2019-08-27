@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a4a897c-d81b-464e-bbab-edb409f0e080" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/config/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/config/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/config/URLConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/config/URLConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/util/AccessTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/util/AccessTokenUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/util/LogFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/util/LogFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/util/ServiceResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/java/com/util/ServiceResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/test/java/com/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/src/test/java/com/ApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/configuration/mini-program.json" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/configuration/mini-program.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/editor.json" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/editor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/editorTabs.json" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/editorTabs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/config$.js" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/config$.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/importScripts$.js" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/importScripts$.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/index$.web.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/entryFiles-development/index$.worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/.tea/recentlyTouched.json" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/.tea/recentlyTouched.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../conference/page/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../conference/page/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eapp-corp-quick-start-java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eapp-corp-quick-start-java/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/eapp-corp-quick-start-java/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eapp-corp-quick-start-java/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="66" column="12" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="72" selection-end-column="25" />
+            <state relative-caret-position="468">
+              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="80" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -181,12 +161,12 @@
       <option name="presentableId" value="Default" />
       <updated>1566873850350</updated>
       <workItem from="1566873904635" duration="2636000" />
-      <workItem from="1566882645349" duration="1135000" />
+      <workItem from="1566882645349" duration="1164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3771000" />
+    <option name="totallyTimeSpent" value="3800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="5" width="1386" height="867" extended-state="0" />
@@ -250,8 +230,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eapp-corp-quick-start-java/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="66" column="12" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="72" selection-end-column="25" />
+        <state relative-caret-position="468">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="80" selection-end-column="21" />
         </state>
       </provider>
     </entry>

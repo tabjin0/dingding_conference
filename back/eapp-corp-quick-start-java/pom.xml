@@ -64,13 +64,13 @@
 			<version>2.4</version>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.taobao.top</groupId>-->
-<!--			<artifactId>top-api-sdk-dev</artifactId>-->
-<!--			<version>ding-open-mc-SNAPSHOT</version>-->
-<!--			<scope>system</scope>-->
-<!--			<systemPath>${pom.basedir}/lib/top-api-sdk-dev-ding-open-mc-20180719.091043-1.jar</systemPath>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>com.taobao.top</groupId>
+			<artifactId>top-api-sdk-dev</artifactId>
+			<version>ding-open-mc-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/top-api-sdk-dev-ding-open-mc-20180719.091043-1.jar</systemPath>
+		</dependency>
 
 		<dependency>
 			<groupId>com.taobao.top</groupId>
