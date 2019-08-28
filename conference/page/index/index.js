@@ -113,9 +113,9 @@ Page({
      */
     uploadFileToDingTalk() {
         dd.uploadAttachmentToDingTalk({
-            image: { multiple: true, compress: false, max: 9, spaceId: "12345" },
-            space: { spaceId: "12345", isCopy: 1, max: 9 },
-            file: { spaceId: "12345", max: 1 },
+            image: { multiple: true, compress: false, max: 9, spaceId: "1837002072" },
+            space: { spaceId: "1837002072", isCopy: 1, max: 9 },
+            file: { spaceId: "1837002072", max: 1 },
             types: ["photo", "camera", "file", "space"],//PC端仅支持["photo","file","space"]
             success: (res) => {
                 console.log(res);
