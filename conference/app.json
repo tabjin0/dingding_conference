@@ -1,7 +1,7 @@
 {
   "pages": [
+	"page/index/index",
     "page/conferenceManagement/addConference/addConference",
-    "page/index/index",
     "page/conferenceManagement/conferenceManager/conferenceManager",
     "page/statisticalReport/statisticalReport/statisticalReport",
     "page/issueDeclaration/issueDeclaration/issueDeclaration",
@@ -12,7 +12,7 @@
     "enableDSL": true,
     "defaultTitle": "会议管理",
     "backgroundColor": "#F5F5F9",
-    "pullRefresh": true,
+    "pullRefresh": false,
     "allowsBounceVertical": true
   },
   "tabBar": {
@@ -21,7 +21,7 @@
     "backgroundColor": "#F5F5F9",
     "items": [
       {
-        "pagePath": "page/conferenceManagement/conferenceManager/conferenceManager",
+        "pagePath": "page/index/index",
         "name": "会务管理"
       },
       {
@@ -31,7 +31,12 @@
       {
         "pagePath": "page/issueDeclaration/issueDeclaration/issueDeclaration",
         "name": "议题申报"
+      },
+	  {
+        "pagePath": "page/meetingAgenda/meetingAgenda/meetingAgenda",
+        "name": "会议议题"
       }
+	
     ]
   },
   "debug": true
