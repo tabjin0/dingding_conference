@@ -1,6 +1,7 @@
 {
   "pages": [
-    "page/index/index"
+    "page/index/index",
+    "page/addConference/addConference"
   ],
   "window": {
     "enableWK": "YES",
@@ -14,9 +15,7 @@
     "textColor": "#404040",
     "selectedColor": "#108ee9",
     "backgroundColor": "#F5F5F9",
-    "items": [
-      
-    ]
+    "items": []
   },
   "debug": true
 }

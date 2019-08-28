@@ -28,10 +28,10 @@ public class IndexController {
     /**
      * 欢迎页面,通过url访问，判断后端服务是否启动
      */
-//    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-//    public String welcome() {
-//        return "welcome";
-//    }
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    public String welcome() {
+        return "welcome";
+    }
 
     /**
      * 钉钉用户登录，显示当前登录用户的userId和名称

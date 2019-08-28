@@ -9,5 +9,8 @@
     </view>
 
     <button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘(含文件预览)ok</button>
-    <button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘</button>
+    <button size="" type="primary" onTap="querySpaceId">获取企业下的自定义空间ok</button>
+    <button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘(前端ok，后端调用钉钉接口上传)</button>
+    <button size="" type="primary" onTap="chooseDingTalkPlateDir">选取钉盘目录ok</button>
+    <button size="" type="primary" onTap="filePreview">预览文件</button>
 </view>
