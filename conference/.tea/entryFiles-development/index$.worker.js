@@ -22,8 +22,12 @@ self.requirePlugin = AFAppX.requirePlugin;
 
 function success() {
 require('../../app');
+require('../../page/conferenceManagement/addConference/addConference');
 require('../../page/index/index');
-require('../../page/addConference/addConference');
+require('../../page/conferenceManagement/conferenceManager/conferenceManager');
+require('../../page/statisticalReport/statisticalReport/statisticalReport');
+require('../../page/issueDeclaration/issueDeclaration/issueDeclaration');
+require('../../page/meetingAgenda/meetingAgenda/meetingAgenda');
 }
 self.bootstrapApp ? self.bootstrapApp({ success }) : success();
 }

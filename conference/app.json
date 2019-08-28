@@ -1,7 +1,11 @@
 {
   "pages": [
+    "page/conferenceManagement/addConference/addConference",
     "page/index/index",
-    "page/addConference/addConference"
+    "page/conferenceManagement/conferenceManager/conferenceManager",
+    "page/statisticalReport/statisticalReport/statisticalReport",
+    "page/issueDeclaration/issueDeclaration/issueDeclaration",
+    "page/meetingAgenda/meetingAgenda/meetingAgenda"
   ],
   "window": {
     "enableWK": "YES",
@@ -15,7 +19,24 @@
     "textColor": "#404040",
     "selectedColor": "#108ee9",
     "backgroundColor": "#F5F5F9",
-    "items": []
+    "items": [
+        {
+            "pagePath": "page/conferenceManagement/conferenceManager/conferenceManager",
+            "name": "会务管理"
+        },
+        {
+            "pagePath": "page/statisticalReport/statisticalReport/statisticalReport",
+            "name": "统计报表"
+        },
+        {
+            "pagePath": "page/issueDeclaration/issueDeclaration/issueDeclaration",
+            "name": "议题申报"
+        },
+        {
+            "pagePath": "page/meetingAgenda/meetingAgenda/meetingAgenda",
+            "name": "会议议题"
+        }
+    ]
   },
   "debug": true
 }
