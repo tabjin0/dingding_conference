@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: zj258025
+    url: jdbc:mysql://127.0.0.1:3306/dingdingmsg?characterEncoding=utf-8&useSSL=false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+
+#服务启动端口号。钉钉云ECS目前只开放80和22端口
+server:
+  port: 8888
+
+
+
+
