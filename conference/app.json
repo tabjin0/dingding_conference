@@ -23,23 +23,31 @@
   },
   "tabBar": {
     "textColor": "#404040",
-    "selectedColor": "#108ee9",
+    "selectedColor": "#3296FA",
     "backgroundColor": "#F5F5F9",
     "items": [
       {
         "pagePath": "page/index/index",
+        "icon": "/resources/icon/tarbar/ziyuan.png",
+        "activeIcon": "/resources/icon/tarbar/ziyuan-selected.png",
         "name": "会务管理"
       },
       {
         "pagePath": "page/statisticalReport/statisticalReport/statisticalReport",
+        "icon": "/resources/icon/tarbar/chart.png",
+        "activeIcon": "/resources/icon/tarbar/chart-selected.png",
         "name": "统计报表"
       },
       {
         "pagePath": "page/issueDeclaration/issueDeclaration/issueDeclaration",
+        "icon": "/resources/icon/tarbar/shenbao.png",
+        "activeIcon": "/resources/icon/tarbar/shenbao-selected.png",
         "name": "议题申报"
       },
       {
         "pagePath": "page/meetingAgenda/meetingAgenda/meetingAgenda",
+        "icon": "/resources/icon/tarbar/huiyiyiti.png",
+        "activeIcon": "/resources/icon/tarbar/huiyiyiti-selected.png",
         "name": "会议议题"
       }
     ]

@@ -12,3 +12,4 @@ require('../../page/meetingAgenda/conferenceList/conferenceList');
 require('../../page/issueDeclaration/addAgenda/addAgenda');
 require('../../page/issueDeclaration/agendaList/agendaList');
 require('../../page/meetingAgenda/conferenceDetail/conferenceDetail');
+require('../../page/meetingAgenda/agendaManagement/agendaManagement');
