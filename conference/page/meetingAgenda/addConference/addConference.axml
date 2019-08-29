@@ -1,0 +1,21 @@
+<view>
+  <view class="classname">
+      <view>
+          会议主题:
+          <input placeholder="十六届县政府第24次常务会议" />
+      </view>
+      <view>
+          会议时间:
+          <input placeholder="2019-08-01 09:30" />
+      </view>
+      <view>
+          会议地点:
+          <input placeholder="市委礼堂" />
+      </view>
+      <view>
+          会议主题:
+          <textarea placeholder="十六届县政府第24次常务会议十六届县政府第24次常务会议十六届县政府第24次常务会议十六届县政府第24次常务会议十六届县政府第24次常务会议"></textarea>
+      </view>
+      <button size="default" type="primary">保存</button>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<view>
+    <form onSubmit="formSubmit" onReset="formReset">
+        <view>
+            议题：
+            <input placeholder="学习传达总书记关于生活垃圾分类重要指示精神" />
+        </view>
+        <view>
+            汇报单位：
+            <input placeholder="嘉善县建设局" />
+        </view>
+        <view>
+            列席单位：
+            <input placeholder="县城管局、县卫生局" />
+        </view>
+        <view>
+            会议上传文件：
+            <button size="default" type="primary">继续上传</button>
+        </view>
+        <view>
+            日志：人员操作日志
+        </view>
+        <button size="default" type="primary">保存</button>
+    </form>
+</view>

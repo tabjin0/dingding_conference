@@ -13,4 +13,9 @@
     <button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘(前端ok，后端调用钉钉接口上传)</button>
     <button size="" type="primary" onTap="chooseDingTalkPlateDir">选取钉盘目录ok</button>
     <button size="" type="primary" onTap="filePreview">预览文件</button>
+
+
+
+    <view>新增会议</view>
+    <view>会议详情</view>
 </view>

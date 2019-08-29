@@ -1,3 +1,12 @@
 <view>
-  议题申报
+    <view class="entry-container">
+        <view class="entry-block" onTap="toAddAgenda">
+            <image mode="scaleToFill" src="/resources/icon/entry/xinzenghuiyi.png"/>
+            新增议题
+        </view>
+        <view class="entry-block" onTap="toAgendaList">
+            <image mode="scaleToFill" src="/resources/icon/entry/huiyixiangqing.png"/>
+            议题列表
+        </view>
+    </view>
 </view>

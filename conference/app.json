@@ -1,11 +1,17 @@
 {
   "pages": [
-	"page/index/index",
+    "page/index/index",
     "page/conferenceManagement/addConference/addConference",
     "page/conferenceManagement/conferenceManager/conferenceManager",
     "page/statisticalReport/statisticalReport/statisticalReport",
     "page/issueDeclaration/issueDeclaration/issueDeclaration",
-    "page/meetingAgenda/meetingAgenda/meetingAgenda"
+    "page/meetingAgenda/meetingAgenda/meetingAgenda",
+    "page/meetingAgenda/addConference/addConference",
+    "page/meetingAgenda/conferenceList/conferenceList",
+    "page/issueDeclaration/addAgenda/addAgenda",
+    "page/issueDeclaration/agendaList/agendaList",
+    "page/meetingAgenda/conferenceDetail/conferenceDetail",
+    "page/meetingAgenda/agendaManagement/agendaManagement"
   ],
   "window": {
     "enableWK": "YES",
@@ -32,11 +38,10 @@
         "pagePath": "page/issueDeclaration/issueDeclaration/issueDeclaration",
         "name": "议题申报"
       },
-	  {
+      {
         "pagePath": "page/meetingAgenda/meetingAgenda/meetingAgenda",
         "name": "会议议题"
       }
-	
     ]
   },
   "debug": true

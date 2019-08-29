@@ -1,3 +1,20 @@
 <view>
-  会议议题
+    <view class="entry-container">
+        <view class="entry-block" onTap="toXinZengHuiYi">
+            <image mode="scaleToFill" src="/resources/icon/entry/xinzenghuiyi.png"/>
+            新增会议
+        </view>
+        <view class="entry-block" onTap="toConferenceDetail">
+            <image mode="scaleToFill" src="/resources/icon/entry/huiyixiangqing.png"/>
+            会议详情
+        </view>
+        <view class="entry-block" onTap="toConferenceList">
+            <image mode="scaleToFill" src="/resources/icon/entry/huiyiliebiao.png"/>
+            会议列表
+        </view>
+        <view class="entry-block" onTap="toAgendaManagement">
+            <image mode="scaleToFill" src="/resources/icon/entry/yiti.png"/>
+            议题整理
+        </view>
+    </view>
 </view>
