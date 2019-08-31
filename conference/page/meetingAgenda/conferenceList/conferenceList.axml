@@ -1,4 +1,7 @@
 <view>
-  <view>搜索</view>
+  <view class="search-container">
+      <input class="search-input" placeholder="请输入会议主题" />
+      搜索
+  </view>
   <view>议题列表</view>
 </view>

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "page/meetingAgenda/conferenceList/conferenceList",
     "page/index/index",
     "page/conferenceManagement/addConference/addConference",
     "page/conferenceManagement/conferenceManager/conferenceManager",
@@ -7,7 +8,6 @@
     "page/issueDeclaration/issueDeclaration/issueDeclaration",
     "page/meetingAgenda/meetingAgenda/meetingAgenda",
     "page/meetingAgenda/addConference/addConference",
-    "page/meetingAgenda/conferenceList/conferenceList",
     "page/issueDeclaration/addAgenda/addAgenda",
     "page/issueDeclaration/agendaList/agendaList",
     "page/meetingAgenda/conferenceDetail/conferenceDetail",

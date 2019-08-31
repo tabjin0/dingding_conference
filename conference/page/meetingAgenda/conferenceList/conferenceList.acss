@@ -1,0 +1,10 @@
+.search-container {
+    height: 52pt;
+    background-color: green;
+}
+
+.search-input {
+
+    height: 34pt;
+    margin: 8pt 16pt;
+}
