@@ -1,3 +1,108 @@
-<view>
-  展示会议详情
+<view
+    xmlns:a="http://www.w3.org/1999/xhtml" class="container">
+    <view class="flex-column">
+        <view>
+            <view class="flex-column theme-container">
+                <view class="title theme-title">会议名</view>
+                <view class="theme">{{conference.theme}}</view>
+            </view>
+            <view class="flex-row time-container">
+                <view class="title time-title">会议时间</view>
+                <view class="time-date">{{conference.time}}</view>
+            </view>
+            <view class="flex-row location-container">
+                <view class="title location-title">会议地点</view>
+                <view class="time-date">{{conference.address}}</view>
+            </view>
+            <view class="flex-column theme-container">
+                <view class="title theme-title">内容</view>
+                <view class="theme">{{conference.info}}</view>
+            </view>
+            <!--<view class="flex-row participant-container" onTap="chooseParticipant"> -->
+            <view class="flex-row participant-container">
+                <view class="title participant-title">参加人员</view>
+                <view></view>
+                <view style="display:none;">
+                    <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
+                </view>
+                <block class="flex-row child-align-right" a:for="{{chooseParticipant}}">
+                    <view style="float: right;margin-left: auto;">
+                        <image class="label-img-24pt" mode="scaleToFill" src="{{item.avatar}}"/>
+                    </view>
+                </block>
+                <view style="margin-left: auto;">
+                    <span a:if="{{chooseParticipantNumber > 0}}">{{chooseParticipantNumber}}人</span>
+                </view>
+            </view>
+            <view class="flex-row participant-container">
+                <view class="title participant-title">阅读情况</view>
+                <view style="display:none;">
+                    <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
+                </view>
+                <block class="flex-row child-align-right" a:for="{{chooseParticipant}}">
+                    <view style="float: right;margin-left: auto;">
+                        <image class="label-img-24pt" mode="scaleToFill" src="{{item.avatar}}"/>
+                    </view>
+                </block>
+                <view style="margin-left: auto;">
+                    <span a:if="{{chooseParticipantNumber > 0}}">{{chooseParticipantNumber}}人</span>
+                </view>
+            </view>
+            <view class="flex-row participant-container">
+                <view class="title participant-title">请假情况</view>
+                <view style="display:none;">
+                    <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
+                </view>
+                <block class="flex-row child-align-right" a:for="{{chooseParticipant}}">
+                    <view style="float: right;margin-left: auto;">
+                        <image class="label-img-24pt" mode="scaleToFill" src="{{item.avatar}}"/>
+                    </view>
+                </block>
+                <view style="margin-left: auto;">
+                    <span a:if="{{chooseParticipantNumber > 0}}">{{chooseParticipantNumber}}人</span>
+                </view>
+            </view>
+        </view>
+        <!-- 会议议题 -->
+        <view class="flex-column agenda-container">
+            <view class="title theme-title">议题</view>
+            <view class="flex-row" a:for="{{conference.topic}}" a:for-index="topic_index" a:for-item="topic_item">
+                <view class="flex-column agenda-name">
+                    <view class="theme">{{topic_item.name}}
+                    </view>
+                </view>
+                <view class="flex-row" style="margin-left: auto;align-items: center;">
+                    <view>{{item.agendaCraeteTime}}
+                    </view>
+                    <!--<view onTap="operation">...</view> -->
+                </view>
+            </view>
+        </view>
+        <view class="image-container">
+            <view class="image-title">图片</view>
+            <view class="addImv">
+                <!--这个是已经选好的图片-->
+                <block a:for="{{imgArr}}" a:key="key">
+                    <view class="upFile" onTap="showImage" style="border-radius: 5px" data-id="{{index}}">
+                        <image class="itemImv" src="{{item}}"></image>
+                        <image class="closeImv" src="/resources/icon/common/delete.png" mode="scaleToFill" catchTap="deleteImv" data-id="{{index}}"></image>
+                    </view>
+                </block>
+                <!--这个是选择图片-->
+                <!--<view class="chooseView" onTap="chooseImage" style="border-radius: 5px" a:if="{{chooseViewShow}}">-->
+                <!--<image class="chooseImv" src="/resources/icon/common/delete.png"></image>-->
+                <!--</view>-->
+            </view>
+        </view>
+    </view>
+</view>
+<view class="operation-container">
+    <view class="circle-container">
+        <block a:for="{{adminOperation}}" a:for-index="operation_index" a:for-item="operation_item">
+            <view class="flex-row middle-button notice-feedback-container">
+                <button class="notice-feedback" size="" type="primary" data-conference="{{}}" onTap="{{operation_item.operation}}">{{operation_item.name}}
+                </button>
+            </view>
+        </block>
+    </view>
 </view>

@@ -1,3 +1,7 @@
 
 windows
 ding -config=ding.cfg -subdomain=abcde 8080
+
+cd mac_64
+chmod 777 ./ding
+./ding -config=./ding.cfg -subdomain=abcde 8080

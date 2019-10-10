@@ -1,0 +1,20 @@
+<template name="Collapse">
+    <view class="a-collapse">
+        <view a:for="{{panels}}" a:for-index="panels_index" a:for-item="panels_item">
+            <view class="a-collapse-title" data-index="{{index}}" onTap="{{onTitleTap}}">
+        {{panels_item.agendaTypeName}}
+                <view class="{{panels_item.expanded ? 'a-collapse-title-arrow a-collapse-title-arrow-up' : 'a-collapse-title-arrow'}}" />
+            </view>
+            <view class="a-collapse-content" a:if="{{panels_item.expanded}}">
+                <!-- {{item.content}} -->
+                <!--<radio-group class="radio-group" onChange="radioChange"><label class="radio"><radio value="{{item.content}}" checked="{{item.checked}}"/>{{item.content}}</label></radio-group> -->
+                <checkbox-group name="topic" data-agendaTypeIndex="{{panels_item.agendaTypeIndex}}" onChange="onChange">
+                    <label class="checkbox" a:for="{{panels_item.agendaContent}}" a:for-index="index" a:for-item="contentItem" style="display: block;">
+                        <checkbox value="{{contentItem.id}}" checked="{{panels_item.checked}}"/>
+                        <text class="checkbox-text">{{contentItem.name}}</text>
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+    </view>
+</template>

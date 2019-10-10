@@ -1,21 +1,57 @@
 <view>
-    <button type="primary" size="" onTap="loginSystem"> 点击登录获取当前用户的info(用于免登)ok </button>
-    <view class="row">CorpId:{{corpId}}</view>
-
-    <view hidden="{{hideList}}">
-        <view class="row">AuthCode:{{authCode}}</view>
-        <view class="row">userId:{{userId}}</view>
-        <view class="row">name:{{userName}}</view>
+    <view class="container">
+        <!--<button type="primary" size="" onTap="loginSystem"> 点击登录获取当前用户的info(用于免登)ok</button><view class="row">CorpId:{{corpId}}</view><view hidden="{{hideList}}"><view class="row">AuthCode:{{authCode}}</view><view class="row">userId:{{userId}}</view><view class="row">name:{{userName}}</view></view> -->
+        <!--<button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘(含文件预览)ok</button><button size="" type="primary" onTap="querySpaceId">获取企业下的自定义空间ok</button><button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘(前端ok，后端调用钉钉接口上传)</button><button size="" type="primary" onTap="chooseDingTalkPlateDir">选取钉盘目录ok</button><button size="" type="primary" onTap="filePreview">预览文件</button> -->
+        <!--<view class="row">CorpId:{{corpId}}</view><view class="row">userId:{{userId}}</view><view class="row">name:{{userName}}</view> -->
+        <!--<view class='page_row' onTap="search" style="width: 90%;"><icon class="searchcion" size='20' type='search'></icon><input type="search" placeholder="" auto-focus style="width: 100%;"/></button></view> -->
+        <!-- 会议列表 -->
+        <view class="conference-list">
+            <view a:for="{{conferenceListOrderByDate}}" a:for-index="month" a:for-item="month_item">
+                <!-- 红点 月份 -->
+                <view class="flex-row time-tips">
+                    <view class="circle-red"></view>
+                    <view class="year-month">{{month_item.date}}</view>
+                </view>
+                <!-- 会议内容 -->
+                <view class="flex-column" a:for="{{month_item.list}}" a:for-index="index" a:for-item="conference">
+                    <view class="flex-row conference-label" data-conference="{{conference}}" onTap="toConferenceDetail">
+                        <view class="day-container">
+                            <span class="day">{{conference.time_day}}</span>
+                            <span class="day-ri">日</span>
+                        </view>
+                        <view class="flex-column words">
+                            <view class="theme">{{conference.theme}}</view>
+                            <!--<view class="topic" a:for="{{conference.topic}}" a:for-index="topic_index" a:for-item="topic_item">{{topic_item.name}}</view> -->
+                            <view class="conference-time">{{conference.create_time}}   {{conference.address}}             已签到</view>
+                            <!-- <view class="conference-time">会议状态么：{{conference.status}} 当前会议已签到</view> -->
+                        </view>
+<!--                        <view class="flex-row more" data-conference="{{conference}}" onTap="operation"-->
+<!--                              style="margin-left: auto;">-->
+<!--                            <view class="circle-blue"></view>-->
+<!--                            <view class="circle-blue" style="margin-left:6pt"></view>-->
+<!--                            <view class="circle-blue" style="margin-left:6pt"></view>-->
+<!--                        </view>-->
+                    </view>
+                </view>
+                <view style="height: 53rpx;width:100%;background-color:#ffffff;"></view>
+            </view>
+            <!--<button size="default" type="primary" onTap="dateOrder">测试</button> -->
+        </view>
+        <view class="flex-row middle-button check-in-container" hidden="{{!isAdmin}}">
+            <button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增会议</button>
+        </view>
+        <!--<view class="flex-row middle-button check-in-container" hidden="{{!isNeedCheckIn}}"><button class="check-in" size="" type="primary" data-conference="{{}}" onTap="locationCheck">签到</button></view> -->
     </view>
-
-    <button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘(含文件预览)ok</button>
-    <button size="" type="primary" onTap="querySpaceId">获取企业下的自定义空间ok</button>
-    <button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘(前端ok，后端调用钉钉接口上传)</button>
-    <button size="" type="primary" onTap="chooseDingTalkPlateDir">选取钉盘目录ok</button>
-    <button size="" type="primary" onTap="filePreview">预览文件</button>
-
-
-
-    <view>新增会议</view>
-    <view>会议详情</view>
+</view>
+<!-- 管理员isAdmin==true才显示tarbar -->
+<!--<view class="tarbar-container" hidden="{{!isAdmin}}"> -->
+<view class="tarbar-container">
+    <view class="tarbar">
+        <block a:for="{{tarbar}}" a:for-index="tarbar_index" a:for-item="tarbar_item">
+            <view class="flex-column tarbar-item" data-tarBarItem="{{tarbar_item}}" onTap="tarbarOpera">
+                <image class="tarbar-img" mode="scaleToFill" src="{{tarbar_item.icon}}"/>
+                <view class="tarbar-title">{{tarbar_item.name}}</view>
+            </view>
+        </block>
+    </view>
 </view>

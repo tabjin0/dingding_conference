@@ -1,5 +1,5 @@
-if(!self.Map || !self.Set || !self.Symbol) {
-    importScripts('https://gw.alipayobjects.com/as/g/appx_release/deps/1.0.3/es6-set-map-symbol.js');
+if(!self.Map || !self.Set) {
+    importScripts('https://gw.alipayobjects.com/as/g/appx_release/deps/1.0.0/es6-set-map.js');
      }
      importScripts(`https://appx/af-appx.worker.min.js`);
 

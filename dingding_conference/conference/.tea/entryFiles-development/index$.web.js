@@ -1,15 +1,18 @@
 require('@alipay/appx-compiler/lib/sjsEnvInit');
 require('./config$');
 
-require('../../page/meetingAgenda/conferenceList/conferenceList');
 require('../../page/index/index');
+require('../../page/meetingAgenda/addConference/addConference');
 require('../../page/conferenceManagement/addConference/addConference');
+require('../../page/meetingAgenda/conferenceList/conferenceList');
 require('../../page/conferenceManagement/conferenceManager/conferenceManager');
 require('../../page/statisticalReport/statisticalReport/statisticalReport');
-require('../../page/issueDeclaration/issueDeclaration/issueDeclaration');
-require('../../page/meetingAgenda/meetingAgenda/meetingAgenda');
-require('../../page/meetingAgenda/addConference/addConference');
-require('../../page/issueDeclaration/addAgenda/addAgenda');
-require('../../page/issueDeclaration/agendaList/agendaList');
 require('../../page/meetingAgenda/conferenceDetail/conferenceDetail');
-require('../../page/meetingAgenda/agendaManagement/agendaManagement');
+require('../../page/templates/labelTemplate/labelTemplate');
+require('../../page/templates/collapse/collapse');
+require('../../page/meetingAgenda/bookMeetingRoom/bookMeetingRoom');
+require('../../page/index/search/search');
+require('../../page/index/addMeetingSummary/addMeetingSummary');
+require('../../page/index/notes/notes');
+require('../../page/organization/myOrganization/myOrganization');
+require('../../page/meetingAgenda/takeOff/takeOff');

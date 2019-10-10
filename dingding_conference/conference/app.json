@@ -1,17 +1,20 @@
 {
   "pages": [
-    "page/meetingAgenda/conferenceList/conferenceList",
     "page/index/index",
+    "page/meetingAgenda/addConference/addConference",
     "page/conferenceManagement/addConference/addConference",
+    "page/meetingAgenda/conferenceList/conferenceList",
     "page/conferenceManagement/conferenceManager/conferenceManager",
     "page/statisticalReport/statisticalReport/statisticalReport",
-    "page/issueDeclaration/issueDeclaration/issueDeclaration",
-    "page/meetingAgenda/meetingAgenda/meetingAgenda",
-    "page/meetingAgenda/addConference/addConference",
-    "page/issueDeclaration/addAgenda/addAgenda",
-    "page/issueDeclaration/agendaList/agendaList",
     "page/meetingAgenda/conferenceDetail/conferenceDetail",
-    "page/meetingAgenda/agendaManagement/agendaManagement"
+    "page/templates/labelTemplate/labelTemplate",
+    "page/templates/collapse/collapse",
+    "page/meetingAgenda/bookMeetingRoom/bookMeetingRoom",
+    "page/index/search/search",
+    "page/index/addMeetingSummary/addMeetingSummary",
+    "page/index/notes/notes",
+    "page/organization/myOrganization/myOrganization",
+    "page/meetingAgenda/takeOff/takeOff"
   ],
   "window": {
     "enableWK": "YES",
@@ -20,37 +23,6 @@
     "backgroundColor": "#F5F5F9",
     "pullRefresh": false,
     "allowsBounceVertical": true
-  },
-  "tabBar": {
-    "textColor": "#404040",
-    "selectedColor": "#3296FA",
-    "backgroundColor": "#F5F5F9",
-    "items": [
-      {
-        "pagePath": "page/index/index",
-        "icon": "/resources/icon/tarbar/ziyuan.png",
-        "activeIcon": "/resources/icon/tarbar/ziyuan-selected.png",
-        "name": "会务管理"
-      },
-      {
-        "pagePath": "page/statisticalReport/statisticalReport/statisticalReport",
-        "icon": "/resources/icon/tarbar/chart.png",
-        "activeIcon": "/resources/icon/tarbar/chart-selected.png",
-        "name": "统计报表"
-      },
-      {
-        "pagePath": "page/issueDeclaration/issueDeclaration/issueDeclaration",
-        "icon": "/resources/icon/tarbar/shenbao.png",
-        "activeIcon": "/resources/icon/tarbar/shenbao-selected.png",
-        "name": "议题申报"
-      },
-      {
-        "pagePath": "page/meetingAgenda/meetingAgenda/meetingAgenda",
-        "icon": "/resources/icon/tarbar/huiyiyiti.png",
-        "activeIcon": "/resources/icon/tarbar/huiyiyiti-selected.png",
-        "name": "会议议题"
-      }
-    ]
   },
   "debug": true
 }

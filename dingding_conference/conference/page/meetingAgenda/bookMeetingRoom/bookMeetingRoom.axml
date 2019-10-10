@@ -1,0 +1,30 @@
+<view>
+    <form onSubmit="formSubmit" onReset="formReset">
+        <view class="flex-column">
+            <view style="display: none;">
+                <input name="uid" placeholder="Input" value="{{conference.uid}}" />
+            </view>
+            <view class="flex-column theme-container">
+                <view class="title theme-title">名称</view>
+                <input name="theme" onInput="conferenceThemeInput" class="theme" placeholder="请输入会议室名称（必填）" />
+            </view>
+        </view>
+        <view class="flex-row location-container" onTap="chooseLocation">
+            <view class="title location-title">地点</view>
+            <view class="time-date">{{conference.address}}</view>
+            <view class="flex-row" onTap="chooseLocation">
+                <textarea style="display:none;" name="address" maxlength="-1" onInput="conferenceAddressInput" class="padding-w4-LR-16pt" placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>
+                <!--<image class="label-img-32px" mode="scaleToFill" src="/resources/icon/addConference/ding.png" style="margin-left: auto;" onTap="chooseLocation"/> -->
+            </view>
+            <view class="flex-row">
+                <block class="flex-row" a:for="{{meetingRoom}}" a:for-index="meetingRoom_index" a:for-item="meetingRoom_item">
+                    <view data-meetingRoom="{{meetingRoom_item.name}}" onTap="meetingRoom">{{meetingRoom_item.name}}</view>
+                </block>
+            </view>
+        </view>
+        <view class="submit-button-container">
+            <button class="submit-button" size="default" type="primary" form-type="submit">保存
+            </button>
+        </view>
+    </form>
+</view>

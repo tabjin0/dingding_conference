@@ -1,0 +1,27 @@
+<view>
+    <form class="form" onSubmit="formSubmit" onReset="formReset">
+        <view class="note-container">
+            <textarea class="note" name="text" maxlength="-1" placeholder="会议笔记..."></textarea>
+        </view>
+        <view class="image-container" onTap="chooseImage">
+            <view class="image-title">选择图片</view>
+            <view class="addImv">
+                <!--这个是已经选好的图片-->
+                <block a:for="{{imgArr}}" a:key="key">
+                    <view class="upFile" bindtap="showImage" style="border-radius: 5px" data-id="{{index}}">
+                        <image class="itemImv" src="{{item}}"></image>
+                        <image class="closeImv" src="../../images/delete.png" mode="scaleToFill" catchtap="deleteImv" data-id="{{index}}"></image>
+                    </view>
+                </block>
+                <!--这个是选择图片-->
+                <view class="chooseView" bindtap="chooseImage" style="border-radius: 5px" a:if="{{chooseViewShow}}">
+                    <image class="chooseImv" src="../../images/addImage.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="submit-button-container">
+            <button class="submit-button" size="default" type="primary" form-type="submit">提交笔记
+            </button>
+        </view>
+    </form>
+</view>
