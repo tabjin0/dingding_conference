@@ -3,38 +3,55 @@
     <form onSubmit="formSubmit" onReset="formReset">
         <view class="flex-column">
             <view style="display: none;">
-                <input name="uid" placeholder="Input" value="{{conference.uid}}" />
+                <input name="uid" placeholder="Input" value="{{conference.uid}}"/>
             </view>
             <view class="flex-column theme-container">
                 <view class="title theme-title">会议主题</view>
-                <input name="theme" onInput="conferenceThemeInput" class="theme" placeholder="请输入" />
+                <textarea name="theme" maxlength="-1" onInput="conferenceThemeInput" class="theme" placeholder="请输入"></textarea>
+                <!--                <input name="theme" onInput="conferenceThemeInput" class="theme" placeholder="请输入"/>-->
             </view>
             <view class="flex-row time-container" onTap="chooseTime">
                 <view class="title time-title">会议时间</view>
                 <view class="time-date">{{dateTime}}</view>
-                <input style="display:none;" name="time" onInput="conferenceTimeInput" class="time" disabled="true" placeholder="{{dateTime}}" value="{{dateTime}}"/>
+                <input style="display:none;" name="time" onInput="conferenceTimeInput" class="time" disabled="true"
+                       placeholder="{{dateTime}}" value="{{dateTime}}"/>
                 <!--<view class="{{panels_item.expanded ? 'a-collapse-title-arrow a-collapse-title-arrow-up' : 'a-collapse-title-arrow'}}" /></view> -->
             </view>
-            <view class="flex-row location-container" onTap="chooseLocation">
-                <view class="title location-title">会议地点</view>
-                <view class="time-date">{{conference.address}}</view>
+            <!-- 地点 -->
+            <view class="flex-column location-container">
                 <view class="flex-row" onTap="chooseLocation">
-                    <textarea style="display:none;" name="address" maxlength="-1" onInput="conferenceAddressInput" class="padding-w4-LR-16pt" placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>
-                    <input style="display:none;" name="roomId" value="{{conference.roomId}}" style="width: 100%;"></input>
+                    <view class="title location-title">会议地点</view>
+                    <view style="margin-left: auto;">{{conference.address}}</view>
+                </view>
+                <!--                    <view class="time-date">{{conference.address}}</view>-->
+                <!--                <view class="flex-row" onTap="chooseLocation">-->
+                <view class="flex-row">
+                    <textarea style="display:none;" name="address" maxlength="-1" onInput="conferenceAddressInput"
+                              class="padding-w4-LR-16pt" placeholder="轻触选择会议室" value="{{conference.address}}"
+                              style="width: 100%;"></textarea>
+                    <input style="display:none;" name="roomId" value="{{conference.roomId}}"
+                           style="width: 100%;"></input>
                     <!--<image class="label-img-32px" mode="scaleToFill" src="/resources/icon/addConference/ding.png" style="margin-left: auto;" onTap="chooseLocation"/> -->
                 </view>
-                <view class="flex-row">
-                    <block class="flex-row" a:for="{{meetingRoom}}" a:for-index="meetingRoom_index" a:for-item="meetingRoom_item">
-                        <view data-meetingRoom="{{meetingRoom_item}}" onTap="meetingRoom">{{meetingRoom_item.name}}</view>
-                    </block>
+                <view>
+                    <radio-group class="radio-group" onChange="radioChange">
+                        <label class="radio" a:for="{{meetingRoom}}" a:for-index="meetingRoom_index"
+                               a:for-item="meetingRoom_item">
+                            <radio value="{{meetingRoom_item}}" checked="{{item.checked}}"/>
+                            {{meetingRoom_item.name}}
+                        </label>
+                    </radio-group>
                 </view>
+
             </view>
+
             <view class="agenda-container">
                 <template is="Collapse" data={{...collapseData}}></template>
             </view>
             <view class="flex-column theme-container">
                 <view class="title theme-title">会议内容</view>
-                <input name="info" onInput="conferenceInfoInput" class="theme" placeholder="请输入" />
+                <textarea name="info" maxlength="-1" onInput="conferenceThemeInput" class="theme" placeholder="请输入"></textarea>
+<!--                <input name="info" onInput="conferenceInfoInput" class="theme" placeholder="请输入"/>-->
             </view>
             <view class="flex-row participant-container" onTap="chooseParticipant">
                 <view class="title participant-title">参加人员</view>
@@ -42,32 +59,33 @@
                     <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
                 </view>
                 <view class="flex-row" style="margin-left: auto;position:relative;">
-                    <block class="flex-row child-align-right" a:for="{{chooseParticipant}}">
-                        <view style="float: right;margin-left: auto;">
-                            <image class="label-img-24pt" mode="scaleToFill" src="{{item.avatar}}"/>
-                        </view>
-                    </block>
-                    <view class="participant-number" a:if="{{chooseParticipantNumber > 0}}">{{chooseParticipantNumber}}人</view>
+<!--                    <block class="flex-row child-align-right" a:for="{{chooseParticipant}}">-->
+                    <!--                        <view style="float: right;margin-left: auto;">-->
+                    <!--                            <image class="label-img-24pt" mode="scaleToFill" src="{{item.avatar}}"/>-->
+                    <!--                        </view>-->
+                    <!--                    </block>-->
+                    <view class="participant-number" a:if="{{chooseParticipantNumber > 0}}">
+                        {{chooseParticipantNumber}}人
+                    </view>
                     <view class="a-collapse-title-arrow a-collapse-title-arrow-right"></view>
                 </view>
             </view>
         </view>
         <view class="submit-button-container">
-            <button class="submit-button" size="default" type="primary" form-type="submit">保存
+            <button class="submit-button" size="default" type="default" form-type="submit">保存
             </button>
         </view>
-        </view>
-    </form>
-    <!--<button size="default" type="primary" onTap="test">测试</button> -->
 </view>
-<view class="tarbar-container" style="justify-content: space-between;">
-    <view class="tarbar">
-        <block a:for="{{operation}}" a:for-index="tarbar_index" a:for-item="tarbar_item">
-            <view class="flex-column  tarbar-item" data-tarBarItem="{{tarbar_item}}" onTap="{{tarbar_item.operaTap}}">
-                <image class="tarbar-img" mode="scaleToFill" src="{{tarbar_item.operaImg}}"/>
-                <view class="tarbar-title">{{tarbar_item.operaTitle}}</view>
-            </view>
-        </block>
-    </view>
+</form>
+<!--<button size="default" type="primary" onTap="test">测试</button> -->
 </view>
-<!--<view class="tui-picker-content"><view class="tui-picker-name">日期时间选择器（精确到分）</view><picker mode="multiSelector" value="{{dateTime1}}" onChange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}"><view class="tui-picker-detail">选择日期时间: {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}</view></picker></view> -->
+<!--<view class="tarbar-container" style="justify-content: space-between;">-->
+<!--    <view class="tarbar">-->
+<!--        <block a:for="{{operation}}" a:for-index="tarbar_index" a:for-item="tarbar_item">-->
+<!--            <view class="flex-column  tarbar-item" data-tarBarItem="{{tarbar_item}}" onTap="{{tarbar_item.operaTap}}">-->
+<!--                <image class="tarbar-img" mode="scaleToFill" src="{{tarbar_item.operaImg}}"/>-->
+<!--                <view class="tarbar-title">{{tarbar_item.operaTitle}}</view>-->
+<!--            </view>-->
+<!--        </block>-->
+<!--    </view>-->
+<!--</view>-->

@@ -1,0 +1,107 @@
+.image-container {
+    /*width: 100%;*/
+    /*height: 94rpx;*/
+    background-color: #ffffff;
+    padding-top: 29rpx;
+    padding-left: 50rpx;
+    padding-bottom: 50rpx;
+    /*margin-right: 10rpx;*/
+}
+
+/*.image-title {*/
+/*    width: 200rpx;*/
+/*    height: 34rpx;*/
+/*    font-size: 34rpx;*/
+/*    font-family: Microsoft YaHei;*/
+/*    font-weight: 400;*/
+/*    color: rgba(0, 0, 7, 1);*/
+/*    margin: 30rpx;*/
+/*}*/
+
+/*选择图片View*/
+/*带删除按钮*/
+/*.upload-img-container {*/
+/*     height: 200rpx;*/
+/*     background-color: #EEEEEE;*/
+/*     !*border: 1px dashed gray;*!*/
+/*     display: flex;*/
+/*     align-items: center;*/
+/*     !*padding: 0 20rpx;*!*/
+/* }*/
+
+.upload-img-container {
+    /*height: 200rpx;*/
+    /*background-color: #EEEEEE;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/*添加图片*/
+
+.upload-img-container .chooseView {
+    width: 190rpx;
+    height: 166rpx;
+    background-color: #ffffff;
+    margin-right: 40rpx;
+    margin-bottom: 40rpx;
+    border: 2rpx solid lightgray;
+    text-align: center;
+    line-height: 180rpx;
+}
+
+.upload-img-container .chooseImv {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+/*已选择的图片*/
+
+.upload-img-container .upload-img {
+    margin-right: 40rpx;
+    margin-bottom: 40rpx;
+    width: 190rpx;
+    height: 166rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.upload-img-container .upload-img .img-item {
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+
+.upload-img-container .upload-img .closeImv {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.upload-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*border: 1px solid green;*/
+}
+
+.hide {
+    display: none;
+}
+
+.submit-button-container {
+    width: 474rpx;
+    height: 94rpx;
+    margin: 0 auto;
+}
+
+.submit-button {
+    background: rgba(240, 149, 77, 1);
+    border-radius: 6px;
+}

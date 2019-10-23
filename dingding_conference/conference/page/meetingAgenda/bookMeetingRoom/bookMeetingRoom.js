@@ -31,7 +31,7 @@ Page({
         // 选择会议室
         // var meetingRoom = [];
         // dd.httpRequest({
-        //     url: 'http://api.yzcommunity.cn/api/5d8b19b1744c7',
+        //     url: 'https://api.yzcommunity.cn/api/5d8b19b1744c7',
         //     method: 'GET',
         //     headers: {
         //         'Content-Type': 'application/json',

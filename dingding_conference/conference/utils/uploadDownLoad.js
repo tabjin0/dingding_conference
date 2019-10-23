@@ -1,7 +1,7 @@
 import {promisic} from "./utils";
 
 class UploadDownLoad {
-    static async uploadImg(
+    static async upload(
         {
             url,//开发者服务器地址
             filePath,//要上传文件资源的本地定位符

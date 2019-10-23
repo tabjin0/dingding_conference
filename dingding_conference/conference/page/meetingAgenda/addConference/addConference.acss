@@ -1,4 +1,4 @@
-@import '../../templates/collapse/collapse.acss';
+/*@import '../../templates/collapse/collapse.acss';*/
 page {
     margin-bottom: 85rpx;
 }
@@ -14,7 +14,7 @@ page {
     width: 200rpx;
     height: 35rpx;
     font-size: 34rpx;
-    font-family: Microsoft YaHei;
+    font-family: "Microsoft YaHei";
     font-weight: 400;
     color: rgba(0, 0, 7, 1);
     line-height: 35rpx;
@@ -27,7 +27,7 @@ page {
 
 .theme {
     font-size: 34rpx;
-    font-family: Microsoft YaHei;
+    font-family: "Microsoft YaHei";
     font-weight: 400;
     color: rgba(0, 0, 7, 1);
     line-height: 35rpx;
@@ -52,7 +52,7 @@ page {
     width: 286rpx;
     height: 28rpx;
     font-size: 34rpx;
-    font-family: Microsoft YaHei;
+    font-family: "Microsoft YaHei";
     font-weight: 400;
     color: rgba(0, 0, 7, 1);
     line-height: 94rpx;
@@ -62,7 +62,7 @@ page {
 
 .time {
     font-size: 34rpx;
-    font-family: Microsoft YaHei;
+    font-family: "Microsoft YaHei";
     font-weight: 400;
     color: rgba(0, 0, 7, 1);
     line-height: 35rpx;
@@ -72,7 +72,7 @@ page {
 
 .location-container {
     width: 100%;
-    height: 94rpx;
+    /*height: 94rpx;*/
     background: rgba(255, 255, 255, 1);
     margin-bottom: 32rpx;
 }
@@ -85,6 +85,12 @@ page {
 
 .agenda-container {
     margin-bottom: 32rpx;
+}
+
+.meeting-room-label {
+    background-color: #FFFFFF;
+    font-size: 28rpx;
+    margin-right: 12rpx;
 }
 
 .a-collapse {
@@ -130,6 +136,29 @@ page {
     font-size: 30rpx;
 }
 
+.checkbox {
+    margin-left: 30rpx;
+    margin-top: 34rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox-select {
+    width: 46rpx;
+    height: 46rpx;
+    margin-right: 34rpx;
+    margin-bottom: 34rpx;
+}
+
+.checkbox-text {
+    width: 579rpx;
+    font-size: 34rpx;
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    color: #2F2F2F;
+    margin-top: 41rpx;
+}
+
 .participant-container {
     width: 100%;
     height: 94rpx;
@@ -150,10 +179,10 @@ page {
 }
 
 .submit-button-container {
-    width: 474rpx;
-    height: 94rpx;
-    margin: 0 auto;
-}
+     width: 474rpx;
+     height: 94rpx;
+     margin: 0 auto;
+ }
 
 .submit-button {
     background: rgba(240, 149, 77, 1);
@@ -196,37 +225,10 @@ page {
     width: 150rpx;
     height: 18rpx;
     font-size: 18rpx;
-    font-family: Microsoft YaHei;
+    font-family: "Microsoft YaHei";
     font-weight: 400;
     /* color: rgba(216, 18, 56, 1); */
     color: rgba(128, 128, 128, 1);
     line-height: 18rpx;
     margin-bottom: 15rpx;
 }
-
-/* .tarbar-container {
-    width: 100%;
-    height: 85rpx;
-    background-color: #F5F5F9;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-
-.tarbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-}
-
-.tarbar-item {
-    width: 33.3%;
-    text-align: center;
-}
-
-.tarbar-img {
-    margin: 0 auto;
-    width: 30px;
-    height: 30px;
-} */

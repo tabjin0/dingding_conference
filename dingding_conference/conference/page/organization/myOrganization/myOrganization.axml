@@ -1,3 +1,23 @@
 <view>
-  我的组织
+    <view class="name-container">
+        <image class="name-img" mode="scaleToFill" src="/resources/wodezhibu/logo-组织.png"></image>
+        <text class="name-text">广电产业经营支部</text>
+    </view>
+
+    <view class="member-container">
+        <block a:for="{{organizationPartyMember}}" a:for-index="organizationPartyMember_index"
+               a:for-item="organizationPartyMember_item">
+            <view class="flex-column single-member">
+                <view class="avatar">
+                    <image class="avatar" src="{{organizationPartyMember_item.headImg}}" mode="scaleToFill"></image>
+                </view>
+                <text class="single-member-name">{{organizationPartyMember_item.name}}</text>
+                <text class="single-member-position">{{organizationPartyMember_item.partyPosts}}</text>
+            </view>
+
+        </block>
+
+    </view>
+
+
 </view>

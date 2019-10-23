@@ -1,57 +1,150 @@
+<!--<view>-->
+<!--<view class="container">-->
+<!--        &lt;!&ndash;<button type="primary" size="" onTap="loginSystem"> 点击登录获取当前用户的info(用于免登)ok</button><view class="row">CorpId:{{corpId}}</view><view hidden="{{hideList}}"><view class="row">AuthCode:{{authCode}}</view><view class="row">userId:{{userId}}</view><view class="row">name:{{userName}}</view></view> &ndash;&gt;-->
+<!--        &lt;!&ndash;<button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘(含文件预览)ok</button><button size="" type="primary" onTap="querySpaceId">获取企业下的自定义空间ok</button><button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘(前端ok，后端调用钉钉接口上传)</button><button size="" type="primary" onTap="chooseDingTalkPlateDir">选取钉盘目录ok</button><button size="" type="primary" onTap="filePreview">预览文件</button> &ndash;&gt;-->
+<!--        &lt;!&ndash;<view class="row">CorpId:{{corpId}}</view><view class="row">userId:{{userId}}</view><view class="row">name:{{userName}}</view> &ndash;&gt;-->
+<!--        &lt;!&ndash;<view class='page_row' onTap="search" style="width: 90%;"><icon class="searchcion" size='20' type='search'></icon><input type="search" placeholder="" auto-focus style="width: 100%;"/></button></view> &ndash;&gt;-->
+<!--        &lt;!&ndash; 会议列表 &ndash;&gt;-->
+<!--<view class="conference-list">-->
+<!--<view a:for="{{conferenceListOrderByDate}}" a:for-index="month" a:for-item="conference_priority_item">-->
+<!--                &lt;!&ndash; 红点 月份 &ndash;&gt;-->
+<!--<view class="flex-row time-tips">-->
+<!--<view class="circle-red"></view>-->
+<!--<view class="year-month">{{conference_priority_item.date}}</view>-->
+<!--</view>-->
+<!--                &lt;!&ndash; 会议内容 &ndash;&gt;-->
+<!--<view class="flex-column" a:for="{{conference_priority_item.list}}" a:for-index="index" a:for-item="conference">-->
+<!--<view class="flex-row conference-label" data-conference="{{conference}}" onTap="toConferenceDetail">-->
+<!--<view class="day-container">-->
+<!--<span class="day">{{conference.time_day}}</span>-->
+<!--<span class="day-ri">日</span>-->
+<!--</view>-->
+<!--<view class="flex-column words">-->
+<!--<view class="theme">{{conference.theme}}</view>-->
+<!--                            &lt;!&ndash;<view class="topic" a:for="{{conference.topic}}" a:for-index="topic_index" a:for-item="topic_item">{{topic_item.name}}</view> &ndash;&gt;-->
+<!--<view class="conference-time">{{conference.time}}   {{conference.address}}             已签到</view>-->
+<!--                            &lt;!&ndash;<view class="conference-time">会议状态么：{{conference.status}} 当前会议已签到</view> &ndash;&gt;-->
+<!--</view>-->
+<!--&lt;!&ndash;<view class="flex-row more" data-conference="{{conference}}" onTap="operation"&ndash;&gt;-->
+<!--&lt;!&ndash; style="margin-left: auto;">&ndash;&gt;-->
+<!--&lt;!&ndash;<view class="circle-blue"></view>&ndash;&gt;-->
+<!--&lt;!&ndash;<view class="circle-blue" style="margin-left:6pt"></view>&ndash;&gt;-->
+<!--&lt;!&ndash;<view class="circle-blue" style="margin-left:6pt"></view>&ndash;&gt;-->
+<!--&lt;!&ndash;</view>&ndash;&gt;-->
+<!--</view>-->
+<!--</view>-->
+<!--<view style="height: 53rpx;width:100%;background-color:#ffffff;"></view>-->
+<!--</view>-->
+<!--            &lt;!&ndash;<button size="default" type="primary" onTap="dateOrder">测试</button> &ndash;&gt;-->
+<!--</view>-->
+<!--<view class="flex-row middle-button check-in-container" hidden="{{!isAdmin}}">-->
+<!--<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增会议</button>-->
+<!--</view>-->
+<!--        &lt;!&ndash;<view class="flex-row middle-button check-in-container" hidden="{{!isNeedCheckIn}}"><button class="check-in" size="" type="primary" data-conference="{{}}" onTap="locationCheck">签到</button></view> &ndash;&gt;-->
+<!--</view>-->
+<!--</view>-->
+<!--&lt;!&ndash; 管理员isAdmin==true才显示tarbar &ndash;&gt;-->
+<!--&lt;!&ndash;<view class="tarbar-container" hidden="{{!isAdmin}}"> &ndash;&gt;-->
+<!--<view class="tarbar-container">-->
+<!--<view class="tarbar">-->
+<!--<block a:for="{{tarbar}}" a:for-index="tarbar_index" a:for-item="tarbar_item">-->
+<!--<view class="flex-column tarbar-item" data-tarBarItem="{{tarbar_item}}" onTap="tarbarOpera">-->
+<!--<image class="tarbar-img" mode="scaleToFill" src="{{tarbar_item.icon}}"/>-->
+<!--<view class="tarbar-title">{{tarbar_item.name}}</view>-->
+<!--</view>-->
+<!--</block>-->
+<!--</view>-->
+<!--</view>-->
+<!-- 管理员isAdmin==true才显示tarbar -->
+<!--<view class="tarbar-container" hidden="{{!isAdmin}}"> -->
+<!--<view class="tarbar-container">-->
+<!--<view class="tarbar">-->
+<!--<block a:for="{{tarbar}}" a:for-index="tarbar_index" a:for-item="tarbar_item">-->
+<!--<view class="flex-column tarbar-item" data-tarBarItem="{{tarbar_item}}" onTap="tarbarOpera">-->
+<!--<image class="tarbar-img" mode="scaleToFill" src="{{tarbar_item.icon}}"/>-->
+<!--<view class="tarbar-title">{{tarbar_item.name}}</view>-->
+<!--</view>-->
+<!--</block>-->
+<!--</view>-->
+<!--</view>-->
 <view>
     <view class="container">
-        <!--<button type="primary" size="" onTap="loginSystem"> 点击登录获取当前用户的info(用于免登)ok</button><view class="row">CorpId:{{corpId}}</view><view hidden="{{hideList}}"><view class="row">AuthCode:{{authCode}}</view><view class="row">userId:{{userId}}</view><view class="row">name:{{userName}}</view></view> -->
-        <!--<button size="" type="primary" onTap="saveFileToDingPlate">根据url保存文件到钉盘(含文件预览)ok</button><button size="" type="primary" onTap="querySpaceId">获取企业下的自定义空间ok</button><button size="" type="primary" onTap="uploadFileToDingTalk">上传文件到钉盘(前端ok，后端调用钉钉接口上传)</button><button size="" type="primary" onTap="chooseDingTalkPlateDir">选取钉盘目录ok</button><button size="" type="primary" onTap="filePreview">预览文件</button> -->
-        <!--<view class="row">CorpId:{{corpId}}</view><view class="row">userId:{{userId}}</view><view class="row">name:{{userName}}</view> -->
-        <!--<view class='page_row' onTap="search" style="width: 90%;"><icon class="searchcion" size='20' type='search'></icon><input type="search" placeholder="" auto-focus style="width: 100%;"/></button></view> -->
-        <!-- 会议列表 -->
-        <view class="conference-list">
-            <view a:for="{{conferenceListOrderByDate}}" a:for-index="month" a:for-item="month_item">
-                <!-- 红点 月份 -->
-                <view class="flex-row time-tips">
-                    <view class="circle-red"></view>
-                    <view class="year-month">{{month_item.date}}</view>
-                </view>
+        <!-- 会议提醒 -->
+        <view class="conference-list" hidden="{{!isShowNowConferenceList}}">
+            <!-- 会议优先级种类 -->
+            <view class="flex-row conference-priority-container conference-remind-container">
+                <view class="conference-priority">会议提醒</view>
+            </view>
+            <view a:for="{{nowConferenceList}}" a:for-index="index" a:for-item="now_conference_item">
                 <!-- 会议内容 -->
-                <view class="flex-column" a:for="{{month_item.list}}" a:for-index="index" a:for-item="conference">
-                    <view class="flex-row conference-label" data-conference="{{conference}}" onTap="toConferenceDetail">
-                        <view class="day-container">
-                            <span class="day">{{conference.time_day}}</span>
-                            <span class="day-ri">日</span>
+                <view class="flex-column">
+                    <view class="flex-row conference-label-remind" data-conference="{{now_conference_item}}"
+                          onTap="toConferenceDetail">
+                        <view class="flex-column">
+                            <view class="conference-top-priority-theme">{{now_conference_item.theme}}</view>
+                            <view class="conference-top-priority-topic" a:for="{{now_conference_item.topic}}"
+                                  a:for-index="topic_index" a:for-item="topic_item">议题 : {{topic_item.name}}
+                            </view>
+                            <text selectable="true" class="conference-top-priority-info">内容 :
+                                {{now_conference_item.info}}
+                            </text>
+                            <view class="conference-top-priority-time">时间 : {{now_conference_item.time}}</view>
+                            <view class="conference-top-priority-address">地点 : {{now_conference_item.address}}</view>
                         </view>
-                        <view class="flex-column words">
-                            <view class="theme">{{conference.theme}}</view>
-                            <!--<view class="topic" a:for="{{conference.topic}}" a:for-index="topic_index" a:for-item="topic_item">{{topic_item.name}}</view> -->
-                            <view class="conference-time">{{conference.create_time}}   {{conference.address}}             已签到</view>
-                            <!-- <view class="conference-time">会议状态么：{{conference.status}} 当前会议已签到</view> -->
-                        </view>
-<!--                        <view class="flex-row more" data-conference="{{conference}}" onTap="operation"-->
-<!--                              style="margin-left: auto;">-->
-<!--                            <view class="circle-blue"></view>-->
-<!--                            <view class="circle-blue" style="margin-left:6pt"></view>-->
-<!--                            <view class="circle-blue" style="margin-left:6pt"></view>-->
-<!--                        </view>-->
                     </view>
                 </view>
-                <view style="height: 53rpx;width:100%;background-color:#ffffff;"></view>
+            </view>
+        </view>
+
+        <!-- 预备会议 -->
+        <view class="conference-list" hidden="{{!isShowFutureConferenceList}}">
+            <!-- 会议优先级种类 -->
+            <view class="flex-row conference-priority-container conference-preparatory-container">
+                <view class="conference-priority">预备会议</view>
+            </view>
+            <view a:for="{{futureConferenceList}}" a:for-index="index" a:for-item="future_conference_item">
+                <!-- 会议内容 -->
+                <view class="flex-column">
+                    <view class="flex-row conference-label-preparatory" data-conference="{{future_conference_item}}"
+                          onTap="toConferenceDetail">
+                        <view class="flex-column">
+                            <view class="conference-preparatory-theme">{{future_conference_item.theme}}</view>
+                            <view class="conference-preparatory-time">时间 : {{future_conference_item.time}}</view>
+                            <view class="conference-preparatory-address">地点 : {{future_conference_item.address}}</view>
+                        </view>
+                    </view>
+                </view>
             </view>
             <!--<button size="default" type="primary" onTap="dateOrder">测试</button> -->
         </view>
-        <view class="flex-row middle-button check-in-container" hidden="{{!isAdmin}}">
-            <button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增会议</button>
-        </view>
-        <!--<view class="flex-row middle-button check-in-container" hidden="{{!isNeedCheckIn}}"><button class="check-in" size="" type="primary" data-conference="{{}}" onTap="locationCheck">签到</button></view> -->
-    </view>
-</view>
-<!-- 管理员isAdmin==true才显示tarbar -->
-<!--<view class="tarbar-container" hidden="{{!isAdmin}}"> -->
-<view class="tarbar-container">
-    <view class="tarbar">
-        <block a:for="{{tarbar}}" a:for-index="tarbar_index" a:for-item="tarbar_item">
-            <view class="flex-column tarbar-item" data-tarBarItem="{{tarbar_item}}" onTap="tarbarOpera">
-                <image class="tarbar-img" mode="scaleToFill" src="{{tarbar_item.icon}}"/>
-                <view class="tarbar-title">{{tarbar_item.name}}</view>
+
+        <!-- 历史会议 -->
+        <view class="conference-list" hidden="{{!isShowPastConferenceList}}">
+            <!-- 会议优先级种类 -->
+            <view class="flex-row conference-history-container">
+                <view class="conference-priority">历史会议</view>
             </view>
-        </block>
+            <view a:for="{{pastConferenceList}}" a:for-index="index" a:for-item="past_conference_item">
+                <!-- 会议内容 -->
+                <view class="flex-column">
+                    <view class="flex-row conference-label-history" data-conference="{{past_conference_item}}"
+                          onTap="toConferenceDetail">
+                        <view class="flex-column">
+                            <view class="conference-history-theme">{{past_conference_item.theme}}</view>
+                            <view class="conference-history-time">时间 : {{past_conference_item.time}}</view>
+                            <view class="conference-history-address">地点 : {{past_conference_item.address}}</view>
+                        </view>
+                        <view class="conference-history-status">{{past_conference_item.sign_type_txt}}</view>
+                    </view>
+                </view>
+            </view>
+            <!--            <button size="default" type="primary" onTap="dateOrder">测试</button>-->
+        </view>
+        <view class="flex-row middle-button check-in-container" hidden="{{!isAdmin}}">
+            <!--<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增<br>会议</button>-->
+            <view class="check-in" onTap="addConference">
+                <text>新增\n会议</text>
+            </view>
+        </view>
     </view>
 </view>

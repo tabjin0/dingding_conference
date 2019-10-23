@@ -1,66 +1,72 @@
-import {Conference} from "../../../model/conference";
 import {CheckIn} from "../../../model/checkIn";
 import {User} from "../../../model/users";
 import {Notes} from "../../../model/notes";
-import {Upload} from "../../../model/upload";
+import {config} from "../../../config/config";
+import {Conference} from "../../../model/conference";
+import {System} from "../../../model/system";
+import {FreeLogin} from "../../../model/FreeLogin";
 
 const app = getApp();
 
 Page({
     data: {
-
+        currentUserId: null,// 当前用户id
+        isAdmin: false,// 默认是非管理员
         conference: {},
+        currentConference: null,// 当前会议
+        currentConferenceMid: null,
+
+
+        confereeInfo: [],// 会议人员参会信息
+
         chooseParticipantNumber: 0,// 参加人员数
         chooseParticipant: [],// 参加人员
+        conferee: null,// 参加人员数组
 
         noticeReadNumber: 0,// 通知阅读数
         noticeRead: [],// 已阅读人员
         noticeNotRead: [],// 未阅读人员
 
-        agendaList: [
-            {
-                agendaName: '学习传达总书记关于生活垃圾分类重要指示精神',
-                agendaReportingUnit: '县建设局',
-                agendaAttendanceUnit: '县城管局、县卫生局',
-                agendaOrder: 1,
-                agendaCraeteTime: '9:00-9:30',
-            },
-            {
-                agendaName: '关于加快推进嘉善县生活垃圾分类工作的实施意见',
-                agendaReportingUnit: '县建设局',
-                agendaAttendanceUnit: '县城管局、县卫生局',
-                agendaOrder: 2,
-                agendaCraeteTime: '9:30-10:00',
-            },
-            {
-                agendaName: '关于垃圾分类的问题汇总',
-                agendaReportingUnit: '县建设局',
-                agendaAttendanceUnit: '县城管局、县卫生局',
-                agendaOrder: 3,
-                agendaCraeteTime: '10:00-11:00',
-            },
-        ],
+        participatedStatus: ['已参加', '未参加', '请假', '迟到'],
+        swiperParticipantCurrent: 0,
+        // swiperParticipantCurrent: ,
+        noticeReadStatus: ['已阅读', '未阅读'],
 
+        filePaths: null,
+        imgArr: [
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
+        ],
+        chooseViewShow: true,
+        imgObjArr: [],
+
+        isAllowCheckIn: false,// 默认不允许签到
         adminOperation: [
-            {
-                index: 0,
-                operation: 'takeOff',
-                name: "请假",
-            },
             {
                 index: 1,
                 operation: 'locationCheckCurrentConference',
                 name: "签到",
+                status: true,
             },
             {
                 index: 2,
-                operation: 'chooseImage',
+                // operation: 'chooseImage',
+                operation: 'toPhoto',
                 name: "照片",
+                status: true,
             },
             {
                 index: 3,
                 operation: 'summary',
                 name: "纪要",
+                status: true,
             },
         ],
 
@@ -69,148 +75,344 @@ Page({
                 index: 0,
                 operation: 'takeOff',
                 name: "请假",
+                status: true,
             },
             {
                 index: 1,
                 operation: 'locationCheckCurrentConference',
                 name: "签到",
+                status: true,
             },
             {
                 index: 2,
                 operation: 'note',
                 name: "笔记",
+                status: true,
             },
         ],
 
-
-        filePaths: null,
-        imgArr: [],
-        chooseViewShow: true,
-
-        currentUserId: null,
-
-        isAllowCheckIn: false,// 默认不允许签到
+        // 按钮相关
+        OperationStatus: {
+            takeOffStatus: true, // 党员请假按钮
+            checkInStatus: true, // 签到按钮
+            noteStatus: true, // 党员笔记按钮
+            photoStatus: true, // 照片按钮
+            summary: true,// 纪要按钮
+        },
     },
+
     async onLoad(param) {
-        var that = this;
-        console.log("param");
-        console.log(param);
-        console.log("param");
-        var conference = JSON.parse(param.conference);
-        console.log(conference);
-        that.setData({
-            conference: conference
+        let mid = param.mid
+        this.initData(mid);
+        this.setData({
+            currentConferenceMid: mid
+        })
+    },
+
+    onShow() {
+        let mid = this.data.currentConferenceMid;
+        this.initData(mid);
+        this.setData({
+            currentConferenceMid: mid
         });
+    },
 
-        // 管理员标志从缓存中获取
-        const isAdmin = await User.getIdAdmin();
-        console
+    onPullDownRefresh() {
+        let mid = this.data.currentConferenceMid;
+        this.initData(mid);
+        this.setData({
+            currentConferenceMid: mid
+        });
+        dd.stopPullDownRefresh();
+    },
 
-        // 当前用户相关
-        var userId;
+    /**
+     * 初始化页面信息
+     * @returns {Promise<void>}
+     */
+    async initData(mid) {
+        const userId = await this.checkUserInfo();
+        // console.log('userId:' + userId);
+        const currentConference = await Conference.getConferenceDetail(mid, userId);
+        console.log('onload,根据mid和uid获取用户会议详情');
+        console.log(currentConference);
+        let imgArr = [];
+        for (let i = 0; i < currentConference.imgs.length; i++) {
+            imgArr.push(currentConference.imgs[i].path);
+        }
+        this.setData({
+            conference: currentConference,
+            imgArr: imgArr,
+            imgObjArr: currentConference.imgs
+        });
+        // console.log('onload,根据mid和uid获取用户会议详情');
+
+        this.checkCurrentIsInParticipator(currentConference, userId);// 判断当前用户是否在参加人员中
+        this.initOperationStatus(currentConference);// 初始化按钮状态
+        this.packageConfereeInfo(currentConference);// 包装参会人员信息
+    },
+
+    /**
+     * 初始化用户信息
+     */
+    async initUser() {
+        dd.showLoading({
+            content: '加载中...'
+        });
+        const authCode = await System.loginSystem();// 获取钉钉免登授权码
+        const freeLogin = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
+        // console.log('freeLogin');
+        // console.log(freeLogin);
+        // console.log('freeLogin');
+        this.setData({
+            isAdmin: freeLogin.is_sys
+        });
+        return freeLogin;
+    },
+
+    /**
+     * 校验管理员或者用户
+     * 如果没有当前用户是否是管理员
+     * 或没有当前用户信息
+     */
+    async checkUserInfo() {
+        const isAdmin = await User.getIdAdmin();// 管理员标志从缓存中获取
         const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
-        console.log(userFromStorage)
-        if (app.isNull(userFromStorage) || app.isNull(userFromStorage.user)) {
-            // 如果缓存中没有用户,则从网络获取当前用户
-            const authCode = await System.loginSystem();// 获取钉钉免登授权码
-            const user = await User.getCurrentUser(authCode.authCode);// 从网络获取当前用户
-            dd.hideLoading();
-            userId = user.result.userId;
-            // 将当前用户放入缓存
-            var userData = {};
-            userData.user = userId;
-            const userIntoStorage = await User.setUserIntoStorage(userData);
+        let userId = null;
+        if (app.isNull(userFromStorage) ||
+            app.isNull(userFromStorage.user) ||
+            app.isNull(isAdmin) ||
+            app.isNull(isAdmin.isAdministrator)
+        ) {
+            // 如果缓存中没有是否是管理员或当前用户信息,则从网络获取当前用户，并将当前用户信息缓存
+            const currentUserInfo = await that.initUser();
+            userId = currentUserInfo.userid;
             dd.hideLoading();
         } else {
-            that.setData({
+            this.setData({
+                isAdmin: isAdmin.isAdministrator,
                 currentUserId: userFromStorage.user
             })
             userId = userFromStorage.user;
         }
-        console.log(userId);
+        return userId;
+    },
+
+    /**
+     * 判断当前用户是否在参加人员中
+     * @param currentConference 当前会议
+     */
+    checkCurrentIsInParticipator(currentConference, userId) {
         // 判断当前用户是否在参加人员中
-        const conferee = conference.conferee.split(',');
-        console.log(conferee);
+        let conferee = [];
+        for (let i = 0; i < currentConference.conferee.length; i++) {
+            // console.log(conference.conferee[i].userid);
+            conferee.push(currentConference.conferee[i].userid)
+        }
+        // console.log('从会议列表截取的userId列表');
+        // console.log(conferee);
+        // console.log('从会议列表截取的userId列表');
+        // const conferee = conference.conferee;
+        this.setData({
+            conferee: conferee
+        })
+        // console.log('参加会议的人员');
+        // console.log(conferee);
         if (app.inArray(conferee, userId)) {
-            console.log(app.inArray(conferee, userId));
-            console.log('当前党员在参会人员中');
-            that.setData({
+            // console.log(app.inArray(conferee, userId));
+            // console.log('当前党员在参会人员中');
+            this.setData({
                 isAllowCheckIn: false
             })
         } else {
-            console.log(app.inArray(conferee, userId));
-            console.log('当前党员不在参会人员中');
-            that.setData({
+            // console.log(app.inArray(conferee, userId));
+            // console.log('当前党员不在参会人员中');
+            this.setData({
                 isAllowCheckIn: true
             })
         }
-
     },
 
-    chooseParticipant() {
-        var that = this;
-        dd.complexChoose({
-            title: "参加人员",            //标题
-            multiple: true,            //是否多选
-            limitTips: "超出了",          //超过限定人数返回提示
-            maxUsers: 10000,            //最大可选人数
-            pickedUsers: [],            //已选用户
-            pickedDepartments: [],          //已选部门
-            disabledUsers: [],            //不可选用户
-            disabledDepartments: [],        //不可选部门
-            requiredUsers: [],            //必选用户（不可取消选中状态）
-            requiredDepartments: [],        //必选部门（不可取消选中状态）
-            permissionType: "GLOBAL",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
-            responseUserOnly: false,        //返回人，或者返回人和部门
-            success: function (res) {
-                /**
-                 {
-					selectedCount:1,                              //选择人数
-					users:[{"name":"","avatar":"","userId":""}]，//返回选人的列表，列表中的对象包含name（用户名），avatar（用户头像），userId（用户工号）三个字段
-					departments:[{"id":,"name":"","count":}]//返回已选部门列表，列表中每个对象包含id（部门id）、name（部门名称）、number（部门人数）
-				}
-                 */
-                console.log("res");
-                console.log(res);
-                console.log(res.selectedCount);
-                console.log(res.users[0].name);
-                console.log(res.users[1]);
-                var chooseParticipantNumber = res.selectedCount;
-                var chooseParticipant = res.users;
-                console.log(chooseParticipantNumber);
-                console.log(chooseParticipant);
+    /**
+     * 分享
+     * @returns {{path: string, title: string, desc: string}}
+     */
+    onShareAppMessage() {
+        return {
+            title: '支部会议详情',
+            desc: '展示支部会议详情',
+            path: 'page/meetingAgenda/conferenceDetail/conferenceDetail?conference=' + JSON.stringify(this.data.currentConference),
+        };
+    },
+
+    /**
+     * 初始化底部按钮状态
+     * @param signType 签到状态
+     */
+    initOperationStatus(signType) {
+        switch (signType) {
+            case 0:// 未签到，不禁用签到按钮
                 that.setData({
-                    chooseParticipantNumber: res.selectedCount,
-                    chooseParticipant: res.users
-                })
-            },
-            fail: function (err) {
+                    'adminOperation[0].status': true,
+                    'commonOperation[1].status': true,
+                });
+                break;
+            case 1:// 签到，禁用签到按钮
+                that.setData({
+                    'adminOperation[0].status': false,
+                    'commonOperation[1].status': false,
+                    'adminOperation[0].name': '已签到',
+                    'commonOperation[1].name': '已签到',
+                });
+                break;
+            case 2:// 签到迟到
+                that.setData({
+                    'adminOperation[0].status': false,// 禁用管理员签到按钮
+                    'commonOperation[0].status': false,// 禁用党员请假按钮
+                    'commonOperation[1].status': false,// 禁用党员签到按钮
+                    'adminOperation[0].name': '已迟到',
+                    'commonOperation[1].name': '已迟到',
+                });
+                break;
+            case 3:// 请假
+                that.setData({
+                    'commonOperation[0].status': false,// 禁用党员请假按钮
+                    'commonOperation[0].name': '已请假',
+                    'commonOperation[1].status': false,// 禁用党员签到按钮
+                });
+                break;
+        }
+    },
+
+    /**
+     * 包装会议参会信息、通知阅读情况
+     */
+    packageConfereeInfo(currentConference) {
+        const conferee = currentConference.conferee;
+        console.log(conferee);
+        let confereeArray = []; // 参会信息、通知阅读情况数组
+        let attended = [];      // 已参加人员
+        let notAttended = [];   // 未参加人员
+        let leaveStaff = [];    // 请假人员
+        let latePerson = [];    // 迟到人员
+
+
+        for (let i = 0; i < conferee.length; i++) {
+            switch (conferee[i].sign_type) {
+                case 0:// 未签到
+                    notAttended.push(conferee[i]);
+                    break;
+                case 1:// 已签到
+                    attended.push(conferee[i]);
+                    break;
+                case 2:// 迟到
+                    attended.push(conferee[i]);
+                    latePerson.push(conferee[i]);
+                    break;
+                case 3:// 请假
+                    leaveStaff.push(conferee[i]);
+                    break;
             }
+        }
+        confereeArray.push(attended);
+        confereeArray.push(notAttended);
+        confereeArray.push(leaveStaff);
+        confereeArray.push(latePerson);
+        this.setData({
+            confereeInfo: confereeArray
+        })
+
+        // console.log('已参加人员');
+        // console.log(attended);
+        // console.log('已参加人员');
+        //
+        // console.log('未参加人员');
+        // console.log(notAttended);
+        // console.log('未参加人员');
+        //
+        // console.log('请假人员');
+        // console.log(leaveStaff);
+        // console.log('请假人员');
+        //
+        // console.log('迟到人员');
+        // console.log(latePerson);
+        // console.log('迟到人员');
+        //
+        //
+        // console.log('会议人员参会信息');
+        // console.log(confereeArray);
+        // console.log('会议人员参会信息');
+    },
+
+    /**
+     * 切换会议人员swiper
+     * @param e
+     */
+    switchParticipantSwiper: function (e) {
+        let swiperChangeCurrent = parseInt(e.currentTarget.dataset.index),
+            num = parseInt(e.currentTarget.dataset.index)
+        this.curIndex = parseInt(e.currentTarget.dataset.index)
+        console.log('切换swiper');
+        console.log(e);
+        console.log('swiperChangeCurrent:' + swiperChangeCurrent);
+        console.log('切换swiper');
+        this.setData({
+            swiperParticipantCurrent: swiperChangeCurrent
         })
     },
 
-    operation(e) {
+    /**
+     * 会议人员轮播切换
+     * @param e
+     */
+    swiperParticipantChange(e) {
+        console.log('触发会议人员轮播');
         console.log(e);
-        var agendaStateOfTheMeeting = e.target.dataset.agendaStateOfTheMeeting;
-        console.log(agendaStateOfTheMeeting);
-        dd.showActionSheet({
-            title: '操作',
-            items: ['查看详情', '上会', '拒绝'],
-            cancelButtonText: '取消好了',
-            success: (res) => {
-                const btn = res.index === -1 ? '取消' : '第' + res.index + '个';
-                dd.alert({
-                    title: `你点了${btn}按钮`
-                });
-            },
-        });
+        this.setData({
+            swiperParticipantCurrent: e.detail.current
+        })
+        console.log(this.data.swiperParticipantCurrent)
     },
+
+    /**
+     * 切换会议人员swiper
+     * @param e
+     */
+    switchNoticeReadSwiper: function (e) {
+        let id = e.currentTarget.dataset.id,
+            swiperChangeCurrent = parseInt(e.currentTarget.dataset.index),
+            num = parseInt(e.currentTarget.dataset.index)
+        this.curIndex = parseInt(e.currentTarget.dataset.index)
+        console.log('切换swiper');
+        console.log(e);
+        console.log('swiperChangeCurrent:' + swiperChangeCurrent);
+        console.log('切换swiper');
+        this.setData({
+            curNavId: id,
+            curIndex: swiperChangeCurrent,
+            swiperNoticeReadCurrent: swiperChangeCurrent
+        })
+    },
+
+    /**
+     * 阅读情况轮播切换
+     * @param e
+     */
+    swiperNoticeReadChange(e) {
+        console.log('触发阅读情况轮播轮播');
+        console.log(e);
+        this.setData({
+            swiperNoticeReadCurrent: e.detail.current
+        })
+        console.log(this.data.swiperNoticeReadCurrent)
+    },
+
 
     /** 选择图片 */
     chooseImage() {
-        var that = this;
+        let that = this;
         dd.chooseImage({
-            count: 4 - that.data.imgArr.length,//最多选择4张图片
+            count: 16 - that.data.imgArr.length,//最多选择4张图片
             sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
             sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
             success: async function (res) {
@@ -223,12 +425,43 @@ Page({
                 }
                 //上传图片
                 // dd.showLoading({content: '图片上传中...'});
-                // const uploadImg = await Upload.uploadImg(res.apFilePaths, '上传测试文件');
-                // dd.hideLoading();
+                // const uploadImg = await Upload.uploadImg(res.apFilePaths[0], '上传测试文件');
+                console.log('上传图片路径：' + res.filePaths[0]);
+                that.setData({
+                    cacheImg: res.filePaths[0]
+                })
+                console.log('上传图片名：');
                 // console.log('图片上传');
                 // console.log(uploadImg);
+
+                dd.uploadFile({
+                    url: `${config.apiUpload2}`,
+                    fileType: 'image',
+                    fileName: 'img',
+                    filePath: res.filePaths[0],
+                    // filePath: '/Users/Tabbits/Desktop/jinboy/xiaojin.jpg',
+                    header: {
+                        // 'Content-Type': 'application/json',
+                        'version': 'v3.0',
+                        'access-token': ''
+                    },
+                    success: (res) => {
+                        dd.hideLoading();
+                        console.log('图片上传成功');
+                        console.log(res.data);
+                        that.setData({
+                            imageResData: JSON.stringify(res.data)
+                        })
+                    },
+                    fail: (err) => {
+                        dd.hideLoading();
+                        console.log('图片上传失败');
+                        console.log(err);
+                    }
+                });
+
                 //显示图片
-                var imgArrNow = that.data.imgArr;
+                let imgArrNow = that.data.imgArr;
                 imgArrNow = imgArrNow.concat(res.apFilePaths);
                 console.log(imgArrNow);
                 that.setData({
@@ -241,8 +474,8 @@ Page({
 
     /** 删除图片 */
     deleteImv(e) {
-        var imgArr = this.data.imgArr;
-        var itemIndex = e.currentTarget.dataset.id;
+        let imgArr = this.data.imgArr;
+        let itemIndex = e.currentTarget.dataset.id;
         imgArr.splice(itemIndex, 1);
         console.log(imgArr);
         this.setData({
@@ -268,11 +501,11 @@ Page({
 
     /** 显示图片 */
     showImage(e) {
-        var imgArr = this.data.imgArr;
-        var itemIndex = e.currentTarget.dataset.id;
+        let imgArr = this.data.imgArr;
+        let itemIndex = e.currentTarget.dataset.id;
 
         dd.previewImage({
-            current: imgArr[itemIndex], // 当前显示图片的http链接
+            current: itemIndex, // 当前显示图片的http链接
             urls: imgArr // 需要预览的图片http链接列表
         })
     },
@@ -281,17 +514,17 @@ Page({
         console.log(e);
         console.log('e.detail.value');
         console.log(e.detail.value);
-        var conference = JSON.parse(this.data.conference);
-        var mid = conference.id;
-        var uid = '11111111111';
-        var text = e.detail.value.text;
-        // var img = this.data.imgArr.join(',');
-        var img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
+        let conference = JSON.parse(this.data.conference);
+        let mid = conference.id;
+        let uid = '11111111111';
+        let text = e.detail.value.text;
+        // let img = this.data.imgArr.join(',');
+        let img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
         console.log(mid);
         console.log(uid);
         console.log(text);
         console.log(img);
-        var res = await Notes.submitNotes(mid, uid, text, img);
+        let res = await Notes.submitNotes(mid, uid, text, img);
         console.log(res);
     },
 
@@ -301,47 +534,28 @@ Page({
      * @returns {Promise<void>}
      */
     async locationCheckCurrentConference() {
-        var that = this;
-        var currentConference = that.data.conference;
+        let that = this;
+        let currentConference = that.data.conference;
 
         if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
             dd.alert({content: '抱歉，未获取到当前会议，请重启应用'});
         } else { //有当前会议信息，绑定当前用户与其参加会议的签到行为
-            console.log(currentConference);
             // 首先判断当前用户是否在参加人员中
 
             // 会议地点经纬度
-            var currentLocation = currentConference.roomId.location.split(',');
-            var latitude = parseFloat(currentLocation[0]);// 纬度
-            var longitude = parseFloat(currentLocation[1]);// 经度（大）
-            console.log(currentLocation);
-            console.log('纬度：' + latitude);
-            console.log('经度：' + longitude);
+            let currentLocation = currentConference.roomId.location.split(',');
+            let latitude = parseFloat(currentLocation[0]);// 纬度
+            let longitude = parseFloat(currentLocation[1]);// 经度（大）
 
             // 开始定位
             dd.getLocation({// 模拟器和手机真机返回不一致
                 async success(res) {
-                    console.log('res');
-                    console.log(res)
-                    var currentLatitude = parseFloat(res.longitude);
-                    var currentLongitude = parseFloat(res.latitude);
-                    // let result1 = that.getGreatCircleDistance(30.1234, 140.1234, 30.3456, 140.3456)
-                    // let result2 = that.getFlatternDistance(30.1234, 140.1234, 30.3456, 140.3456)
-                    // console.log(result1) // 32688.3298
-                    // console.log(result2) // 32622.43244078783
-
-                    console.log('res');
+                    let currentLatitude = parseFloat(res.longitude);
+                    let currentLongitude = parseFloat(res.latitude);
                     dd.hideLoading();
-                    console.log(latitude);
-                    console.log(longitude);
-                    console.log(parseFloat(res.latitude));// 定位纬度
-                    console.log(parseFloat(res.longitude));// 定位经度
                     const distance = CheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
-                    console.log('distance');
-                    console.log(distance);
-                    console.log('distance');
                     // 包装签到对象
-                    var checkInInfo = {};
+                    let checkInInfo = {};
                     checkInInfo.mid = currentConference.id;
                     const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
                     checkInInfo.uid = userFromStorage.user;// 从缓存中获取当前userId
@@ -359,9 +573,43 @@ Page({
                         dd.alert({content: '坐标异常'});
                     } else {
                         const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
+                        // console.log(checkInInfoRes);
+                        // dd.alert({content: `${checkInInfoRes.msg}`});
+                        console.log('签到信息返回');
                         console.log(checkInInfoRes);
-                        dd.alert({content: `${checkInInfoRes.msg}`});
-                        console.log(checkInInfoRes);
+                        console.log('签到信息返回');
+                        switch (checkInInfoRes.data.type) {
+                            case 0:// 未签到，不禁用签到按钮
+                                that.setData({
+                                    'adminOperation[0].status': true,
+                                    'commonOperation[1].status': true,
+                                });
+                                break;
+                            case 1:// 签到，禁用签到按钮
+                                that.setData({
+                                    'adminOperation[0].status': false,
+                                    'commonOperation[1].status': false,
+                                    'adminOperation[0].name': '已签到',
+                                    'commonOperation[1].name': '已签到',
+                                });
+                                break;
+                            case 2:// 签到迟到
+                                that.setData({
+                                    'adminOperation[0].status': false,// 禁用管理员签到按钮
+                                    'commonOperation[0].status': false,// 禁用党员请假按钮
+                                    'commonOperation[1].status': false,// 禁用党员签到按钮
+                                    'adminOperation[0].name': '已迟到',
+                                    'commonOperation[1].name': '已迟到',
+                                });
+                                break;
+                            case 3:// 请假
+                                that.setData({
+                                    'commonOperation[0].status': false,// 禁用党员请假按钮
+                                    'commonOperation[0].name': '已请假',
+                                    'commonOperation[1].status': false,// 禁用党员签到按钮
+                                });
+                                break;
+                        }
                     }
                 },
                 fail() {
@@ -376,7 +624,7 @@ Page({
      * 请假
      */
     takeOff() {
-        var that = this;
+        let that = this;
         console.log(that.data.conference);
         const conference = that.data.conference;
         dd.navigateTo({
@@ -390,12 +638,23 @@ Page({
         });
     },
 
-    summary() {
-        var that = this;
-        console.log(that.data.conference);
-        const conference = that.data.conference;
+    toPhoto() {
+        let imgArr = this.data.imgObjArr;
+        let mid = this.data.currentConferenceMid;
         dd.navigateTo({
-            url: '/page/index/addMeetingSummary/addMeetingSummary?conference=' + JSON.stringify(conference),
+            url: '/page/meetingAgenda/photo/photo?imgArr=' + JSON.stringify(imgArr) + '&mid=' + mid
+        });
+    },
+
+    /**
+     * 纪要
+     */
+    summary() {
+        let that = this;
+        console.log(that.data.conference);
+        const mid = that.data.conference.id;
+        dd.navigateTo({
+            url: '/page/index/addMeetingSummary/addMeetingSummary?mid=' + mid,
             success: (res) => {
                 console.log(res);
             },
@@ -405,9 +664,11 @@ Page({
         });
     },
 
-
+    /**
+     * 笔记
+     */
     note() {
-        var that = this;
+        let that = this;
         console.log(that.data.conference);
         const conference = that.data.conference;
         dd.navigateTo({
@@ -419,5 +680,7 @@ Page({
                 console.log(res);
             }
         });
-    }
+    },
+
+
 });

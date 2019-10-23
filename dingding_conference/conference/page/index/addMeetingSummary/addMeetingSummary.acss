@@ -4,7 +4,7 @@ page {
 
 .summary-container {
     width: 100%;
-    /* height: 229rpx; */
+    height: 700rpx;
     background: rgba(255, 255, 255, 1);
     margin-bottom: 32rpx;
 }
@@ -25,6 +25,7 @@ page {
 }
 
 .summary {
+    height: 700rpx;
     font-size: 34rpx;
     font-family: Microsoft YaHei;
     font-weight: 400;

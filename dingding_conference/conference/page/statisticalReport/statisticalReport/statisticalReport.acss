@@ -1,0 +1,107 @@
+.out-container {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1rpx solid transparent;
+    margin-bottom: 32rpx;
+}
+
+.party-organization-info-container {
+    height: 100%;
+    width: 100%;
+    margin-top: 32rpx;
+    /*margin-bottom: 32rpx;*/
+}
+
+.party-organization-info {
+    height: 33rpx;
+    font-size: 34rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(164, 164, 164, 1);
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    margin-left: 32rpx;
+    margin-right: 32rpx;
+    margin-bottom: 32rpx;
+    position: relative;
+}
+
+.party-organization-info-right {
+    position: absolute;
+    right: 0;
+
+    height: 32rpx;
+    font-size: 34rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+
+.conference-statistic-loactionA {
+    height: 60rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-left: 16rpx;
+    margin-top: 30rpx;
+    /*margin-bottom: 20rpx;*/
+}
+
+.year-month {
+    /*height: 60rpx;*/
+    font-size: 34rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    line-height: 34rpx;
+    background-color: rgba(212, 0, 41, 1);
+    padding: 14rpx 20rpx 13rpx 21rpx;
+
+}
+
+.total-static {
+    margin-left: auto;
+    margin-right: 16rpx;
+}
+
+.icon {
+    width: 30rpx;
+    height: 29rpx;
+    margin-right: 20rpx;
+}
+
+.total-static-number {
+    font-size: 34rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(212, 0, 41, 1);
+    line-height: 34rpx;
+}
+
+.conference-statistic-item {
+    border: 2rpx solid rgba(220, 220, 220, 1);
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    margin-left: 16rpx;
+    margin-right: 16rpx;
+}
+
+.conference-statistic-item-theme {
+    font-size: 34rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    line-height: 34rpx;
+    margin: 29rpx 20rpx 29rpx 20rpx;
+}
+
+.conference-statistic-item-time {
+    font-size: 30rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(164, 164, 164, 1);
+    line-height: 30rpx;
+    margin: 0rpx 20rpx 29rpx 20rpx;
+}

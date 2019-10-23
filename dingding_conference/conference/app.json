@@ -3,7 +3,6 @@
     "page/index/index",
     "page/meetingAgenda/addConference/addConference",
     "page/conferenceManagement/addConference/addConference",
-    "page/meetingAgenda/conferenceList/conferenceList",
     "page/conferenceManagement/conferenceManager/conferenceManager",
     "page/statisticalReport/statisticalReport/statisticalReport",
     "page/meetingAgenda/conferenceDetail/conferenceDetail",
@@ -13,16 +12,43 @@
     "page/index/search/search",
     "page/index/addMeetingSummary/addMeetingSummary",
     "page/index/notes/notes",
+    "page/meetingAgenda/takeOff/takeOff",
     "page/organization/myOrganization/myOrganization",
-    "page/meetingAgenda/takeOff/takeOff"
+    "page/meetingAgenda/photo/photo"
   ],
   "window": {
     "enableWK": "YES",
     "enableDSL": true,
     "defaultTitle": "会议管理",
     "backgroundColor": "#F5F5F9",
-    "pullRefresh": false,
-    "allowsBounceVertical": true
+    "pullRefresh": true,
+    "allowsBounceVertical": true,
+    "titleBarColor": "#D40029"
+  },
+  "tabBar": {
+    "textColor": "#808080",
+    "selectedColor": "#D40029",
+    "backgroundColor": "#F5F5F8",
+    "items": [
+      {
+        "pagePath": "page/index/index",
+        "name": "支部会议",
+        "icon": "/resources/icon/tabBar/icon1_1.png",
+        "activeIcon": "/resources/icon/tabBar/icon1_2.png"
+      },
+      {
+        "pagePath": "page/organization/myOrganization/myOrganization",
+        "name": "我的支部",
+        "icon": "/resources/icon/tabBar/icon2_1.png",
+        "activeIcon": "/resources/icon/tabBar/icon2_2.png"
+      },
+      {
+        "pagePath": "page/statisticalReport/statisticalReport/statisticalReport",
+        "name": "数据统计",
+        "icon": "/resources/icon/tabBar/icon3_1.png",
+        "activeIcon": "/resources/icon/tabBar/icon3_2.png"
+      }
+    ]
   },
   "debug": true
 }

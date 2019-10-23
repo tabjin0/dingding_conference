@@ -21,7 +21,7 @@ Page({
             uid: '1219441916791739',
             theme: '',
             dateTime: '',
-            roomId: null,
+            roomId: 1,
             address: '',
             longitude: '',
             latitude: '',
@@ -112,12 +112,6 @@ Page({
                 operaTap: 'attachment',
                 isShow: true
             },
-            // {
-            //     operaImg: '/resources/icon/addConference/miaoshucopy.png',
-            //     operaTitle: '描述',
-            //     operaTap: 'desc',
-            //     isShow: true
-            // }
         ]
     },
 
@@ -157,7 +151,7 @@ Page({
         console.log(that.data.collapseData.panels[0])
         var agendaContent = [];
         dd.httpRequest({
-            url: 'http://api.yzcommunity.cn/api/5d8b1976c8132',
+            url: 'https://api.yzcommunity.cn/api/5d8b1976c8132',
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -182,19 +176,20 @@ Page({
         });
     },
 
-    chooseTime() {
-        dd.datePicker({
-            format: 'yyyy-MM-dd HH:mm',
-            // currentDate: '2012-12-12',// 默认当前时间
-            success: (res) => {
-                // dd.alert({
-                // 	content: res.date,
-                // });
-                this.setData({
-                    dateTime: res.date,
-                })
-            },
-        });
+    /**
+     * 选择会议地点
+     * @param e
+     */
+    radioChange: function(e) {
+        console.log('你选择的框架是：');
+        console.log(e);
+        this.setData({
+            'conference.roomId': e.detail.value.id,
+            'conference.address': e.detail.value.name,
+        })
+        // console.log(e.detail)
+        // console.log(e.detail.value)
+        // console.log('你选择的框架是：');
     },
 
     formSubmit(e) {
@@ -204,7 +199,7 @@ Page({
         console.log('conference');
         console.log(conference);
         console.log(app.isNull(conference.uid))
-
+        conference.orgId = 1;
         // 表单数据内省
         if (app.isNull(conference.uid)) {
             dd.alert({ title: '未获取到当前用户，请重新打开应用' });
@@ -235,8 +230,11 @@ Page({
                     console.log(res);
                     dd.alert({ title: "新增会议成功" });
                     dd.navigateBack({
-                        delta: 2
+                        delta: 1
                     })
+                    // dd.redirectTo({
+                    //     url: '/page/index/index'
+                    // })
 
                 },
                 fail: function(res) {
@@ -311,10 +309,6 @@ Page({
         });
     },
 
-    radioChange(e) {
-        console.log('你选择的框架是：', e.detail.value)
-    },
-
     onChange(e) {
         console.log(e);
 
@@ -387,7 +381,7 @@ Page({
                 // bizType=1的时候选填
                 taskInfo: {
                     ccUsers: ['100', '101'],// 抄送用户列表, 工号，类型: Array<String>
-                    deadlineTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" }, // 任务截止时间    
+                    deadlineTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" }, // 任务截止时间
                     taskRemind: 30 // 任务提醒时间, 单位分钟；支持参数: 0：不提醒；15：提前15分钟；60：提前1个小时；180：提前3个小时；1440：提前一天；类型: Number
                 },
 
@@ -396,8 +390,8 @@ Page({
                 confInfo: {
                     bizSubType: 0,  // 子业务类型如会议: 0:预约会议, 1:预约电话会议, 2:预约视频会议；类型: Number (注: 目前只有会议才有子业务类型)；
                     location: '某某会议室', // 会议地点(非必选)，类型: String    
-                    startTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" },// 会议开始时间  
-                    endTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" },// 会议结束时间    
+                    startTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" },// 会议开始时间
+                    endTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" },// 会议结束时间
                     remindMinutes: 30, // 会前提醒。单位分钟；1:不提醒, 0:事件发生时提醒, 5:提前5分钟, 15:提前15分钟, 30:提前30分钟, 60:提前1个小时, 1440:提前一天
                     remindType: 2 // 会议提前提醒方式；0:电话, 1:短信, 2:应用内；类型: Number
                 },
@@ -475,12 +469,15 @@ Page({
         // 选择会议室
         var meetingRoom = [];
         dd.httpRequest({
-            url: 'http://api.yzcommunity.cn/api/5d8b19b1744c7',
+            url: 'https://api.yzcommunity.cn/api/5d8b19b1744c7',
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/json',
                 'version': 'v3.0',
                 'access-token': ''
+            },
+            data: {
+                orgId: 1
             },
             dataType: 'json',
             success: function(res) {
@@ -533,13 +530,13 @@ Page({
             permissionType: "GLOBAL",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
             responseUserOnly: false,        //返回人，或者返回人和部门
             success: function(res) {
-				/**
-				{
+                /**
+                 {
 					selectedCount:1,                              //选择人数
 					users:[{"name":"","avatar":"","userId":""}]，//返回选人的列表，列表中的对象包含name（用户名），avatar（用户头像），userId（用户工号）三个字段
 					departments:[{"id":,"name":"","count":}]//返回已选部门列表，列表中每个对象包含id（部门id）、name（部门名称）、number（部门人数）
 				}
-				*/
+                 */
                 console.log("res");
                 console.log(res);
                 console.log(res.selectedCount);
