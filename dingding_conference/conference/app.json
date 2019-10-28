@@ -14,7 +14,9 @@
     "page/index/notes/notes",
     "page/meetingAgenda/takeOff/takeOff",
     "page/organization/myOrganization/myOrganization",
-    "page/meetingAgenda/photo/photo"
+    "page/meetingAgenda/photo/photo",
+    "page/organization/singleMember/singleMember",
+    "page/test/test"
   ],
   "window": {
     "enableWK": "YES",

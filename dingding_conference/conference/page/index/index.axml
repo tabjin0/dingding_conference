@@ -115,7 +115,7 @@
                     </view>
                 </view>
             </view>
-            <!--<button size="default" type="primary" onTap="dateOrder">测试</button> -->
+            <!--            <button size="default" type="primary" onTap="dateOrder">测试</button> -->
         </view>
 
         <!-- 历史会议 -->
@@ -138,7 +138,7 @@
                     </view>
                 </view>
             </view>
-            <!--            <button size="default" type="primary" onTap="dateOrder">测试</button>-->
+<!--            <button size="default" type="primary" onTap="chooseLoca">测试</button>-->
         </view>
         <view class="flex-row middle-button check-in-container" hidden="{{!isAdmin}}">
             <!--<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增<br>会议</button>-->

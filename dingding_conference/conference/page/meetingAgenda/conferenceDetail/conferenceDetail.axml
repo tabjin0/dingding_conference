@@ -13,7 +13,7 @@
                 <view class="flex-row inner-container">
                     <view class="flex-row time-inner-container">
                         <image class="img1" mode="scaleToFill" src="/resources/conferenceDetial/logo-time.png"></image>
-                        <text class="time-text">{{conference.create_time}}</text>
+                        <text class="time-text">{{conference.time}}</text>
                     </view>
                     <view class="line"></view>
                     <view class="flex-row address-inner-container">
@@ -77,11 +77,11 @@
                 <!-- 阅读人员信息 -->
                 <view class="participant">
                     <swiper current="{{swiperNoticeReadCurrent}}" onChange="swiperNoticeReadChange">
-                        <block a:for="{{confereeInfo}}" a:for-index="conferee_info_index"
-                               a:for-item="conferee_info_item">
+                        <block a:for="{{readInfo}}" a:for-index="read_info_index"
+                               a:for-item="read_info_item">
                             <view style="width:100%;">
                                 <swiper-item class="flex-row conferee-info-container">
-                                    <view class="flex-row conferee-info-item" a:for="{{conferee_info_item}}">
+                                    <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
                                         <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
                                     </view>
                                 </swiper-item>

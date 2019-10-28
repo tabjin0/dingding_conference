@@ -16,3 +16,5 @@ require('../../page/index/notes/notes');
 require('../../page/meetingAgenda/takeOff/takeOff');
 require('../../page/organization/myOrganization/myOrganization');
 require('../../page/meetingAgenda/photo/photo');
+require('../../page/organization/singleMember/singleMember');
+require('../../page/test/test');

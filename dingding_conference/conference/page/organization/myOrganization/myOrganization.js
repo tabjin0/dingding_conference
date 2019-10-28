@@ -112,11 +112,11 @@ Page({
     },
 
     async onLoad() {
-        dd.showLoading({
-            content: '加载中...'
-        })
-        await this.initData();
-        dd.hideLoading();
+        // dd.showLoading({
+        //     content: '加载中...'
+        // })
+        // await this.initData();
+        // dd.hideLoading();
     },
 
     async onShow() {
@@ -165,5 +165,14 @@ Page({
             }
         }
         return partyMemberInfo;
+    },
+
+    toSingleMember(e) {
+        console.log(e)
+        let singleMember = e.target.dataset.singleMember;
+        console.log(singleMember)
+        dd.navigateTo({
+            url: '/page/organization/singleMember/singleMember?single=' + JSON.stringify(singleMember)
+        })
     }
 });

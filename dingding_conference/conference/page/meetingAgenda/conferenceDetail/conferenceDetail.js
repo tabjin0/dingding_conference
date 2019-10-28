@@ -5,6 +5,7 @@ import {config} from "../../../config/config";
 import {Conference} from "../../../model/conference";
 import {System} from "../../../model/system";
 import {FreeLogin} from "../../../model/FreeLogin";
+import {GetLocation} from "../../../model/location";
 
 const app = getApp();
 
@@ -23,6 +24,7 @@ Page({
         chooseParticipant: [],// 参加人员
         conferee: null,// 参加人员数组
 
+        readInfo: [],   // 通知阅读人员情况数组
         noticeReadNumber: 0,// 通知阅读数
         noticeRead: [],// 已阅读人员
         noticeNotRead: [],// 未阅读人员
@@ -30,6 +32,7 @@ Page({
         participatedStatus: ['已参加', '未参加', '请假', '迟到'],
         swiperParticipantCurrent: 0,
         // swiperParticipantCurrent: ,
+        swiperNoticeReadCurrent: 0,
         noticeReadStatus: ['已阅读', '未阅读'],
 
         filePaths: null,
@@ -103,7 +106,7 @@ Page({
 
     async onLoad(param) {
         let mid = param.mid
-        this.initData(mid);
+        // this.initData(mid);
         this.setData({
             currentConferenceMid: mid
         })
@@ -148,7 +151,7 @@ Page({
         // console.log('onload,根据mid和uid获取用户会议详情');
 
         this.checkCurrentIsInParticipator(currentConference, userId);// 判断当前用户是否在参加人员中
-        this.initOperationStatus(currentConference);// 初始化按钮状态
+        this.initOperationStatus(currentConference.sign_type);// 初始化按钮状态
         this.packageConfereeInfo(currentConference);// 包装参会人员信息
     },
 
@@ -176,6 +179,7 @@ Page({
      * 或没有当前用户信息
      */
     async checkUserInfo() {
+        let that = this;
         const isAdmin = await User.getIdAdmin();// 管理员标志从缓存中获取
         const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
         let userId = null;
@@ -250,6 +254,7 @@ Page({
      * @param signType 签到状态
      */
     initOperationStatus(signType) {
+        let that = this;
         switch (signType) {
             case 0:// 未签到，不禁用签到按钮
                 that.setData({
@@ -257,10 +262,11 @@ Page({
                     'commonOperation[1].status': true,
                 });
                 break;
-            case 1:// 签到，禁用签到按钮
+            case 1:// 已签到，禁用签到按钮
                 that.setData({
                     'adminOperation[0].status': false,
-                    'commonOperation[1].status': false,
+                    'commonOperation[0].status': false,// 禁用党员请假按钮
+                    'commonOperation[1].status': false,// 禁用签到按钮
                     'adminOperation[0].name': '已签到',
                     'commonOperation[1].name': '已签到',
                 });
@@ -289,15 +295,22 @@ Page({
      */
     packageConfereeInfo(currentConference) {
         const conferee = currentConference.conferee;
+        console.log('conferee');
         console.log(conferee);
-        let confereeArray = []; // 参会信息、通知阅读情况数组
+        console.log('conferee');
+        let confereeArray = []; // 参会信息数组
         let attended = [];      // 已参加人员
         let notAttended = [];   // 未参加人员
         let leaveStaff = [];    // 请假人员
         let latePerson = [];    // 迟到人员
 
+        let readArr = [];       // 通知阅读情况数组
+        let notReaded = [];     // 未读人员
+        let readed = [];        // 已读人员
+
 
         for (let i = 0; i < conferee.length; i++) {
+            // 筛选参加人员
             switch (conferee[i].sign_type) {
                 case 0:// 未签到
                     notAttended.push(conferee[i]);
@@ -313,13 +326,26 @@ Page({
                     leaveStaff.push(conferee[i]);
                     break;
             }
+            // 筛选阅读人员
+            switch (conferee[i].msg_type) {
+                case 0:// 未阅读
+                    notReaded.push(conferee[i]);
+                    break;
+                case 1:// 已阅读
+                    readed.push(conferee[i]);
+                    break;
+            }
         }
         confereeArray.push(attended);
         confereeArray.push(notAttended);
         confereeArray.push(leaveStaff);
         confereeArray.push(latePerson);
+
+        readArr.push(readed);
+        readArr.push(notReaded);
         this.setData({
-            confereeInfo: confereeArray
+            confereeInfo: confereeArray,
+            readInfo: readArr
         })
 
         // console.log('已参加人员');
@@ -547,78 +573,96 @@ Page({
             let latitude = parseFloat(currentLocation[0]);// 纬度
             let longitude = parseFloat(currentLocation[1]);// 经度（大）
 
-            // 开始定位
-            dd.getLocation({// 模拟器和手机真机返回不一致
-                async success(res) {
-                    let currentLatitude = parseFloat(res.longitude);
-                    let currentLongitude = parseFloat(res.latitude);
-                    dd.hideLoading();
-                    const distance = CheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
-                    // 包装签到对象
-                    let checkInInfo = {};
-                    checkInInfo.mid = currentConference.id;
-                    const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
-                    checkInInfo.uid = userFromStorage.user;// 从缓存中获取当前userId
-                    checkInInfo.address = res.address;
-                    checkInInfo.distance = distance;
-                    checkInInfo.leaveType = "";
-                    checkInInfo.leaveReason = "";
-                    if (app.isNull(checkInInfo.mid)) {
-                        dd.alert({content: '未获取到签到会议'});
-                    } else if (app.isNull(checkInInfo.uid)) {
-                        dd.alert({content: '未获取到用户信息'});
-                    } else if (app.isNull(checkInInfo.address)) {
-                        dd.alert({content: '未获取到地址信息'});
-                    } else if (app.isNull(checkInInfo.distance)) {
-                        dd.alert({content: '坐标异常'});
-                    } else {
-                        const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
-                        // console.log(checkInInfoRes);
-                        // dd.alert({content: `${checkInInfoRes.msg}`});
-                        console.log('签到信息返回');
-                        console.log(checkInInfoRes);
-                        console.log('签到信息返回');
-                        switch (checkInInfoRes.data.type) {
-                            case 0:// 未签到，不禁用签到按钮
-                                that.setData({
-                                    'adminOperation[0].status': true,
-                                    'commonOperation[1].status': true,
-                                });
-                                break;
-                            case 1:// 签到，禁用签到按钮
-                                that.setData({
-                                    'adminOperation[0].status': false,
-                                    'commonOperation[1].status': false,
-                                    'adminOperation[0].name': '已签到',
-                                    'commonOperation[1].name': '已签到',
-                                });
-                                break;
-                            case 2:// 签到迟到
-                                that.setData({
-                                    'adminOperation[0].status': false,// 禁用管理员签到按钮
-                                    'commonOperation[0].status': false,// 禁用党员请假按钮
-                                    'commonOperation[1].status': false,// 禁用党员签到按钮
-                                    'adminOperation[0].name': '已迟到',
-                                    'commonOperation[1].name': '已迟到',
-                                });
-                                break;
-                            case 3:// 请假
-                                that.setData({
-                                    'commonOperation[0].status': false,// 禁用党员请假按钮
-                                    'commonOperation[0].name': '已请假',
-                                    'commonOperation[1].status': false,// 禁用党员签到按钮
-                                });
-                                break;
-                        }
-                    }
-                },
-                fail() {
-                    dd.alert({title: '定位失败'});
-                },
-            });
+            const res = await GetLocation.getLocation();
+            let currentLatitude = parseFloat(res.longitude);
+            let currentLongitude = parseFloat(res.latitude);
+            dd.hideLoading();
+            const distance = CheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
+            console.log('distance')
+            console.log(distance)
+            console.log('distance')
+            // 包装签到对象
+            let checkInInfo = {};
+            checkInInfo.mid = currentConference.id;
+            const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
+            checkInInfo.uid = userFromStorage.user;// 从缓存中获取当前userId
+            checkInInfo.address = res.address;
+            checkInInfo.distance = distance;
+            checkInInfo.leaveType = "";
+            checkInInfo.leaveReason = "";
+            if (app.isNull(checkInInfo.mid)) {
+                dd.alert({content: '未获取到签到会议'});
+            } else if (app.isNull(checkInInfo.uid)) {
+                dd.alert({content: '未获取到用户信息'});
+            } else if (app.isNull(checkInInfo.address)) {
+                dd.alert({content: '未获取到地址信息'});
+            } else if (app.isNull(checkInInfo.distance)) {
+                dd.alert({content: '坐标异常'});
+            } else {
+                const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
+                console.log('checkInInfoRes');
+                console.log(checkInInfoRes);
+                console.log(checkInInfoRes.data.sign_type);
+                console.log('checkInInfoRes');
+                // if (checkInInfoRes.msg == '操作成功') {
+                //     return;
+                // } else {
+                //     dd.alert({content: `${checkInInfoRes.msg}`});
+                // }
+                //
+                console.log('签到信息返回');
+                console.log(checkInInfoRes);
+                console.log('签到信息返回');
+                console.log(checkInInfoRes.data.sign_type);
+                // that.initOperationStatus(currentConference.sign_type);// 初始化按钮状态
+                switch (checkInInfoRes.data.sign_type) {
+                    case 0:// 未签到，不禁用签到按钮
+                        that.setData({
+                            'adminOperation[0].status': true,
+                            'commonOperation[1].status': true,
+                        });
+                        break;
+                    case 1:// 签到成功，禁用签到按钮
+                        dd.alert({content: '成功签到'});
+                        that.setData({
+                            'adminOperation[0].status': false,
+                            'commonOperation[0].status': false,// 禁用党员请假按钮
+                            'commonOperation[1].status': false,// 禁用签到按钮
+                            'adminOperation[0].name': '已签到',
+                            'commonOperation[1].name': '已签到',
+                        });
+                        break;
+                    case 2:// 签到迟到
+                        dd.alert({content: '您已迟到'});
+                        that.setData({
+                            'adminOperation[0].status': false,// 禁用管理员签到按钮
+                            'commonOperation[0].status': false,// 禁用党员请假按钮
+                            'commonOperation[1].status': false,// 禁用党员签到按钮
+                            'adminOperation[0].name': '已迟到',
+                            'commonOperation[1].name': '已迟到',
+                        });
+                        break;
+                    case 3:// 请假
+                        dd.alert({content: '您已请假'});
+                        that.setData({
+                            'commonOperation[0].status': false,// 禁用党员请假按钮
+                            'commonOperation[0].name': '已请假',
+                            'commonOperation[1].status': false,// 禁用党员签到按钮
+                        });
+                        break;
+                }
+            }
+            // // 开始定位
+            // dd.getLocation({// 模拟器和手机真机返回不一致
+            //     async success(res) {
+            //
+            //     },
+            //     fail() {
+            //         dd.alert({title: '定位失败'});
+            //     },
+            // });
         }
     },
-
 
     /**
      * 请假

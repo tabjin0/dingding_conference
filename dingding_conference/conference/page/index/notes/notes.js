@@ -1,6 +1,8 @@
 import {Notes} from '../../../model/notes';
 import {User} from "../../../model/users";
 
+const app = getApp();
+
 Page({
     data: {
         conference: null,
@@ -23,7 +25,7 @@ Page({
     //
     // /** 选择图片 */
     // chooseImage() {
-    //     var that = this;
+    //     let that = this;
     //     dd.chooseImage({
     //         count: 4 - that.data.imgArr.length,//最多选择4张图片
     //         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -37,7 +39,7 @@ Page({
     //             }
     //             //上传图片
     //             //显示图片
-    //             var imgArrNow = that.data.imgArr;
+    //             let imgArrNow = that.data.imgArr;
     //             imgArrNow = imgArrNow.concat(res.apFilePaths);
     //             console.log(imgArrNow);
     //             that.setData({
@@ -50,8 +52,8 @@ Page({
     //
     // /** 删除图片 */
     // deleteImv(e) {
-    //     var imgArr = this.data.imgArr;
-    //     var itemIndex = e.currentTarget.dataset.id;
+    //     let imgArr = this.data.imgArr;
+    //     let itemIndex = e.currentTarget.dataset.id;
     //     imgArr.splice(itemIndex, 1);
     //     console.log(imgArr);
     //     this.setData({
@@ -77,8 +79,8 @@ Page({
     //
     // /** 显示图片 */
     // showImage(e) {
-    //     var imgArr = this.data.imgArr;
-    //     var itemIndex = e.currentTarget.dataset.id;
+    //     let imgArr = this.data.imgArr;
+    //     let itemIndex = e.currentTarget.dataset.id;
     //
     //     dd.previewImage({
     //         current: imgArr[itemIndex], // 当前显示图片的http链接
@@ -90,22 +92,38 @@ Page({
         console.log(e);
         console.log('e.detail.value');
         console.log(e.detail.value);
-        var conference = JSON.parse(this.data.conference);
-        var mid = conference.id;
-        var uid = this.data.currentUserId;
-        var text = e.detail.value.text;
-        // var img = this.data.imgArr.join(',');
-        var img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
+        let conference = JSON.parse(this.data.conference);
+        let mid = conference.id;
+        let uid = this.data.currentUserId;
+        let text = e.detail.value.text;
+        // let img = this.data.imgArr.join(',');
+        let img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
         console.log(mid);
         console.log(uid);
         console.log(text);
         console.log(img);
-        var res = await Notes.submitNotes(mid, uid, text, img);
-        console.log('点击提交按钮，提交的内容');
-        console.log(res);
-        console.log('点击提交按钮，提交的内容');
-        if (res.code == 1) {
-            dd.alert({title: '你已成功提交会议笔记'})
+        if (app.isNull(uid)) {
+            dd.alert({content: '未获取到当前会议，请重新进入该页面'});
+        } else if (app.isNull(mid)) {
+            dd.alert({content: '未获取到当前用户，请退出并重新打开'});
+        } else if (app.isNull(text)) {
+            dd.alert({content: '请输入笔记内容'});
+        } else if (app.isNull(img)) {
+            dd.alert({content: '请选择图片'});
+        } else {
+            let res = await Notes.submitNotes(mid, uid, text, img);
+            console.log('点击提交按钮，提交的内容');
+            console.log(res);
+            console.log('点击提交按钮，提交的内容');
+            if (res.code == 1) {
+                dd.alert({title: '你已成功提交会议笔记'});
+                dd.navigateBack({
+                    delta: 1
+                });
+            } else {
+                dd.alert({title: '提交失败'});
+            }
         }
+
     }
 });

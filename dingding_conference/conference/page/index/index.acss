@@ -1,6 +1,6 @@
-.container {
+/* .container {
     margin-top: 25rpx;
-}
+} */
 
 page {
     padding-bottom: 85rpx;
@@ -191,6 +191,10 @@ page {
 /************************************ 按日期排序样式 end *************************************/
 
 
+.conference-list {
+    padding-top: 10rpx;
+}
+
 /************************************ 会议提醒 start *************************************/
 /* 会议提醒标签 */
 .conference-remind-container {
@@ -202,7 +206,7 @@ page {
     display: flex;
     align-items: center;
     margin-left: 31rpx;
-    margin-top: 10rpx;
+    /* margin-top: 10rpx; */
 }
 
 /* 会议提醒 */

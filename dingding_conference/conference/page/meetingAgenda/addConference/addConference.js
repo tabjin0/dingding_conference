@@ -41,6 +41,7 @@ Page({
         topic: '',// 议题
 
         meetingRoom: [],// 会议室列表
+        meetingRoomShow: false,// 默认不展示会议室
 
         collapseData: {
             onTitleTap: 'handleTitleTap',
@@ -159,7 +160,7 @@ Page({
                 'access-token': ''
             },
             dataType: 'json',
-            success: function(res) {
+            success: function (res) {
                 console.log(res);
                 console.log(res.data.data);
                 console.log("1223");
@@ -170,8 +171,8 @@ Page({
                     'collapseData.panels[0].agendaContent': agendaContent
                 })
             },
-            fail: function(res) {
-                dd.alert({ content: '获取议题失败' });
+            fail: function (res) {
+                dd.alert({content: '获取议题失败'});
             },
         });
     },
@@ -180,7 +181,7 @@ Page({
      * 选择会议地点
      * @param e
      */
-    radioChange: function(e) {
+    radioChange: function (e) {
         console.log('你选择的框架是：');
         console.log(e);
         this.setData({
@@ -192,7 +193,13 @@ Page({
         // console.log('你选择的框架是：');
     },
 
+    /**
+     * 发布会以
+     * @param e
+     */
     formSubmit(e) {
+        // this.notification();// 发Ding
+
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
         var conference = e.detail.value;
         // conference.topic = e.detail.value.topic.join(',');
@@ -202,19 +209,19 @@ Page({
         conference.orgId = 1;
         // 表单数据内省
         if (app.isNull(conference.uid)) {
-            dd.alert({ title: '未获取到当前用户，请重新打开应用' });
+            dd.alert({title: '未获取到当前用户，请重新打开应用'});
         } else if (app.isNull(conference.theme)) {
-            dd.alert({ title: '请输入会议主题' });
+            dd.alert({title: '请输入会议主题'});
         } else if (app.isNull(conference.time)) {
-            dd.alert({ title: '请选择会议时间' });
+            dd.alert({title: '请选择会议时间'});
         } else if (app.isNull(conference.address)) {
-            dd.alert({ title: '请选择会议地点' });
+            dd.alert({title: '请选择会议地点'});
         } else if (app.isNull(conference.topic)) {
-            dd.alert({ title: '请选择会议议题' });
+            dd.alert({title: '请选择会议议题'});
         } else if (app.isNull(conference.info)) {
-            dd.alert({ title: '请输入会议内容' });
+            dd.alert({title: '请输入会议内容'});
         } else if (app.isNull(conference.conferee)) {
-            dd.alert({ title: '请选择参会人员' });
+            dd.alert({title: '请选择参会人员'});
         } else {
             dd.httpRequest({
                 url: 'https://api.yzcommunity.cn/api/5d8b1812a0cda',
@@ -225,10 +232,10 @@ Page({
                     'access-token': ''
                 },
                 data: conference,
-                success: function(res) {
+                success: function (res) {
                     console.log("新增会议成功");
                     console.log(res);
-                    dd.alert({ title: "新增会议成功" });
+                    dd.alert({title: "新增会议成功"});
                     dd.navigateBack({
                         delta: 1
                     })
@@ -237,15 +244,100 @@ Page({
                     // })
 
                 },
-                fail: function(res) {
+                fail: function (res) {
                     console.log(res);
-                    dd.alert({ content: '新增会议失败' });
+                    dd.alert({content: '新增会议失败'});
                     console.log
                 },
             });
         }
+    },
 
+    /** 通知 */
+    notification(confereeArr) {
+        var that = this;
+        console.log("会议内容");
+        console.log(JSON.stringify(that.data.conference));
+        console.log("会议内容2");
 
+        var conferenceTheme = that.data.conference.theme;
+        var conferenceDateTime = that.data.conference.dateTime;
+        var conferenceAddress = that.data.conference.address;
+        var conferenceAgenda = that.data.conference.agenda;
+        if (conferenceTheme == '' || conferenceTheme == null || conferenceTheme == undefined) {
+            dd.alert({
+                content: '请输入会议主题'
+            });
+        } else if (conferenceDateTime == '' || conferenceDateTime == null || conferenceDateTime == undefined) {
+            dd.alert({
+                content: '请选择会议时间'
+            });
+        } else if (conferenceAddress == '' || conferenceAddress == null || conferenceAddress == undefined) {
+            dd.alert({
+                content: '请输入会议地点'
+            });
+        } else {
+            var corpId = app.globalData.corpId;
+            console.log(corpId);
+
+            dd.createDing({
+                users: confereeArr, //默认选中用户工号列表；类型: Array<String>
+                corpId: app.globalData.corpId, // 类型: String
+                alertType: 0, // 钉发送方式 0:电话, 1:短信, 2：应用内；类型 Number
+                alertDate: {"format": "yyyy-MM-dd HH:mm", "value": "2019-08-29 08:25"}, // 非必选，定时发送时间, 非定时DING不需要填写
+                type: 2,// 附件类型 1：image, 2：link；类型: Number
+
+                // 非必选
+                // 附件信息
+                attachment: {
+                    images: ["https://www.baidu.com/img/bd_logo1.png?where=super", "https://www.baidu.com/img/bd_logo1.png?where=super", "https://www.baidu.com/img/bd_logo1.png?where=super"], // 图片附件, type=1时, 必选；类型: Array<String>
+                    image: "https://www.baidu.com/img/bd_logo1.png?where=super", // 链接附件, type=2时, 必选；类型: String
+                    title: conferenceTheme, // 链接附件, type=2时, 必选；类型: String
+                    url: "https://www.baidu.com/img/bd_logo1.png?where=super", // 链接附件, type=2时, 必选；类型 String
+                    text: "测试发钉成功" // 链接附件, type=2时, 必选；类型: String
+                },
+
+                text: conferenceTheme,  // 正文
+                bizType: 0, // 业务类型 0：通知DING；1：任务；2：会议；
+
+                // 任务信息
+                // bizType=1的时候选填
+                taskInfo: {
+                    ccUsers: ['100', '101'],// 抄送用户列表, 工号，类型: Array<String>
+                    deadlineTime: {"format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00"}, // 任务截止时间
+                    taskRemind: 30 // 任务提醒时间, 单位分钟；支持参数: 0：不提醒；15：提前15分钟；60：提前1个小时；180：提前3个小时；1440：提前一天；类型: Number
+                },
+
+                // 日程信息
+                // bizType=2的时候选填
+                confInfo: {
+                    bizSubType: 0,  // 子业务类型如会议: 0:预约会议, 1:预约电话会议, 2:预约视频会议；类型: Number (注: 目前只有会议才有子业务类型)；
+                    location: '某某会议室', // 会议地点(非必选)，类型: String
+                    startTime: {"format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00"},// 会议开始时间
+                    endTime: {"format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00"},// 会议结束时间
+                    remindMinutes: 30, // 会前提醒。单位分钟；1:不提醒, 0:事件发生时提醒, 5:提前5分钟, 15:提前15分钟, 30:提前30分钟, 60:提前1个小时, 1440:提前一天
+                    remindType: 2 // 会议提前提醒方式；0:电话, 1:短信, 2:应用内；类型: Number
+                },
+
+                success: function (res) {
+                    /*
+                    {
+                     "dingId": "1_1_a09f167xxx",
+                     "text": "钉正文内容",
+                     "result": true
+                    }
+                    */
+                    console.log(res);
+                },
+                fail: function (err) {
+                }
+            })
+        }
+        // if (conferenceAgenda == '' || conferenceAgenda == null || conferenceAgenda == undefined) {
+        //     dd.alert({
+        //         content: '请输入会议主题'
+        //     });
+        // }
     },
 
     formReset() {
@@ -253,16 +345,16 @@ Page({
     },
 
     changeDate(e) {
-        this.setData({ date: e.detail.value });
+        this.setData({date: e.detail.value});
     },
     changeTime(e) {
-        this.setData({ time: e.detail.value });
+        this.setData({time: e.detail.value});
     },
     changeDateTime(e) {
-        this.setData({ dateTime: e.detail.value });
+        this.setData({dateTime: e.detail.value});
     },
     changeDateTime1(e) {
-        this.setData({ dateTime1: e.detail.value });
+        this.setData({dateTime1: e.detail.value});
     },
     changeDateTimeColumn(e) {
         var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
@@ -289,7 +381,7 @@ Page({
     },
 
     handleTitleTap(e) {
-        const { index } = e.currentTarget.dataset;
+        const {index} = e.currentTarget.dataset;
         console.log("e");
         console.log(e);
         console.log("e.currentTarget.dataset");
@@ -330,95 +422,6 @@ Page({
         });
     },
 
-    /** 通知 */
-    notification() {
-        var that = this;
-        console.log("会议内容");
-        console.log(JSON.stringify(that.data.conference));
-        console.log("会议内容2");
-
-        var conferenceTheme = that.data.conference.theme;
-        var conferenceDateTime = that.data.conference.dateTime;
-        var conferenceAddress = that.data.conference.address;
-        var conferenceAgenda = that.data.conference.agenda;
-        if (conferenceTheme == '' || conferenceTheme == null || conferenceTheme == undefined) {
-            dd.alert({
-                content: '请输入会议主题'
-            });
-        } else if (conferenceDateTime == '' || conferenceDateTime == null || conferenceDateTime == undefined) {
-            dd.alert({
-                content: '请选择会议时间'
-            });
-        } else if (conferenceAddress == '' || conferenceAddress == null || conferenceAddress == undefined) {
-            dd.alert({
-                content: '请输入会议地点'
-            });
-        } else {
-            var corpId = app.globalData.corpId;
-            console.log(corpId);
-
-            dd.createDing({
-                users: ["1219441916791739"], //默认选中用户工号列表；类型: Array<String>
-                corpId: "dingb6feca243794ddb335c2f4657eb6378f", // 类型: String
-                alertType: 0, // 钉发送方式 0:电话, 1:短信, 2：应用内；类型 Number
-                alertDate: { "format": "yyyy-MM-dd HH:mm", "value": "2019-08-29 08:25" }, // 非必选，定时发送时间, 非定时DING不需要填写
-                type: 2,// 附件类型 1：image, 2：link；类型: Number
-
-                // 非必选
-                // 附件信息
-                attachment: {
-                    images: ["https://www.baidu.com/img/bd_logo1.png?where=super", "https://www.baidu.com/img/bd_logo1.png?where=super", "https://www.baidu.com/img/bd_logo1.png?where=super"], // 图片附件, type=1时, 必选；类型: Array<String>
-                    image: "https://www.baidu.com/img/bd_logo1.png?where=super", // 链接附件, type=2时, 必选；类型: String    
-                    title: conferenceTheme, // 链接附件, type=2时, 必选；类型: String
-                    url: "https://www.baidu.com/img/bd_logo1.png?where=super", // 链接附件, type=2时, 必选；类型 String
-                    text: "测试发钉成功" // 链接附件, type=2时, 必选；类型: String
-                },
-
-                text: conferenceTheme,  // 正文
-                bizType: 0, // 业务类型 0：通知DING；1：任务；2：会议；
-
-                // 任务信息
-                // bizType=1的时候选填
-                taskInfo: {
-                    ccUsers: ['100', '101'],// 抄送用户列表, 工号，类型: Array<String>
-                    deadlineTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" }, // 任务截止时间
-                    taskRemind: 30 // 任务提醒时间, 单位分钟；支持参数: 0：不提醒；15：提前15分钟；60：提前1个小时；180：提前3个小时；1440：提前一天；类型: Number
-                },
-
-                // 日程信息
-                // bizType=2的时候选填
-                confInfo: {
-                    bizSubType: 0,  // 子业务类型如会议: 0:预约会议, 1:预约电话会议, 2:预约视频会议；类型: Number (注: 目前只有会议才有子业务类型)；
-                    location: '某某会议室', // 会议地点(非必选)，类型: String    
-                    startTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" },// 会议开始时间
-                    endTime: { "format": "yyyy-MM-dd HH:mm", "value": "2015-05-09 08:00" },// 会议结束时间
-                    remindMinutes: 30, // 会前提醒。单位分钟；1:不提醒, 0:事件发生时提醒, 5:提前5分钟, 15:提前15分钟, 30:提前30分钟, 60:提前1个小时, 1440:提前一天
-                    remindType: 2 // 会议提前提醒方式；0:电话, 1:短信, 2:应用内；类型: Number
-                },
-
-                success: function(res) {
-                    /*
-                    {
-                     "dingId": "1_1_a09f167xxx",
-                     "text": "钉正文内容",
-                     "result": true
-                    }
-                    */
-                    console.log(res);
-                },
-                fail: function(err) {
-                }
-            })
-        }
-        // if (conferenceAgenda == '' || conferenceAgenda == null || conferenceAgenda == undefined) {
-        //     dd.alert({
-        //         content: '请输入会议主题'
-        //     });
-        // }
-
-
-    },
-
     conferenceThemeInput(e) {
         var that = this;
         that.setData({
@@ -450,21 +453,6 @@ Page({
 
     chooseLocation() {
         var that = this;
-        // 定位
-        // dd.getLocation({
-        //     success(res) {
-        //         console.log(res);
-        //         that.setData({
-        //             'conference.address': res.address,// 地址
-        //             'conference.longitude': res.longitude,// 经度
-        //             'conference.latitude': res.latitude,// 纬度
-        //         });
-        //         console.log(that.data.conference);
-        //     },
-        //     fail() {
-
-        //     },
-        // })
 
         // 选择会议室
         var meetingRoom = [];
@@ -480,7 +468,7 @@ Page({
                 orgId: 1
             },
             dataType: 'json',
-            success: function(res) {
+            success: function (res) {
                 console.log(res);
                 console.log(res.data.data);
                 console.log("1223");
@@ -488,14 +476,15 @@ Page({
                     meetingRoom.push(res.data.data[i]);
                 }
                 that.setData({
-                    meetingRoom: meetingRoom
+                    meetingRoom: meetingRoom,
+                    meetingRoomShow: true
                 })
                 console.log('meetingRoom');
                 console.log(meetingRoom);
             },
-            fail: function(res) {
+            fail: function (res) {
                 console.log(res);
-                dd.alert({ content: res.errorMessage });
+                dd.alert({content: res.errorMessage});
             },
         });
     },
@@ -511,6 +500,32 @@ Page({
             'conference.address': meetingRoomName
         });
 
+    },
+
+    /**
+     * 新增会议室
+     */
+    bookMeetingRoom() {
+        // dd.alert({content: '新增会议室'});
+        dd.navigateTo({
+            url: '/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom'
+            // url: 'https://m.amap.com/picker/?keywords=写字楼&zoom=15&center=116.470098,39.9928383&radius=10004&total=20&key=e5d6440b66a44b3fa9a597b894cfc0c0'
+        });
+    },
+
+    chooseTime() {
+        dd.datePicker({
+            format: 'yyyy-MM-dd HH:mm',
+            // currentDate: '2012-12-12',// 默认当前时间
+            success: (res) => {
+                // dd.alert({
+                // 	content: res.date,
+                // });
+                this.setData({
+                    dateTime: res.date,
+                })
+            },
+        });
     },
 
     chooseParticipant() {
@@ -529,7 +544,7 @@ Page({
             requiredDepartments: [],        //必选部门（不可取消选中状态）
             permissionType: "GLOBAL",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
             responseUserOnly: false,        //返回人，或者返回人和部门
-            success: function(res) {
+            success: function (res) {
                 /**
                  {
 					selectedCount:1,                              //选择人数
@@ -557,7 +572,7 @@ Page({
                     chooseParticipantId: chooseParticipantId.join(',')
                 })
             },
-            fail: function(err) {
+            fail: function (err) {
             }
         });
 

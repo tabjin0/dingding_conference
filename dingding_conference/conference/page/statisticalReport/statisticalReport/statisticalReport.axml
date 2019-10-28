@@ -3,12 +3,12 @@
         <view class="party-organization-info-container">
             <view class="party-organization-info">
                 <view class="party-organization-info-title">党员数量</view>
-                <view class="party-organization-info-right">20人</view>
+                <view class="party-organization-info-right">22人</view>
             </view>
-            <view class="party-organization-info">
-                <view class="party-organization-info-title">会议总参与度</view>
-                <view class="party-organization-info-right">99.5%</view>
-            </view>
+<!--            <view class="party-organization-info">-->
+<!--                <view class="party-organization-info-title">会议总参与度</view>-->
+<!--                <view class="party-organization-info-right">{{conferenceStatistic.stat}}</view>-->
+<!--            </view>-->
         </view>
 
         <!--    <canvas id="Canvas2" style="width:100%;height:360px;"></canvas>-->
@@ -31,7 +31,7 @@
                     </view>
                     <view class="total-static flex-row">
                         <image class="icon" mode="scaleToFill" src="/resources/icon/common/statistic.png"></image>
-<!--                        <view class="total-static-number">98%</view>-->
+                        <view class="total-static-number">{{conferenceStatistic_item.stat}}</view>
                     </view>
                 </view>
                 <view class="conference-statistic-item-container">

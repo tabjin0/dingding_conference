@@ -51,7 +51,7 @@ Page({
     },
 
     async onLoad() {
-        this.initData();// 初始化页面数据
+        // this.initData();// 初始化页面数据
     },
 
     async onShow() {
@@ -171,4 +171,12 @@ Page({
             }
         })
     },
+
+    // chooseLoca() {
+    //     my.chooseLocation({
+    //         success: (res) => {
+    //             console.log(res);
+    //         }
+    //     })
+    // }
 })

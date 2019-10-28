@@ -43,6 +43,20 @@ class Conference {
         });
         return currentConference.data;
     }
+
+    /**
+     * 取消会议
+     * @param mid 会议id
+     * @returns {Promise<*>}
+     */
+    static async cancelConference(mid) {
+        return await Http.request({
+            url: `5d8ed2e38a05d`,
+            data: {
+                mid: mid
+            }
+        })
+    }
 }
 
 export {

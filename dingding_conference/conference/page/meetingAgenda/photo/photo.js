@@ -181,15 +181,22 @@ Page({
         console.log(imgsStr)
         const res = await Summary.submitImgs(mid, imgsStr);
         console.log(res);
+        if(res.code === 1){
+            if (this.data.uploadFlag) {
+                dd.alert({title: `图片上传成功`});
+                // dd.redirectTo({
+                //     url: '/page/meetingAgenda/conferenceDetail/conferenceDetail?mid=' + this.data.mid
+                // })
+                dd.navigateBack({
+                    delta: 1
+                })
+            } else {
+                dd.alert({title: `图片上传失败，请重新上传图`});
+            }
+        }
 
-        // if (this.data.uploadFlag) {
-        //     dd.alert({title: `图片上传成功`});
-        //     dd.navigateTo({
-        //         url: '/page/meetingAgenda/conferenceDetail/conferenceDetail?mid=' + this.data.mid
-        //     })
-        // } else {
-        //     dd.alert({title: `图片上传失败，请重新上传图`});
-        // }
+
+
     },
 
 });

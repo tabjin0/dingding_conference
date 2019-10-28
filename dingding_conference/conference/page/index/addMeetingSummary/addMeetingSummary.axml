@@ -19,7 +19,7 @@
 <!--            </view>-->
 <!--        </view>-->
         <view class="submit-button-container">
-            <button class="submit-button" size="default" type="primary" form-type="submit">提交笔记
+            <button class="submit-button" size="default" type="default" form-type="submit">提交笔记
             </button>
         </view>
     </form>

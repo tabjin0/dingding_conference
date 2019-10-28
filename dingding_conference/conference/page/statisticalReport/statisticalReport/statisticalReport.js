@@ -9,7 +9,7 @@ Page({
         conferenceStatistic: []
     },
     async onLoad() {
-        await this.initData();
+        // await this.initData();
     },
 
     async onShow() {
