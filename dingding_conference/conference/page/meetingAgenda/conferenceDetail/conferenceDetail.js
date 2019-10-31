@@ -1,11 +1,12 @@
 import {CheckIn} from "../../../model/checkIn";
-import {User} from "../../../model/users";
 import {Notes} from "../../../model/notes";
 import {config} from "../../../config/config";
 import {Conference} from "../../../model/conference";
 import {System} from "../../../model/system";
 import {FreeLogin} from "../../../model/FreeLogin";
 import {GetLocation} from "../../../model/location";
+import {Ding} from "../../../model/ding";
+import {Storage} from "../../../utils/storage";
 
 const app = getApp();
 
@@ -31,9 +32,8 @@ Page({
 
         participatedStatus: ['已参加', '未参加', '请假', '迟到'],
         swiperParticipantCurrent: 0,
-        // swiperParticipantCurrent: ,
-        swiperNoticeReadCurrent: 0,
         noticeReadStatus: ['已阅读', '未阅读'],
+        swiperNoticeReadCurrent: 0,
 
         filePaths: null,
         imgArr: [
@@ -60,7 +60,6 @@ Page({
             },
             {
                 index: 2,
-                // operation: 'chooseImage',
                 operation: 'toPhoto',
                 name: "照片",
                 status: true,
@@ -153,24 +152,23 @@ Page({
         this.checkCurrentIsInParticipator(currentConference, userId);// 判断当前用户是否在参加人员中
         this.initOperationStatus(currentConference.sign_type);// 初始化按钮状态
         this.packageConfereeInfo(currentConference);// 包装参会人员信息
+        this.packageReadInfo(currentConference);// 包装阅读人员信息
     },
 
     /**
      * 初始化用户信息
      */
     async initUser() {
-        dd.showLoading({
-            content: '加载中...'
-        });
+        dd.showLoading({content: '加载中...'});
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
-        const freeLogin = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        // console.log('freeLogin');
-        // console.log(freeLogin);
-        // console.log('freeLogin');
+        console.log('authcode');
+        console.log(authcode);
+        console.log('authcode');
+        const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
         this.setData({
-            isAdmin: freeLogin.is_sys
+            isAdmin: currentUser.is_sys
         });
-        return freeLogin;
+        return currentUser;
     },
 
     /**
@@ -180,24 +178,23 @@ Page({
      */
     async checkUserInfo() {
         let that = this;
-        const isAdmin = await User.getIdAdmin();// 管理员标志从缓存中获取
-        const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
+        const isAdmin = Storage.getStorageSyncByKey('isAdmin');// 管理员标志从缓存中获取
+        const userid = Storage.getStorageSyncByKey('user');// 从缓存中获取到当前用户
         let userId = null;
-        if (app.isNull(userFromStorage) ||
-            app.isNull(userFromStorage.user) ||
-            app.isNull(isAdmin) ||
-            app.isNull(isAdmin.isAdministrator)
-        ) {
+        if (app.isNull(isAdmin) || app.isNull(userid)) {
             // 如果缓存中没有是否是管理员或当前用户信息,则从网络获取当前用户，并将当前用户信息缓存
             const currentUserInfo = await that.initUser();
+            console.log('currentUserInfo')
+            console.log(currentUserInfo)
+            console.log('currentUserInfo')
             userId = currentUserInfo.userid;
             dd.hideLoading();
         } else {
             this.setData({
-                isAdmin: isAdmin.isAdministrator,
-                currentUserId: userFromStorage.user
+                isAdmin: isAdmin,
+                currentUserId: userid
             })
-            userId = userFromStorage.user;
+            userId = userid;
         }
         return userId;
     },
@@ -291,23 +288,15 @@ Page({
     },
 
     /**
-     * 包装会议参会信息、通知阅读情况
+     * 包装会议参会信息
      */
     packageConfereeInfo(currentConference) {
         const conferee = currentConference.conferee;
-        console.log('conferee');
-        console.log(conferee);
-        console.log('conferee');
         let confereeArray = []; // 参会信息数组
         let attended = [];      // 已参加人员
         let notAttended = [];   // 未参加人员
         let leaveStaff = [];    // 请假人员
         let latePerson = [];    // 迟到人员
-
-        let readArr = [];       // 通知阅读情况数组
-        let notReaded = [];     // 未读人员
-        let readed = [];        // 已读人员
-
 
         for (let i = 0; i < conferee.length; i++) {
             // 筛选参加人员
@@ -326,48 +315,27 @@ Page({
                     leaveStaff.push(conferee[i]);
                     break;
             }
-            // 筛选阅读人员
-            switch (conferee[i].msg_type) {
-                case 0:// 未阅读
-                    notReaded.push(conferee[i]);
-                    break;
-                case 1:// 已阅读
-                    readed.push(conferee[i]);
-                    break;
-            }
         }
         confereeArray.push(attended);
         confereeArray.push(notAttended);
         confereeArray.push(leaveStaff);
         confereeArray.push(latePerson);
-
-        readArr.push(readed);
-        readArr.push(notReaded);
         this.setData({
-            confereeInfo: confereeArray,
+            confereeInfo: confereeArray
+        });
+    },
+
+    /**
+     * 包装阅读情况
+     */
+    packageReadInfo(currentConference) {
+        const read = currentConference.msg;
+        let readArr = [];       // 通知阅读情况数组
+        readArr.push(currentConference.msg.read);
+        readArr.push(currentConference.msg.unread);
+        this.setData({
             readInfo: readArr
         })
-
-        // console.log('已参加人员');
-        // console.log(attended);
-        // console.log('已参加人员');
-        //
-        // console.log('未参加人员');
-        // console.log(notAttended);
-        // console.log('未参加人员');
-        //
-        // console.log('请假人员');
-        // console.log(leaveStaff);
-        // console.log('请假人员');
-        //
-        // console.log('迟到人员');
-        // console.log(latePerson);
-        // console.log('迟到人员');
-        //
-        //
-        // console.log('会议人员参会信息');
-        // console.log(confereeArray);
-        // console.log('会议人员参会信息');
     },
 
     /**
@@ -562,6 +530,7 @@ Page({
     async locationCheckCurrentConference() {
         let that = this;
         let currentConference = that.data.conference;
+        console.log(currentConference)
 
         if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
             dd.alert({content: '抱歉，未获取到当前会议，请重启应用'});
@@ -584,8 +553,7 @@ Page({
             // 包装签到对象
             let checkInInfo = {};
             checkInInfo.mid = currentConference.id;
-            const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
-            checkInInfo.uid = userFromStorage.user;// 从缓存中获取当前userId
+            checkInInfo.uid = Storage.getStorageSyncByKey('user');
             checkInInfo.address = res.address;
             checkInInfo.distance = distance;
             checkInInfo.leaveType = "";
@@ -600,16 +568,6 @@ Page({
                 dd.alert({content: '坐标异常'});
             } else {
                 const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
-                console.log('checkInInfoRes');
-                console.log(checkInInfoRes);
-                console.log(checkInInfoRes.data.sign_type);
-                console.log('checkInInfoRes');
-                // if (checkInInfoRes.msg == '操作成功') {
-                //     return;
-                // } else {
-                //     dd.alert({content: `${checkInInfoRes.msg}`});
-                // }
-                //
                 console.log('签到信息返回');
                 console.log(checkInInfoRes);
                 console.log('签到信息返回');
@@ -726,5 +684,17 @@ Page({
         });
     },
 
-
+    /**
+     * 发送钉
+     */
+    notice() {
+        console.log(this.data.conference)
+        let userIdArr = Conference.extractUserId(this.data.conference.conferee);
+        console.log(userIdArr);
+        Ding.createNoticeDing({
+            users: userIdArr,
+            corpId: app.globalData.corpId,
+            text: this.data.conference.theme,
+        })
+    },
 });

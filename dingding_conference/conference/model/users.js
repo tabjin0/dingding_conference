@@ -12,10 +12,13 @@ class User {
         })
     }
 
-    static async setAdministratorIntoStorage(data) {
+    static async setAdministratorIntoStorage(admin) {
         return await Storage.setStorage({
             key: `administrator`,
-            data,
+            data: {
+                administrator: admin
+            }
+
         });
     }
 
@@ -38,6 +41,11 @@ class User {
         })
     }
 
+    /**
+     * 异步保存管理员之缓存
+     * @param data
+     * @returns {Promise<*|void>}
+     */
     static async setIsAdmin(data) {
         return await Storage.setStorage({
             key: `isAdmin`,
@@ -58,80 +66,18 @@ class User {
      * @returns {Promise<*>}
      */
     static async getCurrentUser(authCode, corpId) {
-        return await Http.request({
+        const currentUserRes = await Http.request({
             url: '5d9ffdf120fb5',
             data: {
                 code: authCode,
-                orgId: corpId
+                // corpId: corpId,
+                orgId: 1,
             }
-        })
-    }
-
-    static async currentUser() {
-        const userFromStorage = await User.getUserFromStorage();
-        if (app.isNull(userFromStorage) || app.isNull(userFromStorage.user)) {
-            // 如果缓存中没有用户,则从网络获取当前用户
-            const currentUser = await FreeLogin.login(authCode.authCode, app.globalData.corpId); // 网络获取钉钉返回的用户信息 ok
-            console.log('user');
-            console.log(user);
-            console.log('user');
-            dd.hideLoading();
-            let userId = user.data.userid;
-            /** 将当前用户放入缓存 */
-            let userData = {};
-            userData.user = userId;
-            const userIntoStorage = await User.setUserIntoStorage(userData);
-            dd.hideLoading();
-            /** 将当前用户放入缓存 */
-            that.setData({
-                userId: userId,
-                'checkInInfo.uid': userId,
-                userName: user.data.name,
-            });
+        });
+        if (currentUserRes.code === 1) {
+            return currentUserRes.data;
         } else {
-            that.setData({
-                userId: userFromStorage.user
-            });
-        }
-    }
-
-    /**
-     * 管理员相关
-     * @returns {Promise<void>}
-     */
-    static async admin() {
-        // 管理员相关
-        // 1.管理员；是，ok；否则重新获取管理员并加入缓存
-        const adminRes = await User.getAdministratorFromStorage();// 先从缓存中获取管理员
-        if (app.isNull(adminRes) || app.isNull(adminRes.administrator)) {// 缓存中没有管理员，从网络获取管理员信息
-            const administrator = await User.getAdministratorFromOnline();// 从网络获取管理员
-            let administratorId = administrator.data[0].userid;
-            let data = {};
-            data.administrator = administratorId;
-            that.setData({
-                administrator: administratorId
-            });
-            const setStorageRes = await User.setAdministratorIntoStorage(data);// 将管理员放入缓存
-            dd.hideLoading();
-        } else {// 缓存中有管理员，与当前人员比对
-            that.setData({
-                administrator: adminRes.administrator
-            });
-            // 当前人员与管理员进行比对
-            if (that.data.administrator != that.data.userId) {// 不是管理员
-                that.setData({
-                    isAdmin: false,// 不是管理员
-                });
-                // 将isAdmin写入缓存
-                const isAdminIntoStorage = await User.setIsAdmin({isAdmin: false});
-            } else {// 是管理员
-                // dd.alert({ content: '是当前管理员' });
-                that.setData({
-                    isAdmin: true,// 是管理员
-                });
-                // 将isAdmin写入缓存
-                const isAdminIntoStorage = await User.setIsAdmin({isAdmin: true});
-            }
+            dd.alert({content: '用户登录失败'});
         }
     }
 }

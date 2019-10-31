@@ -19,12 +19,17 @@ class Conference {
      * @returns {Promise<*>}
      */
     static async getConferenceList(uid) {
-        return await Http.request({
+        const conferenceList = await Http.request({
             url: '5d8b1a1a7820d',
             data: {
                 uid: uid
             }
         });
+        if (conferenceList.code === 1) {
+            return conferenceList.data;
+        } else {
+            dd.alert({content: '会议列表加载失败'});
+        }
     }
 
     /**
@@ -34,6 +39,7 @@ class Conference {
      * @returns {Promise<*>}
      */
     static async getConferenceDetail(mid, uid) {
+        dd.showLoading({content: '加载会议详情中...'});
         const currentConference = await Http.request({
             url: `5d8d73e29c22c`,
             data: {
@@ -41,7 +47,12 @@ class Conference {
                 uid: uid
             }
         });
-        return currentConference.data;
+        if (currentConference.code === 1) {
+            dd.hideLoading();
+            return currentConference.data
+        } else {
+            dd.alert({content: '获取会议详情失败！'});
+        }
     }
 
     /**
@@ -56,6 +67,19 @@ class Conference {
                 mid: mid
             }
         })
+    }
+
+    /**
+     * 提取用户id
+     * @param conferee 用户列表
+     * @returns {Array}
+     */
+    static extractUserId(conferee) {
+        let userIdArr = [];
+        for (let i = 0; i < conferee.length; i++) {
+            userIdArr.push(conferee[i].userid);
+        }
+        return userIdArr;
     }
 }
 

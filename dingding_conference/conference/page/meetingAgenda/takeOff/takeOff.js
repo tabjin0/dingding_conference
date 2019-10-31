@@ -1,5 +1,6 @@
 import {CheckIn} from "../../../model/checkIn";
 import {User} from "../../../model/users";
+import {Storage} from "../../../utils/storage";
 
 const app = getApp();
 
@@ -86,8 +87,7 @@ Page({
                     // 包装请假对象
                     var checkInInfo = {};
                     checkInInfo.mid = currentConference.id;
-                    const userFromStorage = await User.getUserFromStorage();// 从缓存中获取到当前用户
-                    checkInInfo.uid = userFromStorage.user;// 从缓存中获取当前userId
+                    checkInInfo.uid = Storage.getStorageSyncByKey('user');
                     checkInInfo.address = res.address;
                     checkInInfo.distance = distance;
                     checkInInfo.leaveType = that.data.leaveType;

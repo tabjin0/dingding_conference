@@ -79,12 +79,13 @@
                     <swiper current="{{swiperNoticeReadCurrent}}" onChange="swiperNoticeReadChange">
                         <block a:for="{{readInfo}}" a:for-index="read_info_index"
                                a:for-item="read_info_item">
-                            <view style="width:100%;">
+                            <view class="read-inner-container" style="width:100%;">
                                 <swiper-item class="flex-row conferee-info-container">
                                     <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
                                         <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
                                     </view>
                                 </swiper-item>
+                                <view class="notice" onTap="notice">提醒阅读</view>
                             </view>
                         </block>
                     </swiper>
@@ -110,6 +111,11 @@
 
                 </view>
             </view>
+
+
+            <button size="default" type="primary" onTap="packageReadInfo">测试</button>
+
+
             <!-- 会议纪要 -->
             <view class="outer-container">
                 <view class="flex-row">
@@ -129,9 +135,9 @@
                         <block a:for="{{imgArr}}" a:key="key">
                             <view class="upload-img" onTap="showImage" style="border-radius: 5rpx" data-id="{{index}}">
                                 <image class="img-item" src="{{item}}"></image>
-<!--                                <image class="closeImv {{isAdmin==true?closeImv:'hide'}}"-->
-<!--                                       src="/resources/icon/common/delete.png" mode="scaleToFill"-->
-<!--                                       catchTap="deleteImv" data-id="{{index}}"></image>-->
+                                <!--                                <image class="closeImv {{isAdmin==true?closeImv:'hide'}}"-->
+                                <!--                                       src="/resources/icon/common/delete.png" mode="scaleToFill"-->
+                                <!--                                       catchTap="deleteImv" data-id="{{index}}"></image>-->
                             </view>
                         </block>
                         <!--这个是选择图片-->
@@ -161,3 +167,4 @@
         </block>
     </view>
 </view>
+

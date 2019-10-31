@@ -1,9 +1,9 @@
 import {Conference} from '../../model/conference';
-import {Agenda} from '../../model/agenda';
-import {CheckIn} from '../../model/checkIn';
 import {User} from '../../model/users';
 import {System} from '../../model/system';
 import {FreeLogin} from "../../model/FreeLogin";
+import {ApiAccessToken} from "../../model/apiAccessToken";
+import {Storage} from "../../utils/storage";
 
 const app = getApp();
 
@@ -38,15 +38,15 @@ Page({
 
         isNeedCheckIn: true,// 默认需要签到
 
-        checkInInfo: {
-            uid: '1219441916791739',// 签到用户
-            address: '11,11',// 用户签到地点
-            mid: 0,// 签到会议id
-            type: "3",// 签到状态，0签到成功，1早到，2迟到，3未签到
-            leaveType: '请假类型',
-            leaveReason: '请假理由',
-        },
-        checkInRes: null,// 当前用户的签到情况
+        // checkInInfo: {
+        //     uid: '1219441916791739',// 签到用户
+        //     address: '11,11',// 用户签到地点
+        //     mid: 0,// 签到会议id
+        //     type: "3",// 签到状态，0签到成功，1早到，2迟到，3未签到
+        //     leaveType: '请假类型',
+        //     leaveReason: '请假理由',
+        // },
+        // checkInRes: null,// 当前用户的签到情况
 
     },
 
@@ -55,6 +55,8 @@ Page({
     },
 
     async onShow() {
+        const res = await ApiAccessToken.initAccessToken();
+        console.log(res);
         this.initData();// 重新初始化会议列表
     },
 
@@ -66,10 +68,12 @@ Page({
             content: '加载中...'
         });
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
-        const freeLogin = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        let isAdmin = freeLogin.is_sys;
+        const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
+        // console.log('freelogin')
+        // console.log(currentUser)
+        // console.log('freelogin')
         this.setData({
-            isAdmin: isAdmin
+            isAdmin: currentUser.is_sys
         });
 
         this.initConferenceData();// 获取会议列表
@@ -78,18 +82,19 @@ Page({
     /** 初始化会议数据 */
     async initConferenceData() {
         let that = this;
-        const currentUser = await User.getUserFromStorage();
+        const currentUserid = Storage.getStorageSyncByKey('user');
         console.log('初始化会议数据，当前用户');
-        console.log(currentUser);
+        console.log(currentUserid);
+        console.log('初始化会议数据，当前用户');
         const conferenceList = await Conference.getConferenceList();// 获取会议列表
-        const conferenceListByUserId = await Conference.getConferenceList(currentUser.user);// 获取当前用户会议列表，因为涉及到用户签到情况
-        console.log(conferenceList);
-        console.log(conferenceListByUserId);
+        const conferenceListByUserId = await Conference.getConferenceList(currentUserid);// 获取当前用户会议列表，因为涉及到用户签到情况
+        // console.log(conferenceList);
+        // console.log(conferenceListByUserId);
         dd.hideLoading();
 
-        const nowConferenceList = conferenceList.data.now;// 当前会议
-        const futureConferenceList = conferenceList.data.future;// 预备会议
-        const pastConferenceList = conferenceListByUserId.data.past;// 当前用户历史会议
+        const nowConferenceList = conferenceList.now;// 当前会议
+        const futureConferenceList = conferenceList.future;// 预备会议
+        const pastConferenceList = conferenceListByUserId.past;// 当前用户历史会议
 
         // 控制列表显示
         if (nowConferenceList.length == 0) {// 没有当前会议，不显示
@@ -172,11 +177,13 @@ Page({
         })
     },
 
-    // chooseLoca() {
-    //     my.chooseLocation({
-    //         success: (res) => {
-    //             console.log(res);
-    //         }
-    //     })
-    // }
+    async chooseLoca() {
+        const res = await ApiAccessToken.initAccessToken();
+        // console.log()
+        // console.log(abc)
+        // let value = 666;
+        // // Storage.setStorageByKeyAndValue('123', {value});
+        // const res = Storage.getStorageByKey('AccessToken');
+        // console.log(res.access_token)
+    }
 })

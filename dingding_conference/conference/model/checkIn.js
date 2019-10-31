@@ -1,6 +1,20 @@
+/**
+ * 签到模型
+ */
+
 import { Http } from '../utils/http';
 
 class CheckIn {
+    /**
+     * 发送签到消息
+     * @param mid
+     * @param uid
+     * @param address
+     * @param distance
+     * @param leaveType
+     * @param leaveReason
+     * @returns {Promise<*>}
+     */
     static async submitCheckInInfo({
         mid,
         uid,

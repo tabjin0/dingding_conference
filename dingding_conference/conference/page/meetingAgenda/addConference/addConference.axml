@@ -52,7 +52,6 @@
                 <view class="title theme-title">会议内容</view>
                 <textarea name="info" maxlength="-1" onInput="conferenceThemeInput" class="theme"
                           placeholder="请输入"></textarea>
-                <!--                <input name="info" onInput="conferenceInfoInput" class="theme" placeholder="请输入"/>-->
             </view>
             <view class="flex-row participant-container" onTap="chooseParticipant">
                 <view class="title participant-title">参加人员</view>
@@ -76,6 +75,6 @@
             <button class="submit-button" size="default" type="default" form-type="submit">发布会议</button>
         </view>
     </form>
-<!--    <button size="default" type="default" onTap="notification">测试</button>-->
+    <button size="default" type="default" onTap="notification">测试</button>
 </view>
 

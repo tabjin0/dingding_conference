@@ -1,9 +1,8 @@
-import { config } from "../config/config";
-import { promisic } from "../utils/utils";
+import {promisic} from "../utils/utils";
 
 class Storage {
     static async setStorage(
-        { 
+        {
             key,
             data
         }
@@ -20,6 +19,18 @@ class Storage {
             key,
         });
         return res.data;
+    }
+
+    static setStorageSyncByKeyAndValue(key, data) {
+        dd.setStorageSync({
+            key: key,
+            data: data
+        });
+    }
+
+    static getStorageSyncByKey(key) {
+        const value = dd.getStorageSync({key: key});
+        return value.data;
     }
 }
 

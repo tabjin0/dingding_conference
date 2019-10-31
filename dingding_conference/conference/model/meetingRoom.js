@@ -1,3 +1,7 @@
+/**
+ * 会议室模型
+ */
+
 import {Http} from "../utils/http";
 
 class MeetingRoom {
@@ -32,6 +36,19 @@ class MeetingRoom {
                 roomId: roomId
             }
         })
+    }
+
+    /**
+     * 获取会议室列表
+     * @returns {Promise<*>}
+     */
+    static async getMeetingRoom() {
+        return await Http.request({
+            url: `5d8b19b1744c7`,
+            data: {
+                orgId: 1
+            }
+        });
     }
 }
 

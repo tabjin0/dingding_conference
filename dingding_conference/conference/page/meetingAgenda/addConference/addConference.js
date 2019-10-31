@@ -1,4 +1,7 @@
-var dateTimePicker = require('/utils/date/dateTimePicker.js');
+import {MeetingRoom} from "../../../model/meetingRoom";
+import {Agenda} from "../../../model/agenda";
+
+let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
 
 Page({
@@ -117,21 +120,21 @@ Page({
     },
 
     onLoad() {
-        var that = this;
+        let that = this;
         // 获取完整的年月日 时分秒，以及默认显示的数组
-        var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+        let obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
         console.log(obj);
-        var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+        let obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
         // 精确到分的处理，将数组的秒去掉
-        var lastArray = obj1.dateTimeArray.pop();
-        var lastTime = obj1.dateTime.pop();
+        let lastArray = obj1.dateTimeArray.pop();
+        let lastTime = obj1.dateTime.pop();
 
         //dateTime = obj.dateTime;
-        var dateTimeArray = obj.dateTimeArray;
-        var dateTimeArray1 = obj1.dateTimeArray;
-        var dateTime1 = obj1.dateTime;
+        let dateTimeArray = obj.dateTimeArray;
+        let dateTimeArray1 = obj1.dateTimeArray;
+        let dateTime1 = obj1.dateTime;
 
-        var dateTime = dateTimeArray1[0][dateTime1[0]] + '-' +
+        let dateTime = dateTimeArray1[0][dateTime1[0]] + '-' +
             dateTimeArray1[1][dateTime1[1]] + '-' + dateTimeArray1[2][dateTime1[2]] + ' ' + dateTimeArray1[3][dateTime1[3]] + ':' + dateTimeArray1[4][dateTime1[4]]
 
         this.setData({
@@ -146,16 +149,16 @@ Page({
         that.getAgendaArray();
     },
 
-    getAgendaArray() {
-        var that = this;
+    async getAgendaArray() {
+        let that = this;
         console.log("77777");
         console.log(that.data.collapseData.panels[0])
-        var agendaContent = [];
+        let agendaContent = [];
         dd.httpRequest({
             url: 'https://api.yzcommunity.cn/api/5d8b1976c8132',
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/json',
                 'version': 'v3.0',
                 'access-token': ''
             },
@@ -164,7 +167,7 @@ Page({
                 console.log(res);
                 console.log(res.data.data);
                 console.log("1223");
-                for (var i = 0; i < res.data.data.length; i++) {
+                for (let i = 0; i < res.data.data.length; i++) {
                     agendaContent.push(res.data.data[i]);
                 }
                 that.setData({
@@ -201,7 +204,7 @@ Page({
         // this.notification();// 发Ding
 
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
-        var conference = e.detail.value;
+        let conference = e.detail.value;
         // conference.topic = e.detail.value.topic.join(',');
         console.log('conference');
         console.log(conference);
@@ -255,31 +258,34 @@ Page({
 
     /** 通知 */
     notification(confereeArr) {
-        var that = this;
+        let that = this;
         console.log("会议内容");
         console.log(JSON.stringify(that.data.conference));
+        console.log(that.data.conference);
         console.log("会议内容2");
 
-        var conferenceTheme = that.data.conference.theme;
-        var conferenceDateTime = that.data.conference.dateTime;
-        var conferenceAddress = that.data.conference.address;
-        var conferenceAgenda = that.data.conference.agenda;
-        if (conferenceTheme == '' || conferenceTheme == null || conferenceTheme == undefined) {
+        if (app.isNull(that.data.conference.theme)) {
             dd.alert({
                 content: '请输入会议主题'
             });
-        } else if (conferenceDateTime == '' || conferenceDateTime == null || conferenceDateTime == undefined) {
+        } else if (app.isNull(that.data.conference.dateTime)) {
             dd.alert({
                 content: '请选择会议时间'
             });
-        } else if (conferenceAddress == '' || conferenceAddress == null || conferenceAddress == undefined) {
+        } else if (app.isNull(that.data.conference.address)) {
             dd.alert({
                 content: '请输入会议地点'
             });
+        } else if (app.isNull(that.data.conference.agenda)) {
+            dd.alert({
+                content: '请输入会议议题'
+            });
+        } else if (app.isNull(that.data.conference.info)) {
+            dd.alert({
+                content: '请输入会议内容'
+            });
         } else {
-            var corpId = app.globalData.corpId;
-            console.log(corpId);
-
+            // 发送钉
             dd.createDing({
                 users: confereeArr, //默认选中用户工号列表；类型: Array<String>
                 corpId: app.globalData.corpId, // 类型: String
@@ -357,7 +363,7 @@ Page({
         this.setData({dateTime1: e.detail.value});
     },
     changeDateTimeColumn(e) {
-        var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+        let arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
 
         arr[e.detail.column] = e.detail.value;
         dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
@@ -369,7 +375,7 @@ Page({
     },
 
     changeDateTimeColumn1(e) {
-        var arr = this.data.dateTime1, dateArr = this.data.dateTimeArray1;
+        let arr = this.data.dateTime1, dateArr = this.data.dateTimeArray1;
 
         arr[e.detail.column] = e.detail.value;
         dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
@@ -423,14 +429,14 @@ Page({
     },
 
     conferenceThemeInput(e) {
-        var that = this;
+        let that = this;
         that.setData({
             'conference.theme': e.detail.value,
         });
     },
 
     conferenceTimeInput(e) {
-        var that = this;
+        let that = this;
         console.log("选择时间input被触发");
         that.setData({
             'conference.dateTime': e.detail.value,
@@ -438,63 +444,47 @@ Page({
     },
 
     conferenceAddressInput(e) {
-        var that = this;
+        let that = this;
         that.setData({
             'conference.address': e.detail.value,
         });
     },
 
     conferenceInfoInput(e) {
-        var that = this;
+        let that = this;
         that.setData({
             'conference.info': e.detail.value,
         });
     },
 
-    chooseLocation() {
-        var that = this;
+    /**
+     * 选择会议室
+     * @returns {Promise<void>}
+     */
+    async chooseLocation() {
+        let that = this;
 
         // 选择会议室
-        var meetingRoom = [];
-        dd.httpRequest({
-            url: 'https://api.yzcommunity.cn/api/5d8b19b1744c7',
-            method: 'GET',
-            headers: {
-                // 'Content-Type': 'application/json',
-                'version': 'v3.0',
-                'access-token': ''
-            },
-            data: {
-                orgId: 1
-            },
-            dataType: 'json',
-            success: function (res) {
-                console.log(res);
-                console.log(res.data.data);
-                console.log("1223");
-                for (var i = 0; i < res.data.data.length; i++) {
-                    meetingRoom.push(res.data.data[i]);
-                }
-                that.setData({
-                    meetingRoom: meetingRoom,
-                    meetingRoomShow: true
-                })
-                console.log('meetingRoom');
-                console.log(meetingRoom);
-            },
-            fail: function (res) {
-                console.log(res);
-                dd.alert({content: res.errorMessage});
-            },
-        });
+        let meetingRoom = [];
+        dd.showLoading({content: '获取会议室中...'})
+        const meetingRoomList = await MeetingRoom.getMeetingRoom();
+        if (meetingRoomList.code === 1) {
+            dd.hideLoading();
+            that.setData({
+                meetingRoom: meetingRoomList.data,
+                meetingRoomShow: true
+            })
+        } else {
+            dd.alert({content: '获取会议室失败！'});
+        }
     },
 
     meetingRoom(e) {
         console.log('e');
         console.log(e);
-        var that = this;
-        var meetingRoomId = e.target.dataset.meetingRoom.id;
-        var meetingRoomName = e.target.dataset.meetingRoom.name;
+        let that = this;
+        let meetingRoomId = e.target.dataset.meetingRoom.id;
+        let meetingRoomName = e.target.dataset.meetingRoom.name;
         that.setData({
             'conference.roomId': meetingRoomId,
             'conference.address': meetingRoomName
@@ -529,8 +519,8 @@ Page({
     },
 
     chooseParticipant() {
-        var that = this;
-        var chooseParticipantId = [];
+        let that = this;
+        let chooseParticipantId = [];
         dd.complexChoose({
             title: "参加人员",            //标题
             multiple: true,            //是否多选
@@ -554,15 +544,31 @@ Page({
                  */
                 console.log("res");
                 console.log(res);
+                console.log(JSON.stringify(res));
+                // {
+                //      "departments":[{"count":1,"id":"141618006","name":"广电产业经营党支部"}],
+                //      "selectedCount":2,
+                //      "users":[{"avatar":"","name":"王芳芳","userId":"012452322629496107"}]
+                //  }
+                console.log('res')
                 console.log(res.selectedCount);
-                console.log(res.users[0].name);
-                console.log(res.users[1]);
-                var chooseParticipantNumber = res.selectedCount;
-                var chooseParticipant = res.users;
-                console.log("突突突");
+                let chooseParticipantNumber = res.selectedCount;
+                let chooseParticipant = res.users;
+                let participant = [];//参加人员
+                // if (res) {
+                //     if (res.users) {
+                //         participant = res.users;// ok
+                //     }
+                //     if (res.departments) {
+                //         // 根据部门id查询部门用户，然后该部门用户逐一加入participant数组中
+                //
+                //         // chooseParticipantNumber += res.departments[i].length;
+                //     }
+                // }
+
                 console.log(chooseParticipantNumber);
                 console.log(chooseParticipant);
-                for (var i = 0; i < chooseParticipantNumber; i++) {
+                for (let i = 0; i < chooseParticipantNumber; i++) {
                     chooseParticipantId.push(res.users[i].userId);
                 }
                 console.log(chooseParticipantId);
@@ -581,7 +587,7 @@ Page({
     },
 
     test() {
-        var that = this;
+        let that = this;
         that.getAgendaArray();
         console.log("9999999");
         app.getUrl('agendaArray');

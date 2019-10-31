@@ -38,7 +38,6 @@ page {
 }
 
 
-
 /*文字*/
 .theme-text {
     width: 646rpx;
@@ -318,6 +317,21 @@ page {
     color: rgba(0, 0, 0, 1);
 }
 
+.read-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*提醒阅读*/
+.notice {
+    font-size: 30rpx;
+    font-family: "PingFang SC";
+    font-weight: 500;
+    color: rgba(164, 164, 164, 1);
+    margin: 0 auto;
+}
+
 .avatar {
     width: 64rpx;
     height: 64rpx;
@@ -387,27 +401,6 @@ page {
     margin-left: 50rpx;
     /*margin-right: 10rpx;*/
 }
-
-/*.image-title {*/
-/*    width: 200rpx;*/
-/*    height: 34rpx;*/
-/*    font-size: 34rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: 400;*/
-/*    color: rgba(0, 0, 7, 1);*/
-/*    margin: 30rpx;*/
-/*}*/
-
-/*选择图片View*/
-/*带删除按钮*/
-/*.upload-img-container {*/
-/*     height: 200rpx;*/
-/*     background-color: #EEEEEE;*/
-/*     !*border: 1px dashed gray;*!*/
-/*     display: flex;*/
-/*     align-items: center;*/
-/*     !*padding: 0 20rpx;*!*/
-/* }*/
 
 .upload-img-container {
     /*height: 200rpx;*/

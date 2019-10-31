@@ -1,3 +1,7 @@
+/**
+ * 笔记模型
+ */
+
 import { Http } from "../utils/http";
 
 class Notes {

@@ -62,135 +62,6 @@ page {
     text-align: center;
 }
 
-
-/************************************ 按日期排序样式 start *************************************/
-/*.conference-list {*/
-/*    margin-left: 41rpx;*/
-/*    margin-right: 38rpx;*/
-/*}*/
-
-/*.time-tips {*/
-/*    height: 31rpx;*/
-/*    margin-bottom: 15rpx;*/
-/*}*/
-
-/*.circle-red {*/
-/*    width: 20rpx;*/
-/*    height: 20rpx;*/
-/*    background: rgba(216, 18, 56, 1);*/
-/*    border-radius: 50%;*/
-/*    margin-top: 3rpx;*/
-/*    margin-bottom: 3rpx;*/
-/*    margin-right: 8rpx;*/
-/*}*/
-
-/*.year-month {*/
-/*    width: 300rpx;*/
-/*    height: 31rpx;*/
-/*    font-size: 30rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: bold;*/
-/*    color: rgba(0, 0, 0, 1);*/
-/*    line-height: 30rpx;*/
-
-/*}*/
-
-/*.day-container {*/
-/*    width: 62rpx;*/
-/*    height: 62rpx;*/
-/*    background: rgba(224, 97, 76, 1);*/
-/*    border-radius: 6rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: 400;*/
-/*    color: rgba(255, 255, 255, 1);*/
-/*    line-height: 63rpx;*/
-/*    text-align: center;*/
-/*    margin-left: 37rpx;*/
-/*    margin-top: 34rpx;*/
-/*    margin-bottom: 35rpx;*/
-/*}*/
-
-/*.day {*/
-/*    width: 34rpx;*/
-/*    height: 26rpx;*/
-/*    font-size: 30rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: 400;*/
-/*    color: rgba(255, 255, 255, 1);*/
-/*    line-height: 30rpx;*/
-/*}*/
-
-/*.day-ri {*/
-/*    font-size: 20rpx;*/
-/*}*/
-
-/*.words {*/
-/*    width: 60%;*/
-/*}*/
-
-/* 会议主题 */
-/*.theme {*/
-/*    !* width: 274rpx; *!*/
-/*    width: 626rpx;*/
-/*    height: 30rpx;*/
-/*    font-size: 30rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: bold;*/
-/*    color: rgba(0, 0, 0, 1);*/
-/*    line-height: 30rpx;*/
-/*    margin-top: 29rpx;*/
-/*    margin-left: 31rpx;*/
-/*    !* 多余文字点点点 *!*/
-/*    white-space: nowrap;*/
-/*    overflow: hidden;*/
-/*    text-overflow: ellipsis;*/
-/*}*/
-
-/*.topic {*/
-/*    width: 405rpx;*/
-/*    height: 24rpx;*/
-/*    font-size: 24rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: 400;*/
-/*    color: rgba(116, 118, 122, 1);*/
-/*    line-height: 24rpx;*/
-/*    margin-left: 30rpx;*/
-/*    margin-top: 14rpx;*/
-/*    !* width: 426.56rpx; *!*/
-/*    !* width: 60%; *!*/
-/*    !* 多余文字点点点 *!*/
-/*    white-space: nowrap;*/
-/*    overflow: hidden;*/
-/*    text-overflow: ellipsis;*/
-/*}*/
-
-
-/*.conference-time {*/
-/*    width: 405rpx;*/
-/*    height: 24rpx;*/
-/*    font-size: 24rpx;*/
-/*    font-family: Microsoft YaHei;*/
-/*    font-weight: 400;*/
-/*    color: rgba(116, 118, 122, 1);*/
-/*    margin-left: 30rpx;*/
-/*    margin-top: 14rpx;*/
-/*}*/
-
-/*.more {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    margin-right: 19rpx;*/
-/*}*/
-
-/*.circle-blue {*/
-/*    background-color: #5094F2;*/
-/*    width: 9rpx;*/
-/*    height: 9rpx;*/
-/*    border-radius: 4.5rpx;*/
-/*}*/
-/************************************ 按日期排序样式 end *************************************/
-
-
 .conference-list {
     padding-top: 10rpx;
 }
@@ -480,7 +351,11 @@ page {
     text-align: center;
     margin-top: 100rpx;
     margin-right: 12rpx;
+    padding: 0 10rpx;
+}
 
+.hide {
+    display: none;
 }
 
 /************************************ 历史会议 end *************************************/

@@ -1,6 +1,11 @@
+page {
+    background-color: #FFFFFF;
+}
+
 
 .name-container {
-    margin: 30rpx auto 0 33rpx;
+    margin: 0 auto 0 33rpx;
+    padding-top: 30rpx;
 }
 
 .name-img {
