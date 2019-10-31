@@ -23,6 +23,27 @@
                     </view>
                 </view>
             </view>
+
+            <!-- 会议议题 -->
+            <view class="outer-container">
+                <view class="flex-row">
+                    <image class="img2" mode="scaleToFill" src="/resources/conferenceDetial/logo-text.png"></image>
+                    <view class="theme-text">会议议题</view>
+                </view>
+                <view class="row-line"></view>
+                <!--                <view class="info-inner-container">-->
+                <!--&lt;!&ndash;                    <text>{{conference.info}}</text>&ndash;&gt;-->
+                <!--                </view>-->
+                <view class="info-inner-container" class="flex-row" a:for="{{conference.topic}}"
+                      a:for-index="topic_index" a:for-item="topic_item">
+                    <view class="flex-column">
+                        <text selectable="true" class="theme">{{topic_item.name}}
+                        </text>
+                    </view>
+
+                </view>
+            </view>
+
             <!-- 会议内容 -->
             <view class="outer-container">
                 <view class="flex-row">
@@ -92,28 +113,10 @@
                 </view>
             </view>
 
-            <!-- 会议内容 -->
-            <view class="outer-container">
-                <view class="flex-row">
-                    <image class="img2" mode="scaleToFill" src="/resources/conferenceDetial/logo-text.png"></image>
-                    <view class="theme-text">会议议题</view>
-                </view>
-                <view class="row-line"></view>
-                <!--                <view class="info-inner-container">-->
-                <!--&lt;!&ndash;                    <text>{{conference.info}}</text>&ndash;&gt;-->
-                <!--                </view>-->
-                <view class="info-inner-container" class="flex-row" a:for="{{conference.topic}}"
-                      a:for-index="topic_index" a:for-item="topic_item">
-                    <view class="flex-column">
-                        <text selectable="true" class="theme">{{topic_item.name}}
-                        </text>
-                    </view>
-
-                </view>
-            </view>
 
 
-            <button size="default" type="primary" onTap="packageReadInfo">测试</button>
+
+<!--            <button size="default" type="primary" onTap="packageReadInfo">测试</button>-->
 
 
             <!-- 会议纪要 -->

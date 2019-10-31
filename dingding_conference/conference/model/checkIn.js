@@ -33,7 +33,6 @@ class CheckIn {
                 leaveType: leaveType,
                 leaveReason: leaveReason
             },
-
         })
     }
 

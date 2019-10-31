@@ -75,6 +75,6 @@
             <button class="submit-button" size="default" type="default" form-type="submit">发布会议</button>
         </view>
     </form>
-    <button size="default" type="default" onTap="notification">测试</button>
+<!--    <button size="default" type="default" onTap="notification">测试</button>-->
 </view>
 

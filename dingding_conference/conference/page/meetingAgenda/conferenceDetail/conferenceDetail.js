@@ -162,7 +162,7 @@ Page({
         dd.showLoading({content: '加载中...'});
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
         console.log('authcode');
-        console.log(authcode);
+        console.log(authCode);
         console.log('authcode');
         const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
         this.setData({
@@ -570,45 +570,51 @@ Page({
                 const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
                 console.log('签到信息返回');
                 console.log(checkInInfoRes);
+                console.log(checkInInfoRes.code);
                 console.log('签到信息返回');
                 console.log(checkInInfoRes.data.sign_type);
-                // that.initOperationStatus(currentConference.sign_type);// 初始化按钮状态
-                switch (checkInInfoRes.data.sign_type) {
-                    case 0:// 未签到，不禁用签到按钮
-                        that.setData({
-                            'adminOperation[0].status': true,
-                            'commonOperation[1].status': true,
-                        });
-                        break;
-                    case 1:// 签到成功，禁用签到按钮
-                        dd.alert({content: '成功签到'});
-                        that.setData({
-                            'adminOperation[0].status': false,
-                            'commonOperation[0].status': false,// 禁用党员请假按钮
-                            'commonOperation[1].status': false,// 禁用签到按钮
-                            'adminOperation[0].name': '已签到',
-                            'commonOperation[1].name': '已签到',
-                        });
-                        break;
-                    case 2:// 签到迟到
-                        dd.alert({content: '您已迟到'});
-                        that.setData({
-                            'adminOperation[0].status': false,// 禁用管理员签到按钮
-                            'commonOperation[0].status': false,// 禁用党员请假按钮
-                            'commonOperation[1].status': false,// 禁用党员签到按钮
-                            'adminOperation[0].name': '已迟到',
-                            'commonOperation[1].name': '已迟到',
-                        });
-                        break;
-                    case 3:// 请假
-                        dd.alert({content: '您已请假'});
-                        that.setData({
-                            'commonOperation[0].status': false,// 禁用党员请假按钮
-                            'commonOperation[0].name': '已请假',
-                            'commonOperation[1].status': false,// 禁用党员签到按钮
-                        });
-                        break;
+                if (checkInInfoRes.code === 1) {
+                    // that.initOperationStatus(currentConference.sign_type);// 初始化按钮状态
+                    switch (checkInInfoRes.data.sign_type) {
+                        case 0:// 未签到，不禁用签到按钮
+                            that.setData({
+                                'adminOperation[0].status': true,
+                                'commonOperation[1].status': true,
+                            });
+                            break;
+                        case 1:// 签到成功，禁用签到按钮
+                            dd.alert({content: '成功签到'});
+                            that.setData({
+                                'adminOperation[0].status': false,
+                                'commonOperation[0].status': false,// 禁用党员请假按钮
+                                'commonOperation[1].status': false,// 禁用签到按钮
+                                'adminOperation[0].name': '已签到',
+                                'commonOperation[1].name': '已签到',
+                            });
+                            break;
+                        case 2:// 签到迟到
+                            dd.alert({content: '您已迟到'});
+                            that.setData({
+                                'adminOperation[0].status': false,// 禁用管理员签到按钮
+                                'commonOperation[0].status': false,// 禁用党员请假按钮
+                                'commonOperation[1].status': false,// 禁用党员签到按钮
+                                'adminOperation[0].name': '已迟到',
+                                'commonOperation[1].name': '已迟到',
+                            });
+                            break;
+                        case 3:// 请假
+                            dd.alert({content: '您已请假'});
+                            that.setData({
+                                'commonOperation[0].status': false,// 禁用党员请假按钮
+                                'commonOperation[0].name': '已请假',
+                                'commonOperation[1].status': false,// 禁用党员签到按钮
+                            });
+                            break;
+                    }
+                } else {
+                    dd.alert({content: checkInInfoRes.msg});
                 }
+
             }
             // // 开始定位
             // dd.getLocation({// 模拟器和手机真机返回不一致
