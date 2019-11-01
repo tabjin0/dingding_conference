@@ -26,7 +26,6 @@ Page({
         console.log(e);
         console.log('搜索文本是');
         console.log(e.detail.value);
-        dd.alert({ title: e.detail.value });
     }
 
 })

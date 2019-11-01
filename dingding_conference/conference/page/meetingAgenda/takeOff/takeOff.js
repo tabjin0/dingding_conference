@@ -1,6 +1,7 @@
 import {CheckIn} from "../../../model/checkIn";
 import {User} from "../../../model/users";
 import {Storage} from "../../../utils/storage";
+import {InterAction} from "../../../model/interaction";
 
 const app = getApp();
 
@@ -39,9 +40,6 @@ Page({
                             leaveType: '事假'
                         })
                 }
-                // dd.alert({
-                //     title: `你点了${btn}按钮`
-                // });
             },
         });
     },
@@ -58,7 +56,7 @@ Page({
         console.log('会议详情，当前会议');
 
         if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
-            dd.alert({content: '抱歉，未获取到当前会议，请重启应用'});
+            InterAction.fnAlert('抱歉', '未获取到当前会议，请重启应用', '好的');
         } else { //有当前会议信息，绑定当前用户与其参加会议的签到行为
             // console.log('会议详情，当前会议');
             // console.log(currentConference);
@@ -96,31 +94,32 @@ Page({
                     console.log(checkInInfo);
                     console.log('包装好的请假对象');
                     if (app.isNull(checkInInfo.mid)) {
-                        dd.alert({content: '未获取到签到会议'});
+                        InterAction.fnAlert('抱歉', '未获取到签到会议', '好的');
                     } else if (app.isNull(checkInInfo.uid)) {
-                        dd.alert({content: '未获取到用户信息'});
+                        InterAction.fnAlert('抱歉', '未获取到用户信息', '好的');
                     } else if (app.isNull(checkInInfo.address)) {
-                        dd.alert({content: '未获取到地址信息'});
+                        InterAction.fnAlert('抱歉', '未获取到地址信息', '好的');
                     } else if (app.isNull(checkInInfo.distance)) {
-                        dd.alert({content: '坐标异常'});
+                        InterAction.fnAlert('抱歉', '位置异常', '好的');
                     } else {
                         const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
                         console.log('请假反馈');
                         console.log(checkInInfoRes);
-                        if(checkInInfoRes.code == 1){// 操作成功
+                        if (checkInInfoRes.code === 1) {// 操作成功
                             // 将最新的会议状态
+                            InterAction.fnShowToast('success', '请假成功', 2000);
                         }
                         console.log('请假反馈');
-                        dd.alert({content: `${checkInInfoRes.msg}`});
+                        InterAction.fnAlert('抱歉', '请假失败！', '好的');
 
                     }
                 },
                 fail() {
-                    dd.alert({title: '定位失败'});
+                    InterAction.fnAlert('抱歉', '定位失败', '好的');
                 },
             });
         }
-        dd.alert({content: '请假'});
+        InterAction.fnAlert('抱歉', '请假', '好的');
     },
 
     /**

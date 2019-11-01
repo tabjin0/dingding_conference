@@ -2,6 +2,8 @@
  * 发钉模型
  */
 
+import {InterAction} from "./interaction";
+
 class Ding {
     static createNoticeDing(
         {
@@ -61,7 +63,7 @@ class Ding {
                 console.log(res);
             },
             fail: function (err) {
-                dd.alert({content: '发钉失败'});
+                InterAction.fnAlert('抱歉', '发钉失败', '好的');
             }
         })
     }

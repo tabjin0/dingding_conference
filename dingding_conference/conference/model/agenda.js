@@ -1,4 +1,5 @@
 import {Http} from '../utils/http';
+import {InterAction} from "./interaction";
 
 class Agenda {
     static async getAgenda() {
@@ -9,7 +10,7 @@ class Agenda {
         if (agenda.code === 1) {
             return agenda.data;
         } else {
-            dd.alert({content: '加载议题失败，请检查网络...'});
+            InterAction.fnAlert('抱歉', '加载议题失败，请检查网络...', '好的');
         }
     }
 }

@@ -1,4 +1,5 @@
 import {Summary} from "../../../model/summary";
+import {InterAction} from "../../../model/interaction";
 
 const app = getApp();
 
@@ -18,19 +19,20 @@ Page({
             content: '加载中...'
         })
         if (app.isNull(mid)) {
-            dd.alert({title: '未获取到当前会议信息'});
+            InterAction.fnAlert('抱歉', '未获取到当前会议信息', '好的');
         } else if (app.isNull(summary)) {
-            dd.alert({title: '请输入纪要内容'})
+            InterAction.fnAlert('抱歉', '请输入纪要内容', '好的');
         } else {
             const res = await Summary.submitSummary(mid, summary, imgs);
             dd.hideLoading();
             if (res.code == 1) {
-                dd.alert({title: '你已成功提交会议纪要'});
                 dd.navigateBack({
                     delta: 1
                 });
+                InterAction.fnShowToast('success', '您已成功提交会议纪要', 2000);
             } else {
-                dd.alert({title: '提交会议纪要失败'});
+                InterAction.fnAlert('抱歉', '提交会议纪要失败！', '好的');
+
             }
         }
     }

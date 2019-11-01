@@ -2,6 +2,7 @@ import {config} from "../../../config/config";
 import {UploadDownLoad} from "../../../utils/uploadDownLoad";
 import {Upload} from "../../../model/upload";
 import {Summary} from "../../../model/summary";
+import {InterAction} from "../../../model/interaction";
 
 Page({
     data: {
@@ -90,7 +91,7 @@ Page({
                         flag = true;
                     } else {
                         flag = false;
-                        dd.alert({content: `图片${totalImgIdArr.length + i + 1}拉取失败，请删除并重新选择`})
+                        InterAction.fnAlert('抱歉', `图片${totalImgIdArr.length + i + 1}拉取失败，请删除并重新选择`, '好的');
                     }
                 }
                 ;
@@ -181,9 +182,9 @@ Page({
         console.log(imgsStr)
         const res = await Summary.submitImgs(mid, imgsStr);
         console.log(res);
-        if(res.code === 1){
+        if (res.code === 1) {
             if (this.data.uploadFlag) {
-                dd.alert({title: `图片上传成功`});
+                InterAction.fnShowToast('success', '图片上传成功', 2000);
                 // dd.redirectTo({
                 //     url: '/page/meetingAgenda/conferenceDetail/conferenceDetail?mid=' + this.data.mid
                 // })
@@ -191,10 +192,9 @@ Page({
                     delta: 1
                 })
             } else {
-                dd.alert({title: `图片上传失败，请重新上传图`});
+                InterAction.fnAlert('抱歉', '`图片上传失败，请重新上传图片', '好的');
             }
         }
-
 
 
     },

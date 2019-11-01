@@ -1,4 +1,6 @@
 import {MeetingRoom} from "../../../model/meetingRoom";
+import {InterAction} from "../../../model/interaction";
+// import {InterAction} from "../../../model/interaction";
 
 const app = getApp();
 
@@ -19,19 +21,12 @@ Page({
     },
 
 
-
     test(e) {
-        dd.alert({
-            content: JSON.stringify(e.detail),
-        });
         this.webViewContext.postMessage({'sendToWebView': '1'});
     },
 
     onPullDownRefresh() {
         console.log('重新加载')
-        dd.alert({
-            content: '重新加载'
-        })
     },
 
     chooseLocation() {
@@ -77,19 +72,19 @@ Page({
         let name = e.detail.value.name;
         let location = e.detail.value.location;
         if (app.isNull(name)) {
-            dd.alert({content: '请输入会议室名称'});
-        }else if(app.isNull(location)){
-            dd.alert({content: '请定义会议室'});
-        }else {
+            InterAction.fnShowToast('fail', '请输入会议室名称', 2000);
+        } else if (app.isNull(location)) {
+            InterAction.fnShowToast('fail', '请定义会议室', 2000);
+        } else {
             const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location);
             console.log(res);
-            if(res.code === 1){
-                dd.alert({content: '编辑会议室成功'});
+            if (res.code === 1) {
+                InterAction.fnShowToast('success', '编辑会议室成功，请重新点击地点刷新会议室', 2000);
                 dd.navigateBack({
                     delta: 1
                 })
-            }else {
-                dd.alert({content: '编辑会议室失败'});
+            } else {
+                InterAction.fnAlert('抱歉', '编辑会议室失败', '好的');
             }
         }
 

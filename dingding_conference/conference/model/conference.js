@@ -1,4 +1,5 @@
 import {Http} from '../utils/http';
+import {InterAction} from "./interaction";
 
 class Conference {
 
@@ -28,7 +29,7 @@ class Conference {
         if (conferenceList.code === 1) {
             return conferenceList.data;
         } else {
-            dd.alert({content: '会议列表加载失败'});
+            InterAction.fnShowToast('fail', '会议列表加载失败！', 2000);
         }
     }
 
@@ -51,7 +52,8 @@ class Conference {
             dd.hideLoading();
             return currentConference.data
         } else {
-            dd.alert({content: '获取会议详情失败！'});
+            InterAction.fnShowToast('fail', '获取会议详情失败！', 2000);
+
         }
     }
 

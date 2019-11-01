@@ -1,5 +1,6 @@
 import {MeetingRoom} from "../../../model/meetingRoom";
 import {Agenda} from "../../../model/agenda";
+import {InterAction} from "../../../model/interaction";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
@@ -175,7 +176,7 @@ Page({
                 })
             },
             fail: function (res) {
-                dd.alert({content: '获取议题失败'});
+                InterAction.fnAlert('你好', '获取议题失败', '好的');
             },
         });
     },
@@ -212,19 +213,19 @@ Page({
         conference.orgId = 1;
         // 表单数据内省
         if (app.isNull(conference.uid)) {
-            dd.alert({title: '未获取到当前用户，请重新打开应用'});
+            InterAction.fnAlert('抱歉', '未获取到当前用户，请重新打开应用', '好的');
         } else if (app.isNull(conference.theme)) {
-            dd.alert({title: '请输入会议主题'});
+            InterAction.fnAlert('抱歉', '请输入会议主题', '好的');
         } else if (app.isNull(conference.time)) {
-            dd.alert({title: '请选择会议时间'});
+            InterAction.fnAlert('抱歉', '请选择会议时间', '好的');
         } else if (app.isNull(conference.address)) {
-            dd.alert({title: '请选择会议地点'});
+            InterAction.fnAlert('抱歉', '请选择会议地点', '好的');
         } else if (app.isNull(conference.topic)) {
-            dd.alert({title: '请选择会议议题'});
+            InterAction.fnAlert('抱歉', '请选择会议议题', '好的');
         } else if (app.isNull(conference.info)) {
-            dd.alert({title: '请输入会议内容'});
+            InterAction.fnAlert('抱歉', '请输入会议内容', '好的');
         } else if (app.isNull(conference.conferee)) {
-            dd.alert({title: '请选择参会人员'});
+            InterAction.fnAlert('抱歉', '请选择参会人员', '好的');
         } else {
             dd.httpRequest({
                 url: 'https://api.yzcommunity.cn/api/5d8b1812a0cda',
@@ -236,27 +237,21 @@ Page({
                 },
                 data: conference,
                 success: function (res) {
-                    console.log("新增会议成功");
-                    console.log(res);
-                    dd.alert({title: "新增会议成功"});
+                    InterAction.fnShowToast('success', '新增会议成功', 2000);
                     dd.navigateBack({
                         delta: 1
-                    })
-                    // dd.redirectTo({
-                    //     url: '/page/index/index'
-                    // })
-
+                    });
                 },
                 fail: function (res) {
                     console.log(res);
-                    dd.alert({content: '新增会议失败'});
+                    InterAction.fnAlert('抱歉', '新增会议失败', '好的');
                     console.log
                 },
             });
         }
     },
 
-    /** 通知 */
+    /** 发钉 */
     notification(confereeArr) {
         let that = this;
         console.log("会议内容");
@@ -265,25 +260,15 @@ Page({
         console.log("会议内容2");
 
         if (app.isNull(that.data.conference.theme)) {
-            dd.alert({
-                content: '请输入会议主题'
-            });
+            InterAction.fnAlert('抱歉', '请输入会议主题', '好的');
         } else if (app.isNull(that.data.conference.dateTime)) {
-            dd.alert({
-                content: '请选择会议时间'
-            });
+            InterAction.fnAlert('抱歉', '请选择会议时间', '好的');
         } else if (app.isNull(that.data.conference.address)) {
-            dd.alert({
-                content: '请输入会议地点'
-            });
+            InterAction.fnAlert('抱歉', '请输入会议地点', '好的');
         } else if (app.isNull(that.data.conference.agenda)) {
-            dd.alert({
-                content: '请输入会议议题'
-            });
+            InterAction.fnAlert('抱歉', '请输入会议议题', '好的');
         } else if (app.isNull(that.data.conference.info)) {
-            dd.alert({
-                content: '请输入会议内容'
-            });
+            InterAction.fnAlert('抱歉', '请输入会议内容', '好的');
         } else {
             // 发送钉
             dd.createDing({
@@ -339,11 +324,6 @@ Page({
                 }
             })
         }
-        // if (conferenceAgenda == '' || conferenceAgenda == null || conferenceAgenda == undefined) {
-        //     dd.alert({
-        //         content: '请输入会议主题'
-        //     });
-        // }
     },
 
     formReset() {
@@ -409,10 +389,6 @@ Page({
 
     onChange(e) {
         console.log(e);
-
-        // dd.alert({
-        //     title: `你选择的框架是 ${e.detail.value}`,
-        // });
     },
 
     /** 添加会议室 */
@@ -475,7 +451,7 @@ Page({
                 meetingRoomShow: true
             })
         } else {
-            dd.alert({content: '获取会议室失败！'});
+            InterAction.fnShowToast('fail', '获取会议室失败！', '2000');
         }
     },
 
@@ -496,7 +472,6 @@ Page({
      * 新增会议室
      */
     bookMeetingRoom() {
-        // dd.alert({content: '新增会议室'});
         dd.navigateTo({
             url: '/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom'
             // url: 'https://m.amap.com/picker/?keywords=写字楼&zoom=15&center=116.470098,39.9928383&radius=10004&total=20&key=e5d6440b66a44b3fa9a597b894cfc0c0'
@@ -508,9 +483,6 @@ Page({
             format: 'yyyy-MM-dd HH:mm',
             // currentDate: '2012-12-12',// 默认当前时间
             success: (res) => {
-                // dd.alert({
-                // 	content: res.date,
-                // });
                 this.setData({
                     dateTime: res.date,
                 })

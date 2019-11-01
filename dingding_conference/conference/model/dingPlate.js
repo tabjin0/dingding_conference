@@ -1,3 +1,5 @@
+import {InterAction} from "./interaction";
+
 class DingPlate {
     /**
      * 根据url保存文件到我的钉盘、企业钉盘
@@ -27,9 +29,7 @@ class DingPlate {
                 })
             },
             fail: (err) => {
-                dd.alert({
-                    content: JSON.stringify(err)
-                })
+                InterAction.fnAlert('抱歉', JSON.stringify(err), '好的');
             }
         })
     }
@@ -50,28 +50,24 @@ class DingPlate {
      */
     static querySpaceId() {
         dd.httpRequest({
-            headers: {
-                "Content-Type": "application/json;charset=UTF-8"
-            },
-            url: domain + '/dingPlate/getCustomSpace?domain=test',
-            method: 'POST',
-            dataType: 'json',
-            success: function (res) {
-                // dd.alert({ content: 'success' });
-                console.log("获取企业下的自定义空间 成功");
-                console.log(res);
-            },
-            fail: function (res) {
-                dd.alert({content: 'fail'});
-                console.log(res);
-            },
-            // complete: function(res) {
-            //     dd.alert({ content: 'complete' });
-            //     console.log(res);
-            // }
-        });
-
+                headers: {
+                    "Content-Type": "application/json;charset=UTF-8"
+                },
+                url: domain + '/dingPlate/getCustomSpace?domain=test',
+                method: 'POST',
+                dataType: 'json',
+                success: function (res) {
+                    console.log("获取企业下的自定义空间 成功");
+                    console.log(res);
+                },
+                fail: function (res) {
+                    InterAction.fnAlert('抱歉', '失败', '好的');
+                    console.log(res);
+                }
+            }
+        )
     }
+
 
     /**
      * 上传附件到钉盘/从钉盘选择文件
@@ -90,18 +86,9 @@ class DingPlate {
             data: {},
             dataType: 'json',
             success: function (res) {
-                // dd.alert({ content: 'success' });
                 console.log("授权用户访问企业自定义空间 成功");
                 console.log(res);
             },
-            // fail: function (res) {
-            // 	dd.alert({ content: 'fail' });
-            // 	console.log(res);
-            // },
-            // complete: function (res) {
-            // 	dd.alert({ content: 'complete' });
-            // 	console.log(res);
-            // }
         });
 
 
@@ -116,9 +103,7 @@ class DingPlate {
             },
             fail: (err) => {
                 console.log(err);
-                dd.alert({
-                    content: JSON.stringify(err)
-                })
+                InterAction.fnAlert('抱歉', JSON.stringify(err), '好的');
             }
         })
     }
@@ -143,9 +128,7 @@ class DingPlate {
                */
             },
             fail: (err) => {
-                dd.alert({
-                    content: JSON.stringify(err)
-                })
+                InterAction.fnAlert('抱歉', JSON.stringify(err), '好的');
             }
         })
     }

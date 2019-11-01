@@ -7,6 +7,7 @@ import {FreeLogin} from "../../../model/FreeLogin";
 import {GetLocation} from "../../../model/location";
 import {Ding} from "../../../model/ding";
 import {Storage} from "../../../utils/storage";
+import {InterAction} from "../../../model/interaction";
 
 const app = getApp();
 
@@ -533,7 +534,7 @@ Page({
         console.log(currentConference)
 
         if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
-            dd.alert({content: '抱歉，未获取到当前会议，请重启应用'});
+            InterAction.fnAlert('抱歉', '未获取到当前会议，请重启应用', '好的');
         } else { //有当前会议信息，绑定当前用户与其参加会议的签到行为
             // 首先判断当前用户是否在参加人员中
 
@@ -559,13 +560,13 @@ Page({
             checkInInfo.leaveType = "";
             checkInInfo.leaveReason = "";
             if (app.isNull(checkInInfo.mid)) {
-                dd.alert({content: '未获取到签到会议'});
+                InterAction.fnShowToast('fail', '未获取到签到会议', 2000);
             } else if (app.isNull(checkInInfo.uid)) {
-                dd.alert({content: '未获取到用户信息'});
+                InterAction.fnShowToast('fail', '未获取到用户信息', 2000);
             } else if (app.isNull(checkInInfo.address)) {
-                dd.alert({content: '未获取到地址信息'});
+                InterAction.fnShowToast('fail', '未获取到地址信息', 2000);
             } else if (app.isNull(checkInInfo.distance)) {
-                dd.alert({content: '坐标异常'});
+                InterAction.fnShowToast('fail', '位置异常', 2000);
             } else {
                 const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
                 console.log('签到信息返回');
@@ -583,7 +584,7 @@ Page({
                             });
                             break;
                         case 1:// 签到成功，禁用签到按钮
-                            dd.alert({content: '成功签到'});
+                            InterAction.fnShowToast('success', '成功签到', 2000);
                             that.setData({
                                 'adminOperation[0].status': false,
                                 'commonOperation[0].status': false,// 禁用党员请假按钮
@@ -593,7 +594,7 @@ Page({
                             });
                             break;
                         case 2:// 签到迟到
-                            dd.alert({content: '您已迟到'});
+                            InterAction.fnShowToast('success', '您已迟到', 2000);
                             that.setData({
                                 'adminOperation[0].status': false,// 禁用管理员签到按钮
                                 'commonOperation[0].status': false,// 禁用党员请假按钮
@@ -603,7 +604,7 @@ Page({
                             });
                             break;
                         case 3:// 请假
-                            dd.alert({content: '您已请假'});
+                            InterAction.fnShowToast('success', '您已请假', 2000);
                             that.setData({
                                 'commonOperation[0].status': false,// 禁用党员请假按钮
                                 'commonOperation[0].name': '已请假',
@@ -612,19 +613,12 @@ Page({
                             break;
                     }
                 } else {
-                    dd.alert({content: checkInInfoRes.msg});
+                    InterAction.fnShowToast('success', checkInInfoRes.msg, 2000);
+
+
                 }
 
             }
-            // // 开始定位
-            // dd.getLocation({// 模拟器和手机真机返回不一致
-            //     async success(res) {
-            //
-            //     },
-            //     fail() {
-            //         dd.alert({title: '定位失败'});
-            //     },
-            // });
         }
     },
 
