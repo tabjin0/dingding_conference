@@ -522,9 +522,55 @@ Page({
                 //      "selectedCount":2,
                 //      "users":[{"avatar":"","name":"王芳芳","userId":"012452322629496107"}]
                 //  }
+
+                /**
+                 *
+                 {
+	"selectedCount": 5,
+	"users": [{
+		"name": "徐安平",
+		"avatar": "https://static.dingtalk.com/media/lADPDgQ9q42pCw_NDufNDuc_3815_3815.jpg",
+		"userId": "083829343524260506"
+	}, {
+		"selectDeptName": "党支部2",
+		"selectDeptId": 143807302,
+		"name": "哇申丽娜",
+		"avatar": "https://static.dingtalk.com/media/lADPDgQ9q8RWBaXNA4XNA4U_901_901.jpg",
+		"userId": "06276449361971558656"
+	}, {
+		"name": "王芳芳",
+		"avatar": "https://static.dingtalk.com/media/lADOATikS80E2s0E1w_1239_1242.jpg",
+		"userId": "012452322629496107"
+	}, {
+		"selectDeptName": "党支部2",
+		"selectDeptId": 143807302,
+		"name": "张",
+		"avatar": "",
+		"userId": "266741284524352"
+	}],
+	"departments": [{
+		"id": 143414386,
+		"name": "党支部1",
+		"count": 1
+	}]
+}
+                 */
+
                 console.log('res')
                 console.log(res.selectedCount);
                 let chooseParticipantNumber = res.selectedCount;
+                // 检查选的个人还是部门，即users或departments
+                if (res.users) {// 用户被选
+                    res.users.forEach(user => {
+                        console.log('user.userId');
+                        console.log(user.userId);
+                        console.log('user.userId');
+
+                    })
+                }
+                if (res.departments) {// 部门被选
+                    // 根据部门查询所有用户
+                }
                 let chooseParticipant = res.users;
                 let participant = [];//参加人员
                 // if (res) {
@@ -538,12 +584,18 @@ Page({
                 //     }
                 // }
 
-                console.log(chooseParticipantNumber);
-                console.log(chooseParticipant);
-                for (let i = 0; i < chooseParticipantNumber; i++) {
+                // console.log(chooseParticipantNumber);
+                // console.log(chooseParticipant);
+                // for (let i = 0; i < chooseParticipantNumber; i++) {
+                //     chooseParticipantId.push(res.users[i].userId);
+                // }
+                for (let i = 0; i < res.users.length; i++) {
                     chooseParticipantId.push(res.users[i].userId);
                 }
+                console.log('chooseParticipantId');
                 console.log(chooseParticipantId);
+                console.log('chooseParticipantId');
+
                 that.setData({
                     chooseParticipantNumber: res.selectedCount,
                     chooseParticipant: res.users,

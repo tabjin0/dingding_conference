@@ -2,193 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc11a55-32c4-4f23-b2f0-d047396c9def" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/conference-internal/model/participator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/model/department.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/configuration/mini-program.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/editor.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/editorTabs.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-development/config$.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-development/importScripts$.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-development/index$.web.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-development/index$.worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-production/config$.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-production/importScripts$.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-production/index$.web.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/entryFiles-production/index$.worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/.tea/recentlyTouched.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/app.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid-item/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid-item/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid-item/index.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid-item/index.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid/index.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid/index.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/components/grid/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/config/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/libs/amap-wx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/FreeLogin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/agenda.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/apiAccessToken.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/checkIn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/conference.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/date.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/ding.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/dingPlate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/interaction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/location.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/meetingRoom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/notes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/notice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/partyMember.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/statistic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/summary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/system.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/upload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/model/users.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/addConference/addConference.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/addConference/addConference.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/addConference/addConference.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/addConference/addConference.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/conferenceManager/conferenceManager.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/conferenceManager/conferenceManager.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/conferenceManager/conferenceManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/conferenceManagement/conferenceManager/conferenceManager.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/addMeetingSummary/addMeetingSummary.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/addMeetingSummary/addMeetingSummary.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/addMeetingSummary/addMeetingSummary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/addMeetingSummary/addMeetingSummary.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/index.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/index.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/notes/notes.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/notes/notes.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/notes/notes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/notes/notes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/search/search.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/search/search.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/search/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/index/search/search.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/addConference/addConference.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/addConference/addConference.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/addConference/addConference.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/addConference/addConference.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/conferenceDetail/conferenceDetail.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/conferenceDetail/conferenceDetail.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/conferenceDetail/conferenceDetail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/conferenceDetail/conferenceDetail.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/photo/photo.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/photo/photo.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/photo/photo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/photo/photo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/takeOff/takeOff.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/takeOff/takeOff.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/takeOff/takeOff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/meetingAgenda/takeOff/takeOff.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/myOrganization/myOrganization.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/myOrganization/myOrganization.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/myOrganization/myOrganization.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/myOrganization/myOrganization.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/singleMember/singleMember.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/singleMember/singleMember.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/singleMember/singleMember.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/organization/singleMember/singleMember.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/statisticalReport/statisticalReport/statisticalReport.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/statisticalReport/statisticalReport/statisticalReport.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/statisticalReport/statisticalReport/statisticalReport.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/collapse/collapse.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/collapse/collapse.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/collapse/collapse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/collapse/collapse.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/labelTemplate/labelTemplate.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/labelTemplate/labelTemplate.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/labelTemplate/labelTemplate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/templates/labelTemplate/labelTemplate.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/test/test.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/test/test.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/test/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/page/test/test.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-adress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-adress2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-text2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-time.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-time2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo-下拉2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/圆角矩形1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/圆角矩形12x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/照片单张.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/conferenceDetial/照片单张2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/biaoqing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/canjia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/didian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/ding.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/fujian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/huiyi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/leida.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/lianxiren.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/liexia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/liexiren.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/miaoshucopy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/right2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/shangchuan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/shezhi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/shijian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/shoucang2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/xiangce.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/addConference/yaoqing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/common/add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/common/delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/common/female.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/common/male.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/common/statistic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/organiztion/face.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/organiztion/face2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/organiztion/female.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/organiztion/headImg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/organiztion/headImg2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/organiztion/male.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/chart-selected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/chart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/huiyiyiti-selected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/huiyiyiti.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/icon1_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/icon1_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/icon2_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/icon2_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/icon3_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/icon3_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/shenbao-selected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/shenbao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/ziyuan-selected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/icon/tabBar/ziyuan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/testIcon/th.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/testIcon/th1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/wodezhibu/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/wodezhibu/logo2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/wodezhibu/何凤鸣.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/wodezhibu/何凤鸣2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/wodezhibu/王芳芳.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/resources/wodezhibu/王芳芳2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/MD5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/date/dateTimePicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/http.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/location.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/storage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/uploadDownLoad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/utils/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/model/FreeLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/FreeLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -202,27 +20,6 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="108" column="67" selection-start-line="108" selection-start-column="67" selection-end-line="108" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conference-internal/model/participator.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -234,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="-2921">
               <caret line="167" column="64" selection-start-line="167" selection-start-column="64" selection-end-line="167" selection-end-column="64" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
@@ -255,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+            <state relative-caret-position="332">
+              <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -264,8 +61,55 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conference-internal/model/FreeLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+            <state relative-caret-position="722">
+              <caret line="67" column="90" selection-start-line="67" selection-start-column="90" selection-end-line="67" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/model/department.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="554" column="6" lean-forward="true" selection-start-line="554" selection-start-column="6" selection-end-line="554" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/model/users.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="49" column="35" lean-forward="true" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/utils/storage.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.axml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="711">
+              <caret line="73" column="85" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -282,8 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>httpRe</find>
-      <find>time</find>
       <find>getAccessToken</find>
       <find>conferenceList</find>
       <find>conferenceListByUserId</find>
@@ -310,8 +152,10 @@
       <find>dd.alert</find>
       <find>fnAlert</find>
       <find>提醒阅读</find>
-      <find>checkUserInfo</find>
       <find>is_sys</find>
+      <find>新增</find>
+      <find>checkUserInfo</find>
+      <find>currentUser</find>
     </findStrings>
     <replaceStrings>
       <replace>catchTap</replace>
@@ -337,10 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/conference/app.json" />
-        <option value="$PROJECT_DIR$/conference/page/meetingAgenda/addConference/addConference.acss" />
-        <option value="$PROJECT_DIR$/conference/page/organization/singleMember/singleMember.axml" />
-        <option value="$PROJECT_DIR$/conference/page/statisticalReport/statisticalReport/statisticalReport.acss" />
         <option value="$PROJECT_DIR$/conference/utils/location.js" />
         <option value="$PROJECT_DIR$/conference/model/location.js" />
         <option value="$PROJECT_DIR$/conference/model/calendar.js" />
@@ -387,6 +227,10 @@
         <option value="$PROJECT_DIR$/conference-internal/page/index/index.js" />
         <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" />
         <option value="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" />
+        <option value="$PROJECT_DIR$/conference-internal/page/index/index.axml" />
+        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js" />
+        <option value="$PROJECT_DIR$/conference-internal/model/users.js" />
+        <option value="$PROJECT_DIR$/conference-internal/model/department.js" />
         <option value="$PROJECT_DIR$/conference-internal/model/FreeLogin.js" />
       </list>
     </option>
@@ -432,6 +276,13 @@
               <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
               <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="meetingAgenda" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -440,7 +291,21 @@
               <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="meetingAgenda" type="462c0819:PsiDirectoryNode" />
+              <item name="addConference" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="meetingAgenda" type="462c0819:PsiDirectoryNode" />
               <item name="conferenceDetail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -496,12 +361,12 @@
       <workItem from="1572574567208" duration="361000" />
       <workItem from="1572748217936" duration="490000" />
       <workItem from="1572789766295" duration="19000" />
-      <workItem from="1572828991315" duration="2640000" />
+      <workItem from="1572828991315" duration="12033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257695000" />
+    <option name="totallyTimeSpent" value="267088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="22" width="1635" height="1178" extended-state="0" />
@@ -530,11 +395,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/conference/utils/api.js" />
-    <entry file="file://$PROJECT_DIR$/conference/utils/MD5.js" />
-    <entry file="file://$PROJECT_DIR$/conference/utils/http.js" />
-    <entry file="file://$PROJECT_DIR$/conference/app.js" />
-    <entry file="file://$PROJECT_DIR$/conference/page/index/index.acss" />
     <entry file="file://$PROJECT_DIR$/conference/model/calendar.js" />
     <entry file="file://$PROJECT_DIR$/conference/model/map.js" />
     <entry file="file://$PROJECT_DIR$/conference/model/location.js" />
@@ -598,23 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="167" column="64" selection-start-line="167" selection-start-column="64" selection-end-line="167" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -622,10 +465,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="711">
+          <caret line="73" column="85" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2921">
+          <caret line="167" column="64" selection-start-line="167" selection-start-column="64" selection-end-line="167" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="554" column="6" lean-forward="true" selection-start-line="554" selection-start-column="6" selection-end-line="554" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/utils/storage.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/model/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="49" column="35" lean-forward="true" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/model/department.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/conference-internal/model/FreeLogin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+        <state relative-caret-position="722">
+          <caret line="67" column="90" selection-start-line="67" selection-start-column="90" selection-end-line="67" selection-end-column="90" />
         </state>
       </provider>
     </entry>
