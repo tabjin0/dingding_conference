@@ -18,9 +18,3 @@
     </form>
 </view>
 
-
-<!--<web-view id="web-view-1" src="https://m.amap.com/picker/?keywords=写字楼&zoom=15&center=116.470098,39.9928383&radius=10004&total=20&key=e5d6440b66a44b3fa9a597b894cfc0c0" onMessage="test"></web-view>-->
-<!--<web-view id="web-view-1" src="https://lbs.amap.com/api/amap-ui/demos/amap-ui-positionpicker/position-picker" onMessage="test"></web-view>-->
-<!--<web-view id="web-view-1" src="https://www.baidu.com" onMessage="test"></web-view>-->
-
-

@@ -1,6 +1,8 @@
 import {MeetingRoom} from "../../../model/meetingRoom";
 import {Agenda} from "../../../model/agenda";
 import {InterAction} from "../../../model/interaction";
+import {Department} from "../../../model/department";
+import {Storage} from "../../../utils/storage";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
@@ -53,71 +55,13 @@ Page({
                 {
                     agendaTypeIndex: 0,
                     agendaTypeName: '会议议题',
-                    agendaContent: [
-                        // {
-                        //     id: 1,
-                        //     name: '党支部组织的理论学习教育及党性教育实践活动',
-                        // }, {
-                        //     id: 2,
-                        //     name: '党支部\"统一活动日\"\"主题党日\"等活动',
-                        // }, {
-                        //     id: 3,
-                        //     name: '党课',
-                        // }, {
-                        //     id: 4,
-                        //     name: '组织生活会（民主生活会）',
-                        // }, {
-                        //     id: 5,
-                        //     name: '民主评议党员活动',
-                        // }, {
-                        //     id: 6,
-                        //     name: '党小组会、党员大会',
-                        // }, {
-                        //     id: 7,
-                        //     name: '足额交纳党费',
-                        // }, {
-                        //     id: 8,
-                        //     name: '社区报到开展志愿服务',
-                        // }, {
-                        //     id: 9,
-                        //     name: '结对帮扶、走访慰问活动',
-                        // }, {
-                        //     id: 10,
-                        //     name: '\"立足岗位、创先争优\"活动',
-                        // }
-                    ],
+                    agendaContent: [],
                     expanded: false,
                 },
             ],
         },
 
-        operation: [
-            // {
-            //     index: 0,
-            //     pagePath: "/page/index/index",
-            //     icon: "/resources/icon/addConference/huiyi.png",
-            //     activeIcon: "/resources/icon/tarbar/ziyuan-selected.png",
-            //     name: "新增会议室",
-            //     isSelected: true // 默认选中
-            // },
-            {
-                operaImg: '/resources/icon/addConference/huiyi.png',
-                operaTitle: '新增会议室',
-                operaTap: 'addMeetingRoom',
-                isShow: true
-            },
-            {
-                operaImg: '/resources/icon/addConference/ding.png',
-                operaTitle: '通知',
-                operaTap: 'notification',
-                isShow: true
-            }, {
-                operaImg: '/resources/icon/addConference/fujian.png',
-                operaTitle: '附件',
-                operaTap: 'attachment',
-                isShow: true
-            },
-        ]
+        isOpen: true,// 默认公开
     },
 
     onLoad() {
@@ -151,33 +95,14 @@ Page({
     },
 
     async getAgendaArray() {
-        let that = this;
-        console.log("77777");
-        console.log(that.data.collapseData.panels[0])
         let agendaContent = [];
-        dd.httpRequest({
-            url: 'https://api.yzcommunity.cn/api/5d8b1976c8132',
-            method: 'GET',
-            headers: {
-                // 'Content-Type': 'application/json',
-                'version': 'v3.0',
-                'access-token': ''
-            },
-            dataType: 'json',
-            success: function (res) {
-                console.log(res);
-                console.log(res.data.data);
-                console.log("1223");
-                for (let i = 0; i < res.data.data.length; i++) {
-                    agendaContent.push(res.data.data[i]);
-                }
-                that.setData({
-                    'collapseData.panels[0].agendaContent': agendaContent
-                })
-            },
-            fail: function (res) {
-                InterAction.fnAlert('你好', '获取议题失败', '好的');
-            },
+        const agendaList = await Agenda.getAgenda();
+        // 内省在agenda模型中做了
+        for (let i = 0; i < agendaList.length; i++) {
+            agendaContent.push(agendaList[i]);
+        }
+        this.setData({
+            'collapseData.panels[0].agendaContent': agendaContent
         });
     },
 
@@ -198,19 +123,17 @@ Page({
     },
 
     /**
-     * 发布会以
+     * 发布会议
      * @param e
      */
     formSubmit(e) {
-        // this.notification();// 发Ding
 
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
+        let currentUser = Storage.getStorageSyncByKey('currentUser');
         let conference = e.detail.value;
-        // conference.topic = e.detail.value.topic.join(',');
-        console.log('conference');
-        console.log(conference);
-        console.log(app.isNull(conference.uid))
-        conference.orgId = 1;
+        conference.orgId = currentUser.orgId;
+        conference.open = conference.isOpen ? 1 : 0;
+        delete conference.radio;
         // 表单数据内省
         if (app.isNull(conference.uid)) {
             InterAction.fnAlert('抱歉', '未获取到当前用户，请重新打开应用', '好的');
@@ -493,6 +416,7 @@ Page({
     chooseParticipant() {
         let that = this;
         let chooseParticipantId = [];
+
         dd.complexChoose({
             title: "参加人员",            //标题
             multiple: true,            //是否多选
@@ -506,22 +430,10 @@ Page({
             requiredDepartments: [],        //必选部门（不可取消选中状态）
             permissionType: "GLOBAL",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
             responseUserOnly: false,        //返回人，或者返回人和部门
-            success: function (res) {
-                /**
-                 {
-					selectedCount:1,                              //选择人数
-					users:[{"name":"","avatar":"","userId":""}]，//返回选人的列表，列表中的对象包含name（用户名），avatar（用户头像），userId（用户工号）三个字段
-					departments:[{"id":,"name":"","count":}]//返回已选部门列表，列表中每个对象包含id（部门id）、name（部门名称）、number（部门人数）
-				}
-                 */
+            success: async function (res) {
                 console.log("res");
                 console.log(res);
                 console.log(JSON.stringify(res));
-                // {
-                //      "departments":[{"count":1,"id":"141618006","name":"广电产业经营党支部"}],
-                //      "selectedCount":2,
-                //      "users":[{"avatar":"","name":"王芳芳","userId":"012452322629496107"}]
-                //  }
 
                 /**
                  *
@@ -560,38 +472,18 @@ Page({
                 console.log(res.selectedCount);
                 let chooseParticipantNumber = res.selectedCount;
                 // 检查选的个人还是部门，即users或departments
-                if (res.users) {// 用户被选
+                if (JSON.stringify(res.users) != '[]') {// 用户被选
                     res.users.forEach(user => {
-                        console.log('user.userId');
-                        console.log(user.userId);
-                        console.log('user.userId');
-
-                    })
+                        chooseParticipantId.push(user.userId);
+                    });
                 }
-                if (res.departments) {// 部门被选
+
+                if (JSON.stringify(res.departments) != '[]') {// 部门被选
                     // 根据部门查询所有用户
+                    const denpartmentUseridList = await Department.getDepartmentUserid(res.departments[0].id);
+                    chooseParticipantId.push(...denpartmentUseridList);
                 }
-                let chooseParticipant = res.users;
-                let participant = [];//参加人员
-                // if (res) {
-                //     if (res.users) {
-                //         participant = res.users;// ok
-                //     }
-                //     if (res.departments) {
-                //         // 根据部门id查询部门用户，然后该部门用户逐一加入participant数组中
-                //
-                //         // chooseParticipantNumber += res.departments[i].length;
-                //     }
-                // }
 
-                // console.log(chooseParticipantNumber);
-                // console.log(chooseParticipant);
-                // for (let i = 0; i < chooseParticipantNumber; i++) {
-                //     chooseParticipantId.push(res.users[i].userId);
-                // }
-                for (let i = 0; i < res.users.length; i++) {
-                    chooseParticipantId.push(res.users[i].userId);
-                }
                 console.log('chooseParticipantId');
                 console.log(chooseParticipantId);
                 console.log('chooseParticipantId');
@@ -605,9 +497,13 @@ Page({
             fail: function (err) {
             }
         });
+    },
 
-        console.log("数据");
-        console.log(that.data.chooseParticipant);
+    switchChange(e) {
+        console.log('switchChange 事件，值:', e.detail.value);
+        this.setData({
+            isOpen: e.detail.value
+        })
     },
 
     test() {
@@ -617,6 +513,5 @@ Page({
         app.getUrl('agendaArray');
         console.log("9999999");
     }
-
 });
 

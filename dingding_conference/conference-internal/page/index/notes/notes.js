@@ -53,13 +53,14 @@ Page({
             console.log(res);
             console.log('点击提交按钮，提交的内容');
             if (res.code == 1) {
-                dd.navigateBack({
-                    delta: 1
-                });
                 InterAction.fnShowToast('success', '您已成功提交会议笔记', 2000);
+                setTimeout(function () {
+                    dd.navigateBack({
+                        delta: 1
+                    });
+                }, 2000);
             } else {
                 InterAction.fnAlert('抱歉', '提交笔记失败！', '好的');
-
             }
         }
 

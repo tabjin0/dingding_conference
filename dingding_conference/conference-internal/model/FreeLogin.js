@@ -51,13 +51,9 @@ class FreeLogin {
 }
      */
     static async freeLogin(authCode, corpId) {
-        dd.showLoading({content: '加载中...'});
+        // dd.showLoading({content: '加载中...'});
         // {authCode: "46f4d5f8748b3c31a1b5ae2ebc5e2775"}
         const currentUser = await User.getCurrentUser(authCode, corpId); // 网络获取钉钉返回的当前用户信息 ok
-        console.log('currentUser');
-        console.log(currentUser);
-        console.log(JSON.stringify(currentUser));
-        console.log('currentUser');
         // 总管理员
         Storage.setStorageSyncByKeyAndValue('isAdmin', currentUser.isAdmin);
 
@@ -65,21 +61,21 @@ class FreeLogin {
         let department = currentUser.department[0];
         let isLeaderInDeptsStr = currentUser.isLeaderInDepts.replace(/(\d+):/g, "\"$1\":");
         let isLeaderInDepts = JSON.parse(isLeaderInDeptsStr);
+        Storage.setStorageSyncByKeyAndValue('currentUser', currentUser);
         Storage.setStorageSyncByKeyAndValue('isLeaderInDepts', isLeaderInDepts[department]);
-        console.log(isLeaderInDepts);
-        console.log(isLeaderInDepts[department]);
-
-        if (currentUser.is_sys) {
-            // 管理员
+        Storage.setStorageSyncByKeyAndValue('user', currentUser.userid);// ok
+        if (isLeaderInDepts[department]) {
+            // 部门主管
             Storage.setStorageSyncByKeyAndValue('administrator', currentUser.userid);// ok
-            Storage.setStorageSyncByKeyAndValue('user', currentUser.userid);// ok
-            dd.hideLoading();
+
         } else {
-            // 非管理员
-            Storage.setStorageSyncByKeyAndValue('user', currentUser.userid);// ok
-            dd.hideLoading();
+            // 非部门主管
         }
-        return currentUser;
+        console.log(currentUser);
+        return {
+            currentUser: currentUser,
+            isLeaderInDepts: isLeaderInDepts
+        };
     }
 }
 

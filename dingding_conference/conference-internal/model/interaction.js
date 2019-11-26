@@ -1,5 +1,5 @@
 /**
- * 交互模型
+ * 钉钉版本交互模型
  */
 
 class InterAction {

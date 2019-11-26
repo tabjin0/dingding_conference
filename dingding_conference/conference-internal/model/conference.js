@@ -40,7 +40,6 @@ class Conference {
      * @returns {Promise<*>}
      */
     static async getConferenceDetail(mid, uid) {
-        dd.showLoading({content: '加载会议详情中...'});
         const currentConference = await Http.request({
             url: `5d8d73e29c22c`,
             data: {
@@ -49,7 +48,6 @@ class Conference {
             }
         });
         if (currentConference.code === 1) {
-            dd.hideLoading();
             return currentConference.data
         } else {
             InterAction.fnShowToast('fail', '获取会议详情失败！', 2000);

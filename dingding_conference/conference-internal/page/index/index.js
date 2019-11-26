@@ -4,6 +4,8 @@ import {System} from '../../model/system';
 import {FreeLogin} from "../../model/FreeLogin";
 import {ApiAccessToken} from "../../model/apiAccessToken";
 import {Storage} from "../../utils/storage";
+import {InterAction} from "../../model/interaction";
+import {VersionController} from "../../model/VersionController";
 
 const app = getApp();
 
@@ -24,8 +26,10 @@ Page({
         userId: '',
         userName: '',
         isAdmin: false,// 默认不是管理员
-        // isAdmin: true,// 默认是管理员
+        isLeaderInDepts: false,// 默认不是部门主管
         hideList: true,
+
+        hasMeeting: true,// 默认有会议的
 
         nowConferenceList: null,// 当前会议
         futureConferenceList: null,// 预备会议
@@ -35,45 +39,36 @@ Page({
         isShowFutureConferenceList: false,// 默认不显示预备会议列表
         isShowPastConferenceList: false,// 默认不显示历史会议列表
 
-
         isNeedCheckIn: true,// 默认需要签到
-
-        // checkInInfo: {
-        //     uid: '1219441916791739',// 签到用户
-        //     address: '11,11',// 用户签到地点
-        //     mid: 0,// 签到会议id
-        //     type: "3",// 签到状态，0签到成功，1早到，2迟到，3未签到
-        //     leaveType: '请假类型',
-        //     leaveReason: '请假理由',
-        // },
-        // checkInRes: null,// 当前用户的签到情况
-
     },
 
     async onLoad() {
-        // this.initData();// 初始化页面数据
+        dd.showLoading({content: '加载中...'}); // ok
+        this.initData();// 重新初始化会议列表
+        dd.hideLoading(); // ok
     },
 
     async onShow() {
+        // dd.showLoading({content: '加载中...'}); // ok
+        this.initData();// 重新初始化会议列表
+
         const res = await ApiAccessToken.initAccessToken();
         console.log(res);
-        this.initData();// 重新初始化会议列表
     },
 
     /**
      * 初始化页面数据
      */
     async initData() {
-        dd.showLoading({
-            content: '加载中...'
-        });
+
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
         const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        // console.log('freelogin')
-        // console.log(currentUser)
-        // console.log('freelogin')
+        console.log('currentUser');
+        console.log(currentUser);
+
         this.setData({
-            isAdmin: currentUser.isAdmin
+            isAdmin: currentUser.currentUser.isAdmin,
+            isLeaderInDepts: Storage.getStorageSyncByKey('isLeaderInDepts')
         });
 
         this.initConferenceData();// 获取会议列表
@@ -83,20 +78,18 @@ Page({
     async initConferenceData() {
         let that = this;
         const currentUserid = Storage.getStorageSyncByKey('user');
-        console.log('初始化会议数据，当前用户');
-        console.log(currentUserid);
-        console.log('初始化会议数据，当前用户');
-        const conferenceList = await Conference.getConferenceList();// 获取会议列表
-        const conferenceListByUserId = await Conference.getConferenceList(currentUserid);// 获取当前用户会议列表，因为涉及到用户签到情况
-        // console.log(conferenceList);
-        // console.log(conferenceListByUserId);
-        dd.hideLoading();
 
-        const nowConferenceList = conferenceList.now;// 当前会议
-        const futureConferenceList = conferenceList.future;// 预备会议
+        // const conferenceList = await Conference.getConferenceList();// 获取会议列表
+        const conferenceListByUserId = await Conference.getConferenceList(currentUserid);// 获取当前用户会议列表，因为涉及到用户签到情况
+
+        const nowConferenceList = conferenceListByUserId.now;// 当前会议
+        const futureConferenceList = conferenceListByUserId.future;// 预备会议
         const pastConferenceList = conferenceListByUserId.past;// 当前用户历史会议
 
-        // 控制列表显示
+        // 控制列表显示，没有会议，展示"暂无会议"
+
+
+        // 有会议
         if (nowConferenceList.length == 0) {// 没有当前会议，不显示
             that.setData({
                 isShowNowConferenceList: false
@@ -125,19 +118,33 @@ Page({
             })
         }
 
+        if (nowConferenceList.length == 0 &&
+            futureConferenceList.length == 0 &&
+            pastConferenceList.length == 0) {
+            that.setData({
+                hasMeeting: false
+            });
+            // InterAction.fnShowToast('exception', '无会议记录', 2000);
+        } else {
+            that.setData({
+                hasMeeting: true
+            });
+        }
+
         // 将当前用户
         this.setData({
             nowConferenceList: nowConferenceList,// 当前会议
             futureConferenceList: futureConferenceList,// 预备会议
             pastConferenceList: pastConferenceList,// 当前用户历史会议
         });
+
+
     },
 
     /**
      * 下拉刷新
      */
     async onPullDownRefresh() {
-        console.log('onPullDownRefresh');
         this.initData();// 重新初始化会议列表
         dd.stopPullDownRefresh();
     },
@@ -178,12 +185,6 @@ Page({
     },
 
     async chooseLoca() {
-        const res = await ApiAccessToken.initAccessToken();
-        // console.log()
-        // console.log(abc)
-        // let value = 666;
-        // // Storage.setStorageByKeyAndValue('123', {value});
-        // const res = Storage.getStorageByKey('AccessToken');
-        // console.log(res.access_token)
+        await VersionController.isAppNewVersion("0.0.45");
     }
 })

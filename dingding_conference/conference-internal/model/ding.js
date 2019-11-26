@@ -11,7 +11,7 @@ class Ding {
             corpId,
             alertType = 0,// 钉发送方式 0:电话, 1:短信, 2：应用内；类型 Number
             alertDate = {"format": "yyyy-MM-dd HH:mm", "value": "2019-08-29 08:25"}, // 非必选，定时发送时间, 非定时DING不需要填写
-            type = 2,// 附件类型 1：image, 2：link；类型: Number
+            type = 1,// 附件类型 1：image, 2：link；类型: Number
             attachment = {
                 images: ["https://www.baidu.com/img/bd_logo1.png?where=super", "https://www.baidu.com/img/bd_logo1.png?where=super", "https://www.baidu.com/img/bd_logo1.png?where=super"], // 图片附件, type=1时, 必选；类型: Array<String>
                 image: "https://www.baidu.com/img/bd_logo1.png?where=super", // 链接附件, type=2时, 必选；类型: String
@@ -46,7 +46,7 @@ class Ding {
 
             // 非必选
             // 附件信息
-            attachment: attachment,
+            // attachment: attachment,
 
             text: text,  // 正文
             bizType: bizType, // 业务类型 0：通知DING；1：任务；2：会议；

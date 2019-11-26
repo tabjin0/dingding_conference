@@ -17,13 +17,11 @@
                     </view>
                     <view class="line"></view>
                     <view class="flex-row address-inner-container">
-                        <image class="img1" mode="scaleToFill"
-                               src="/resources/conferenceDetial/logo-adress.png"></image>
+                        <image class="img1" mode="scaleToFill" src="/resources/conferenceDetial/logo-adress.png"></image>
                         <view class="address-text">{{conference.address}}</view>
                     </view>
                 </view>
             </view>
-
             <!-- 会议议题 -->
             <view class="outer-container">
                 <view class="flex-row">
@@ -31,19 +29,16 @@
                     <view class="theme-text">会议议题</view>
                 </view>
                 <view class="row-line"></view>
-                <!--                <view class="info-inner-container">-->
-                <!--&lt;!&ndash;                    <text>{{conference.info}}</text>&ndash;&gt;-->
-                <!--                </view>-->
-                <view class="info-inner-container" class="flex-row" a:for="{{conference.topic}}"
-                      a:for-index="topic_index" a:for-item="topic_item">
+                <!--<view class="info-inner-container">-->
+                <!--&lt;!&ndash;<text>{{conference.info}}</text>&ndash;&gt;-->
+                <!--</view>-->
+                <view class="info-inner-container" class="flex-row" a:for="{{conference.topic}}" a:for-index="topic_index" a:for-item="topic_item">
                     <view class="flex-column">
                         <text selectable="true" class="theme">{{topic_item.name}}
                         </text>
                     </view>
-
                 </view>
             </view>
-
             <!-- 会议内容 -->
             <view class="outer-container">
                 <view class="flex-row">
@@ -59,10 +54,8 @@
             <view class="flex-column outer-container">
                 <!-- 参加状态 -->
                 <view class="flex-row participant-title-container">
-                    <block a:for="{{participatedStatus}}" a:for-index="participatedStatus_index"
-                           a:for-item="participatedStatus_item">
-                        <view class="participant-title {{participatedStatus_index==swiperParticipantCurrent?'current':''}}"
-                              onTap="switchParticipantSwiper" data-index="{{participatedStatus_index}}">
+                    <block a:for="{{participatedStatus}}" a:for-index="participatedStatus_index" a:for-item="participatedStatus_item">
+                        <view class="participant-title {{participatedStatus_index==swiperParticipantCurrent?'current':''}}" onTap="switchParticipantSwiper" data-index="{{participatedStatus_index}}">
                             {{participatedStatus_item}}
                         </view>
                     </block>
@@ -70,8 +63,7 @@
                 <!-- 人员信息 -->
                 <view class="participant">
                     <swiper current="{{swiperParticipantCurrent}}" onChange="swiperParticipantChange">
-                        <block a:for="{{confereeInfo}}" a:for-index="conferee_info_index"
-                               a:for-item="conferee_info_item">
+                        <block a:for="{{confereeInfo}}" a:for-index="conferee_info_index" a:for-item="conferee_info_item">
                             <view style="width:100%;">
                                 <swiper-item class="flex-row conferee-info-container">
                                     <view class="flex-row conferee-info-item" a:for="{{conferee_info_item}}">
@@ -87,10 +79,8 @@
             <view class="flex-column outer-container">
                 <!-- 阅读状态 -->
                 <view class="flex-row participant-title-container">
-                    <block a:for="{{noticeReadStatus}}" a:for-index="noticeReadStatus_index"
-                           a:for-item="noticeReadStatus_item">
-                        <view class="participant-title {{noticeReadStatus_index==swiperNoticeReadCurrent?'current':''}}"
-                              onTap="switchNoticeReadSwiper" data-index="{{noticeReadStatus_index}}">
+                    <block a:for="{{noticeReadStatus}}" a:for-index="noticeReadStatus_index" a:for-item="noticeReadStatus_item">
+                        <view class="participant-title {{noticeReadStatus_index==swiperNoticeReadCurrent?'current':''}}" onTap="switchNoticeReadSwiper" data-index="{{noticeReadStatus_index}}">
                             {{noticeReadStatus_item}}
                         </view>
                     </block>
@@ -98,25 +88,21 @@
                 <!-- 阅读人员信息 -->
                 <view class="participant">
                     <swiper current="{{swiperNoticeReadCurrent}}" onChange="swiperNoticeReadChange">
-                        <block a:for="{{readInfo}}" a:for-index="read_info_index"
-                               a:for-item="read_info_item">
+                        <block a:for="{{readInfo}}" a:for-index="read_info_index" a:for-item="read_info_item">
                             <view class="read-inner-container" style="width:100%;">
                                 <swiper-item class="flex-row conferee-info-container">
                                     <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
                                         <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
                                     </view>
                                 </swiper-item>
-                                <view a:if="{{read_info_index === 1}}" class="notice" onTap="notice">提醒阅读</view>
+                                <view a:if="{{read_info_index === 1 && isLeaderInDepts === true}}" class="notice" onTap="notice">提醒阅读
+                                </view>
                             </view>
                         </block>
                     </swiper>
                 </view>
             </view>
-
-
-            <!--            <button size="default" type="primary" onTap="packageReadInfo">测试</button>-->
-
-
+            <!--<button size="default" type="primary" onTap="packageReadInfo">测试</button>-->
             <!-- 会议纪要 -->
             <view class="outer-container">
                 <view class="flex-row">
@@ -130,15 +116,15 @@
                 </view>
                 <!-- 会议纪要图片 -->
                 <view class="image-container">
-                    <!--                    <view class="image-title">图片</view>   -->
+                    <!--<view class="image-title">图片</view>   -->
                     <view class="upload-img-container">
                         <!--这个是已经选好的图片-->
                         <block a:for="{{imgArr}}" a:key="key">
                             <view class="upload-img" onTap="showImage" style="border-radius: 5rpx" data-id="{{index}}">
                                 <image class="img-item" src="{{item}}"></image>
-                                <!--                                <image class="closeImv {{isAdmin==true?closeImv:'hide'}}"-->
-                                <!--                                       src="/resources/icon/common/delete.png" mode="scaleToFill"-->
-                                <!--                                       catchTap="deleteImv" data-id="{{index}}"></image>-->
+                                <!--<image class="closeImv {{isAdmin==true?closeImv:'hide'}}"-->
+                                <!-- src="/resources/icon/common/delete.png" mode="scaleToFill"-->
+                                <!-- catchTap="deleteImv" data-id="{{index}}"></image>-->
                             </view>
                         </block>
                         <!--这个是选择图片-->
@@ -148,24 +134,19 @@
                     </view>
                 </view>
             </view>
-
         </view>
-
-
     </view>
 </view>
 <!-- 底部按钮 -->
 <view class="operation-container">
     <view class="circle-container">
-        <block a:for="{{isAdmin == true ? adminOperation: commonOperation}}" a:for-index="operation_index"
-               a:for-item="operation_item">
+        <block a:for="{{isLeaderInDepts == true ? adminOperation: commonOperation}}" a:for-index="operation_index" a:for-item="operation_item">
             <view class="flex-row middle-button notice-feedback-container">
-                <button class="notice-feedback" size="" type="default" data-conference="{{}}"
-                        onTap="{{operation_item.operation}}" disabled="{{!operation_item.status}}">
-                    {{operation_item.name}}
+                <button class="notice-feedback" size="" type="default" data-conference="{{}}" onTap="{{operation_item.operation}}" disabled="{{!operation_item.status}}">
+                    <text class="">{{operation_item.name}}</text>
+                    <!--<image src="{{operation_item.img}}" class="operation-img" mode="scaleToFill" lazy-load="true"></image> -->
                 </button>
             </view>
         </block>
     </view>
 </view>
-

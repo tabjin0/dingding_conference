@@ -2,8 +2,6 @@
   "pages": [
     "page/index/index",
     "page/meetingAgenda/addConference/addConference",
-    "page/conferenceManagement/addConference/addConference",
-    "page/conferenceManagement/conferenceManager/conferenceManager",
     "page/statisticalReport/statisticalReport/statisticalReport",
     "page/meetingAgenda/conferenceDetail/conferenceDetail",
     "page/templates/labelTemplate/labelTemplate",

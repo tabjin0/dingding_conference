@@ -1,5 +1,4 @@
 .out-container {
-    width: 100%;
     background-color: #FFFFFF;
     border: 1rpx solid transparent;
     margin-bottom: 32rpx;

@@ -32,7 +32,7 @@
                            style="width: 100%;"></input>
                 </view>
                 <view class="flex-row radio-group-container">
-                    <radio-group class="radio-group" onChange="radioChange">
+                    <radio-group name="radio" class="radio-group" onChange="radioChange">
                         <label class="radio" a:for="{{meetingRoom}}" a:for-index="meetingRoom_index"
                                a:for-item="meetingRoom_item">
                             <radio value="{{meetingRoom_item}}" checked="{{item.checked}}"/>
@@ -59,22 +59,23 @@
                     <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
                 </view>
                 <view class="flex-row" style="margin-left: auto;position:relative;">
-                    <!--                    <block class="flex-row child-align-right" a:for="{{chooseParticipant}}">-->
-                    <!--                        <view style="float: right;margin-left: auto;">-->
-                    <!--                            <image class="label-img-24pt" mode="scaleToFill" src="{{item.avatar}}"/>-->
-                    <!--                        </view>-->
-                    <!--                    </block>-->
                     <view class="participant-number" a:if="{{chooseParticipantNumber > 0}}">
                         {{chooseParticipantNumber}}人
                     </view>
                     <view class="a-collapse-title-arrow a-collapse-title-arrow-right"></view>
                 </view>
             </view>
+
+            <!-- 是否公开 -->
+            <view class="isOpen-container">
+                <text class="isOpen-text">{{isOpen?'公开':'不公开'}}</text>
+                <switch class="isOpen-switch" name="isOpen" checked onChange="switchChange"/>
+            </view>
         </view>
         <view class="submit-button-container">
             <button class="submit-button" size="default" type="default" form-type="submit">发布会议</button>
         </view>
     </form>
-<!--    <button size="default" type="default" onTap="notification">测试</button>-->
+    <!--    <button size="default" type="default" onTap="notification">测试</button>-->
 </view>
 

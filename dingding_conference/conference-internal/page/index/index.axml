@@ -1,5 +1,9 @@
-<view>
-    <view class="container">
+<view class="out-container">
+    <view class="noMeeting" hidden="{{hasMeeting}}">
+        <image src="/resources/index/noMeeting.png" class="noMeetingImg" mode="scaleToFill" lazy-load="true"></image>
+    </view>
+
+    <view class="container" hidden="{{!hasMeeting}}">
         <!-- 会议提醒 -->
         <view class="conference-list" hidden="{{!isShowNowConferenceList}}">
             <!-- 会议优先级种类 -->
@@ -26,6 +30,7 @@
                 </view>
             </view>
         </view>
+
         <!-- 预备会议 -->
         <view class="conference-list" hidden="{{!isShowFutureConferenceList}}">
             <!-- 会议优先级种类 -->
@@ -71,7 +76,8 @@
             </view>
 <!--            <button size="default" type="primary" onTap="chooseLoca">测试</button>-->
         </view>
-        <view class="flex-row middle-button check-in-container" hidden="{{!isAdmin}}">
+
+        <view class="flex-row middle-button check-in-container" hidden="{{!isLeaderInDepts}}">
             <!--<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增<br>会议</button>-->
             <view class="check-in" onTap="addConference">
                 <text>新增\n会议</text>

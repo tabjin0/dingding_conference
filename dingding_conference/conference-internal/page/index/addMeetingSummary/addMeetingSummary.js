@@ -25,11 +25,13 @@ Page({
         } else {
             const res = await Summary.submitSummary(mid, summary, imgs);
             dd.hideLoading();
-            if (res.code == 1) {
-                dd.navigateBack({
-                    delta: 1
-                });
+            if (res.code === 1) {
                 InterAction.fnShowToast('success', '您已成功提交会议纪要', 2000);
+                setTimeout(function () {
+                    dd.navigateBack({
+                        delta: 1
+                    });
+                }, 2000);
             } else {
                 InterAction.fnAlert('抱歉', '提交会议纪要失败！', '好的');
 

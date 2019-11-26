@@ -71,15 +71,22 @@ class User {
             url: '5d9ffdf120fb5',
             data: {
                 code: authCode,
-                // corpId: corpId,
-                orgId: 1,
             }
         });
         if (currentUserRes.code === 1) {
             return currentUserRes.data;
         } else {
-            InterAction.fnAlert('抱歉', '用户登录失败！', '好的');
+            // InterAction.fnAlert('抱歉', '用户登录失败！', '好的');
+            InterAction.fnAlert('抱歉', `${currentUserRes.msg}`, '好的');
+
         }
+    }
+
+    static async getUserDepartment() {
+        const userDepartment = await Http.request({
+            url: ``,
+
+        })
     }
 }
 

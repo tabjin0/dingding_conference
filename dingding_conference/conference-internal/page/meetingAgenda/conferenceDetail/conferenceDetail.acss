@@ -10,6 +10,7 @@ page {
 }
 
 /*外框*/
+
 .outer-container {
     width: 100%;
     background: rgba(255, 255, 255, 1);
@@ -17,6 +18,7 @@ page {
 }
 
 /*会议名内框*/
+
 .theme-inner-container {
     /*margin-top: 30rpx;*/
     /*padding-bottom: 30rpx;*/
@@ -30,6 +32,7 @@ page {
 }
 
 /*左边小图标*/
+
 .img2 {
     width: 30rpx;
     height: 28rpx;
@@ -37,8 +40,8 @@ page {
     margin-left: 33rpx;
 }
 
-
 /*文字*/
+
 .theme-text {
     width: 646rpx;
     font-size: 34rpx;
@@ -50,7 +53,6 @@ page {
     /*white-space: nowrap;*/
     /*overflow: hidden;*/
     /*text-overflow: ellipsis;*/
-
 }
 
 .inner-container {
@@ -70,13 +72,13 @@ page {
     margin-bottom: 15rpx;
 }
 
-
 .address-inner-container {
     margin-right: 25rpx;
     margin-left: auto;
 }
 
 /*时间文字*/
+
 .time-text {
     height: 26rpx;
     font-size: 34rpx;
@@ -87,6 +89,7 @@ page {
 }
 
 /*地址文字*/
+
 .address-text {
     height: 26rpx;
     font-size: 34rpx;
@@ -97,6 +100,7 @@ page {
 }
 
 /*横线*/
+
 .row-line {
     /*width:691rpx;*/
     height: 2rpx;
@@ -106,6 +110,7 @@ page {
 }
 
 /*内容内框*/
+
 .info-inner-container {
     /*width:100%;*/
     font-size: 34rpx;
@@ -265,7 +270,6 @@ page {
     line-height: 58px;
     text-align: center;
     margin-left: 30rpx;
-
 }
 
 .participant {
@@ -273,7 +277,7 @@ page {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
     /*margin-left: 28rpx;*/
     /*padding-left: 28rpx;*/
 }
@@ -294,8 +298,9 @@ page {
 }
 
 /*姓名标签*/
+
 .conferee-info-item {
-    width: 116rpx;
+    /*width: 116rpx;*/
     height: 50rpx;
     background-color: rgba(229, 245, 253, 1);
     border: 1rpx solid rgba(54, 66, 250, 1);
@@ -304,38 +309,41 @@ page {
     margin-top: 43rpx;
     margin-left: 30rpx;
     padding: 0 5rpx;
-    overflow: hidden;
+    /*overflow: hidden;*/
     /* text-overflow: ellipsis; */
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 /*姓名标签文字*/
+
 .conferee-info-item-name {
-    width: 90rpx;
+    /*width: 90rpx;*/
     margin: 0 auto;
     line-height: 50rpx;
     font-size: 30rpx;
     font-family: PingFang SC;
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
-    overflow: hidden;
-    text-overflow: clip;
-    white-space: nowrap;
+    /*overflow: hidden;*/
+    /*text-overflow: clip;*/
+    /*white-space: nowrap;*/
 }
 
 .read-inner-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
 }
 
 /*提醒阅读*/
+
 .notice {
     font-size: 30rpx;
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(164, 164, 164, 1);
     margin: 0 auto;
+    margin-top: 43rpx;
 }
 
 .avatar {
@@ -380,6 +388,8 @@ page {
     justify-content: space-around;
 }
 
+.operation-img {}
+
 .middle-button {
     display: flex;
     flex-direction: row;
@@ -395,6 +405,10 @@ page {
     width: 130rpx;
     height: 130rpx;
     border-radius: 50%;
+    background-color: #de453d;
+    /*opacity: 0.2;*/
+    border: 1rpx solid #de453d;
+    color: black;
     text-align: center;
     line-height: 130rpx;
 }

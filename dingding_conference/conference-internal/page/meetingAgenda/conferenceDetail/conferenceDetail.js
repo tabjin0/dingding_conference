@@ -15,6 +15,7 @@ Page({
     data: {
         currentUserId: null,// 当前用户id
         isAdmin: false,// 默认是非管理员
+        isLeaderInDepts: false,// 默认非部门主管
         conference: {},
         currentConference: null,// 当前会议
         currentConferenceMid: null,
@@ -37,17 +38,7 @@ Page({
         swiperNoticeReadCurrent: 0,
 
         filePaths: null,
-        imgArr: [
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-        ],
+        imgArr: [],
         chooseViewShow: true,
         imgObjArr: [],
 
@@ -58,18 +49,21 @@ Page({
                 operation: 'locationCheckCurrentConference',
                 name: "签到",
                 status: true,
+                img: '/resources/conferenceDetial/checkIn.png'
             },
             {
                 index: 2,
                 operation: 'toPhoto',
                 name: "照片",
                 status: true,
+                img: '/resources/conferenceDetial/photo.png'
             },
             {
                 index: 3,
                 operation: 'summary',
                 name: "纪要",
                 status: true,
+                img: '/resources/conferenceDetial/summary.png'
             },
         ],
 
@@ -105,14 +99,19 @@ Page({
     },
 
     async onLoad(param) {
+
         let mid = param.mid
-        // this.initData(mid);
+
         this.setData({
             currentConferenceMid: mid
-        })
+        });
+        dd.showLoading({content: '加载中...'});
+        this.initData(mid);
+        dd.hideLoading();
     },
 
     onShow() {
+
         let mid = this.data.currentConferenceMid;
         this.initData(mid);
         this.setData({
@@ -135,7 +134,7 @@ Page({
      */
     async initData(mid) {
         const userId = await this.checkUserInfo();
-        // console.log('userId:' + userId);
+        console.log('userId:' + userId);
         const currentConference = await Conference.getConferenceDetail(mid, userId);
         console.log('onload,根据mid和uid获取用户会议详情');
         console.log(currentConference);
@@ -160,14 +159,14 @@ Page({
      * 初始化用户信息
      */
     async initUser() {
-        dd.showLoading({content: '加载中...'});
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
         console.log('authcode');
         console.log(authCode);
         console.log('authcode');
         const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
         this.setData({
-            isAdmin: currentUser.isAdmin
+            isAdmin: currentUser.currentUser.isAdmin,
+            isLeaderInDepts: Storage.getStorageSyncByKey('isLeaderInDepts')
         });
         return currentUser;
     },
@@ -180,20 +179,21 @@ Page({
     async checkUserInfo() {
         let that = this;
         const isAdmin = Storage.getStorageSyncByKey('isAdmin');// 管理员标志从缓存中获取
+        const isLeaderInDepts = Storage.getStorageSyncByKey('isLeaderInDepts');// 主管标志从缓存中获取
         const userid = Storage.getStorageSyncByKey('user');// 从缓存中获取到当前用户
         let userId = null;
-        if (app.isNull(isAdmin) || app.isNull(userid)) {
+        if (app.isNull(isLeaderInDepts) || app.isNull(userid)) {
             // 如果缓存中没有是否是管理员或当前用户信息,则从网络获取当前用户，并将当前用户信息缓存
             const currentUserInfo = await that.initUser();
             console.log('currentUserInfo')
             console.log(currentUserInfo)
             console.log('currentUserInfo')
-            userId = currentUserInfo.userid;
-            dd.hideLoading();
+            userId = currentUserInfo.currentUser.userid;
         } else {
             this.setData({
                 isAdmin: isAdmin,
-                currentUserId: userid
+                currentUserId: userid,
+                isLeaderInDepts: isLeaderInDepts
             })
             userId = userid;
         }
@@ -332,11 +332,11 @@ Page({
     packageReadInfo(currentConference) {
         const read = currentConference.msg;
         let readArr = [];       // 通知阅读情况数组
-        readArr.push(currentConference.msg.read);
-        readArr.push(currentConference.msg.unread);
+        readArr.push(currentConference.msg.read);// readArr[0]
+        readArr.push(currentConference.msg.unread);// readArr[1]
         this.setData({
             readInfo: readArr
-        })
+        });
     },
 
     /**
@@ -347,10 +347,10 @@ Page({
         let swiperChangeCurrent = parseInt(e.currentTarget.dataset.index),
             num = parseInt(e.currentTarget.dataset.index)
         this.curIndex = parseInt(e.currentTarget.dataset.index)
-        console.log('切换swiper');
-        console.log(e);
-        console.log('swiperChangeCurrent:' + swiperChangeCurrent);
-        console.log('切换swiper');
+        // console.log('切换swiper');
+        // console.log(e);
+        // console.log('swiperChangeCurrent:' + swiperChangeCurrent);
+        // console.log('切换swiper');
         this.setData({
             swiperParticipantCurrent: swiperChangeCurrent
         })
@@ -361,12 +361,12 @@ Page({
      * @param e
      */
     swiperParticipantChange(e) {
-        console.log('触发会议人员轮播');
-        console.log(e);
+        // console.log('触发会议人员轮播');
+        // console.log(e);
         this.setData({
             swiperParticipantCurrent: e.detail.current
         })
-        console.log(this.data.swiperParticipantCurrent)
+        // console.log(this.data.swiperParticipantCurrent)
     },
 
     /**
@@ -378,10 +378,10 @@ Page({
             swiperChangeCurrent = parseInt(e.currentTarget.dataset.index),
             num = parseInt(e.currentTarget.dataset.index)
         this.curIndex = parseInt(e.currentTarget.dataset.index)
-        console.log('切换swiper');
-        console.log(e);
-        console.log('swiperChangeCurrent:' + swiperChangeCurrent);
-        console.log('切换swiper');
+        // console.log('切换swiper');
+        // console.log(e);
+        // console.log('swiperChangeCurrent:' + swiperChangeCurrent);
+        // console.log('切换swiper');
         this.setData({
             curNavId: id,
             curIndex: swiperChangeCurrent,
@@ -394,8 +394,8 @@ Page({
      * @param e
      */
     swiperNoticeReadChange(e) {
-        console.log('触发阅读情况轮播轮播');
-        console.log(e);
+        // console.log('触发阅读情况轮播轮播');
+        // console.log(e);
         this.setData({
             swiperNoticeReadCurrent: e.detail.current
         })
@@ -412,9 +412,9 @@ Page({
             sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
             success: async function (res) {
                 // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-                console.log('返回选定照片的本地文件路径列表');
-                console.log(res);
-                console.log(res.apFilePaths);
+                // console.log('返回选定照片的本地文件路径列表');
+                // console.log(res);
+                // console.log(res.apFilePaths);
                 if (res.apFilePaths.count == 0) {
                     return;
                 }
@@ -425,7 +425,7 @@ Page({
                 that.setData({
                     cacheImg: res.filePaths[0]
                 })
-                console.log('上传图片名：');
+                // console.log('上传图片名：');
                 // console.log('图片上传');
                 // console.log(uploadImg);
 
@@ -506,21 +506,21 @@ Page({
     },
 
     async formSubmit(e) {
-        console.log(e);
-        console.log('e.detail.value');
-        console.log(e.detail.value);
+        // console.log(e);
+        // console.log('e.detail.value');
+        // console.log(e.detail.value);
         let conference = JSON.parse(this.data.conference);
         let mid = conference.id;
         let uid = '11111111111';
         let text = e.detail.value.text;
         // let img = this.data.imgArr.join(',');
         let img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
-        console.log(mid);
-        console.log(uid);
-        console.log(text);
-        console.log(img);
+        // console.log(mid);
+        // console.log(uid);
+        // console.log(text);
+        // console.log(img);
         let res = await Notes.submitNotes(mid, uid, text, img);
-        console.log(res);
+        // console.log(res);
     },
 
     /**
@@ -531,7 +531,7 @@ Page({
     async locationCheckCurrentConference() {
         let that = this;
         let currentConference = that.data.conference;
-        console.log(currentConference)
+        // console.log(currentConference)
 
         if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
             InterAction.fnAlert('抱歉', '未获取到当前会议，请重启应用', '好的');
@@ -546,11 +546,10 @@ Page({
             const res = await GetLocation.getLocation();
             let currentLatitude = parseFloat(res.longitude);
             let currentLongitude = parseFloat(res.latitude);
-            dd.hideLoading();
             const distance = CheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
-            console.log('distance')
-            console.log(distance)
-            console.log('distance')
+            // console.log('distance')
+            // console.log(distance)
+            // console.log('distance')
             // 包装签到对象
             let checkInInfo = {};
             checkInInfo.mid = currentConference.id;
@@ -569,11 +568,11 @@ Page({
                 InterAction.fnShowToast('fail', '位置异常', 2000);
             } else {
                 const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
-                console.log('签到信息返回');
-                console.log(checkInInfoRes);
-                console.log(checkInInfoRes.code);
-                console.log('签到信息返回');
-                console.log(checkInInfoRes.data.sign_type);
+                // console.log('签到信息返回');
+                // console.log(checkInInfoRes);
+                // console.log(checkInInfoRes.code);
+                // console.log('签到信息返回');
+                // console.log(checkInInfoRes.data.sign_type);
                 if (checkInInfoRes.code === 1) {
                     // that.initOperationStatus(currentConference.sign_type);// 初始化按钮状态
                     switch (checkInInfoRes.data.sign_type) {
@@ -627,7 +626,7 @@ Page({
      */
     takeOff() {
         let that = this;
-        console.log(that.data.conference);
+        // console.log(that.data.conference);
         const conference = that.data.conference;
         dd.navigateTo({
             url: '/page/meetingAgenda/takeOff/takeOff?conference=' + JSON.stringify(conference),
@@ -688,11 +687,18 @@ Page({
      * 发送钉
      */
     notice() {
-        console.log(this.data.conference)
-        let userIdArr = Conference.extractUserId(this.data.conference.conferee);
-        console.log(userIdArr);
+        // console.log(this.data.conference)
+        // let userIdArr = Conference.extractUserId(this.data.conference.conferee);// 全部参会人员id
+        // console.log(userIdArr);
+        let useridArr = [];
+        this.data.readInfo[1].forEach(user => {
+            useridArr.push(user.userid);
+        });
+        console.log('useridArr');
+        console.log(useridArr);
+        console.log('useridArr');
         Ding.createNoticeDing({
-            users: userIdArr,
+            users: useridArr,
             corpId: app.globalData.corpId,
             text: this.data.conference.theme,
         })

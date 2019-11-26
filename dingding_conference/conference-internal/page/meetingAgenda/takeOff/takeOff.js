@@ -1,5 +1,4 @@
 import {CheckIn} from "../../../model/checkIn";
-import {User} from "../../../model/users";
 import {Storage} from "../../../utils/storage";
 import {InterAction} from "../../../model/interaction";
 
@@ -9,11 +8,13 @@ Page({
     data: {
         conference: null,
         leaveType: null,
-        leaveReason: null
+        leaveReason: null,
+        isTakeOff: 0,// 请假标志，0，请假失败；1请假成功
+        isTake: 'wa'
     },
+
     onLoad(param) {
-        console.log('请假界面');
-        var conference = JSON.parse(param.conference);
+        let conference = JSON.parse(param.conference);
         // console.log('从会议详情界面携带的数据为：' + conference);
         // console.log(conference);
         this.setData({
@@ -44,55 +45,137 @@ Page({
         });
     },
 
+
     /**
-     * 请假 type 3
-     * @returns {Promise<void>}
+     * 表单提交
      */
-    async takeOff() {
-        var that = this;
-        var currentConference = that.data.conference;
-        console.log('会议详情，当前会议');
-        console.log(currentConference);
-        console.log('会议详情，当前会议');
+    formSubmit(e) {
+        let that = this;
+        console.log(e);
+        that.setData({
+            leaveReason: e.detail.value.leaveReason
+        })
+
+
+        let currentConference = that.data.conference;
+        // console.log('会议详情，当前会议');
+        // console.log(currentConference);
+        // console.log('会议详情，当前会议');
+
+        let isTakeOff = 0;// 请假失败
 
         if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
             InterAction.fnAlert('抱歉', '未获取到当前会议，请重启应用', '好的');
         } else { //有当前会议信息，绑定当前用户与其参加会议的签到行为
-            // console.log('会议详情，当前会议');
-            // console.log(currentConference);
-            // console.log('会议详情，当前会议');
-            // 首先判断当前用户是否在参加人员中
-
             // 会议地点经纬度
-            var currentLocation = currentConference.roomId.location.split(',');
-            var latitude = parseFloat(currentLocation[0]);// 纬度
-            var longitude = parseFloat(currentLocation[1]);// 经度（大）
-            console.log(currentLocation);
-            console.log('纬度：' + latitude);
-            console.log('经度：' + longitude);
+            let currentLocation = currentConference.roomId.location.split(',');
+            let latitude = parseFloat(currentLocation[0]);// 纬度
+            let longitude = parseFloat(currentLocation[1]);// 经度（大）
+            // console.log(currentLocation);
+            // console.log('纬度：' + latitude);
+            // console.log('经度：' + longitude);
 
             // 开始定位
             dd.getLocation({// 模拟器和手机真机返回不一致
                 async success(res) {
-                    console.log('定位结果');
-                    console.log(res);
-                    console.log('定位结果');
-                    var currentLatitude = parseFloat(res.longitude);
-                    var currentLongitude = parseFloat(res.latitude);
-                    dd.hideLoading();
+                    // console.log('定位结果');
+                    // console.log(res);
+                    // console.log('定位结果');
+                    let currentLatitude = parseFloat(res.longitude);
+                    let currentLongitude = parseFloat(res.latitude);
                     // 计算距离
                     const distance = CheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
                     // 包装请假对象
-                    var checkInInfo = {};
+                    let checkInInfo = {};
                     checkInInfo.mid = currentConference.id;
                     checkInInfo.uid = Storage.getStorageSyncByKey('user');
                     checkInInfo.address = res.address;
                     checkInInfo.distance = distance;
                     checkInInfo.leaveType = that.data.leaveType;
                     checkInInfo.leaveReason = that.data.leaveReason;
-                    console.log('包装好的请假对象');
-                    console.log(checkInInfo);
-                    console.log('包装好的请假对象');
+                    // console.log('包装好的请假对象');
+                    // console.log(checkInInfo);
+                    // console.log('包装好的请假对象');
+                    if (app.isNull(checkInInfo.mid)) {
+                        InterAction.fnAlert('抱歉', '未获取到签到会议', '好的');
+                    } else if (app.isNull(checkInInfo.uid)) {
+                        InterAction.fnAlert('抱歉', '未获取到用户信息', '好的');
+                    } else if (app.isNull(checkInInfo.address)) {
+                        InterAction.fnAlert('抱歉', '未获取到地址信息', '好的');
+                    } else if (app.isNull(checkInInfo.distance)) {
+                        InterAction.fnAlert('抱歉', '位置异常', '好的');
+                    } else {
+                        const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
+                        console.log('请假反馈');
+                        console.log(checkInInfoRes);
+                        if (checkInInfoRes.code === 1) {// 操作成功
+                            InterAction.fnShowToast('success', '请假成功', 2000);
+                            setTimeout(function () {
+                                dd.navigateBack({
+                                    delta: 1
+                                });
+                            }, 2000);
+                        } else {
+                            InterAction.fnAlert('抱歉', `${checkInInfoRes.msg}`, '好的');
+                        }
+                    }
+                },
+                fail() {
+                    InterAction.fnAlert('抱歉', '定位失败', '好的');
+                    // that.setData({
+                    //     isTakeOff: 0
+                    // })
+                    isTakeOff = 0;// 请假失败
+                },
+            });
+        }
+    },
+
+    /**
+     * 请假 type 3
+     * @returns {Promise<void>}
+     */
+    takeOff() {
+        let that = this;
+        let currentConference = that.data.conference;
+        // console.log('会议详情，当前会议');
+        // console.log(currentConference);
+        // console.log('会议详情，当前会议');
+
+        let isTakeOff = 0;// 请假失败
+
+        if (app.isNull(currentConference)) {// currentConference，提示为获取到当前会议
+            InterAction.fnAlert('抱歉', '未获取到当前会议，请重启应用', '好的');
+        } else { //有当前会议信息，绑定当前用户与其参加会议的签到行为
+            // 会议地点经纬度
+            let currentLocation = currentConference.roomId.location.split(',');
+            let latitude = parseFloat(currentLocation[0]);// 纬度
+            let longitude = parseFloat(currentLocation[1]);// 经度（大）
+            // console.log(currentLocation);
+            // console.log('纬度：' + latitude);
+            // console.log('经度：' + longitude);
+
+            // 开始定位
+            dd.getLocation({// 模拟器和手机真机返回不一致
+                async success(res) {
+                    // console.log('定位结果');
+                    // console.log(res);
+                    // console.log('定位结果');
+                    let currentLatitude = parseFloat(res.longitude);
+                    let currentLongitude = parseFloat(res.latitude);
+                    // 计算距离
+                    const distance = CheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
+                    // 包装请假对象
+                    let checkInInfo = {};
+                    checkInInfo.mid = currentConference.id;
+                    checkInInfo.uid = Storage.getStorageSyncByKey('user');
+                    checkInInfo.address = res.address;
+                    checkInInfo.distance = distance;
+                    checkInInfo.leaveType = that.data.leaveType;
+                    checkInInfo.leaveReason = that.data.leaveReason;
+                    // console.log('包装好的请假对象');
+                    // console.log(checkInInfo);
+                    // console.log('包装好的请假对象');
                     if (app.isNull(checkInInfo.mid)) {
                         InterAction.fnAlert('抱歉', '未获取到签到会议', '好的');
                     } else if (app.isNull(checkInInfo.uid)) {
@@ -107,43 +190,36 @@ Page({
                         console.log(checkInInfoRes);
                         if (checkInInfoRes.code === 1) {// 操作成功
                             // 将最新的会议状态
-                            InterAction.fnShowToast('success', '请假成功', 2000);
+                            // that.data.isTakeOff = true;// 请假成功
+                            // that.setData({
+                            //     isTakeOff: 1,
+                            //     isTake: '请假成功'
+                            // });
+                            isTakeOff = 1;// 请假成功
+                        } else {
+                            // that.data.isTakeOff = false;// 请假失败
+                            // that.setData({
+                            //     isTakeOff: 0,
+                            //     isTake: '请假失败'
+                            // })
+                            isTakeOff = 0;// 请假失败
                         }
-                        console.log('请假反馈');
-                        InterAction.fnAlert('抱歉', '请假失败！', '好的');
-
                     }
                 },
                 fail() {
                     InterAction.fnAlert('抱歉', '定位失败', '好的');
+                    // that.setData({
+                    //     isTakeOff: 0
+                    // })
+                    isTakeOff = 0;// 请假失败
                 },
             });
         }
-        InterAction.fnAlert('抱歉', '请假', '好的');
+        that.setData({
+            isTakeOff: isTakeOff,
+            isTake: '修改isTakeOff成功',
+            successed: isTakeOff
+        })
     },
 
-    /**
-     * 表单提交
-     */
-    formSubmit(e) {
-        console.log(e);
-        this.setData({
-            leaveReason: e.detail.value.leaveReason
-        })
-        console.log('请假')
-        this.takeOff();
-        console.log('请假')
-        // dd.navigateBack({
-        //     delta: 1
-        // });
-        dd.navigateTo({
-            url: '/page/index/index',
-            success: (res) => {
-                console.log(res);
-            },
-            fail: (res) => {
-                console.log(res);
-            }
-        });
-    }
 });

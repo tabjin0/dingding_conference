@@ -1,6 +1,7 @@
 import {Statistic} from "../../../model/statistic";
 import {System} from "../../../model/system";
 import {FreeLogin} from "../../../model/FreeLogin";
+import {Storage} from "../../../utils/storage";
 
 const app = getApp();
 
@@ -9,7 +10,9 @@ Page({
         conferenceStatistic: []
     },
     async onLoad() {
-        // await this.initData();
+        dd.showLoading({content: '加载中...' });
+        await this.initData();
+        dd.hideLoading();
     },
 
     async onShow() {
@@ -18,21 +21,20 @@ Page({
 
     async onPullDownRefresh() {
         await this.initData();
+        dd.stopPullDownRefresh();
     },
 
     async initUser() {
-        dd.showLoading({
-            content: '加载中...'
-        });
+        // dd.showLoading({content: '加载中...' });
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
-        const freeLogin = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        // console.log('freeLogin');
-        // console.log(freeLogin);
-        // console.log('freeLogin');
+        const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
         this.setData({
-            isAdmin: freeLogin.isAdmin
+            // isAdmin: currentUser.currentUser.isAdmin,
+            // isLeaderInDepts: currentUser.currentUser.isLeaderInDepts
+            isAdmin: Storage.getStorageSyncByKey('isAdmin'),
+            isLeaderInDepts: Storage.getStorageSyncByKey('isLeaderInDepts')
         });
-        return freeLogin;
+        return currentUser;
     },
 
     /**
@@ -45,13 +47,9 @@ Page({
         let userId = user.userid;
         console.log(userId);
         const conferenceStatistic = await Statistic.conferenceStatistic(userId);
-        console.log(conferenceStatistic);
         this.setData({
             conferenceStatistic: conferenceStatistic
         });
-        console.log('this.data.conferenceStatistic')
-        console.log(this.data.conferenceStatistic)
-        dd.hideLoading();
 
     },
 

@@ -1,3 +1,6 @@
+import {VersionController} from "./model/VersionController";
+import {config} from "./config/config";
+
 App({
     onLaunch(options) {
         console.log('App Launch', options);
@@ -5,8 +8,28 @@ App({
         console.log('SDKVersion', dd.SDKVersion);
         this.globalData.corpId = options.query.corpId;
     },
-    onShow() {
-        console.log('App Show');
+    async onShow() {
+
+        // 1. 可以将用户相关登录提取到这边，这边尤其需要涉及到部门，因为头部title需要更改
+        dd.setNavigationBar({
+            title: '广电产业经营党支部支部会议',
+            backgroundColor: '#D40029',
+            // success() {
+            //     dd.alert({
+            //         content: '设置成功',
+            //     });
+            // },
+            // fail() {
+            //     dd.alert({
+            //         content: '设置失败',
+            //     });
+            // },
+        });
+
+        // 2. 版本校验提醒
+        const version = await VersionController.isAppNewVersion(`${config.currentVersion}`);
+
+
     },
     onHide() {
         console.log('App Hide');

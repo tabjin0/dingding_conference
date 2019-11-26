@@ -10,7 +10,10 @@
         </view>
     </view>
     <view class="locationC">
-        <image class="locationC-head-img" mode="scaleToFill" src="{{gender == '男' ? headImg[0] : headImg[1]}}"></image>
+        <image a:if="{{!singleMember.headImg}}" class="locationC-head-img" mode="aspectFill"
+               src="{{singleMember.gender == '男'?headImg[0]:headImg[1]}}"></image>
+        <image a:if="{{singleMember.headImg}}" class="locationC-head-img" mode="aspectFill"
+               src="{{singleMember.headImg}}"></image>
     </view>
     <view class="locationD">
         <view class="locationD-basic-info">
