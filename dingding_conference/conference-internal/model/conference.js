@@ -51,7 +51,6 @@ class Conference {
             return currentConference.data
         } else {
             InterAction.fnShowToast('fail', '获取会议详情失败！', 2000);
-
         }
     }
 

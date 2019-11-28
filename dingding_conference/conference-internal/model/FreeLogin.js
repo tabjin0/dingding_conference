@@ -11,44 +11,6 @@ class FreeLogin {
      * @param authCode
      * @param corpId
      * @returns {Promise<void>}
-     *
-     {
-	"active": true,
-	"avatar": "https://static-legacy.dingtalk.com/media/lADPDgQ9rMrUgnbNAzTNAzU_821_820.jpg",
-	"department": [143414386],
-	"email": "",
-	"errcode": 0,
-	"errmsg": "ok",
-	"isAdmin": true,
-	"isBoss": false,
-	"isHide": false,
-	"isLeaderInDepts": "{143414386:true}",
-	"isSenior": false,
-	"jobnumber": "",
-	"mobile": "18952594881",
-	"name": "张进",
-	"openId": "eVUkKaegVEoI1D3lGJ6PDgiEiE",
-	"orderInDepts": "{143414386:180012095089372660}",
-	"position": "",
-	"remark": "",
-	"roles": [{
-		"groupName": "默认",
-		"id": 427106940,
-		"name": "主管理员",
-		"type": 101
-	}, {
-		"groupName": "默认",
-		"id": 427106943,
-		"name": "主管",
-		"type": 104
-	}],
-	"stateCode": "86",
-	"tags": [],
-	"tel": "",
-	"unionid": "eVUkKaegVEoI1D3lGJ6PDgiEiE",
-	"userid": "1219441916791739",
-	"workPlace": ""
-}
      */
     static async freeLogin(authCode, corpId) {
         // dd.showLoading({content: '加载中...'});
@@ -67,11 +29,9 @@ class FreeLogin {
         if (isLeaderInDepts[department]) {
             // 部门主管
             Storage.setStorageSyncByKeyAndValue('administrator', currentUser.userid);// ok
-
         } else {
             // 非部门主管
         }
-        console.log(currentUser);
         return {
             currentUser: currentUser,
             isLeaderInDepts: isLeaderInDepts

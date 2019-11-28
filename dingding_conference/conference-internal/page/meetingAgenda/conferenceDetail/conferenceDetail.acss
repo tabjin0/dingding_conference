@@ -388,7 +388,11 @@ page {
     justify-content: space-around;
 }
 
-.operation-img {}
+.operation-img {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+}
 
 .middle-button {
     display: flex;
@@ -405,12 +409,12 @@ page {
     width: 130rpx;
     height: 130rpx;
     border-radius: 50%;
-    background-color: #de453d;
-    /*opacity: 0.2;*/
-    border: 1rpx solid #de453d;
-    color: black;
-    text-align: center;
-    line-height: 130rpx;
+    background-color: #ffffff;
+    /*background-color: #de453d;*/
+    /*border: 1rpx solid #de453d;*/
+    /*color: black;*/
+    /*text-align: center;*/
+    /*line-height: 130rpx;*/
 }
 
 .image-container {

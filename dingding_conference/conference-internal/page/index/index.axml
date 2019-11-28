@@ -76,12 +76,12 @@
             </view>
 <!--            <button size="default" type="primary" onTap="chooseLoca">测试</button>-->
         </view>
-
-        <view class="flex-row middle-button check-in-container" hidden="{{!isLeaderInDepts}}">
+   
+    </view>
+    <view class="flex-row middle-button check-in-container" hidden="{{!isLeaderInDepts}}">
             <!--<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增<br>会议</button>-->
             <view class="check-in" onTap="addConference">
                 <text>新增\n会议</text>
             </view>
         </view>
-    </view>
 </view>

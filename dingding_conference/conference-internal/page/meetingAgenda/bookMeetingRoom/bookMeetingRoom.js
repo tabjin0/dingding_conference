@@ -20,11 +20,6 @@ Page({
 
     },
 
-
-    test(e) {
-        this.webViewContext.postMessage({'sendToWebView': '1'});
-    },
-
     onPullDownRefresh() {
         console.log('重新加载')
     },
@@ -40,7 +35,7 @@ Page({
                     'conference.address': res.address,// 地址
                     'conference.longitude': res.longitude,// 经度(钉钉接口模拟器这边有问题)
                     'conference.latitude': res.latitude,// 纬度
-                    location: `${res.longitude},${res.latitude}000000`
+                    location: `${res.longitude},${res.latitude}`
                 });
 
                 dd.openLocation({

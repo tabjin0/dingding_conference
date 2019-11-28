@@ -2,58 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc11a55-32c4-4f23-b2f0-d047396c9def" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/conference-internal/model/VersionController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/model/party/party-branch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/conferenceDetial/checkIn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/conferenceDetial/photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/conferenceDetial/summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/index/noMeeting.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editor.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editor.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/importScripts$.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/importScripts$.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/importScripts$.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/importScripts$.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.web.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/config/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/model/FreeLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/FreeLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/model/conference.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/conference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/department.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/department.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/ding.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/ding.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/interaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/interaction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/model/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/addConference/addConference.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/addConference/addConference.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/addConference/addConference.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/addConference/addConference.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/conferenceManager/conferenceManager.acss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/conferenceManager/conferenceManager.axml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/conferenceManager/conferenceManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conferenceManagement/conferenceManager/conferenceManager.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/addMeetingSummary/addMeetingSummary.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/addMeetingSummary/addMeetingSummary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/index.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/index.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/index.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/index.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/notes/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/notes/notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.acss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/takeOff/takeOff.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/takeOff/takeOff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/singleMember/singleMember.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/singleMember/singleMember.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/singleMember/singleMember.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/singleMember/singleMember.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/utils/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/resources/icon/organiztion/headImg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/resources/icon/organiztion/headImg2x.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,41 +30,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.acss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="528">
+              <caret line="24" column="23" selection-end-line="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1958">
-              <caret line="93" column="30" selection-start-line="67" selection-start-column="8" selection-end-line="93" selection-end-column="30" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/model/meetingRoom.js">
+        <entry file="file://$PROJECT_DIR$/conference-internal/model/conference.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="51" column="5" selection-start-line="25" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.axml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" selection-end-line="20" />
+            <state relative-caret-position="748">
+              <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -108,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" selection-end-line="92" />
+            <state relative-caret-position="550">
+              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -118,22 +66,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/index/notes/notes.axml">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.acss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="26" column="7" selection-end-line="26" selection-end-column="7" />
+            <state relative-caret-position="337">
+              <caret line="356" selection-start-line="356" selection-end-line="369" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/index/notes/notes.js">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/takeOff/takeOff.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="56" column="17" selection-end-line="68" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="9" column="53" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/takeOff/takeOff.acss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="430">
+              <caret line="58" column="4" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="62" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.axml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="804">
+              <caret line="79" column="43" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -141,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conference-internal/page/index/notes/notes.acss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="506">
+              <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="29" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -150,19 +113,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="147" column="25" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.acss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4378">
-              <caret line="199" column="39" selection-end-line="244" />
+            <state relative-caret-position="3212">
+              <caret line="146" column="76" selection-start-line="146" selection-start-column="63" selection-end-line="146" selection-end-column="76" />
               <folding>
-                <element signature="e#2634#2844#2" expanded="true" />
+                <element signature="n#style#0;n#view#0;n#block#0;n#swiper#0;n#view#1;n#view#4;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#0;n#block#0;n#swiper#0;n#view#1;n#view#5;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#0;n#block#0;n#view#0;n#view#3;n#view#6;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -180,8 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>participant</find>
-      <find>read-inner-container</find>
       <find>readInfo</find>
       <find>read_info_index</find>
       <find>notice</find>
@@ -210,6 +164,8 @@
       <find>switchChange</find>
       <find>notice-feedback</find>
       <find>operation-container</find>
+      <find>operation-img</find>
+      <find>take-off-reason-info</find>
     </findStrings>
     <replaceStrings>
       <replace>catchTap</replace>
@@ -236,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/conference/model/interaction.js" />
         <option value="$PROJECT_DIR$/conference/page/index/notes/notes.js" />
         <option value="$PROJECT_DIR$/conference/page/index/search/search.js" />
         <option value="$PROJECT_DIR$/conference/page/index/addMeetingSummary/addMeetingSummary.js" />
@@ -250,9 +205,7 @@
         <option value="$PROJECT_DIR$/conference/model/ding.js" />
         <option value="$PROJECT_DIR$/conference/page/meetingAgenda/takeOff/takeOff.js" />
         <option value="$PROJECT_DIR$/conference/model/users.js" />
-        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js" />
         <option value="$PROJECT_DIR$/conference-internal/model/participator.js" />
-        <option value="$PROJECT_DIR$/conference-internal/model/conference.js" />
         <option value="$PROJECT_DIR$/conference-internal/model/meetingRoom.js" />
         <option value="$PROJECT_DIR$/conference-internal/page/organization/singleMember/singleMember.js" />
         <option value="$PROJECT_DIR$/conference-internal/model/ding.js" />
@@ -282,18 +235,21 @@
         <option value="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.js" />
         <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.js" />
         <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.axml" />
-        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.acss" />
         <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.acss" />
         <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.axml" />
-        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml" />
         <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" />
+        <option value="$PROJECT_DIR$/conference-internal/model/conference.js" />
+        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml" />
+        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.acss" />
+        <option value="$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js" />
+        <option value="$PROJECT_DIR$/conference-internal/page/index/notes/notes.acss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="96" />
+    <option name="x" value="300" />
     <option name="y" value="22" />
-    <option name="width" value="1701" />
+    <option name="width" value="1548" />
     <option name="height" value="1178" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -302,6 +258,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,6 +275,12 @@
               <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
               <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
               <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
+              <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -332,14 +295,6 @@
               <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
               <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="notes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dingding_conference" type="462c0819:PsiDirectoryNode" />
-              <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="meetingAgenda" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -348,7 +303,7 @@
               <item name="conference-internal" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="meetingAgenda" type="462c0819:PsiDirectoryNode" />
-              <item name="conferenceDetail" type="462c0819:PsiDirectoryNode" />
+              <item name="takeOff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dingding_conference" type="b2602c69:ProjectViewProjectNode" />
@@ -395,7 +350,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,19 +404,20 @@
       <workItem from="1572828991315" duration="56209000" />
       <workItem from="1574060424533" duration="32330000" />
       <workItem from="1574421994511" duration="2177000" />
-      <workItem from="1574729569571" duration="1853000" />
+      <workItem from="1574729569571" duration="7116000" />
+      <workItem from="1574886634663" duration="1124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347624000" />
+    <option name="totallyTimeSpent" value="354011000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="96" y="22" width="1701" height="1178" extended-state="1" />
+    <frame x="300" y="22" width="1548" height="1178" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25357142" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18925999" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3296501" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -484,58 +439,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/conference-internal/model/ding.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/addMeetingSummary/addMeetingSummary.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/model/apiAccessToken.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/model/department.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#18#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="981">
-          <caret line="86" column="7" selection-end-line="86" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conference-internal/utils/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/model/conference.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -550,13 +457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
           <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -697,12 +597,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/resources/icon/organiztion/headImg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/resources/icon/organiztion/headImg2x.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/resources/icon/organiztion/headImg.png" />
+    <entry file="file://$PROJECT_DIR$/conference-internal/resources/icon/organiztion/headImg2x.png" />
     <entry file="file://$PROJECT_DIR$/conference-internal/resources/icon/organiztion/male.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -750,16 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10384">
-          <caret line="472" selection-start-line="369" selection-end-line="472" />
-          <folding>
-            <element signature="e#3986#4196#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/addConference/addConference.axml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1540">
@@ -798,16 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" selection-end-line="92" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conference-internal/page/index/notes/notes.axml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -825,27 +701,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/notes/notes.acss">
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="1232">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.acss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8624">
+          <caret line="392" column="14" selection-start-line="392" selection-start-column="14" selection-end-line="392" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.acss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="23" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/model/conference.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.axml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="147" column="25" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
+        <state relative-caret-position="3212">
+          <caret line="146" column="76" selection-start-line="146" selection-start-column="63" selection-end-line="146" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#view#0;n#block#0;n#swiper#0;n#view#1;n#view#4;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#block#0;n#swiper#0;n#view#1;n#view#5;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#block#0;n#view#0;n#view#3;n#view#6;n#view#0;n#view#0;n#view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js">
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.acss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="337">
+          <caret line="356" selection-start-line="356" selection-end-line="369" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/notes/notes.acss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="29" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/index/index.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="804">
+          <caret line="79" column="43" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/takeOff/takeOff.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conference-internal/page/meetingAgenda/takeOff/takeOff.acss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="58" column="4" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="62" selection-end-column="19" />
         </state>
       </provider>
     </entry>

@@ -143,8 +143,8 @@
         <block a:for="{{isLeaderInDepts == true ? adminOperation: commonOperation}}" a:for-index="operation_index" a:for-item="operation_item">
             <view class="flex-row middle-button notice-feedback-container">
                 <button class="notice-feedback" size="" type="default" data-conference="{{}}" onTap="{{operation_item.operation}}" disabled="{{!operation_item.status}}">
-                    <text class="">{{operation_item.name}}</text>
-                    <!--<image src="{{operation_item.img}}" class="operation-img" mode="scaleToFill" lazy-load="true"></image> -->
+<!--                    <text class="">{{operation_item.name}}</text>-->
+                    <image src="{{operation_item.img}}" class="operation-img" mode="scaleToFill" lazy-load="true"></image>
                 </button>
             </view>
         </block>
