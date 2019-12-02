@@ -1,0 +1,14 @@
+<view class="operation-container">
+    <view class="circle-container">
+        <block a:for="{{isLeaderInDepts==true?(operationGroup.adminOperation):(operationGroup.commonOperation)}}"
+               a:for-index="index" a:for-item="item">
+            <view class="button operation-item-container">
+                <button class="operation-item" size="" type="default" onTap="{{item.operation}}"
+                        disabled="{{!item.status}}">
+                    <image src="{{item.img}}" class="operation-item-img" mode="scaleToFill"
+                           lazy-load="true"></image>
+                </button>
+            </view>
+        </block>
+    </view>
+</view>

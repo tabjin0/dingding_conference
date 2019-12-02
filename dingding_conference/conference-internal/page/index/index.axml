@@ -1,4 +1,96 @@
+<!--<view class="out-container">-->
+<!--    <view class="noMeeting" hidden="{{hasMeeting}}">-->
+<!--        <image src="/resources/index/noMeeting.png" class="noMeetingImg" mode="scaleToFill" lazy-load="true"></image>-->
+<!--    </view>-->
+
+
+
+<!--    <view class="container" hidden="{{!hasMeeting}}">-->
+<!--        &lt;!&ndash; 会议提醒 &ndash;&gt;-->
+<!--        <view class="conference-list" hidden="{{!isShowNowConferenceList}}">-->
+<!--            &lt;!&ndash; 会议优先级种类 &ndash;&gt;-->
+<!--            <view class="flex-row conference-priority-container conference-remind-container">-->
+<!--                <view class="conference-priority">会议提醒</view>-->
+<!--            </view>-->
+<!--            <view a:for="{{nowConferenceList}}" a:for-index="index" a:for-item="now_conference_item">-->
+<!--                &lt;!&ndash; 会议内容 &ndash;&gt;-->
+<!--                <view class="flex-column">-->
+<!--                    <view class="flex-row conference-label-remind" data-conference="{{now_conference_item}}"-->
+<!--                          onTap="toConferenceDetail">-->
+<!--                        <view class="flex-column">-->
+<!--                            <view class="conference-top-priority-theme">{{now_conference_item.theme}}</view>-->
+<!--                            <view class="conference-top-priority-topic" a:for="{{now_conference_item.topic}}"-->
+<!--                                  a:for-index="topic_index" a:for-item="topic_item">议题 : {{topic_item.name}}-->
+<!--                            </view>-->
+<!--                            <text selectable="true" class="conference-top-priority-info">内容 :-->
+<!--                                {{now_conference_item.info}}-->
+<!--                            </text>-->
+<!--                            <view class="conference-top-priority-time">时间 : {{now_conference_item.time}}</view>-->
+<!--                            <view class="conference-top-priority-address">地点 : {{now_conference_item.address}}</view>-->
+<!--                        </view>-->
+<!--                    </view>-->
+<!--                </view>-->
+<!--            </view>-->
+<!--        </view>-->
+
+<!--        &lt;!&ndash; 预备会议 &ndash;&gt;-->
+<!--        <view class="conference-list" hidden="{{!isShowFutureConferenceList}}">-->
+<!--            &lt;!&ndash; 会议优先级种类 &ndash;&gt;-->
+<!--            <view class="flex-row conference-priority-container conference-preparatory-container">-->
+<!--                <view class="conference-priority">预备会议</view>-->
+<!--            </view>-->
+<!--            <view a:for="{{futureConferenceList}}" a:for-index="index" a:for-item="future_conference_item">-->
+<!--                &lt;!&ndash; 会议内容 &ndash;&gt;-->
+<!--                <view class="flex-column">-->
+<!--                    <view class="flex-row conference-label-preparatory" data-conference="{{future_conference_item}}"-->
+<!--                          onTap="toConferenceDetail">-->
+<!--                        <view class="flex-column">-->
+<!--                            <view class="conference-preparatory-theme">{{future_conference_item.theme}}</view>-->
+<!--                            <view class="conference-preparatory-time">时间 : {{future_conference_item.time}}</view>-->
+<!--                            <view class="conference-preparatory-address">地点 : {{future_conference_item.address}}</view>-->
+<!--                        </view>-->
+<!--                    </view>-->
+<!--                </view>-->
+<!--            </view>-->
+<!--            &lt;!&ndash;<button size="default" type="primary" onTap="dateOrder">测试</button> &ndash;&gt;-->
+<!--        </view>-->
+<!--        &lt;!&ndash; 历史会议 &ndash;&gt;-->
+<!--        <view class="conference-list" hidden="{{!isShowPastConferenceList}}">-->
+<!--            &lt;!&ndash; 会议优先级种类 &ndash;&gt;-->
+<!--            <view class="flex-row conference-history-container">-->
+<!--                <view class="conference-priority">历史会议</view>-->
+<!--            </view>-->
+<!--            <view a:for="{{pastConferenceList}}" a:for-index="index" a:for-item="past_conference_item">-->
+<!--                &lt;!&ndash; 会议内容 &ndash;&gt;-->
+<!--                <view class="flex-column">-->
+<!--                    <view class="flex-row conference-label-history" data-conference="{{past_conference_item}}"-->
+<!--                          onTap="toConferenceDetail">-->
+<!--                        <view class="flex-column">-->
+<!--                            <view class="conference-history-theme">{{past_conference_item.theme}}</view>-->
+<!--                            <view class="conference-history-time">时间 : {{past_conference_item.time}}</view>-->
+<!--                            <view class="conference-history-address">地点 : {{past_conference_item.address}}</view>-->
+<!--                        </view>-->
+<!--                        <view class="conference-history-status {{past_conference_item.sign_type_txt==''?hide:''}}">-->
+<!--                            {{past_conference_item.sign_type_txt}}-->
+<!--                        </view>-->
+<!--                    </view>-->
+<!--                </view>-->
+<!--            </view>-->
+<!--&lt;!&ndash;            <button size="default" type="primary" onTap="chooseLoca">测试</button>&ndash;&gt;-->
+<!--        </view>-->
+<!--   -->
+<!--    </view>-->
+<!--    <view class="flex-row middle-button check-in-container" hidden="{{!isLeaderInDepts}}">-->
+<!--            &lt;!&ndash;<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增<br>会议</button>&ndash;&gt;-->
+<!--            <view class="check-in" onTap="addConference">-->
+<!--                <text>新增\n会议</text>-->
+<!--            </view>-->
+<!--        </view>-->
+<!--</view>-->
+
+<!--index.wxml-->
 <view class="out-container">
+
     <view class="noMeeting" hidden="{{hasMeeting}}">
         <image src="/resources/index/noMeeting.png" class="noMeetingImg" mode="scaleToFill" lazy-load="true"></image>
     </view>
@@ -6,82 +98,37 @@
     <view class="container" hidden="{{!hasMeeting}}">
         <!-- 会议提醒 -->
         <view class="conference-list" hidden="{{!isShowNowConferenceList}}">
-            <!-- 会议优先级种类 -->
-            <view class="flex-row conference-priority-container conference-remind-container">
+            <view class="priority-container remind">
                 <view class="conference-priority">会议提醒</view>
             </view>
-            <view a:for="{{nowConferenceList}}" a:for-index="index" a:for-item="now_conference_item">
-                <!-- 会议内容 -->
-                <view class="flex-column">
-                    <view class="flex-row conference-label-remind" data-conference="{{now_conference_item}}"
-                          onTap="toConferenceDetail">
-                        <view class="flex-column">
-                            <view class="conference-top-priority-theme">{{now_conference_item.theme}}</view>
-                            <view class="conference-top-priority-topic" a:for="{{now_conference_item.topic}}"
-                                  a:for-index="topic_index" a:for-item="topic_item">议题 : {{topic_item.name}}
-                            </view>
-                            <text selectable="true" class="conference-top-priority-info">内容 :
-                                {{now_conference_item.info}}
-                            </text>
-                            <view class="conference-top-priority-time">时间 : {{now_conference_item.time}}</view>
-                            <view class="conference-top-priority-address">地点 : {{now_conference_item.address}}</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
+            <tabjin-card conferenceList="{{nowConferenceList}}" infoOmitted="{{false}}"
+                         hideInfo="{{false}}" hideStatus="{{true}}">
+            </tabjin-card>
         </view>
 
         <!-- 预备会议 -->
         <view class="conference-list" hidden="{{!isShowFutureConferenceList}}">
-            <!-- 会议优先级种类 -->
-            <view class="flex-row conference-priority-container conference-preparatory-container">
+            <view class="priority-container preparatory">
                 <view class="conference-priority">预备会议</view>
             </view>
-            <view a:for="{{futureConferenceList}}" a:for-index="index" a:for-item="future_conference_item">
-                <!-- 会议内容 -->
-                <view class="flex-column">
-                    <view class="flex-row conference-label-preparatory" data-conference="{{future_conference_item}}"
-                          onTap="toConferenceDetail">
-                        <view class="flex-column">
-                            <view class="conference-preparatory-theme">{{future_conference_item.theme}}</view>
-                            <view class="conference-preparatory-time">时间 : {{future_conference_item.time}}</view>
-                            <view class="conference-preparatory-address">地点 : {{future_conference_item.address}}</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <!--<button size="default" type="primary" onTap="dateOrder">测试</button> -->
+            <tabjin-card conferenceList="{{futureConferenceList}}" infoOmitted="{{false}}"
+                         hideInfo="{{true}}" hideStatus="{{true}}">
+            </tabjin-card>
         </view>
+
         <!-- 历史会议 -->
         <view class="conference-list" hidden="{{!isShowPastConferenceList}}">
-            <!-- 会议优先级种类 -->
-            <view class="flex-row conference-history-container">
-                <view class="conference-priority">历史会议</view>
+            <view class="priority-container history">历史会议
             </view>
-            <view a:for="{{pastConferenceList}}" a:for-index="index" a:for-item="past_conference_item">
-                <!-- 会议内容 -->
-                <view class="flex-column">
-                    <view class="flex-row conference-label-history" data-conference="{{past_conference_item}}"
-                          onTap="toConferenceDetail">
-                        <view class="flex-column">
-                            <view class="conference-history-theme">{{past_conference_item.theme}}</view>
-                            <view class="conference-history-time">时间 : {{past_conference_item.time}}</view>
-                            <view class="conference-history-address">地点 : {{past_conference_item.address}}</view>
-                        </view>
-                        <view class="conference-history-status {{past_conference_item.sign_type_txt==''?hide:''}}">
-                            {{past_conference_item.sign_type_txt}}
-                        </view>
-                    </view>
-                </view>
-            </view>
-<!--            <button size="default" type="primary" onTap="chooseLoca">测试</button>-->
+            <tabjin-card conferenceList="{{pastConferenceList}}" infoOmitted="{{false}}"
+                         hideInfo="{{true}}" hideStatus="{{false}}">
+            </tabjin-card>
         </view>
-   
     </view>
+
     <view class="flex-row middle-button check-in-container" hidden="{{!isLeaderInDepts}}">
-            <!--<button class="check-in" size="" type="primary" data-conference="{{}}" onTap="addConference">新增<br>会议</button>-->
-            <view class="check-in" onTap="addConference">
-                <text>新增\n会议</text>
-            </view>
+        <view class="check-in" onTap="addConference">
+            <text>新增\n会议</text>
         </view>
+    </view>
 </view>

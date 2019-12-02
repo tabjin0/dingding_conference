@@ -1,4 +1,4 @@
-import {VersionController} from "./model/VersionController";
+import {VersionController} from "./model/version/VersionController";
 import {config} from "./config/config";
 
 App({
@@ -14,16 +14,6 @@ App({
         dd.setNavigationBar({
             title: '广电产业经营党支部支部会议',
             backgroundColor: '#D40029',
-            // success() {
-            //     dd.alert({
-            //         content: '设置成功',
-            //     });
-            // },
-            // fail() {
-            //     dd.alert({
-            //         content: '设置失败',
-            //     });
-            // },
         });
 
         // 2. 版本校验提醒
@@ -31,6 +21,7 @@ App({
 
 
     },
+
     onHide() {
         console.log('App Hide');
     },

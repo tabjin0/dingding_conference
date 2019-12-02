@@ -5,7 +5,7 @@ import {FreeLogin} from "../../model/FreeLogin";
 import {ApiAccessToken} from "../../model/apiAccessToken";
 import {Storage} from "../../utils/storage";
 import {InterAction} from "../../model/interaction";
-import {VersionController} from "../../model/VersionController";
+import {VersionController} from "../../model/version/VersionController";
 
 const app = getApp();
 
@@ -53,7 +53,6 @@ Page({
         this.initData();// 重新初始化会议列表
 
         const res = await ApiAccessToken.initAccessToken();
-        console.log(res);
     },
 
     /**
@@ -63,8 +62,7 @@ Page({
 
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
         const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        console.log('currentUser');
-        console.log(currentUser);
+        console.log('currentUser', currentUser);
 
         this.setData({
             isAdmin: currentUser.currentUser.isAdmin,

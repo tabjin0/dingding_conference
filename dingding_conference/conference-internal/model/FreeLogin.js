@@ -13,9 +13,8 @@ class FreeLogin {
      * @returns {Promise<void>}
      */
     static async freeLogin(authCode, corpId) {
-        // dd.showLoading({content: '加载中...'});
-        // {authCode: "46f4d5f8748b3c31a1b5ae2ebc5e2775"}
         const currentUser = await User.getCurrentUser(authCode, corpId); // 网络获取钉钉返回的当前用户信息 ok
+
         // 总管理员
         Storage.setStorageSyncByKeyAndValue('isAdmin', currentUser.isAdmin);
 

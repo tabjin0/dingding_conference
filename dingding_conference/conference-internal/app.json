@@ -7,14 +7,19 @@
     "page/templates/labelTemplate/labelTemplate",
     "page/templates/collapse/collapse",
     "page/meetingAgenda/bookMeetingRoom/bookMeetingRoom",
-    "page/index/search/search",
     "page/index/addMeetingSummary/addMeetingSummary",
     "page/index/notes/notes",
     "page/meetingAgenda/takeOff/takeOff",
     "page/organization/myOrganization/myOrganization",
     "page/meetingAgenda/photo/photo",
     "page/organization/singleMember/singleMember",
-    "page/test/test"
+    "page/conference/add/add",
+    "page/conference/note/note",
+    "page/conference/summary/summary",
+    "page/conference/detail/detail",
+    "page/conference/meetingRoom/meetingRoom",
+    "page/conference/photo/photo",
+    "page/conference/takeOff/takeOff"
   ],
   "window": {
     "enableWK": "YES",

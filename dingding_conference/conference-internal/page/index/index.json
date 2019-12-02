@@ -1,4 +1,7 @@
 {
   "defaultTitle": "支部会议",
-  "pullRefresh": true
+  "pullRefresh": true,
+  "usingComponents": {
+    "tabjin-card": "/components/conference/card/index"
+  }
 }

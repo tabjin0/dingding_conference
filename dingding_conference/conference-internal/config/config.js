@@ -10,6 +10,3 @@ const config = {
 export {
     config
 }
-
-// common.js方式导出
-// module.exports

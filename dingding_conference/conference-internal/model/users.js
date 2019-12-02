@@ -3,8 +3,6 @@ import {Storage} from '../utils/storage';
 import {FreeLogin} from "./FreeLogin";
 import {InterAction} from "./interaction";
 
-// import { config } from '../config/config';
-
 class User {
 
     static async getAdministratorFromOnline() {
@@ -77,7 +75,6 @@ class User {
         if (currentUserRes.code === 1) {
             return currentUserRes.data;
         } else {
-            // InterAction.fnAlert('抱歉', '用户登录失败！', '好的');
             InterAction.fnAlert('抱歉', `${currentUserRes.msg}`, '好的');
         }
     }

@@ -1,6 +1,4 @@
-/* .container {
-    margin-top: 25rpx;
-} */
+/**index.wxss**/
 
 page {
     padding-bottom: 85rpx;
@@ -22,11 +20,45 @@ page {
 
 }
 
-.row {
-    /* height: 60rpx;
-    line-height: 60rpx; */
-    height: 60rpx;
-    line-height: 60rpx;
+.conference-list {
+    padding: 45rpx 30rpx 15rpx 27rpx;
+}
+
+.priority-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 174rpx;
+    height: 56rpx;
+    border-radius: 4rpx;
+    text-align: center;
+    font-size: 30rpx;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 15rpx;
+}
+
+.conference-priority {
+    width: 174rpx;
+}
+
+.remind {
+    background-color: #E0614C;
+}
+
+.preparatory {
+    background-color: #55BB88;
+}
+
+.history {
+    background-color: #4F94F3;
+}
+
+
+.hide {
+    display: none;
 }
 
 .middle-button {
@@ -47,7 +79,6 @@ page {
     top: 100%;
     margin-left: -145rpx;
     margin-top: -171rpx;
-    /*opacity: 0.8;*/
 }
 
 .check-in {
@@ -58,322 +89,8 @@ page {
     font-weight: bold;
     color: #ffffff;
     text-align: center;
-    /*line-height: 130rpx;*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: nowrap;*/
-    /*align-content: center;*/
     margin: auto 0;
 }
-
-
-.searchcion {
-    margin: 10rpx 10rpx 10rpx 10rpx;
-    position: absolute;
-    left: 25rpx;
-    z-index: 2;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-}
-
-.conference-list {
-    padding-top: 10rpx;
-}
-
-/************************************ 会议提醒 start *************************************/
-/* 会议提醒标签 */
-.conference-remind-container {
-    width: 174rpx;
-    height: 56rpx;
-    background-color: #E0614C;
-    border-radius: 4rpx;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    margin-left: 31rpx;
-    /* margin-top: 10rpx; */
-}
-
-/* 会议提醒 */
-.conference-priority {
-    width: 174rpx;
-    /*height: 56rpx;*/
-    font-size: 30rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    line-height: 56rpx;
-    color: rgba(255, 255, 255, 1);
-    margin: 0 auto;
-}
-
-/* 会议提醒会议列表 */
-.conference-label-remind {
-    /*width: 692rpx;*/
-    /*height: 209rpx;*/
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(216, 216, 216, 0.6);
-    border-radius: 6rpx;
-    background-color: #FFFFFF;
-    /*box-shadow: rgb(241, 241, 241) 1px 1px 1px 1px;*/
-    box-sizing: border-box;
-    margin-top: 14rpx;
-    margin-left: 27rpx;
-    margin-right: 31rpx;
-}
-
-
-/* 会议提醒会议主题名 */
-.conference-top-priority-theme {
-    /* width: 274rpx; */
-    width: 626rpx;
-    height: 30rpx;
-    font-size: 30rpx;
-    font-family: Microsoft YaHei;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 1);
-    line-height: 30rpx;
-    margin-top: 22rpx;
-    margin-left: 33rpx;
-    margin-right: 33rpx;
-    /* 多余文字点点点 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 会议提醒会议议题 */
-.conference-top-priority-topic {
-    width: 626rpx;
-    /*height: 28rpx;*/
-    font-size: 28rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(89, 89, 89, 1);
-    line-height: 50rpx;
-    margin-left: 32rpx;
-    margin-right: 32rpx;
-    margin-top: 18rpx;
-    /* 多余文字点点点 */
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
-    /*text-overflow: ellipsis;*/
-}
-
-/* 会议提醒会议议题 */
-.conference-top-priority-info {
-    width: 626rpx;
-    /*height: 28rpx;*/
-    font-size: 28rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(89, 89, 89, 1);
-    line-height: 50rpx;
-    margin-left: 32rpx;
-    margin-right: 32rpx;
-    margin-top: 18rpx;
-    /* 多余文字点点点 */
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
-    /*text-overflow: ellipsis;*/
-}
-
-
-/* 会议提醒会议时间 */
-.conference-top-priority-time {
-    /*width: 405rpx;*/
-    height: 25rpx;
-    font-size: 24rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(222, 126, 48, 1);
-    margin-left: 30rpx;
-    margin-right: 30rpx;
-    margin-top: 27rpx;
-}
-
-/* 会议提醒会议主题地点 */
-.conference-top-priority-address {
-    /*width: 405rpx;*/
-    height: 25rpx;
-    font-size: 24rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(222, 126, 48, 1);
-    margin-left: 30rpx;
-    margin-right: 30rpx;
-    margin-top: 16rpx;
-    margin-bottom: 18rpx;
-}
-
-/************************************ 会议提醒 end *************************************/
-
-/************************************ 预备会议 start *************************************/
-/* 预备会议标签 */
-.conference-preparatory-container {
-    width: 174rpx;
-    height: 56rpx;
-    background-color: #55BB88;
-    border-radius: 4rpx;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    margin-left: 31rpx;
-    margin-top: 45rpx;
-}
-
-.conference-label-preparatory {
-    /*width: 692rpx;*/
-    height: 148rpx;
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(216, 216, 216, 0.6);
-    border-radius: 6rpx;
-    background-color: #FFFFFF;
-    /*box-shadow: rgb(241, 241, 241) 1px 1px 1px 1px;*/
-    box-sizing: border-box;
-    margin-top: 15rpx;
-    margin-left: 27rpx;
-    margin-right: 30rpx;
-}
-
-/* 会议提醒会议主题名 */
-.conference-preparatory-theme {
-    width: 626rpx;
-    height: 30rpx;
-    font-size: 30rpx;
-    font-family: Microsoft YaHei;
-
-    font-weight: bold;
-    color: rgba(0, 0, 0, 1);
-    line-height: 30rpx;
-    margin-top: 13rpx;
-    margin-left: 31rpx;
-    margin-right: 31rpx;
-    /* 多余文字点点点 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 会议提醒会议时间 */
-.conference-preparatory-time {
-    /*width: 405rpx;*/
-    height: 25rpx;
-    font-size: 24rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(89, 89, 89, 1);
-    margin-left: 31rpx;
-    margin-right: 31rpx;
-    margin-top: 21rpx;
-}
-
-/* 会议提醒会议主题地点 */
-.conference-preparatory-address {
-    /*width: 405rpx;*/
-    height: 25rpx;
-    font-size: 24rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(89, 89, 89, 1);
-    margin-left: 30rpx;
-    margin-right: 30rpx;
-    margin-top: 14rpx;
-}
-
-/************************************ 预备会议 end *************************************/
-
-/************************************ 历史会议 start *************************************/
-/* 预备会议标签 */
-.conference-history-container {
-    width: 174rpx;
-    height: 56rpx;
-    background-color: #4F94F3;
-    border-radius: 4rpx;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    margin-left: 31rpx;
-    margin-top: 45rpx;
-}
-
-.conference-label-history {
-    /*width: 692rpx;*/
-    height: 148rpx;
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(216, 216, 216, 0.6);
-    border-radius: 6rpx;
-    background-color: #FFFFFF;
-    /*box-shadow: rgb(241, 241, 241) 1px 1px 1px 1px;*/
-    box-sizing: border-box;
-    margin-top: 15rpx;
-    margin-left: 27rpx;
-    margin-right: 30rpx;
-}
-
-/* 会议提醒会议主题名 */
-.conference-history-theme {
-    width: 540rpx;
-    height: 30rpx;
-    font-size: 30rpx;
-    font-family: Microsoft YaHei;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 1);
-    line-height: 30rpx;
-    margin-top: 13rpx;
-    margin-left: 31rpx;
-    margin-right: 31rpx;
-    /* 多余文字点点点 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 会议提醒会议时间 */
-.conference-history-time {
-    height: 25rpx;
-    font-size: 24rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(89, 89, 89, 1);
-    margin-left: 31rpx;
-    margin-right: 31rpx;
-    margin-top: 21rpx;
-}
-
-/* 会议提醒会议主题地点 */
-.conference-history-address {
-    /*width: 405rpx;*/
-    height: 25rpx;
-    font-size: 24rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(89, 89, 89, 1);
-    margin-left: 30rpx;
-    margin-right: 30rpx;
-    margin-top: 14rpx;
-}
-
-.conference-history-status {
-    /*width: 78rpx;*/
-    height: 33rpx;
-    background-color: #C52B49;
-    font-size: 22rpx;
-    font-family: "Microsoft YaHei";
-    font-weight: 400;
-    color: rgba(255, 255, 255, 1);
-    line-height: 33rpx;
-    text-align: center;
-    margin-top: 100rpx;
-    margin-right: 12rpx;
-    padding: 0 10rpx;
-}
-
-.hide {
-    display: none;
-}
-
-/************************************ 历史会议 end *************************************/
 
 .tarbar-container {
     border-top: 1px solid #B2B2B2;
@@ -413,7 +130,6 @@ page {
     font-size: 18rpx;
     font-family: Microsoft YaHei;
     font-weight: 400;
-    /* color: rgba(216, 18, 56, 1); */
     color: rgba(128, 128, 128, 1);
     line-height: 18rpx;
     margin-bottom: 15rpx;

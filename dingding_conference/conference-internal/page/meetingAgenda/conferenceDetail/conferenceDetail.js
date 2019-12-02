@@ -8,6 +8,7 @@ import {GetLocation} from "../../../model/location";
 import {Ding} from "../../../model/ding";
 import {Storage} from "../../../utils/storage";
 import {InterAction} from "../../../model/interaction";
+import {ImgUrl} from "../../../config/imgConstant";
 
 const app = getApp();
 
@@ -49,21 +50,21 @@ Page({
                 operation: 'locationCheckCurrentConference',
                 name: "签到",
                 status: true,
-                img: '/resources/conferenceDetial/checkIn.png'
+                img: '/resources/conferenceDetial/button-takeOff.png'
             },
             {
                 index: 2,
                 operation: 'toPhoto',
                 name: "照片",
                 status: true,
-                img: '/resources/conferenceDetial/photo.png'
+                img: `${ImgUrl.photo}`
             },
             {
                 index: 3,
                 operation: 'summary',
                 name: "纪要",
                 status: true,
-                img: '/resources/conferenceDetial/summary.png'
+                img: `${ImgUrl.summary}`
             },
         ],
 

@@ -397,7 +397,6 @@ Page({
     bookMeetingRoom() {
         dd.navigateTo({
             url: '/page/meetingAgenda/bookMeetingRoom/bookMeetingRoom'
-            // url: 'https://m.amap.com/picker/?keywords=写字楼&zoom=15&center=116.470098,39.9928383&radius=10004&total=20&key=e5d6440b66a44b3fa9a597b894cfc0c0'
         });
     },
 
