@@ -1,6 +1,6 @@
 import {CheckIn} from "../../../model/checkIn";
 import {Storage} from "../../../utils/storage";
-import {InterAction} from "../../../model/interaction";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
 
 const app = getApp();
 

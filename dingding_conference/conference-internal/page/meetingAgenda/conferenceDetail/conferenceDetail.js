@@ -7,8 +7,8 @@ import {FreeLogin} from "../../../model/FreeLogin";
 import {GetLocation} from "../../../model/location";
 import {Ding} from "../../../model/ding";
 import {Storage} from "../../../utils/storage";
-import {InterAction} from "../../../model/interaction";
 import {ImgUrl} from "../../../config/imgConstant";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
 
 const app = getApp();
 

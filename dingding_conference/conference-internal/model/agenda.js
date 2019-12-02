@@ -1,5 +1,5 @@
 import {Http} from '../utils/http';
-import {InterAction} from "./interaction";
+import {InterAction} from "../utils/native-api/interface/interaction";
 
 class Agenda {
     static async getAgenda() {

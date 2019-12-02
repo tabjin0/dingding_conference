@@ -1,8 +1,8 @@
 /**
  * 部门业务模型
  */
-import {Http} from "../utils/http";
-import {InterAction} from "./interaction";
+import {Http} from "../../utils/http";
+import {InterAction} from "../../utils/native-api/interface/interaction";
 
 class Department {
     static async getDepartmentUserid(departmentId) {

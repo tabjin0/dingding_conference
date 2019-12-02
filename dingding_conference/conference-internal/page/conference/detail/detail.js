@@ -3,8 +3,8 @@ import {Conference} from "../../../model/conference/conference";
 import {Storage} from "../../../utils/storage";
 import {System} from "../../../model/system";
 import {FreeLogin} from "../../../model/FreeLogin";
-import {InterAction} from "../../../model/interaction";
 import {ImgUrl} from "../../../config/imgConstant";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
 
 const app = getApp();
 Page({
@@ -116,6 +116,7 @@ Page({
      */
     onLoad(param) {
         let mid = param.mid;
+        console.log('mid', mid);
         this.setData({
             currentConferenceMid: mid
         });
@@ -493,16 +494,7 @@ Page({
         }
     },
 
-    /** 显示图片 */
-    showImage(e) {
-        let imgArr = this.data.imgArr;
-        let itemIndex = e.currentTarget.dataset.id;
 
-        wx.previewImage({
-            current: itemIndex, // 当前显示图片的http链接
-            urls: imgArr // 需要预览的图片http链接列表
-        })
-    },
 
     async formSubmit(e) {
         let conference = JSON.parse(this.data.conference);

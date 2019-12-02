@@ -1,4 +1,4 @@
-import {promisic} from "./utils";
+import {promisic} from "../utils";
 
 class UploadDownLoad {
     static async upload(

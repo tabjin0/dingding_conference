@@ -2,9 +2,10 @@
  * 接口accessToken模型
  */
 
-import {Http} from "../utils/http";
-import * as md5 from "../utils/MD5";
-import {Storage} from "../utils/storage";
+
+import {Http} from "../../utils/http";
+import * as md5 from "../../utils/MD5";
+import {Storage} from "../../utils/storage";
 
 class ApiAccessToken {
     static appId = '20689176';
@@ -60,7 +61,6 @@ class ApiAccessToken {
             }
         }
     }
-
 }
 
 export {

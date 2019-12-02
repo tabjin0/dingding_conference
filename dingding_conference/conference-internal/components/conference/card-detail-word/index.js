@@ -13,26 +13,33 @@ Component({
         multipleSlots: true // 允许组件中使用多个slot
     },
 
+    didUpdate(prevProps, prevData) {
+        this.data.imgArr = this.props.imgArr;
+    },
     /**
      * 组件的初始数据
      */
-    data: {
-        title: String
-    },
-
-    /**
-     * 属性监听器
-     */
-    observers: {
-        'title': function (title) {
-        }
-    },
+    data: {},
 
 
     /**
      * 组件的方法列表
      */
     methods: {
+        /**
+         * 显示图片
+         * @param e
+         */
+        showImage(e) {
+            console.log('e', e);
+            let imgArr = this.data.imgArr;
+            console.log('imgArr', imgArr);
+            let itemIndex = e.currentTarget.dataset.id;
 
+            dd.previewImage({
+                current: itemIndex, // 当前显示图片的http链接
+                urls: imgArr // 需要预览的图片http链接列表
+            })
+        },
     }
 })

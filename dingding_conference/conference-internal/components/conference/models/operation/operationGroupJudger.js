@@ -34,14 +34,15 @@ class OperationGroupJudger {
                 adminOperation[0].status = OperationButtonStatus.ALLOW;
                 commonOperation[1].status = OperationButtonStatus.ALLOW;
                 break;
-            case 1:// 已签到，禁用签到按钮
+            case 1:// 已签到，禁用签到按钮，禁用请假按钮
                 // 管理员禁用签到按钮，显示已签到
                 adminOperation[0].status = OperationButtonStatus.DISALLOW;
                 adminOperation[0].name = '已签到';
                 adminOperation[0].img = `${ImgUrl.CHECKINED}`;
                 // 禁用党员请假按钮
                 commonOperation[0].status = OperationButtonStatus.DISALLOW;
-                commonOperation[0].img = `${ImgUrl.TAKEOFF}`;
+                commonOperation[0].name = '签到后不允许请假'
+                commonOperation[0].img = `${ImgUrl.TAKEOFF_GRAY}`;
                 // 禁用签到按钮
                 commonOperation[1].status = OperationButtonStatus.DISALLOW;
                 commonOperation[1].name = '已签到';
@@ -54,7 +55,8 @@ class OperationGroupJudger {
                 adminOperation[0].img = `${ImgUrl.LATE}`;
                 // 禁用党员请假按钮
                 commonOperation[0].status = OperationButtonStatus.DISALLOW;
-                commonOperation[0].img = `${ImgUrl.TAKEOFF}`;
+                commonOperation[0].name = '签到后不允许请假'
+                commonOperation[0].img = `${ImgUrl.TAKEOFF_GRAY}`;
                 // 禁用党员签到按钮
                 commonOperation[1].status = OperationButtonStatus.DISALLOW;
                 commonOperation[1].name = '已迟到';
@@ -74,6 +76,10 @@ class OperationGroupJudger {
             adminOperation,
             commonOperation
         }
+    }
+
+    changeOperationGroup(signType) {
+        return new OperationGroupJudger(signType);
     }
 }
 

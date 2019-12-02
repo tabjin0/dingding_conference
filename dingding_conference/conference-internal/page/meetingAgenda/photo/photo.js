@@ -1,8 +1,6 @@
-import {config} from "../../../config/config";
-import {UploadDownLoad} from "../../../utils/uploadDownLoad";
-import {Upload} from "../../../model/upload";
-import {Summary} from "../../../model/summary";
-import {InterAction} from "../../../model/interaction";
+import {Upload} from "../../../model/conference/upload";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {Summary} from "../../../model/conference/summary";
 
 Page({
     data: {
@@ -28,10 +26,9 @@ Page({
 
     },
     onLoad(param) {
-        console.log(param);
+        console.log('param', param);
         let imgArrEx = JSON.parse(param.imgArr);
-        console.log('imgArrEx');
-        console.log(imgArrEx);
+        console.log('imgArrEx', imgArrEx);
 
         let imgArr = [];
         let totalImgIdArr = [];
@@ -92,6 +89,7 @@ Page({
                     } else {
                         flag = false;
                         InterAction.fnAlert('抱歉', `图片${totalImgIdArr.length + i + 1}拉取失败，请删除并重新选择`, '好的');
+                        InterAction.fnShowToast()
                     }
                 }
                 ;

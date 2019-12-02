@@ -1,6 +1,5 @@
 import {MeetingRoom} from "../../../model/meetingRoom";
-import {InterAction} from "../../../model/interaction";
-// import {InterAction} from "../../../model/interaction";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
 
 const app = getApp();
 

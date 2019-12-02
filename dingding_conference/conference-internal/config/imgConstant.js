@@ -1,6 +1,7 @@
 const ImgUrl =  {
     TAKEOFF: '/resources/conferenceDetial/button-takeOff.png',
     TAKEOFFED: '/resources/conferenceDetial/button-takeOffed.png',
+    TAKEOFF_GRAY: '/resources/conferenceDetial/button-takeOff-gray.png',
     CHECKIN: '/resources/conferenceDetial/button-checkIn.png',
     CHECKINED: '/resources/conferenceDetial/button-checkIned.png',
     LATE: '/resources/conferenceDetial/button-late.png',

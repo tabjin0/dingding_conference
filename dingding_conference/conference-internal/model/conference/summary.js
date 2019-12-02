@@ -2,7 +2,8 @@
  * 会议纪要模型
  */
 
-import {Http} from "../utils/http";
+
+import {Http} from "../../utils/http";
 
 class Summary {
     static async submitSummary(mid, summary, imgs) {

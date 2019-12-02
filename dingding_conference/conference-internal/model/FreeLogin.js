@@ -1,4 +1,4 @@
-import {User} from "./users";
+import {User} from "./authentication/users";
 import {Storage} from "../utils/storage";
 
 /**

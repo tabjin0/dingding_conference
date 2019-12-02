@@ -1,5 +1,6 @@
-import {UploadDownLoad} from "../utils/uploadDownLoad";
-import {config} from "../config/config";
+import {config} from "../../config/config";
+import {UploadDownLoad} from "../../utils/tabjin-utils/uploadDownLoad";
+
 
 class Upload {
     static async uploadImg(filePath, fileName) {

@@ -1,10 +1,17 @@
-import {Http} from '../utils/http';
-import {Storage} from '../utils/storage';
-import {FreeLogin} from "./FreeLogin";
-import {InterAction} from "./interaction";
+/**
+ * 用户业务模型
+ */
+
+import {Http} from "../../utils/http";
+import {Storage} from "../../utils/storage";
+import {InterAction} from "../../utils/native-api/interface/interaction";
 
 class User {
 
+    /**
+     *
+     * @returns {Promise<*>}
+     */
     static async getAdministratorFromOnline() {
         return await Http.request({
             url: `5d8c8ad130eb2`,

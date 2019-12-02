@@ -1,8 +1,9 @@
 /**
  * 版本控制模型
  */
+
 import {Http} from "../../utils/http";
-import {InterAction} from "../interaction";
+import {InterAction} from "../../utils/native-api/interface/interaction";
 
 class VersionController {
     /**

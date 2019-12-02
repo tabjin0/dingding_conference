@@ -9,11 +9,12 @@ Component({
     data: {
         conference: Object,
         operationGroup: Object,
+        imgObjArr: Array,
     },
 
     props: {
         data: Object,
-        isLeaderInDepts: true,// 是否是主管
+        isLeaderInDepts: false,// 是否是主管
     },
 
     didMount() {
@@ -24,14 +25,21 @@ Component({
     },
 
     didUpdate(prevProps, prevData) {
-        // console.log(prevProps, this.props, prevData, this.data);
         this.data.conference = this.props.data;// 拿到父级传来的conference
-        // console.log('this.data.conference', this.data.conference);
-        let operationJudger = new OperationGroupJudger(this.data.conference.sign_type);// 页面渲染时初始化按钮状态
-        // console.log('operationJudger', operationJudger);
-        this.setData({
-            operationGroup: operationJudger.operationGroup
-        });
+        if (this.data.operationGroupLocated) {
+            // 已经定位签到
+            this.setData({
+                operationGroup: this.data.operationGroupLocated
+            });
+        } else {
+            // 没有定位签到默认为加载到详情页时，直接根据用户数据判断是否签到
+            let operationJudger = new OperationGroupJudger(this.data.conference.sign_type);// 页面渲染时初始化按钮状态
+            this.setData({
+                operationGroup: operationJudger.operationGroup
+            });
+        }
+        console.log('this.data.operationGroup', this.data.operationGroup);
+
     },
 
     didUnmount() {
@@ -42,18 +50,14 @@ Component({
     methods: {
         /**
          * 签到当前会议
-         * @param e
          * @returns {Promise<void>}
          */
         async locationCheckCurrentConference() {
             let positioning = new Positioning(this.data.conference);
             await positioning.checkIn();
-            console.log('operationGroup', this.data.operationGroup);
             this.setData({
-                operationGroup: positioning.operationGroup.operationGroup
+                operationGroupLocated: positioning.operationGroup.operationGroup
             });
-            console.log('operationGroup更改之后', this.data.operationGroup);
-
         },
 
         /**
@@ -61,6 +65,7 @@ Component({
          */
         takeOff() {
             const conference = this.data.conference;
+            console.log('conference',JSON.stringify(conference));
             Navigate.navigateTo(`${PageUrlConstant.takeOff}?conference=` + JSON.stringify(conference));
         },
 
@@ -68,8 +73,8 @@ Component({
          *
          */
         toPhoto() {
-            let imgArr = this.data.imgObjArr;
-            let mid = this.data.currentConferenceMid;
+            let imgArr = this.data.conference.imgs;
+            let mid = this.data.conference.id;
             Navigate.navigateTo(`${PageUrlConstant.photo}?imgArr=` + JSON.stringify(imgArr) + '&mid=' + mid);
         },
 

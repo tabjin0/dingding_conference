@@ -1,11 +1,9 @@
-import {Conference} from '../../model/conference';
-import {User} from '../../model/users';
 import {System} from '../../model/system';
 import {FreeLogin} from "../../model/FreeLogin";
-import {ApiAccessToken} from "../../model/apiAccessToken";
 import {Storage} from "../../utils/storage";
-import {InterAction} from "../../model/interaction";
 import {VersionController} from "../../model/version/VersionController";
+import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
+import {Conference} from "../../model/conference/conference";
 
 const app = getApp();
 

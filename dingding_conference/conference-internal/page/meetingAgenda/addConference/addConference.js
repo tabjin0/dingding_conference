@@ -1,8 +1,8 @@
 import {MeetingRoom} from "../../../model/meetingRoom";
 import {Agenda} from "../../../model/agenda";
-import {InterAction} from "../../../model/interaction";
-import {Department} from "../../../model/department";
+import {Department} from "../../../model/conference/department";
 import {Storage} from "../../../utils/storage";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
