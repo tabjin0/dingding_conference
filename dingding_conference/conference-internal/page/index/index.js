@@ -4,6 +4,8 @@ import {Storage} from "../../utils/storage";
 import {VersionController} from "../../model/version/VersionController";
 import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
 import {Conference} from "../../model/conference/conference";
+import {Navigate} from "../../utils/native-api/interface/navigate";
+import {PageUrlConstant} from "../../config/pageUrlConstant";
 
 const app = getApp();
 
@@ -169,18 +171,6 @@ Page({
      * 管理员新增会议
      */
     addConference() {
-        dd.navigateTo({
-            url: '/page/meetingAgenda/addConference/addConference',
-            success: (res) => {
-
-            },
-            fail: (res) => {
-
-            }
-        })
+        Navigate.navigateTo(PageUrlConstant.addConference);
     },
-
-    async chooseLoca() {
-        await VersionController.isAppNewVersion("0.0.45");
-    }
 })

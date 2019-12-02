@@ -27,6 +27,7 @@ class PositioningCheckIn {
     }
 
     async _initLocationInfo(currentConference) {
+        console.log('currentConference', currentConference);
         // 会议室地点经纬度
         let currentLocation = currentConference.roomId.location.split(',');
         let longitude = parseFloat(currentLocation[0]);// 纬度

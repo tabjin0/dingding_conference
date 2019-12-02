@@ -38,12 +38,16 @@ page {
 .submit-button-container {
     width: 474rpx;
     height: 94rpx;
-    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    bottom: 57rpx;
+    margin-left: -237rpx;
 }
 
 .submit-button {
     background: rgba(240, 149, 77, 1);
     border-radius: 6px;
+    color: #FFFFFF !important;
 }
 
 /*选择图片View*/

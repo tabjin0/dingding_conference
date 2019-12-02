@@ -1,0 +1,56 @@
+.name-container {
+    width: 100%;
+    /*height: 229rpx;*/
+    background: rgba(255, 255, 255, 1);
+    padding-bottom: 32rpx;
+}
+
+.title {
+    width: 200rpx;
+    height: 35rpx;
+    font-size: 34rpx;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(0, 0, 7, 1);
+    line-height: 35rpx;
+}
+
+.name-title {
+    margin-left: 30rpx;
+    margin-top: 37rpx;
+    margin-bottom: 37rpx;
+}
+
+.name-input {
+    margin-left: 22rpx;
+    margin-right: 22rpx;
+}
+
+.location-container {
+    width: 100%;
+    /*height: 94rpx;*/
+    background: rgba(255, 255, 255, 1);
+    margin-top: 32rpx;
+    margin-bottom: 32rpx;
+    padding-top: 32rpx;
+    padding-bottom: 32rpx;
+}
+
+.location-title {
+    margin-left: 30rpx;
+}
+
+
+.submit-button-container {
+    width: 474rpx;
+    height: 94rpx;
+    position: fixed;
+    left: 50%;
+    bottom: 57rpx;
+    margin-left: -237rpx;
+}
+
+.submit-button {
+    background: rgba(240, 149, 77, 1);
+    border-radius: 6px;
+}

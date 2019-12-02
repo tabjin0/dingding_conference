@@ -2,7 +2,7 @@
  * 会议室模型
  */
 
-import {Http} from "../utils/http";
+import {Http} from "../../utils/http";
 
 class MeetingRoom {
     /**

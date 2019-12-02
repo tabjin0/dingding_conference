@@ -67,9 +67,12 @@ class OperationGroupJudger {
                 // 禁用党员请假按钮
                 commonOperation[0].status = OperationButtonStatus.DISALLOW;
                 commonOperation[0].name = '已请假';
-                commonOperation[0].img = `${ImgUrl.CHECKINED}`;
+                commonOperation[0].img = `${ImgUrl.TAKEOFFED}`;
                 // 禁用党员签到按钮
                 commonOperation[1].status = OperationButtonStatus.DISALLOW;
+                commonOperation[1].name = '已请假禁止签到';
+                // TODO 签到按钮改为灰
+                commonOperation[1].img = `${ImgUrl.CHECKIN}`;
                 break;
         }
         return {

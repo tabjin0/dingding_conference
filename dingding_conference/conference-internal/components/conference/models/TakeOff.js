@@ -8,6 +8,8 @@ import {LocationUtils} from "../../../utils/native-api/location/location";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {CheckIn} from "../../../model/conference/CheckIn";
 import {TakeOffInfo} from "./TakeOffInfo";
+import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
 
 class TakeOff {
     currentConference;
@@ -64,7 +66,7 @@ class TakeOff {
         let currentLongitude = parseFloat(res.longitude);
         let currentLatitude = parseFloat(res.latitude);
 
-        //
+        // 包装请假对象
         const takeOffInfo = new TakeOffInfo(
             currentConference.id,
             Caching.getStorageSync('user'),
@@ -79,7 +81,10 @@ class TakeOff {
             // 签到对象包装成功，发送CheckIn对象进行签到
             const takeOffRes = await CheckIn.submitCheckInInfo(takeOffInfo);
             console.log('takeOffRes', takeOffRes);
-
+            InterAction.fnShowToast('请假成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
+            setTimeout(function () {
+                Navigate.navigateBack(1);// 返回上一个页面
+            }, 2000);
         }
     }
 

@@ -3,7 +3,7 @@
         <view class="party-organization-info-container">
             <view class="party-organization-info">
                 <view class="party-organization-info-title">党员数量</view>
-                <view class="party-organization-info-right">23人</view>
+                <view class="party-organization-info-right">{{partyBranchMemberNum}}</view>
             </view>
 <!--            <view class="party-organization-info">-->
 <!--                <view class="party-organization-info-title">会议总参与度</view>-->

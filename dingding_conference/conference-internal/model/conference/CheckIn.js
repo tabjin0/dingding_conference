@@ -26,7 +26,6 @@ class CheckIn {
                 leaveReason: leaveReason
             },
         });
-        console.log('res', res);
         if (res.code === 1) {
             return res.data;
         } else {

@@ -1,7 +1,9 @@
-import {Statistic} from "../../../model/statistic";
 import {System} from "../../../model/system";
 import {FreeLogin} from "../../../model/FreeLogin";
 import {Storage} from "../../../utils/storage";
+import {Statistic} from "../../../model/statistical/statistic";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {Department} from "../../../model/conference/department";
 
 const app = getApp();
 
@@ -10,7 +12,7 @@ Page({
         conferenceStatistic: []
     },
     async onLoad() {
-        dd.showLoading({content: '加载中...' });
+        dd.showLoading({content: '加载中...'});
         await this.initData();
         dd.hideLoading();
     },
@@ -25,14 +27,13 @@ Page({
     },
 
     async initUser() {
-        // dd.showLoading({content: '加载中...' });
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
         const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
         this.setData({
             // isAdmin: currentUser.currentUser.isAdmin,
             // isLeaderInDepts: currentUser.currentUser.isLeaderInDepts
-            isAdmin: Storage.getStorageSyncByKey('isAdmin'),
-            isLeaderInDepts: Storage.getStorageSyncByKey('isLeaderInDepts')
+            isAdmin: Caching.getStorageSync('isAdmin'),
+            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
         });
         return currentUser;
     },
@@ -42,13 +43,15 @@ Page({
      * @returns {Promise<void>}
      */
     async initData() {
-        const user = await this.initUser();
-        console.log(user)
-        let userId = user.userid;
-        console.log(userId);
-        const conferenceStatistic = await Statistic.conferenceStatistic(userId);
+        const userId = Caching.getStorageSync('user');
+        const departmentId = Caching.getStorageSync('department');
+
+        const conferenceStatistic = await Statistic.conferenceStatistic(userId, 1);
+        const departmentUserList = await Department.getDepartmentUserid(departmentId);
+
         this.setData({
-            conferenceStatistic: conferenceStatistic
+            conferenceStatistic: conferenceStatistic,
+            partyBranchMemberNum: departmentUserList.length // 党员数量
         });
 
     },

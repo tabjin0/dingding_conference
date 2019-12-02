@@ -151,8 +151,6 @@ Page({
      * @returns {Promise<void>}
      */
     async initData(mid) {
-        // const userId = await this.checkUserInfo();
-        // console.log('userId:' + userId);
         const userId = Storage.getStorageSyncByKey('user');
         const currentConference = await Conference.getConferenceDetail(mid, userId);
         let imgArr = [];

@@ -2,7 +2,6 @@
  * 统计业务模型
  */
 
-
 import {Http} from "../../utils/http";
 
 class Statistic {
@@ -19,6 +18,7 @@ class Statistic {
                 orgId: orgId
             }
         });
+        console.log('statistic', statistic);
         return statistic.data;
     }
 }

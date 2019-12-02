@@ -14,7 +14,7 @@ Component({
 
     props: {
         data: Object,
-        isLeaderInDepts: false,// 是否是主管
+        isLeaderInDepts: true,// 是否是主管
     },
 
     didMount() {
@@ -38,7 +38,6 @@ Component({
                 operationGroup: operationJudger.operationGroup
             });
         }
-        console.log('this.data.operationGroup', this.data.operationGroup);
 
     },
 
@@ -65,12 +64,12 @@ Component({
          */
         takeOff() {
             const conference = this.data.conference;
-            console.log('conference',JSON.stringify(conference));
+            console.log('conference', JSON.stringify(conference));
             Navigate.navigateTo(`${PageUrlConstant.takeOff}?conference=` + JSON.stringify(conference));
         },
 
         /**
-         *
+         * 照片
          */
         toPhoto() {
             let imgArr = this.data.conference.imgs;
@@ -82,16 +81,14 @@ Component({
          * 纪要
          */
         summary() {
-            const mid = this.data.conference.id;
-            Navigate.navigateTo(`${PageUrlConstant.conferenceSummary}?mid=` + mid);
+            Navigate.navigateTo(`${PageUrlConstant.conferenceSummary}?mid=` + this.data.conference.id);
         },
 
         /**
          * 笔记
          */
         note() {
-            const conference = this.data.conference;
-            Navigate.navigateTo(`${PageUrlConstant.conferenceNote}?conference=` + +JSON.stringify(conference));
+            Navigate.navigateTo(`${PageUrlConstant.conferenceNote}?mid=` + this.data.conference.id);
         },
 
         /**
