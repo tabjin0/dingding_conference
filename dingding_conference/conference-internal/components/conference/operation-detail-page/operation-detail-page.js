@@ -1,6 +1,6 @@
 import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {PageUrlConstant} from "../../../config/pageUrlConstant";
-import {Positioning} from "../models/positioning";
+import {PositioningCheckIn} from "../models/PositioningCheckIn";
 import {OperationGroup} from "../models/operation/operation-group";
 import {OperationGroupJudger} from "../models/operation/operationGroupJudger";
 
@@ -53,7 +53,7 @@ Component({
          * @returns {Promise<void>}
          */
         async locationCheckCurrentConference() {
-            let positioning = new Positioning(this.data.conference);
+            let positioning = new PositioningCheckIn(this.data.conference);
             await positioning.checkIn();
             this.setData({
                 operationGroupLocated: positioning.operationGroup.operationGroup

@@ -528,7 +528,7 @@ Page({
             const res = await GetLocation.getLocation();
             let currentLatitude = parseFloat(res.longitude);
             let currentLongitude = parseFloat(res.latitude);
-            const distance = Positioning.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
+            const distance = PositioningCheckIn.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
             // console.log('distance')
             // console.log(distance)
             // console.log('distance')
@@ -549,7 +549,7 @@ Page({
             } else if (app.isNull(checkInInfo.distance)) {
                 InterAction.fnShowToast('fail', '位置异常', 2000);
             } else {
-                const checkInInfoRes = await Positioning.submitCheckInInfo(checkInInfo);
+                const checkInInfoRes = await PositioningCheckIn.submitCheckInInfo(checkInInfo);
                 // console.log('签到信息返回');
                 // console.log(checkInInfoRes);
                 // console.log(checkInInfoRes.code);

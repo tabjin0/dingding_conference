@@ -7,7 +7,7 @@ import {Caching} from "../../../utils/native-api/caching/caching";
 import {CheckInInfo} from "./checkInInfo";
 import {OperationGroupJudger} from "./operation/operationGroupJudger";
 
-class Positioning {
+class PositioningCheckIn {
     currentConference;// 当前会议
     operationGroup;// 操作按钮组
 
@@ -56,5 +56,5 @@ class Positioning {
 }
 
 export {
-    Positioning
+    PositioningCheckIn
 }

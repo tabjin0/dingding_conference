@@ -5,11 +5,9 @@
 import {Common} from "../../../utils/tabjin-utils/common";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {LocationUtils} from "../../../utils/native-api/location/location";
-import {CheckInInfo} from "./checkInInfo";
 import {Caching} from "../../../utils/native-api/caching/caching";
-import {LocationUtilsCustomized} from "../../../utils/tabjin-utils/location";
 import {CheckIn} from "../../../model/conference/CheckIn";
-import {OperationGroupJudger} from "./operation/operationGroupJudger";
+import {TakeOffInfo} from "./TakeOffInfo";
 
 class TakeOff {
     currentConference;
@@ -67,20 +65,20 @@ class TakeOff {
         let currentLatitude = parseFloat(res.latitude);
 
         //
-        const TakeOffInfo = new CheckInInfo(
+        const takeOffInfo = new TakeOffInfo(
             currentConference.id,
             Caching.getStorageSync('user'),
             // res.address,
-            'tabjin',
+            '',
             // LocationUtilsCustomized.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude),
             '',
             this.leaveType,
             this.leaveReason
         );
-        if (checkInInfo.dataCheck) {
+        if (takeOffInfo.dataCheck) {
             // 签到对象包装成功，发送CheckIn对象进行签到
-            const checkInInfoRes = await CheckIn.submitCheckInInfo(checkInInfo);
-            console.log('checkInInfoRes', checkInInfoRes);
+            const takeOffRes = await CheckIn.submitCheckInInfo(takeOffInfo);
+            console.log('takeOffRes', takeOffRes);
 
         }
     }

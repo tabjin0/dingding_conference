@@ -42,6 +42,14 @@ class TakeOffInfo {
             console.log(`${CheckInException.UID_NULL}`);
             this.dataCheck = false;
         }
+        if (Common.isNull(this.leaveType)) {
+            console.log(`${CheckInException.LEAVETYPE_NULL}`);
+            this.dataCheck = false;
+        }
+        if (Common.isNull(this.leaveReason)) {
+            console.log(`${CheckInException.LEAVEREASON_NULL}`);
+            this.dataCheck = false;
+        }
         this.dataCheck = true;
     }
 
