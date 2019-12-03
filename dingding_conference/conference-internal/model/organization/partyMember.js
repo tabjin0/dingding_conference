@@ -1,8 +1,7 @@
 /**
- * 微信版本 党员模型
+ * 党员模型
  */
-
-import {Http} from "../../utils/http";
+import { Http } from "../../utils/http";
 
 class PartyMember {
     /**

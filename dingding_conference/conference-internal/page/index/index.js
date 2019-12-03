@@ -1,11 +1,14 @@
-import {System} from '../../model/system';
-import {FreeLogin} from "../../model/FreeLogin";
+import {System} from '../../model/authentication/system';
+import {FreeLogin} from "../../model/authentication/FreeLogin";
 import {Storage} from "../../utils/storage";
 import {VersionController} from "../../model/version/VersionController";
 import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
 import {Conference} from "../../model/conference/conference";
 import {Navigate} from "../../utils/native-api/interface/navigate";
 import {PageUrlConstant} from "../../config/pageUrlConstant";
+import {DepartmentInit} from "../../components/department/DepartmentInit";
+import {Department} from "../../model/department/department";
+import {Caching} from "../../utils/native-api/caching/caching";
 
 const app = getApp();
 
@@ -46,6 +49,8 @@ Page({
         dd.showLoading({content: '加载中...'}); // ok
         this.initData();// 重新初始化会议列表
         dd.hideLoading(); // ok
+
+
     },
 
     async onShow() {

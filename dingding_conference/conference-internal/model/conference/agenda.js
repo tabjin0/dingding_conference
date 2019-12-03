@@ -1,9 +1,5 @@
-/**
- * 议题业务模型
- */
-
-import {Http} from "../../utils/http";
-import {InterAction} from "../interaction/interaction";
+import {Http} from '../../utils/http';
+import {InterAction} from "../../utils/native-api/interface/interaction";
 
 class Agenda {
     static async getAgenda() {
@@ -14,7 +10,7 @@ class Agenda {
         if (agenda.code === 1) {
             return agenda.data;
         } else {
-            InterAction.fnShowToast('加载议题失败，请检查网络...', 'none', 2000, false);
+            InterAction.fnAlert('抱歉', '加载议题失败，请检查网络...', '好的');
         }
     }
 }

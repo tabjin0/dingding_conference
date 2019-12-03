@@ -1,4 +1,4 @@
-import {PartyMember} from "../../../model/partyMember";
+import {PartyMember} from "../../../model/organization/partyMember";
 
 const app = getApp();
 

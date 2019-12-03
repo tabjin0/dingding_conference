@@ -1,9 +1,9 @@
-import {System} from "../../../model/system";
-import {FreeLogin} from "../../../model/FreeLogin";
+import {System} from "../../../model/authentication/system";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 import {Storage} from "../../../utils/storage";
 import {Statistic} from "../../../model/statistical/statistic";
 import {Caching} from "../../../utils/native-api/caching/caching";
-import {Department} from "../../../model/conference/department";
+import {Department} from "../../../model/department/department";
 
 const app = getApp();
 

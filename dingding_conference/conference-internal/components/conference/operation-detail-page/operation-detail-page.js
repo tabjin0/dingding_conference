@@ -14,7 +14,7 @@ Component({
 
     props: {
         data: Object,
-        isLeaderInDepts: true,// 是否是主管
+        isLeaderInDepts: Boolean,// 是否是主管
     },
 
     didMount() {

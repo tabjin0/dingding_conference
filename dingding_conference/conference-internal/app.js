@@ -1,25 +1,24 @@
 import {VersionController} from "./model/version/VersionController";
 import {config} from "./config/config";
+import {Navigate} from "./utils/native-api/interface/navigate";
+import {InitPartyBranchInfo} from "./page/organization/InitPartyBranchInfo";
 
 App({
-    onLaunch(options) {
+    async onLaunch(options) {
         console.log('App Launch', options);
         console.log('getSystemInfoSync', dd.getSystemInfoSync());
         console.log('SDKVersion', dd.SDKVersion);
         this.globalData.corpId = options.query.corpId;
-    },
-    async onShow() {
 
         // 1. 可以将用户相关登录提取到这边，这边尤其需要涉及到部门，因为头部title需要更改
-        dd.setNavigationBar({
-            title: '广电产业经营党支部支部会议',
-            backgroundColor: '#D40029',
-        });
+        const currentDepartment = await InitPartyBranchInfo.initPartyBranch();
+        Navigate.setNavigationBar(`${currentDepartment.name}支部会议`, '#D40029');
 
         // 2. 版本校验提醒
         const version = await VersionController.isAppNewVersion(`${config.currentVersion}`);
 
-
+    },
+    async onShow() {
     },
 
     onHide() {
@@ -28,6 +27,7 @@ App({
     globalData: {
         corpId: ''
     },
+
 
     // 构建全局议题对象对象(ID，议题名称)
     agenda(itemId, agendaName) {

@@ -3,6 +3,8 @@
  */
 import {Http} from "../../utils/http";
 import {InterAction} from "../../utils/native-api/interface/interaction";
+import {PageUrlConstant} from "../../config/pageUrlConstant";
+import {ApiUrlConstant} from "../../config/ApiUrlConstant";
 
 class Department {
     static async getDepartmentUserid(departmentId) {
@@ -16,6 +18,24 @@ class Department {
             return useridListRes.data;
         } else {
             InterAction.fnShowToast('exception', `${useridListRes.msg}`, 2000);
+        }
+    }
+
+    /**
+     * 获取部门列表
+     * @returns {Promise<*>}
+     */
+    static async getDepartmentList() {
+        const res = await Http.request({
+            url: `${ApiUrlConstant.DEPARTMENT}`,
+            data: {
+                orgId: 1
+            }
+        });
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            console.log('获取部门列表失败');
         }
     }
 }

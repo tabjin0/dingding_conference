@@ -115,7 +115,7 @@
     </view>
 </view>
 
-<tabjin-operation data="{{conference}}"></tabjin-operation>
+<tabjin-operation data="{{conference}}" isLeaderInDepts="{{isLeaderInDepts}}"></tabjin-operation>
 
 <!-- 底部按钮 -->
 <!--<view class="operation-container">-->

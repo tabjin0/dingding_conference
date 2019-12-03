@@ -1,57 +1,42 @@
 /**
- * 小程序登录 模块
+ * 用户免登模块
  */
-import {promisic} from "../../utils/util";
-import {ApiUrlConstant} from "../../config/ApiUrlConstant";
-import {Http} from "../../utils/http";
-import {Storage} from "../../utils/storage";
-import {InterAction} from "../interaction/interaction";
+import {User} from "./users";
+import {Caching} from "../../utils/native-api/caching/caching";
 
 class FreeLogin {
-
     /**
-     * 调用微信接口获取登录凭证（code）
-     */
-    static async _getCode() {
-        const res = await promisic(wx.login)({});
-        console.log(res);
-        if (!res.code) {
-            return;
-        }
-        return res.code;
-    }
-
-    /**
-     * 拿到登录凭证请求登录态
+     * 用户登录并进入缓存
+     * @param authCode
+     * @param corpId
      * @returns {Promise<void>}
      */
-    static async login() {
-        const code = await this._getCode();
-        const res = await Http.request({
-            url: ApiUrlConstant.login,
-            data: {
-                code
-            }
-        });
-        if (res.code === 1) {
-            return res.data;
-        } else {
-            InterAction.fnShowToast('抱歉，获取登录凭证失败', 'none', 2000);
-            return null;
-        }
-    }
+    static async freeLogin(authCode, corpId) {
+        const currentUser = await User.getCurrentUser(authCode, corpId); // 网络获取钉钉返回的当前用户信息 ok
+        console.log('currentUser', currentUser);
 
-    /**
-     * 保存用户openid到缓存
-     * @returns {Promise<void>}
-     */
-    static async setStorage() {
-        const openId = await this.login();
-        if (openId) {
-            Storage.setStorageSyncByKeyAndValue('user', openId);
+        // 总管理员
+        Caching.setStorageSync('isAdmin', currentUser.isAdmin);
+
+        // 部门
+        let department = currentUser.department[0];
+        let isLeaderInDeptsStr = currentUser.isLeaderInDepts.replace(/(\d+):/g, "\"$1\":");
+        let isLeaderInDepts = JSON.parse(isLeaderInDeptsStr);
+
+        Caching.setStorageSync('currentUser', currentUser);
+        Caching.setStorageSync('department', currentUser.department[0])
+        Caching.setStorageSync('isLeaderInDepts', isLeaderInDepts[department]);
+        Caching.setStorageSync('user', currentUser.userid);// ok
+        if (isLeaderInDepts[department]) {
+            // 部门主管
+            Caching.setStorageSync('administrator', currentUser.userid);// ok
         } else {
-            return;
+            // 非部门主管
         }
+        return {
+            currentUser: currentUser,
+            isLeaderInDepts: isLeaderInDepts
+        };
     }
 }
 
