@@ -1,82 +1,73 @@
 <!--pages/conference/add/index.wxml-->
 <import src="../../templates/collapse/collapse.axml"/>
 <view>
-  <form onSubmit="formSubmit" onReset="formReset">
-    <view class="flex-column">
-      <view style="display: none;">
-        <input name="uid" placeholder="Input" value="{{conference.uid}}"/>
-      </view>
-      <view class="flex-column outer-container">
-        <view class="title">会议主题</view>
-        <textarea name="theme" maxlength="-1" auto-height onInput="conferenceThemeInput" class="theme"
-                  placeholder="请输入"></textarea>
-      </view>
-      <view class="flex-row outer-container" onTap="chooseTime">
-        <view class="title">会议时间</view>
-        <view class="time-date">{{dateTime}}</view>
-        <input style="display:none;" name="time" onInput="conferenceTimeInput" class="time" disabled="true"
-               placeholder="{{dateTime}}" value="{{dateTime}}"/>
-      </view>
-
-      <!-- 地点 -->
-      <view class="flex-column outer-container">
-        <view class="flex-row" onTap="chooseLocation">
-          <view class="title">会议地点</view>
-          <view style="display:none;margin-left: auto;">{{conference.address}}</view>
-        </view>
-        <view class="flex-row" style="display:none;">
-                    <textarea name="address" maxlength="-1" onInput="conferenceAddressInput" class=""
-                              placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>
-          <input style="display:none;" name="roomId" value="{{conference.roomId}}"
-                 style="width: 100%;"></input>
-        </view>
-        <view class="flex-column radio-group-container">
-          <radio-group name="radio" class="radio-group" onChange="radioChange">
-            <view class="radio-item-container">
-              <label class="radio" a:for="{{meetingRoom}}" a:key="{{index}}"
-                     a:for-index="meetingRoom_index" a:for-item="meetingRoom_item">
-                <radio value="{{meetingRoom_item}}" checked="{{item.checked}}"/>
-                {{meetingRoom_item.name}}
-              </label>
+    <form onSubmit="formSubmit" onReset="formReset">
+        <view class="flex-column">
+            <view style="display: none;">
+                <input name="uid" placeholder="Input" value="{{conference.uid}}"/>
             </view>
-          </radio-group>
-          <view class="add-room" hidden="{{!meetingRoomShow}}" onTap="bookMeetingRoom">
-            <text class="add-room-text">编辑会议室</text>
-          </view>
-        </view>
-      </view>
-
-      <!--会议议题  -->
-      <view class="agenda-container outer-container">
-        <template is="Collapse" data="{{...collapseData}}"></template>
-      </view>
-      <view class="flex-column outer-container">
-        <view class="title">会议内容</view>
-        <textarea name="info" maxlength="-1" auto-height onInput="conferenceThemeInput" class="theme"
-                  placeholder="请输入"></textarea>
-      </view>
-      <view class="flex-row outer-container participant-container" onTap="chooseParticipant">
-        <view class="title participant-title">参加人员</view>
-        <view style="display:none;">
-          <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
-        </view>
-        <view class="flex-row" style="margin-left: auto;position:relative;">
-          <view class="participant-number" a:if="{{chooseParticipantNumber > 0}}">
+            <view class="flex-column outer-container">
+                <view class="title">会议主题</view>
+                <textarea name="theme" maxlength="-1" auto-height onInput="conferenceThemeInput" class="theme" placeholder="请输入"></textarea>
+            </view>
+            <view class="flex-row outer-container" onTap="chooseTime">
+                <view class="title">会议时间</view>
+                <view class="time-date">{{dateTime}}</view>
+                <input style="display:none;" name="time" onInput="conferenceTimeInput" class="time" disabled="true" placeholder="{{dateTime}}" value="{{dateTime}}"/>
+            </view>
+            <!-- 地点 -->
+            <view class="flex-column outer-container">
+                <view class="flex-row" onTap="chooseLocation">
+                    <view class="title">会议地点</view>
+                    <view style="display:none;margin-left: auto;">{{conference.address}}</view>
+                </view>
+                <view class="flex-row" style="display:none;">
+                    <textarea name="address" maxlength="-1" onInput="conferenceAddressInput" class="" placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>
+                    <input style="display:none;" name="roomId" value="{{conference.roomId}}" style="width: 100%;"></input>
+                </view>
+                <view class="flex-column radio-group-container">
+                    <radio-group name="radio" class="radio-group" onChange="radioChange">
+                        <view class="radio-item-container">
+                            <label class="radio" a:for="{{meetingRoom}}" a:key="{{index}}" a:for-index="meetingRoom_index" a:for-item="meetingRoom_item">
+                                <radio value="{{meetingRoom_item}}" checked="{{item.checked}}"/>
+                {{meetingRoom_item.name}}
+                            </label>
+                        </view>
+                    </radio-group>
+                    <view class="add-room" hidden="{{!meetingRoomShow}}" onTap="bookMeetingRoom">
+                        <text class="add-room-text">编辑会议室</text>
+                    </view>
+                </view>
+            </view>
+            <!--会议议题  -->
+            <view class="agenda-container outer-container">
+                <template is="Collapse" data="{{...collapseData}}"></template>
+            </view>
+            <view class="flex-column outer-container">
+                <view class="title">会议内容</view>
+                <textarea name="info" maxlength="-1" auto-height onInput="conferenceThemeInput" class="theme" placeholder="请输入"></textarea>
+            </view>
+            <view class="flex-row outer-container participant-container" onTap="chooseParticipant">
+                <view class="title participant-title">参加人员</view>
+                <view style="display:none;">
+                    <input name="conferee" placeholder="Input" value="{{chooseParticipantId}}"/>
+                </view>
+                <view class="flex-row" style="margin-left: auto;position:relative;">
+                    <view class="participant-number" a:if="{{chooseParticipantNumber > 0}}">
             {{chooseParticipantNumber}}人
-          </view>
-          <view class="more a-collapse-title-arrow a-collapse-title-arrow-right"></view>
+                    </view>
+                    <view class="more a-collapse-title-arrow a-collapse-title-arrow-right"></view>
+                </view>
+            </view>
+            <!-- 是否公开 -->
+            <view class="isOpen-container outer-container">
+                <text class="isOpen-text">{{isOpen?'公开':'不公开'}}</text>
+                <switch class="isOpen-switch" name="isOpen" checked onChange="switchChange"/>
+            </view>
         </view>
-      </view>
-
-      <!-- 是否公开 -->
-      <view class="isOpen-container outer-container">
-        <text class="isOpen-text">{{isOpen?'公开':'不公开'}}</text>
-        <switch class="isOpen-switch" name="isOpen" checked onChange="switchChange"/>
-      </view>
-    </view>
-    <view class="submit-button-container">
-      <button class="submit-button" size="default" type="default" form-type="submit">发布会议</button>
-    </view>
-  </form>
-  <!--    <button size="default" type="default" onTap="notification">测试</button>-->
+        <view class="submit-button-container">
+            <button class="submit-button" size="default" type="default" form-type="submit">发布会议</button>
+        </view>
+    </form>
+    <!--<button size="default" type="default" onTap="notification">测试</button>-->
 </view>

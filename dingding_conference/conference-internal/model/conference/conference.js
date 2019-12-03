@@ -1,5 +1,6 @@
 import {Http} from "../../utils/http";
 import {InterAction} from "../../utils/native-api/interface/interaction";
+import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
 
 class Conference {
 
@@ -7,11 +8,27 @@ class Conference {
      * 新增会议
      * @returns {Promise<*>}
      */
-    static async addConference() {
-        return await Http.request({
+    static async addConference(addConferenceInfo) {
+        const res = await Http.request({
             url: `5d8b1812a0cda`,
-            data: null
+            data: {
+                uid: addConferenceInfo.uid,
+                theme: addConferenceInfo.theme,
+                address: addConferenceInfo.address,
+                time: addConferenceInfo.time,
+                info: addConferenceInfo.info,
+                conferee: addConferenceInfo.conferee,
+                topic: addConferenceInfo.topic,
+                roomId: addConferenceInfo.roomId,
+                orgId: addConferenceInfo.orgId,
+                open: addConferenceInfo.open
+            }
         });
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            InterAction.fnShowToast('新增失败', InteractionEnum.DD_SHOW_TOAST_TYPE_NONE, InteractionEnum.DD_SHOW_TOAST_DURATION);
+        }
     }
 
     /**
@@ -26,7 +43,6 @@ class Conference {
                 uid: uid
             }
         });
-        console.log(conferenceList);
         if (conferenceList.code === 1) {
             return conferenceList.data;
         } else {

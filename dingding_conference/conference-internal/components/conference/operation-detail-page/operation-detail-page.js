@@ -1,8 +1,8 @@
-import {Navigate} from "../../../utils/native-api/interface/navigate";
-import {PageUrlConstant} from "../../../config/pageUrlConstant";
-import {PositioningCheckIn} from "../models/PositioningCheckIn";
-import {OperationGroup} from "../models/operation/operation-group";
-import {OperationGroupJudger} from "../models/operation/operationGroupJudger";
+import { Navigate } from "../../../utils/native-api/interface/navigate";
+import { PageUrlConstant } from "../../../config/pageUrlConstant";
+import { PositioningCheckIn } from "../models/PositioningCheckIn";
+import { OperationGroup } from "../models/operation/operation-group";
+import { OperationGroupJudger } from "../models/operation/operationGroupJudger";
 
 Component({
     mixins: [],
@@ -43,7 +43,6 @@ Component({
 
     didUnmount() {
         //    嘻嘻嘻嘻
-        console.log('123');
     },
 
     methods: {

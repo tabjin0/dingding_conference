@@ -67,7 +67,6 @@ Page({
 
         const authCode = await System.loginSystem();// 获取钉钉免登授权码
         const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        console.log('currentUser', currentUser);
 
         this.setData({
             isAdmin: currentUser.currentUser.isAdmin,

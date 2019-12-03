@@ -9,7 +9,6 @@
                     <text class="theme-text">{{conference.theme}}</text>
                 </view>
             </view>
-
             <!-- 会议时间地点 -->
             <view class="outer-container">
                 <view class="inner-container">
@@ -19,13 +18,11 @@
                     </view>
                     <view class="line"></view>
                     <view class="flex-row address-inner-container">
-                        <image class="img1" mode="scaleToFill"
-                               src="/resources/conferenceDetial/logo-adress.png"></image>
+                        <image class="img1" mode="scaleToFill" src="/resources/conferenceDetial/logo-adress.png"></image>
                         <view class="address-text">{{conference.address}}</view>
                     </view>
                 </view>
             </view>
-
             <!-- 会议议题 -->
             <view class="outer-container">
                 <view class="inner-container">
@@ -33,27 +30,22 @@
                     <view class="theme-text">会议议题</view>
                 </view>
                 <view class="row-line"></view>
-                <view class="info-inner-container" class="flex-row" a:for="{{conference.topic}}"
-                      a:for-index="topic_index" a:for-item="topic_item">
+                <view class="info-inner-container" class="flex-row" a:for="{{conference.topic}}" a:for-index="topic_index" a:for-item="topic_item">
                     <view class="flex-column">
                         <text selectable="true" class="info-inner-container">{{topic_item.name}}</text>
                     </view>
                 </view>
             </view>
-
             <!-- 会议内容 -->
             <tabjin-word-card word="{{conference.info}}">
                 <text slot="title">会议内容</text>
             </tabjin-word-card>
-
             <!-- 会议参加人员 -->
             <view class="outer-container">
                 <!-- 参加状态 -->
                 <view class="participant-title-container">
-                    <block a:for="{{participatedStatus}}" a:for-index="participatedStatus_index"
-                           a:for-item="participatedStatus_item">
-                        <view class="participant-title {{participatedStatus_index==swiperParticipantCurrent?'current':''}}"
-                              onTap="switchParticipantSwiper" data-index="{{participatedStatus_index}}">
+                    <block a:for="{{participatedStatus}}" a:for-index="participatedStatus_index" a:for-item="participatedStatus_item">
+                        <view class="participant-title {{participatedStatus_index==swiperParticipantCurrent?'current':''}}" onTap="switchParticipantSwiper" data-index="{{participatedStatus_index}}">
                             {{participatedStatus_item}}
                         </view>
                     </block>
@@ -61,8 +53,7 @@
                 <!-- 人员信息 -->
                 <view class="participant">
                     <swiper current="{{swiperParticipantCurrent}}" bindchange="swiperParticipantChange">
-                        <block a:for="{{confereeInfo}}" a:for-index="conferee_info_index"
-                               a:for-item="conferee_info_item">
+                        <block a:for="{{confereeInfo}}" a:for-index="conferee_info_index" a:for-item="conferee_info_item">
                             <swiper-item class="conferee-info-container">
                                 <block class="" a:for="{{conferee_info_item}}">
                                     <view class="conferee-info-item">
@@ -78,10 +69,8 @@
             <view class="outer-container">
                 <!-- 阅读状态 -->
                 <view class="participant-title-container">
-                    <block a:for="{{noticeReadStatus}}" a:for-index="noticeReadStatus_index"
-                           a:for-item="noticeReadStatus_item">
-                        <view class="participant-title {{noticeReadStatus_index==swiperNoticeReadCurrent?'current':''}}"
-                              onTap="switchNoticeReadSwiper" data-index="{{noticeReadStatus_index}}">
+                    <block a:for="{{noticeReadStatus}}" a:for-index="noticeReadStatus_index" a:for-item="noticeReadStatus_item">
+                        <view class="participant-title {{noticeReadStatus_index==swiperNoticeReadCurrent?'current':''}}" onTap="switchNoticeReadSwiper" data-index="{{noticeReadStatus_index}}">
                             {{noticeReadStatus_item}}
                         </view>
                     </block>
@@ -89,24 +78,20 @@
                 <!-- 阅读人员信息 -->
                 <view class="participant">
                     <swiper current="{{swiperNoticeReadCurrent}}" bindchange="swiperNoticeReadChange">
-                        <block a:for="{{readInfo}}" a:for-index="read_info_index"
-                               a:for-item="read_info_item">
+                        <block a:for="{{readInfo}}" a:for-index="read_info_index" a:for-item="read_info_item">
                             <view class="read-inner-container">
-                                <swiper-item class="flex-row conferee-info-container">
-                                    <view class="flex-row conferee-info-item" a:for="{{read_info_item}}"
-                                    >
+                                <swiper-item a:if="{{read_info_item.length > 0}}" class="flex-row conferee-info-container">
+                                    <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
                                         <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
                                     </view>
                                 </swiper-item>
-                                <view a:if="{{read_info_index === 1 && isLeaderInDepts === true}}" class="notice"
-                                      onTap="notice">提醒阅读
-                                </view>
                             </view>
                         </block>
                     </swiper>
+                    <view a:if="{{swiperNoticeReadCurrent === 1 && isLeaderInDepts === true}}" class="notice" onTap="notice">提醒阅读
+                    </view>
                 </view>
             </view>
-
             <!-- 会议纪要 -->
             <tabjin-word-card word="{{conference.summary}}" imgArr="{{imgArr}}">
                 <text slot="title">会议纪要</text>
@@ -114,22 +99,5 @@
         </view>
     </view>
 </view>
-
-<tabjin-operation data="{{conference}}" isLeaderInDepts="{{isLeaderInDepts}}"></tabjin-operation>
-
 <!-- 底部按钮 -->
-<!--<view class="operation-container">-->
-<!--    <view class="circle-container">-->
-<!--        <block a:for="{{isLeaderInDepts==true?adminOperation:commonOperation}}"-->
-<!--               a:for-index="operation_index" a:for-item="operation_item">-->
-<!--            <view class="button operation-item-container">-->
-<!--                <button class="operation-item" size="" type="default" onTap="{{operation_item.operation}}"-->
-<!--                        disabled="{{!operation_item.status}}">-->
-<!--                    &lt;!&ndash;                    {{operation_item.name}}&ndash;&gt;-->
-<!--                    <image src="{{operation_item.img}}" class="operation-item-img" mode="scaleToFill"-->
-<!--                           lazy-load="true"></image>-->
-<!--                </button>-->
-<!--            </view>-->
-<!--        </block>-->
-<!--    </view>-->
-<!--</view>-->
+<tabjin-operation data="{{conference}}" isLeaderInDepts="{{isLeaderInDepts}}"></tabjin-operation>

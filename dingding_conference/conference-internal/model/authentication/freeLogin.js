@@ -13,7 +13,6 @@ class FreeLogin {
      */
     static async freeLogin(authCode, corpId) {
         const currentUser = await User.getCurrentUser(authCode, corpId); // 网络获取钉钉返回的当前用户信息 ok
-        console.log('currentUser', currentUser);
 
         // 总管理员
         Caching.setStorageSync('isAdmin', currentUser.isAdmin);
@@ -23,6 +22,7 @@ class FreeLogin {
         let isLeaderInDeptsStr = currentUser.isLeaderInDepts.replace(/(\d+):/g, "\"$1\":");
         let isLeaderInDepts = JSON.parse(isLeaderInDeptsStr);
 
+        // 设置缓存
         Caching.setStorageSync('currentUser', currentUser);
         Caching.setStorageSync('department', currentUser.department[0])
         Caching.setStorageSync('isLeaderInDepts', isLeaderInDepts[department]);

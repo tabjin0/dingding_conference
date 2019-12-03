@@ -77,7 +77,7 @@ Page({
         this.setData({
             currentConferenceMid: mid
         });
-        wx.stopPullDownRefresh();
+        dd.stopPullDownRefresh();
     },
 
     /**
@@ -213,8 +213,7 @@ Page({
         this.setData({
             confereeInfo: confereeArray
         });
-        // console.log('confereeArray');
-        // console.log(confereeArray);
+        console.log('confereeArray', confereeArray);
     },
 
     /**
@@ -228,8 +227,7 @@ Page({
         this.setData({
             readInfo: readArr
         });
-        // console.log('readInfo');
-        // console.log(readArr);
+        console.log('readInfo', readArr);
     },
 
     /**
@@ -240,9 +238,7 @@ Page({
         let swiperChangeCurrent = parseInt(e.currentTarget.dataset.index),
             num = parseInt(e.currentTarget.dataset.index)
         this.curIndex = parseInt(e.currentTarget.dataset.index)
-        // console.log('切换swiper');
-        // console.log(swiperChangeCurrent);
-        // console.log('切换swiper');
+        console.log('切换swiper', swiperChangeCurrent);
         this.setData({
             swiperParticipantCurrent: swiperChangeCurrent
         })
@@ -258,7 +254,7 @@ Page({
         this.setData({
             swiperParticipantCurrent: e.detail.current
         })
-        // console.log(this.data.swiperParticipantCurrent)
+        console.log(this.data.swiperParticipantCurrent)
     },
 
     /**
@@ -270,9 +266,7 @@ Page({
             swiperChangeCurrent = parseInt(e.currentTarget.dataset.index),
             num = parseInt(e.currentTarget.dataset.index)
         this.curIndex = parseInt(e.currentTarget.dataset.index)
-        console.log('切换swiper');
-        console.log(swiperChangeCurrent);
-        console.log('切换swiper');
+        console.log('切换swiper', swiperChangeCurrent);
         this.setData({
             swiperNoticeReadCurrent: swiperChangeCurrent
         })
@@ -286,7 +280,7 @@ Page({
         this.setData({
             swiperNoticeReadCurrent: e.detail.current
         })
-        // console.log(this.data.swiperNoticeReadCurrent)
+        console.log(this.data.swiperNoticeReadCurrent)
     },
 
     /**
