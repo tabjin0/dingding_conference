@@ -6,7 +6,8 @@ class System {
      * @returns {Promise<*>}
      */
     static async loginSystem() {
-        return await Auth.authCode();
+        const res = await Auth.authCode();
+        return res.authCode;
     }
 }
 

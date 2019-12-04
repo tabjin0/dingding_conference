@@ -1,4 +1,5 @@
 import {PartyMember} from "../../../model/organization/partyMember";
+import {Caching} from "../../../utils/native-api/caching/caching";
 
 const app = getApp();
 
@@ -12,9 +13,6 @@ Page({
     },
 
     async onLoad() {
-        dd.showLoading({content: '加载中...'})
-        await this.initData();
-        dd.hideLoading();
     },
 
     async onShow() {
@@ -35,7 +33,8 @@ Page({
     async initData() {
         const partyMemberInfo = await this.initPartyMenberInfo();
         this.setData({
-            organizationPartyMember: partyMemberInfo
+            organizationPartyMember: partyMemberInfo,
+            partyBranchName: Caching.getStorageSync('orgName')
         })
     },
 
@@ -43,7 +42,7 @@ Page({
      * 初始化党员基本信息
      */
     async initPartyMenberInfo() {
-        const partyMemberInfoRes = await PartyMember.getPartyMemberInfo(1);
+        const partyMemberInfoRes = await PartyMember.getPartyMemberInfo(Caching.getStorageSync('orgId'));
         console.log(partyMemberInfoRes);
         let partyMemberInfo = partyMemberInfoRes.data;
         // for (let i = 0; i < partyMemberInfo.length; i++) {

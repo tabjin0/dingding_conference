@@ -5,6 +5,8 @@ import {FreeLogin} from "../../../model/authentication/FreeLogin";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {PageUrlConstant} from "../../../config/pageUrlConstant";
 import {Caching} from "../../../utils/native-api/caching/caching";
+import {DetailUtil} from "./detail-util";
+import {Common} from "../../../utils/tabjin-utils/common";
 
 const app = getApp();
 Page({
@@ -224,8 +226,10 @@ Page({
         let readArr = [];       // 通知阅读情况数组
         readArr.push(currentConference.msg.read);// readArr[0]
         readArr.push(currentConference.msg.unread);// readArr[1]
+        const isUnreadNull = Common.isArrayNull(currentConference.msg.unread);
         this.setData({
-            readInfo: readArr
+            readInfo: readArr,
+            isUnreadNull: isUnreadNull
         });
         console.log('readInfo', readArr);
     },

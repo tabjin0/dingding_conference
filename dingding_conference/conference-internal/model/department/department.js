@@ -1,10 +1,10 @@
 /**
  * 部门业务模型
  */
-import {Http} from "../../utils/http";
-import {InterAction} from "../../utils/native-api/interface/interaction";
-import {PageUrlConstant} from "../../config/pageUrlConstant";
-import {ApiUrlConstant} from "../../config/ApiUrlConstant";
+import { Http } from "../../utils/http";
+import { InterAction } from "../../utils/native-api/interface/interaction";
+import { PageUrlConstant } from "../../config/pageUrlConstant";
+import { ApiUrlConstant } from "../../config/ApiUrlConstant";
 
 class Department {
     static async getDepartmentUserid(departmentId) {
@@ -25,11 +25,11 @@ class Department {
      * 获取部门列表
      * @returns {Promise<*>}
      */
-    static async getDepartmentList() {
+    static async getDepartmentList(orgId) {
         const res = await Http.request({
             url: `${ApiUrlConstant.DEPARTMENT}`,
             data: {
-                orgId: 1
+                orgId: orgId
             }
         });
         if (res.code === 1) {

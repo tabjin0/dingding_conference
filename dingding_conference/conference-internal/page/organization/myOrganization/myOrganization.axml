@@ -1,7 +1,7 @@
 <view>
     <view class="name-container">
         <image class="name-img" mode="scaleToFill" src="/resources/wodezhibu/logo.png"></image>
-        <text class="name-text">广电产业经营支部</text>
+        <text class="name-text">{{partyBranchName==null?'党支部':partyBranchName}}</text>
     </view>
 
     <view class="member-container">

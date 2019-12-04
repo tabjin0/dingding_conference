@@ -25,13 +25,18 @@ class Summary {
     }
 
     static async submitImgs(mid, imgs) {
-        return await Http.request({
+        const res = await Http.request({
             url: '5d8ed0b962c65',
             data: {
                 mid: mid,
                 imgs: imgs
             }
-        })
+        });
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            Interaction.fnShowToast('上传失败', InteractionEnum.DD_SHOW_TOAST_TYPE_fail, InteractionEnum.DD_SHOW_TOAST_DURATION)
+        }
     }
 }
 

@@ -8,7 +8,8 @@ import {Caching} from "../../utils/native-api/caching/caching";
 
 class InitPartyBranchInfo {
     static async initPartyBranch() {
-        const departmentList = await Department.getDepartmentList();
+        console.log('getDepartmentList',Caching.getStorageSync('orgId'));
+        const departmentList = await Department.getDepartmentList(Caching.getStorageSync('orgId'));
         const departmentInit = new DepartmentInit(departmentList, Caching.getStorageSync('department'));
         return departmentInit.init();
     }

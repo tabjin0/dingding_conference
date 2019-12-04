@@ -46,7 +46,7 @@ Page({
         const userId = Caching.getStorageSync('user');
         const departmentId = Caching.getStorageSync('department');
 
-        const conferenceStatistic = await Statistic.conferenceStatistic(userId, 1);
+        const conferenceStatistic = await Statistic.conferenceStatistic(userId, Caching.getStorageSync('orgId'));
         const departmentUserList = await Department.getDepartmentUserid(departmentId);
 
         this.setData({

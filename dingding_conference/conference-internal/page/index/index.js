@@ -1,14 +1,10 @@
-import {System} from '../../model/authentication/system';
-import {FreeLogin} from "../../model/authentication/FreeLogin";
 import {Storage} from "../../utils/storage";
-import {VersionController} from "../../model/version/VersionController";
 import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
 import {Conference} from "../../model/conference/conference";
 import {Navigate} from "../../utils/native-api/interface/navigate";
 import {PageUrlConstant} from "../../config/pageUrlConstant";
-import {DepartmentInit} from "../../components/department/DepartmentInit";
-import {Department} from "../../model/department/department";
 import {Caching} from "../../utils/native-api/caching/caching";
+import {FreeLogin} from "../../model/authentication/FreeLogin";
 
 const app = getApp();
 
@@ -46,9 +42,6 @@ Page({
     },
 
     async onLoad() {
-        dd.showLoading({content: '加载中...'}); // ok
-        this.initData();// 重新初始化会议列表
-        dd.hideLoading(); // ok
 
 
     },
@@ -64,16 +57,17 @@ Page({
      * 初始化页面数据
      */
     async initData() {
-
-        const authCode = await System.loginSystem();// 获取钉钉免登授权码
-        const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-
-        this.setData({
-            isAdmin: currentUser.currentUser.isAdmin,
-            isLeaderInDepts: Storage.getStorageSyncByKey('isLeaderInDepts')
-        });
+        const currentUser = Caching.getStorageSync('currentUser');
+        if (!currentUser) { // 缓存中没有currentUser
+            const currentUserOnline = await FreeLogin.currentUser();// 用户登录并进入缓存
+            Caching.setStorageSync('currentUser', currentUserOnline)
+        }
 
         this.initConferenceData();// 获取会议列表
+        Navigate.setNavigationBar(`${Caching.getStorageSync('currentUser').basicCurrentUserInfo}会议`, '#D40029');
+        this.setData({
+            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
+        });
     },
 
     /** 初始化会议数据 */

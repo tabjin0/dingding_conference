@@ -2,17 +2,24 @@ import {VersionController} from "./model/version/VersionController";
 import {config} from "./config/config";
 import {Navigate} from "./utils/native-api/interface/navigate";
 import {InitPartyBranchInfo} from "./page/organization/InitPartyBranchInfo";
+import {System} from "./model/authentication/system";
+import {FreeLogin} from "./model/authentication/FreeLogin";
+import {Caching} from "./utils/native-api/caching/caching";
 
 App({
     async onLaunch(options) {
-        console.log('App Launch', options);
-        console.log('getSystemInfoSync', dd.getSystemInfoSync());
-        console.log('SDKVersion', dd.SDKVersion);
+        // console.log('App Launch', options);
+        // console.log('getSystemInfoSync', dd.getSystemInfoSync());
+        // console.log('SDKVersion', dd.SDKVersion);
         this.globalData.corpId = options.query.corpId;
 
         // 1. 可以将用户相关登录提取到这边，这边尤其需要涉及到部门，因为头部title需要更改
-        const currentDepartment = await InitPartyBranchInfo.initPartyBranch();
-        Navigate.setNavigationBar(`${currentDepartment.name}支部会议`, '#D40029');
+        if (!Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();// 用户登录并进入缓存
+            Caching.setStorageSync('currentUser', currentUser)
+            console.log('app currentUser', currentUser);
+        }
+
 
         // 2. 版本校验提醒
         const version = await VersionController.isAppNewVersion(`${config.currentVersion}`);

@@ -1,6 +1,8 @@
 import {Summary} from "../../../model/conference/summary";
 import {Upload} from "../../../model/conference/upload";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
 
 Page({
     data: {
@@ -176,25 +178,20 @@ Page({
     async submitImg() {
         console.log(this.data);
         let mid = this.data.mid;
-        let imgsStr = this.data.totalImgIdArr.join(',');
-        console.log(imgsStr)
-        const res = await Summary.submitImgs(mid, imgsStr);
-        console.log(res);
-        if (res.code === 1) {
+        if (this.data.totalImgIdArr > 0) {
+            let imgsStr = this.data.totalImgIdArr.join(',');
+            const res = await Summary.submitImgs(mid, imgsStr);
             if (this.data.uploadFlag) {
-                InterAction.fnShowToast('success', '图片上传成功', 2000);
-                // dd.redirectTo({
-                //     url: '/page/meetingAgenda/conferenceDetail/conferenceDetail?mid=' + this.data.mid
-                // })
-                dd.navigateBack({
-                    delta: 1
-                })
+                InterAction.fnShowToast('图片上传成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
+                setTimeout(function () {
+                    Navigate.navigateBack(1);
+                }, 2000);
             } else {
-                InterAction.fnAlert('抱歉', '`图片上传失败，请重新上传图片', '好的');
+                InterAction.fnShowToast('图片上传失败，请重新上传图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             }
+        } else {
+            Interaction.fnShowToast('请至少添加一张图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
         }
 
-
     },
-
 });

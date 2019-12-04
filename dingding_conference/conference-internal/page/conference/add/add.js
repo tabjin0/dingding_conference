@@ -100,7 +100,7 @@ Page({
 
     async getAgendaArray() {
         let agendaContent = [];
-        const agendaList = await Agenda.getAgenda();
+        const agendaList = await Agenda.getAgenda(Caching.getStorageSync('orgId'));
         // 内省在agenda模型中做了
         for (let i = 0; i < agendaList.length; i++) {
             agendaContent.push(agendaList[i]);
@@ -128,12 +128,14 @@ Page({
      * @param e
      */
     async formSubmit(e) {
-        // console.log('form发生了submit事件，携带数据为：', e.detail.value);
+        console.log('form发生了submit事件，携带数据为：', e.detail.value);
         let currentUser = Caching.getStorageSync('currentUser');
+        console.log('currentUser', currentUser);
+        console.log('currentUser.basicCurrentUserInfo.userid,', currentUser.basicCurrentUserInfo.userid,);
         let conference = e.detail.value;
         delete conference.radio;
         const addConferenceInfo = new AddConferenceInfo(
-            currentUser.userid,
+            currentUser.basicCurrentUserInfo.userid,
             conference.theme,
             conference.address,
             conference.time,
@@ -141,9 +143,10 @@ Page({
             conference.conferee,
             conference.topic,
             conference.roomId,
-            currentUser.orgId,
+            currentUser.basicCurrentUserInfo.orgId,
             conference.isOpen ? 1 : 0
         );
+        console.log('addConferenceInfo',addConferenceInfo);
         if (addConferenceInfo.dataCheck()) {
             const addConferenceRes = await Conference.addConference(addConferenceInfo);
             InterAction.fnShowToast('新增成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
@@ -253,7 +256,7 @@ Page({
         // 选择会议室
         let meetingRoom = [];
         dd.showLoading({content: '获取会议室中...'})
-        const meetingRoomList = await MeetingRoom.getMeetingRoom();
+        const meetingRoomList = await MeetingRoom.getMeetingRoom(Caching.getStorageSync('orgId'));
         if (meetingRoomList.code === 1) {
             dd.hideLoading();
             that.setData({

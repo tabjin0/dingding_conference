@@ -6,24 +6,19 @@ import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum"
 class CheckIn {
     /**
      * 发送签到消息
-     * @param mid
-     * @param uid
-     * @param address
-     * @param distance
-     * @param leaveType
-     * @param leaveReason
+     * @param checkInInfo
      * @returns {Promise<*>}
      */
-    static async submitCheckInInfo({mid, uid, address, distance, leaveType, leaveReason}) {
+    static async submitCheckInInfo(checkInInfo) {
         const res = await Http.request({
             url: `${ApiUrlConstant.CHECK_IN}`,
             data: {
-                mid: mid,
-                uid: uid,
-                address: address,
-                distance: distance,
-                leaveType: leaveType,
-                leaveReason: leaveReason
+                mid: checkInInfo.mid,
+                uid: checkInInfo.uid,
+                address: checkInInfo.address,
+                distance: checkInInfo.distance,
+                leaveType: checkInInfo.leaveType,
+                leaveReason: checkInInfo.leaveReason
             },
         });
         if (res.code === 1) {

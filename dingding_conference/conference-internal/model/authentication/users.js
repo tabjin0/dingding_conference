@@ -71,7 +71,7 @@ class User {
      * @param corpId 组织id
      * @returns {Promise<*>}
      */
-    static async getCurrentUser(authCode, corpId) {
+    static async getCurrentUser(authCode) {
         const currentUserRes = await Http.request({
             url: '5d9ffdf120fb5',
             data: {

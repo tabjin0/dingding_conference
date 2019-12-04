@@ -2,7 +2,7 @@
  * 会议室模型
  */
 
-import {Http} from "../../utils/http";
+import { Http } from "../../utils/http";
 
 class MeetingRoom {
     /**
@@ -11,13 +11,13 @@ class MeetingRoom {
      * @param location 经纬度字符串
      * @returns {Promise<*>}
      */
-    static async addOrUpdateMeetingRoom(name, location) {
+    static async addOrUpdateMeetingRoom(name, location, orgId) {
         return await Http.request({
             url: `5db14749b1854`,
             data: {
                 name: name,
                 location: location,
-                orgId: 1,
+                orgId: orgId,
                 // id:
             }
         });
@@ -28,11 +28,11 @@ class MeetingRoom {
      * @param roomId 会议室id
      * @returns {Promise<*>}
      */
-    static async deleteMeetingRoom(roomId) {
+    static async deleteMeetingRoom(roomId, orgId) {
         return await Http.request({
             url: `5db147f53eb0f`,
             data: {
-                orgId: 1,
+                orgId: orgId,
                 roomId: roomId
             }
         })
@@ -42,11 +42,11 @@ class MeetingRoom {
      * 获取会议室列表
      * @returns {Promise<*>}
      */
-    static async getMeetingRoom() {
+    static async getMeetingRoom(orgId) {
         return await Http.request({
             url: `5d8b19b1744c7`,
             data: {
-                orgId: 1
+                orgId: orgId
             }
         });
     }

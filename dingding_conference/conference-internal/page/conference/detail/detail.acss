@@ -361,11 +361,9 @@ page {
     display: none;
 }
 
-/*swiper {*/
-
-/*    height: 150rpx !important;*/
-
-/*}*/
+swiper {
+    min-height: 150rpx !important;
+}
 
 /* swiper-item {
   position: relative !important;

@@ -20,6 +20,12 @@ class CheckInInfo {
         this.distance = distance;
         this.leaveType = leaveType;
         this.leaveReason = leaveReason;
+        console.log('mid', mid);
+        console.log('uid', uid);
+        console.log('address', address);
+        console.log('distance', distance);
+        console.log('leaveType', leaveType);
+        console.log('leaveReason', leaveReason);
         this._introspection();
     }
 
@@ -34,30 +40,22 @@ class CheckInInfo {
      * @private
      */
     _introspection() {
-        if (Common.isNull(this.mid)) {
+        if (!this.mid) {
             console.log(`${CheckInException.MID_NULL}`);
             this.dataCheck = false;
         }
-        if (Common.isNull(this.uid)) {
+        if (!this.uid) {
             console.log(`${CheckInException.UID_NULL}`);
             this.dataCheck = false;
         }
-        if (Common.isNull(this.address)) {
-            console.log(`${CheckInException.ADDRESS_NULL}`);
-            this.dataCheck = false;
-        }
-        if (Common.isNull(this.distance)) {
+        // if (!this.address) {
+        //     console.log(`${CheckInException.ADDRESS_NULL}`);
+        //     this.dataCheck = false;
+        // }
+        if (!this.distance) {
             console.log(`${CheckInException.DISTANCE_NULL}`);
             this.dataCheck = false;
         }
-        // if(Common.isNull(this.leaveType)){
-        //     console.log(`${CheckInException.LEAVETYPE_NULL}`);
-        //     return false;
-        // }
-        // if(Common.isNull(this.leaveReason)){
-        //     console.log(`${CheckInException.LEAVEREASON_NULL}`);
-        //     return false;
-        // }
         this.dataCheck = true;
     }
 

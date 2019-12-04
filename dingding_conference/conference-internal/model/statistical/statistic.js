@@ -14,11 +14,10 @@ class Statistic {
         const statistic = await Http.request({
             url: `5daa7c699f203`,
             data: {
-                uid: uid,
-                orgId: orgId
+                uid,
+                orgId
             }
         });
-        console.log('statistic', statistic);
         return statistic.data;
     }
 }

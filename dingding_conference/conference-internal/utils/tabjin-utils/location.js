@@ -1,21 +1,55 @@
 class LocationUtilsCustomized {
+    /**
+     * 计算两经纬度之间的距离，单位是km
+     */
+    static getFlatternDistance(lat1, lng1, lat2, lng2) {
+        const PI = Math.PI;
+        const EARTH_RADIUS = 6378137.0;
+        const radio = PI / 180.0;
 
+        let f = ((lat1 + lat2) / 2) * radio;
+        let g = ((lat1 - lat2) / 2) * radio;
+        let l = ((lng1 - lng2) / 2) * radio;
+        let sg = Math.sin(g)
+        let sl = Math.sin(l)
+        let sf = Math.sin(f)
 
-    getRad(d) {
-        return d * Math.PI / 180.0;
+        let s, c, w, r, d, h1, h2
+        let a = EARTH_RADIUS
+        let fl = 1 / 298.257
+
+        sg = sg * sg
+        sl = sl * sl
+        sf = sf * sf
+
+        s = sg * (1 - sl) + (1 - sf) * sl
+        c = (1 - sg) * (1 - sl) + sf * sl
+
+        w = Math.atan(Math.sqrt(s / c))
+        r = Math.sqrt(s * c) / w
+        d = 2 * w * a
+        h1 = (3 * r - 1) / 2 / c
+        h2 = (3 * r + 1) / 2 / s
+
+        console.log('d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000', d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000);
+        return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000
     }
 
-    // /**
-    //  * 计算两经纬度之间的距离，单位是km
-    //  */
+    /**
+     * 计算两经纬度之间的距离，单位是km
+     * @param lat1 {number} 纬度1
+     * @param lng1 {number} 经度1
+     * @param lat2 {number} 纬度2
+     * @param lng2 {number} 经度1
+     * @returns {number}
+     */
     // static getFlatternDistance(lat1, lng1, lat2, lng2) {
-    //     const PI = Math.PI;
-    //     const EARTH_RADIUS = 6378137.0;
-    //     const radio = PI / 180.0;
+    //     const PI = Math.PI
+    //     const EARTH_RADIUS = 6378137.0
     //
-    //     let f = ((lat1 + lat2) / 2) * radio;
-    //     let g = ((lat1 - lat2) / 2) * radio;
-    //     let l = ((lng1 - lng2) / 2) * radio;
+    //     let f = this._getRad((lat1 + lat2) / 2)
+    //     let g = this._getRad((lat1 - lat2) / 2)
+    //     let l = this._getRad((lng1 - lng2) / 2)
     //     let sg = Math.sin(g)
     //     let sl = Math.sin(l)
     //     let sf = Math.sin(f)
@@ -39,45 +73,6 @@ class LocationUtilsCustomized {
     //
     //     return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000
     // }
-
-    /**
-     * 计算两经纬度之间的距离，单位是km
-     * @param lat1 {number} 纬度1
-     * @param lng1 {number} 经度1
-     * @param lat2 {number} 纬度2
-     * @param lng2 {number} 经度1
-     * @returns {number}
-     */
-    static getFlatternDistance(lat1, lng1, lat2, lng2) {
-        const PI = Math.PI
-        const EARTH_RADIUS = 6378137.0
-
-        let f = this._getRad((lat1 + lat2) / 2)
-        let g = this._getRad((lat1 - lat2) / 2)
-        let l = this._getRad((lng1 - lng2) / 2)
-        let sg = Math.sin(g)
-        let sl = Math.sin(l)
-        let sf = Math.sin(f)
-
-        let s, c, w, r, d, h1, h2
-        let a = EARTH_RADIUS
-        let fl = 1 / 298.257
-
-        sg = sg * sg
-        sl = sl * sl
-        sf = sf * sf
-
-        s = sg * (1 - sl) + (1 - sf) * sl
-        c = (1 - sg) * (1 - sl) + sf * sl
-
-        w = Math.atan(Math.sqrt(s / c))
-        r = Math.sqrt(s * c) / w
-        d = 2 * w * a
-        h1 = (3 * r - 1) / 2 / c
-        h2 = (3 * r + 1) / 2 / s
-
-        return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000
-    }
 
     static _getRad(d) {
         return d * Math.PI / 180.0;
@@ -115,7 +110,6 @@ class LocationUtilsCustomized {
 
         return parseInt(time1Date - time2Date) / 1000;
     }
-
 }
 
 export {

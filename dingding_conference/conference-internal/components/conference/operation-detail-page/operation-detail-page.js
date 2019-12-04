@@ -1,8 +1,8 @@
-import { Navigate } from "../../../utils/native-api/interface/navigate";
-import { PageUrlConstant } from "../../../config/pageUrlConstant";
-import { PositioningCheckIn } from "../models/PositioningCheckIn";
-import { OperationGroup } from "../models/operation/operation-group";
-import { OperationGroupJudger } from "../models/operation/operationGroupJudger";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
+import {PositioningCheckIn} from "../models/PositioningCheckIn";
+import {OperationGroup} from "../models/operation/operation-group";
+import {OperationGroupJudger} from "../models/operation/operationGroupJudger";
 
 Component({
     mixins: [],
@@ -52,6 +52,8 @@ Component({
          */
         async locationCheckCurrentConference() {
             let positioning = new PositioningCheckIn(this.data.conference);
+            console.log('this.data.conference', this.data.conference);
+            console.log('positioning', positioning);
             await positioning.checkIn();
             this.setData({
                 operationGroupLocated: positioning.operationGroup.operationGroup

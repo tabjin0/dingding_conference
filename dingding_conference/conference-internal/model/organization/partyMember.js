@@ -9,11 +9,11 @@ class PartyMember {
      * @param corpId 组织id
      * @returns {Promise<*>}
      */
-    static async getPartyMemberInfo(corpId) {
+    static async getPartyMemberInfo(orgId) {
         const partyMemberInfo = await Http.request({
             url: `5da9611d462d8`,
             data: {
-                orgId: corpId,
+                orgId
                 // userid: userid
             }
         });

@@ -1,5 +1,6 @@
 import {MeetingRoom} from "../../../model/conference/meetingRoom";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {Caching} from "../../../utils/native-api/caching/caching";
 
 const app = getApp();
 
@@ -70,7 +71,7 @@ Page({
     } else if (app.isNull(location)) {
       InterAction.fnShowToast('fail', '请到指定地点定位会议室', 2000);
     } else {
-      const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location);
+      const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location, Caching.getStorageSync('orgId'));
       console.log(res);
       if (res.code === 1) {
         InterAction.fnShowToast('success', '编辑会议室成功，请重新点击地点刷新会议室', 2000);

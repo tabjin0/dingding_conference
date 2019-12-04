@@ -12,7 +12,7 @@ class Http {
         const res = await promisic(dd.httpRequest)({
             url: `${config.apiBaseUrl}${url}`,// 因为apiBaseUrl是一个固定的配置
             method,
-            data: Object.assign(data, {orgPid: 1}),
+            data: Object.assign(data, {orgPid: config.orgPid}),
             dataType,
             headers: {
                 // 'Content-Type': 'application/json',

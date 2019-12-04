@@ -1,11 +1,13 @@
-import {Http} from '../../utils/http';
-import {InterAction} from "../../utils/native-api/interface/interaction";
+import { Http } from '../../utils/http';
+import { InterAction } from "../../utils/native-api/interface/interaction";
 
 class Agenda {
-    static async getAgenda() {
-
+    static async getAgenda(orgId) {
         const agenda = await Http.request({
             url: '5d8b1976c8132',
+            data: {
+                orgId: orgId
+            }
         });
         if (agenda.code === 1) {
             return agenda.data;
