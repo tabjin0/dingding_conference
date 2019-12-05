@@ -1,7 +1,9 @@
 /**
  * 党员模型
  */
-import { Http } from "../../utils/http";
+import {Http} from "../../utils/http";
+import {InterAction} from "../../utils/native-api/interface/interaction";
+import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
 
 class PartyMember {
     /**
@@ -10,14 +12,18 @@ class PartyMember {
      * @returns {Promise<*>}
      */
     static async getPartyMemberInfo(orgId) {
-        const partyMemberInfo = await Http.request({
+        const res = await Http.request({
             url: `5da9611d462d8`,
             data: {
                 orgId
                 // userid: userid
             }
         });
-        return partyMemberInfo.data;
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            InterAction.fnShowToast('获取支部信息失败', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+        }
     }
 }
 

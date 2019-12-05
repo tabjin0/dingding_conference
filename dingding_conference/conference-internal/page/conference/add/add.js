@@ -1,7 +1,6 @@
 import {MeetingRoom} from "../../../model/conference/meetingRoom";
 import {Agenda} from "../../../model/conference/agenda";
 import {Department} from "../../../model/department/department";
-import {Storage} from "../../../utils/storage";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {PageUrlConstant} from "../../../config/pageUrlConstant";
@@ -9,6 +8,7 @@ import {Caching} from "../../../utils/native-api/caching/caching";
 import {AddConferenceInfo} from "../../../model/conference/AddConferenceInfo";
 import {Conference} from "../../../model/conference/conference";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
+import {Common} from "../../../utils/tabjin-utils/common";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
@@ -146,7 +146,7 @@ Page({
             currentUser.basicCurrentUserInfo.orgId,
             conference.isOpen ? 1 : 0
         );
-        console.log('addConferenceInfo',addConferenceInfo);
+        console.log('addConferenceInfo', addConferenceInfo);
         if (addConferenceInfo.dataCheck()) {
             const addConferenceRes = await Conference.addConference(addConferenceInfo);
             InterAction.fnShowToast('新增成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
@@ -251,26 +251,30 @@ Page({
      * @returns {Promise<void>}
      */
     async chooseLocation() {
-        let that = this;
 
         // 选择会议室
-        let meetingRoom = [];
-        dd.showLoading({content: '获取会议室中...'})
         const meetingRoomList = await MeetingRoom.getMeetingRoom(Caching.getStorageSync('orgId'));
-        if (meetingRoomList.code === 1) {
-            dd.hideLoading();
-            that.setData({
-                meetingRoom: meetingRoomList.data,
+
+        if (!Common.isEmpty(meetingRoomList)) {
+            if (this._checkMeetingRoomLocationIsEmpty(meetingRoomList)) {// 会议室数据异常仅报异常，至于会议室数据严格校验放在会议室新增部分
+                InterAction.fnShowToast(`数据室异常，存在空数据，请联系管理员校验数据`, InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+            }
+            this.setData({// 不管会议室数据有误异常，都要展示
+                meetingRoom: meetingRoomList,
                 meetingRoomShow: true
-            })
+            });
         } else {
-            InterAction.fnShowToast('fail', '获取会议室失败！', '2000');
+            InterAction.fnShowToast('获取会议室失败！', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
         }
     },
 
+    _checkMeetingRoomLocationIsEmpty(meetingRoomList) {
+        return meetingRoomList.some(meetingRoom => {
+            return meetingRoom.location === '';
+        });
+    },
+
     meetingRoom(e) {
-        console.log('e');
-        console.log(e);
         let that = this;
         let meetingRoomId = e.target.dataset.meetingRoom.id;
         let meetingRoomName = e.target.dataset.meetingRoom.name;

@@ -4,6 +4,7 @@ import {Storage} from "../../../utils/storage";
 import {Statistic} from "../../../model/statistical/statistic";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {Department} from "../../../model/department/department";
+import {PartyMember} from "../../../model/organization/partyMember";
 
 const app = getApp();
 
@@ -12,9 +13,6 @@ Page({
         conferenceStatistic: []
     },
     async onLoad() {
-        dd.showLoading({content: '加载中...'});
-        await this.initData();
-        dd.hideLoading();
     },
 
     async onShow() {
@@ -47,13 +45,20 @@ Page({
         const departmentId = Caching.getStorageSync('department');
 
         const conferenceStatistic = await Statistic.conferenceStatistic(userId, Caching.getStorageSync('orgId'));
-        const departmentUserList = await Department.getDepartmentUserid(departmentId);
+        const partyMemberList = await PartyMember.getPartyMemberInfo(Caching.getStorageSync('orgId'));
 
         this.setData({
             conferenceStatistic: conferenceStatistic,
-            partyBranchMemberNum: departmentUserList.length // 党员数量
+            partyBranchMemberNum: partyMemberList.total // 党员数量
         });
+    },
 
+    /**
+     * 初始化党支部党员数量
+     * @private
+     */
+    async _initPartyMemberNum() {
+        const partyMemberList = await PartyMember.getPartyMemberInfo(1);
     },
 
     onReady() {

@@ -20,12 +20,6 @@ class CheckInInfo {
         this.distance = distance;
         this.leaveType = leaveType;
         this.leaveReason = leaveReason;
-        console.log('mid', mid);
-        console.log('uid', uid);
-        console.log('address', address);
-        console.log('distance', distance);
-        console.log('leaveType', leaveType);
-        console.log('leaveReason', leaveReason);
         this._introspection();
     }
 

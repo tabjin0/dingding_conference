@@ -31,7 +31,6 @@ class LocationUtilsCustomized {
         h1 = (3 * r - 1) / 2 / c
         h2 = (3 * r + 1) / 2 / s
 
-        console.log('d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000', d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000);
         return d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) / 1000
     }
 

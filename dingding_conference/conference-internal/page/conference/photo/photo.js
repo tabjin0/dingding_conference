@@ -178,7 +178,8 @@ Page({
     async submitImg() {
         console.log(this.data);
         let mid = this.data.mid;
-        if (this.data.totalImgIdArr > 0) {
+        console.log('this.data.totalImgIdArr', this.data.totalImgIdArr);
+        if (this.data.totalImgIdArr.length > 0) {// 有图片才能上传
             let imgsStr = this.data.totalImgIdArr.join(',');
             const res = await Summary.submitImgs(mid, imgsStr);
             if (this.data.uploadFlag) {
@@ -190,7 +191,7 @@ Page({
                 InterAction.fnShowToast('图片上传失败，请重新上传图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             }
         } else {
-            Interaction.fnShowToast('请至少添加一张图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+            InterAction.fnShowToast('请至少添加一张图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
         }
 
     },

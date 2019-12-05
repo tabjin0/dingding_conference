@@ -10,6 +10,7 @@ import {CheckIn} from "../../../model/conference/CheckIn";
 import {TakeOffInfo} from "./TakeOffInfo";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
 import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {LocationUtilsCustomized} from "../../../utils/tabjin-utils/location";
 
 class TakeOff {
     currentConference;
@@ -23,6 +24,9 @@ class TakeOff {
      * @param leaveReason 请假理由
      */
     constructor(currentConference, leaveType, leaveReason) {
+        console.log('currentConference', currentConference);
+        console.log('leaveType', leaveType);
+        console.log('leaveReason', leaveReason);
         if (currentConference) {
             this.currentConference = currentConference;
         }
@@ -32,6 +36,9 @@ class TakeOff {
         if (leaveReason) {
             this.leaveReason = leaveReason;
         }
+        console.log('this.currentConference', this.currentConference);
+        console.log('this.leaveType', this.leaveType);
+        console.log('this.leaveReason', this.leaveReason);
         this._takeOff();
     }
 
@@ -45,7 +52,7 @@ class TakeOff {
             InterAction.fnAlert('抱歉', '未获取到当前会议，请重启应用', '好的');
         } else { //有当前会议信息，绑定当前用户与其参加会议的签到行为
             // TODO 首先判断当前用户是否在参加人员中
-            await this._initLocationInfo(this.currentConference);
+            await this._initLocationInfo(this.currentConference, this.leaveType, this.leaveReason);
         }
     }
 
@@ -55,29 +62,32 @@ class TakeOff {
      * @returns {Promise<void>}
      * @private
      */
-    async _initLocationInfo(currentConference) {
+    async _initLocationInfo(currentConference, leaveType, leaveReason) {
         // 会议室地点经纬度
-        let currentLocation = currentConference.roomId.location.split(',');
+        const currentLocation = currentConference.roomId.location.split(',');
         let longitude = parseFloat(currentLocation[0]);// 纬度
         let latitude = parseFloat(currentLocation[1]);// 经度（大）
-
         // 当前定位经纬度
         const res = await LocationUtils.fnGetLocation();
-        let currentLongitude = parseFloat(res.longitude);
-        let currentLatitude = parseFloat(res.latitude);
+        const currentLongitude = parseFloat(res.longitude);
+        const currentLatitude = parseFloat(res.latitude);
 
+        let distance = 0;
+
+        if (currentConference.roomId.location) {// 会议室经纬度不为空
+            distance = LocationUtilsCustomized.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude);
+        }
         // 包装请假对象
         const takeOffInfo = new TakeOffInfo(
             currentConference.id,
             Caching.getStorageSync('user'),
-            // res.address,
-            '',
-            // LocationUtilsCustomized.getFlatternDistance(latitude, longitude, currentLatitude, currentLongitude),
-            '',
-            this.leaveType,
-            this.leaveReason
+            res.address,
+            distance,
+            leaveType,
+            leaveReason
         );
-        if (takeOffInfo.dataCheck) {
+        console.log('takeOffInfo', takeOffInfo);
+        if (takeOffInfo.dataIntrospection()) {
             // 签到对象包装成功，发送CheckIn对象进行签到
             const takeOffRes = await CheckIn.submitCheckInInfo(takeOffInfo);
             console.log('takeOffRes', takeOffRes);

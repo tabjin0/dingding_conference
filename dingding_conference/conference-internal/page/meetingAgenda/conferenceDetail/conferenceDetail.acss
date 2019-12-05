@@ -304,10 +304,6 @@ page {
     border-radius: 6px;
 }
 
-.hide {
-    display: none;
-}
-
 swiper {
     min-height: 150rpx !important;
 }

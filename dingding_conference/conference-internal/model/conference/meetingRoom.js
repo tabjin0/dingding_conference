@@ -2,7 +2,10 @@
  * 会议室模型
  */
 
-import { Http } from "../../utils/http";
+import {Http} from "../../utils/http";
+import {ApiUrlConstant} from "../../config/ApiUrlConstant";
+import {InterAction} from "../../utils/native-api/interface/interaction";
+import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
 
 class MeetingRoom {
     /**
@@ -12,7 +15,7 @@ class MeetingRoom {
      * @returns {Promise<*>}
      */
     static async addOrUpdateMeetingRoom(name, location, orgId) {
-        return await Http.request({
+        const res = await Http.request({
             url: `5db14749b1854`,
             data: {
                 name: name,
@@ -21,6 +24,11 @@ class MeetingRoom {
                 // id:
             }
         });
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            InterAction.fnShowToast('新增会议室失败', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+        }
     }
 
     /**
@@ -43,12 +51,18 @@ class MeetingRoom {
      * @returns {Promise<*>}
      */
     static async getMeetingRoom(orgId) {
-        return await Http.request({
-            url: `5d8b19b1744c7`,
+        const res = await Http.request({
+            url: `${ApiUrlConstant.GET_MEETING_ROOM}`,
             data: {
                 orgId: orgId
             }
         });
+        console.log('res', res);
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            InterAction.fnShowToast('获取会议室失败', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+        }
     }
 }
 

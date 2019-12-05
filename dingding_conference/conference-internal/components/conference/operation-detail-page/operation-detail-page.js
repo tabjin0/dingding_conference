@@ -65,7 +65,6 @@ Component({
          */
         takeOff() {
             const conference = this.data.conference;
-            console.log('conference', JSON.stringify(conference));
             Navigate.navigateTo(`${PageUrlConstant.takeOff}?conference=` + JSON.stringify(conference));
         },
 

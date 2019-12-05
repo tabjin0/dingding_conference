@@ -4,38 +4,38 @@ page {
 
 .take-off-container {
     width: 100%;
-    height: 94rpx;
+    height: 94 rpx;
     background: #FFFFFF;
-    margin-bottom: 32rpx;
+    margin-bottom: 32 rpx;
 }
 
 
 .take-off-type {
     height: 100%;
-    margin: 31rpx auto 31rpx 32rpx;
+    margin: 31 rpx auto 31 rpx 32 rpx;
     display: flex;
     flex-direction: row;
 }
 
 .take-off-title {
     /*width: 233rpx;*/
-    height: 32rpx;
-    line-height: 94rpx;
-    font-size: 34rpx;
+    height: 32 rpx;
+    line-height: 94 rpx;
+    font-size: 34 rpx;
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
 }
 
-.take-off-leave-type-text{
-    height: 32rpx;
-    line-height: 94rpx;
-    font-size: 34rpx;
+.take-off-leave-type-text {
+    height: 32 rpx;
+    line-height: 94 rpx;
+    font-size: 34 rpx;
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
     margin-left: auto;
-    margin-right: 32rpx;
+    margin-right: 32 rpx;
 }
 
 .take-off-reason {
@@ -46,34 +46,35 @@ page {
 }
 
 .take-off-reason-title {
-    height: 94rpx;
-    line-height: 94rpx;
-    font-size: 34rpx;
+    height: 94 rpx;
+    line-height: 94 rpx;
+    font-size: 34 rpx;
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
-    margin-left: 32rpx;
+    margin-left: 32 rpx;
 }
 
 .take-off-reason-info {
-    height: 440rpx;
+    height: 440 rpx;
     background-color: rgba(247, 247, 247, 1);
-    border-radius: 5rpx;
-    margin: 0 30rpx 48rpx 30rpx;
-    padding: 28rpx;
+    border-radius: 5 rpx;
+    margin: 0 30 rpx 48 rpx 30 rpx;
+    padding: 28 rpx;
 }
 
-
 .submit-button-container {
-    width: 474rpx;
-    height: 94rpx;
-    position: absolute;
-    bottom: 86rpx;
+    width: 474 rpx;
+    height: 94 rpx;
+    position: fixed;
     left: 50%;
-    margin-left: -237rpx;
+    bottom: 57 rpx;
+    margin-left: -237 rpx;
 }
 
 .submit-button {
     background: rgba(240, 149, 77, 1);
     border-radius: 6px;
+    color: #FFFFFF !important;
 }
+

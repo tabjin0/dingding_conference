@@ -53,15 +53,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: space-between;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
 }
-
 
 .upload-img-container .chooseView {
     width: 190rpx;
     height: 166rpx;
     background-color: #fff;
-    margin-right: 40rpx;
+    margin-right: 20rpx !important;
     border: 2rpx solid lightgray;
     text-align: center;
     line-height: 180rpx;
@@ -73,7 +74,7 @@
 }
 
 .upload-img-container .upload-img {
-    margin-right: 40rpx;
+    /*margin-right: 20rpx;*/
     margin-bottom: 40rpx;
     width: 190rpx;
     height: 166rpx;

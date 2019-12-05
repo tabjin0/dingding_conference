@@ -28,7 +28,7 @@ Page({
         isLeaderInDepts: false,// 默认不是部门主管
         hideList: true,
 
-        hasMeeting: true,// 默认有会议的
+        hasMeeting: false,
 
         nowConferenceList: null,// 当前会议
         futureConferenceList: null,// 预备会议
@@ -54,6 +54,14 @@ Page({
     },
 
     /**
+     * 下拉刷新
+     */
+    async onPullDownRefresh() {
+        this.initData();// 重新初始化会议列表
+        dd.stopPullDownRefresh();
+    },
+
+    /**
      * 初始化页面数据
      */
     async initData() {
@@ -64,7 +72,7 @@ Page({
         }
 
         this.initConferenceData();// 获取会议列表
-        Navigate.setNavigationBar(`${Caching.getStorageSync('currentUser').basicCurrentUserInfo}会议`, '#D40029');
+        Navigate.setNavigationBar(`${Caching.getStorageSync('currentUser').basicCurrentUserInfo.orgName}会议`, '#D40029');
         this.setData({
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
         });
@@ -81,69 +89,18 @@ Page({
         const nowConferenceList = conferenceListByUserId.now;// 当前会议
         const futureConferenceList = conferenceListByUserId.future;// 预备会议
         const pastConferenceList = conferenceListByUserId.past;// 当前用户历史会议
-
-        // 控制列表显示，没有会议，展示"暂无会议"
-
-
-        // 有会议
-        if (nowConferenceList.length == 0) {// 没有当前会议，不显示
-            that.setData({
-                isShowNowConferenceList: false
-            })
-        } else {
-            that.setData({
-                isShowNowConferenceList: true
-            })
-        }
-        if (futureConferenceList.length == 0) {// 没有预备会议，不显示
-            that.setData({
-                isShowFutureConferenceList: false
-            })
-        } else {
-            that.setData({
-                isShowFutureConferenceList: true
-            })
-        }
-        if (pastConferenceList.length == 0) {// 没有历史会议，不显示
-            that.setData({
-                isShowPastConferenceList: false
-            })
-        } else {
-            that.setData({
-                isShowPastConferenceList: true
-            })
-        }
-
-        if (nowConferenceList.length == 0 &&
-            futureConferenceList.length == 0 &&
-            pastConferenceList.length == 0) {
-            that.setData({
-                hasMeeting: false
-            });
-            // InterAction.fnShowToast('exception', '无会议记录', 2000);
-        } else {
-            that.setData({
-                hasMeeting: true
-            });
-        }
-
-        // 将当前用户
+        const ishasMeeting = nowConferenceList.length == 0 && futureConferenceList.length == 0 && pastConferenceList.length == 0;
         this.setData({
+            hasMeeting: ishasMeeting,
             nowConferenceList: nowConferenceList,// 当前会议
             futureConferenceList: futureConferenceList,// 预备会议
             pastConferenceList: pastConferenceList,// 当前用户历史会议
+            isShowNowConferenceList: nowConferenceList.length == 0 ? false : true,
+            isShowFutureConferenceList: futureConferenceList.length == 0 ? false : true,
+            isShowPastConferenceList: pastConferenceList.length == 0 ? false : true,
         });
-
-
     },
 
-    /**
-     * 下拉刷新
-     */
-    async onPullDownRefresh() {
-        this.initData();// 重新初始化会议列表
-        dd.stopPullDownRefresh();
-    },
 
     /**
      * 跳转到会议详情

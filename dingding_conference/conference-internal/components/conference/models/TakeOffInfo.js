@@ -11,7 +11,6 @@ class TakeOffInfo {
     distance;
     leaveType;
     leaveReason;
-    dataCheck = false;// 默认CheckInfo数据校验不通过
 
     constructor(mid, uid, address, distance, leaveType, leaveReason) {
         this.mid = mid;
@@ -20,12 +19,10 @@ class TakeOffInfo {
         this.distance = distance;
         this.leaveType = leaveType;
         this.leaveReason = leaveReason;
-        this._introspection();
     }
 
     dataIntrospection() {
-        this._introspection();
-        console.log('dataCheck', this.dataCheck);
+        return this._introspection();
     }
 
     /**
@@ -34,23 +31,23 @@ class TakeOffInfo {
      * @private
      */
     _introspection() {
-        if (Common.isNull(this.mid)) {
+        if (Common.isEmpty(this.mid)) {
             console.log(`${CheckInException.MID_NULL}`);
-            this.dataCheck = false;
+            return false;
         }
-        if (Common.isNull(this.uid)) {
+        if (Common.isEmpty(this.uid)) {
             console.log(`${CheckInException.UID_NULL}`);
-            this.dataCheck = false;
+            return false;
         }
-        if (Common.isNull(this.leaveType)) {
+        if (!this.leaveType) {
             console.log(`${CheckInException.LEAVETYPE_NULL}`);
-            this.dataCheck = false;
+            return false;
         }
-        if (Common.isNull(this.leaveReason)) {
+        if (!this.leaveReason) {
             console.log(`${CheckInException.LEAVEREASON_NULL}`);
-            this.dataCheck = false;
+            return false;
         }
-        this.dataCheck = true;
+        return true;
     }
 
 }
