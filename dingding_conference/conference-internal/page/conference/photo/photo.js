@@ -80,10 +80,8 @@ Page({
                 console.log('totalImgIdArr开始')
                 console.log(totalImgIdArr)
                 for (let i = 0; i < res.filePaths.length; i++) {
-                    console.log(res.filePaths[i]);
+                    InterAction.
                     let img = await Upload.uploadImg(res.filePaths[i], 'img');
-                    // uploadStatus.push(JSON.parse(img.data).code);
-                    console.log(JSON.parse(img.data))
                     let imgObj = JSON.parse(img.data);
                     if (imgObj.code === 1) {
                         totalImgIdArr.push(parseInt(imgObj.data.id));

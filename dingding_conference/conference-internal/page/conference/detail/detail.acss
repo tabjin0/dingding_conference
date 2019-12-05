@@ -312,10 +312,6 @@ swiper {
     min-height: 150rpx !important;
 }
 
-/* swiper-item {
-  position: relative !important;
-} */
-
 .operation-container {
     position: fixed;
     bottom: 0;

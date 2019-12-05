@@ -53,9 +53,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
+    /*justify-content: space-between;*/
+}
+
+.upload-img {
+    flex:0 0 auto;
+    width: 33.33333333%;
 }
 
 .upload-img-container .chooseView {
