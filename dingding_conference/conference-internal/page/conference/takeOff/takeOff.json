@@ -1,3 +1,4 @@
 {
-  "defaultTitle": "请假"
+  "defaultTitle": "请假",
+  "pullRefresh": false
 }

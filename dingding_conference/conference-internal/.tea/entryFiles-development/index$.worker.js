@@ -19,13 +19,6 @@ self.$global = AFAppX.$global;
 self.requirePlugin = AFAppX.requirePlugin;
         
 
-if(AFAppX.registerApp) {
-  AFAppX.registerApp({
-    appJSON: appXAppJson,
-  });
-}
-
-
 
 function success() {
 require('../../app');

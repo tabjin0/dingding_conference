@@ -1,3 +1,4 @@
 {
-  "defaultTitle": "会议笔记"
+  "defaultTitle": "会议笔记",
+  "pullRefresh": false
 }

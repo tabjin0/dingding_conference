@@ -1,3 +1,4 @@
 {
-  "defaultTitle": "新增会议"
+  "defaultTitle": "新增会议",
+  "pullRefresh": false
 }

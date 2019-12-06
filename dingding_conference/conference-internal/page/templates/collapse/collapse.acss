@@ -35,3 +35,10 @@
   padding: 20rpx;
   font-size: 30rpx;
 }
+
+.checkbox-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15rpx;
+}

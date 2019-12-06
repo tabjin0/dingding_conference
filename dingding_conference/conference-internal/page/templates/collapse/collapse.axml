@@ -9,11 +9,14 @@
                 <!-- {{item.content}} -->
                 <!--<radio-group class="radio-group" onChange="radioChange"><label class="radio"><radio value="{{item.content}}" checked="{{item.checked}}"/>{{item.content}}</label></radio-group> -->
                 <checkbox-group name="topic" data-agendaTypeIndex="{{panels_item.agendaTypeIndex}}" onChange="onChange">
-                    <label class="checkbox" a:for="{{panels_item.agendaContent}}" a:for-index="index"
+                    <block class="checkbox" a:for="{{panels_item.agendaContent}}" a:for-index="index"
                            a:for-item="contentItem" style="display: block;">
-                        <checkbox class="checkbox-select" value="{{contentItem.id}}" checked="{{panels_item.checked}}"/>
-                        <text class="checkbox-text">{{contentItem.name}}</text>
-                    </label>
+                        <view class="checkbox-item">
+                            <checkbox class="checkbox-select" value="{{contentItem.id}}"
+                                      checked="{{panels_item.checked}}"/>
+                            <text class="checkbox-text">{{contentItem.name}}</text>
+                        </view>
+                    </block>
                 </checkbox-group>
             </view>
         </view>

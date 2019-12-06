@@ -22,7 +22,7 @@
                     <view style="display:none;margin-left: auto;">{{conference.address}}</view>
                 </view>
                 <view class="add-room" hidden="{{!meetingRoomShow}}">
-                    <text class="add-room-text" onTap="bookMeetingRoom">新增会议室</text>
+                    <text class="add-room-text" onTap="bookMeetingRoom">新增</text>
                 </view>
                 <view class="flex-row" style="display:none;">
                     <textarea name="address" maxlength="-1" onInput="conferenceAddressInput" class="" placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>
@@ -31,10 +31,12 @@
                 <view hidden="{{!meetingRoomShow}}" class="flex-column radio-group-container">
                     <radio-group name="radio" class="radio-group" onChange="radioChange">
                         <view class="radio-item-container">
-                            <label class="radio" a:for="{{meetingRoom}}" a:key="{{index}}" a:for-index="meetingRoom_index" a:for-item="meetingRoom_item">
-                                <radio value="{{meetingRoom_item}}" checked="{{item.checked}}"/>
-                {{meetingRoom_item.name}}
-                            </label>
+                            <block a:for="{{meetingRoom}}" a:for-index="meetingRoom_index" a:for-item="meetingRoom_item">
+                                <view class="radio-container">
+                                    <radio class="radio" value="{{meetingRoom_item}}" checked="{{item.checked}}"/>
+                                    {{meetingRoom_item.name}}
+                                </view>
+                            </block>
                         </view>
                     </radio-group>
                 </view>
@@ -54,7 +56,7 @@
                 </view>
                 <view class="flex-row" style="margin-left: auto;position:relative;">
                     <view class="participant-number" a:if="{{chooseParticipantNumber > 0}}">
-            {{chooseParticipantNumber}}人
+                        {{chooseParticipantNumber}}人
                     </view>
                     <view class="more a-collapse-title-arrow a-collapse-title-arrow-right"></view>
                 </view>

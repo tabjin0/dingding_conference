@@ -1,14 +1,14 @@
-import {MeetingRoom} from "../../../model/conference/meetingRoom";
-import {Agenda} from "../../../model/conference/agenda";
-import {Department} from "../../../model/department/department";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
-import {Navigate} from "../../../utils/native-api/interface/navigate";
-import {PageUrlConstant} from "../../../config/pageUrlConstant";
-import {Caching} from "../../../utils/native-api/caching/caching";
-import {AddConferenceInfo} from "../../../model/conference/AddConferenceInfo";
-import {Conference} from "../../../model/conference/conference";
-import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
-import {Common} from "../../../utils/tabjin-utils/common";
+import { MeetingRoom } from "../../../model/conference/meetingRoom";
+import { Agenda } from "../../../model/conference/agenda";
+import { Department } from "../../../model/department/department";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
+import { Navigate } from "../../../utils/native-api/interface/navigate";
+import { PageUrlConstant } from "../../../config/pageUrlConstant";
+import { Caching } from "../../../utils/native-api/caching/caching";
+import { AddConferenceInfo } from "../../../model/conference/AddConferenceInfo";
+import { Conference } from "../../../model/conference/conference";
+import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
+import { Common } from "../../../utils/tabjin-utils/common";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
@@ -61,7 +61,8 @@ Page({
                     agendaTypeIndex: 0,
                     agendaTypeName: '会议议题',
                     agendaContent: [],
-                    expanded: false,
+                    // expanded: false,
+                    expanded: true
                 },
             ],
         },
@@ -100,6 +101,12 @@ Page({
         that.chooseLocation();
     },
 
+    onShow() {
+        this.getAgendaArray();
+
+        this.chooseLocation();
+    },
+
     async getAgendaArray() {
         let agendaContent = [];
         const agendaList = await Agenda.getAgenda(Caching.getStorageSync('orgId'));
@@ -116,7 +123,7 @@ Page({
      * 选择会议地点
      * @param e
      */
-    radioChange: function (e) {
+    radioChange: function(e) {
         console.log('你选择的框架是：');
         console.log(e);
         this.setData({
@@ -133,7 +140,7 @@ Page({
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
         let currentUser = Caching.getStorageSync('currentUser');
         console.log('currentUser', currentUser);
-        console.log('currentUser.basicCurrentUserInfo.userid,', currentUser.basicCurrentUserInfo.userid,);
+        console.log('currentUser.basicCurrentUserInfo.userid,', currentUser.basicCurrentUserInfo.userid);
         let conference = e.detail.value;
         delete conference.radio;
         const addConferenceInfo = new AddConferenceInfo(
@@ -162,16 +169,16 @@ Page({
     },
 
     changeDate(e) {
-        this.setData({date: e.detail.value});
+        this.setData({ date: e.detail.value });
     },
     changeTime(e) {
-        this.setData({time: e.detail.value});
+        this.setData({ time: e.detail.value });
     },
     changeDateTime(e) {
-        this.setData({dateTime: e.detail.value});
+        this.setData({ dateTime: e.detail.value });
     },
     changeDateTime1(e) {
-        this.setData({dateTime1: e.detail.value});
+        this.setData({ dateTime1: e.detail.value });
     },
     changeDateTimeColumn(e) {
         let arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
@@ -198,14 +205,12 @@ Page({
     },
 
     handleTitleTap(e) {
-        const {index} = e.currentTarget.dataset;
+        const { index } = e.currentTarget.dataset;
         const panels = this.data.collapseData.panels;
-        console.log("this.data.collapseData.panels");
-        console.log(this.data.collapseData.panels);
-        console.log(panels[0]);
         // android does not supprt Array findIndex
         // panels[index].expanded = !panels[index].expanded;
-        panels[0].expanded = !panels[0].expanded;
+        // panels[0].expanded = !panels[0].expanded;
+        panels[0].expanded = true;
         this.setData({
             collapseData: {
                 ...this.data.collapseData,// 各数组的值，不是数组
@@ -325,7 +330,7 @@ Page({
             requiredDepartments: [],        //必选部门（不可取消选中状态）
             permissionType: "GLOBAL",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
             responseUserOnly: false,        //返回人，或者返回人和部门
-            success: async function (res) {
+            success: async function(res) {
                 console.log("res");
                 console.log(res);
                 console.log(JSON.stringify(res));
@@ -389,7 +394,7 @@ Page({
                     chooseParticipantId: chooseParticipantId.join(',')
                 })
             },
-            fail: function (err) {
+            fail: function(err) {
             }
         });
     },

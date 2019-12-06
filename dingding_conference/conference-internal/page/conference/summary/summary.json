@@ -1,3 +1,4 @@
 {
-  "defaultTitle": "会议纪要"
+  "defaultTitle": "会议纪要",
+  "pullRefresh": false
 }
