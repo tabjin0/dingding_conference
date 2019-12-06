@@ -80,8 +80,9 @@ Page({
                 console.log('totalImgIdArr开始')
                 console.log(totalImgIdArr)
                 for (let i = 0; i < res.filePaths.length; i++) {
-                    InterAction.
+                    InterAction.fnShowLoading('上传中')
                     let img = await Upload.uploadImg(res.filePaths[i], 'img');
+                    InterAction.fnHideLoading();
                     let imgObj = JSON.parse(img.data);
                     if (imgObj.code === 1) {
                         totalImgIdArr.push(parseInt(imgObj.data.id));
@@ -177,20 +178,18 @@ Page({
         console.log(this.data);
         let mid = this.data.mid;
         console.log('this.data.totalImgIdArr', this.data.totalImgIdArr);
+        let imgsStr = ' ';
         if (this.data.totalImgIdArr.length > 0) {// 有图片才能上传
-            let imgsStr = this.data.totalImgIdArr.join(',');
-            const res = await Summary.submitImgs(mid, imgsStr);
-            if (this.data.uploadFlag) {
-                InterAction.fnShowToast('图片上传成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
-                setTimeout(function () {
-                    Navigate.navigateBack(1);
-                }, 2000);
-            } else {
-                InterAction.fnShowToast('图片上传失败，请重新上传图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
-            }
-        } else {
-            InterAction.fnShowToast('请至少添加一张图片', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+            imgsStr = this.data.totalImgIdArr.join(',');
         }
-
+        const res = await Summary.submitImgs(mid, imgsStr);
+        if (this.data.uploadFlag) {
+            InterAction.fnShowToast('提交成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
+            setTimeout(function () {
+                Navigate.navigateBack(1);
+            }, 2000);
+        } else {
+            InterAction.fnShowToast('提交失败', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+        }
     },
 });

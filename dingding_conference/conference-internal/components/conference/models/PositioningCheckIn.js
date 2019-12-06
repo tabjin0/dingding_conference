@@ -17,8 +17,6 @@ class PositioningCheckIn {
     }
 
     async checkIn() {
-        console.log('123', Common.isNull(this.currentConference));
-        console.log('123', this.currentConference);
         if (!this.currentConference) {// 无前会议信息
             InterAction.fnShowToast('未获取到当前会议，请重启应用', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
         } else { // 当前会议非空，绑定当前用户与其参加会议的签到行为
@@ -59,8 +57,6 @@ class PositioningCheckIn {
             this.operationGroup = operationGroupJudger;
         }
     }
-
-
 }
 
 export {

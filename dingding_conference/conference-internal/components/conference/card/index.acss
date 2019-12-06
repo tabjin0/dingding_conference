@@ -52,6 +52,7 @@
     color: rgba(89, 89, 89, 1);
     line-height: 50rpx;
     margin-top: 18rpx;
+    word-wrap: break-word;
 
 }
 

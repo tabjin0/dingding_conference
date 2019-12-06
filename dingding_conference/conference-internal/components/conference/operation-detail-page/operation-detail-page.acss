@@ -15,13 +15,8 @@
 
 .operation-item-container {
     opacity: 0.8;
-    width: 150rpx;
-    height: 150rpx;
-}
-
-.operation-item-img {
-    width: 150rpx;
-    height: 150rpx;
+    width: 156rpx;
+    height: 160rpx;
 }
 
 .button {
@@ -33,13 +28,19 @@
 
 button {
     padding: 0 !important;
+    box-sizing: border-box;
     line-height: 150rpx;
 }
 
 .operation-item {
-    width: 100%;
-    height: 100%;
+    position: relative;
     border-radius: 50%;
-    /*background-color: #de453d !important;*//*border: 1rpx solid #de453d !important;*/
     color: black !important;
+}
+
+.operation-item-img {
+    width: 156rpx;
+    height: 160rpx;
+    position: absolute;
+    left: -2rpx;
 }

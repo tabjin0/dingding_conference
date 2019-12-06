@@ -2,6 +2,10 @@ page {
     background-color: #F7F7F7;
 }
 
+text {
+    word-break: break-all;
+}
+
 .page {
     font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
     font-size: 24rpx;
@@ -46,10 +50,13 @@ page {
     border-left: 1px solid #ddd;
 }
 
-button {
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-}
+/*button {*/
+
+/*    margin-top: 20rpx;*/
+
+/*    margin-bottom: 20rpx;*/
+
+/*}*/
 
 .bc_white {
     background-color: #FFFFFF;

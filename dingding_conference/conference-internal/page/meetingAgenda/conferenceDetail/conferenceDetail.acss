@@ -17,21 +17,36 @@ page {
 
 .img1 {
     width: 30rpx;
-    height: 28rpx;
+    height: 30rpx;
+    padding: 5rpx;
 }
 
 .img2 {
     width: 30rpx;
-    height: 28rpx;
+    height: 30rpx;
+    margin-right: 5rpx;
 }
 
-.theme-text {
+.theme-locationA-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.theme-locationA-text {
     width: 646rpx;
     font-size: 34rpx;
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(0, 0, 7, 1);
-    margin-left: 16rpx;
+    padding: 0 16rpx;
+    word-break: break-all;
+}
+
+.time-address-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .time-inner-container {
@@ -47,8 +62,8 @@ page {
     font-family: PingFang SC;
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
-    margin-right: auto;
-    margin-left: 17rpx;
+    /*margin-right: auto;*/
+    /*margin-left: 17rpx;*/
 }
 
 .line {
@@ -72,8 +87,8 @@ page {
     font-family: PingFang SC;
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
-    margin-right: auto;
-    margin-left: 17rpx;
+    /*margin-right: auto;*/
+    /*margin-left: 17rpx;*/
 }
 
 .row-line {
@@ -260,18 +275,27 @@ page {
     white-space: nowrap;
 }
 
+.read-outer-container {
+    position: relative;
+}
+
 .read-inner-container {
     display: flex;
     flex-direction: column;
 }
 
 .notice {
+    position: absolute;
+    top: 20rpx;
+    left: 50%;
+    margin-left: -100rpx;
+    width: 200rpx;
+    height: 35rpx;
     font-size: 30rpx;
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(164, 164, 164, 1);
-    margin: 0 auto;
-    margin-top: 43rpx;
+    /*text-align: center;*/
 }
 
 .avatar {

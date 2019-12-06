@@ -3,6 +3,8 @@ import {PageUrlConstant} from "../../../config/pageUrlConstant";
 import {PositioningCheckIn} from "../models/PositioningCheckIn";
 import {OperationGroup} from "../models/operation/operation-group";
 import {OperationGroupJudger} from "../models/operation/operationGroupJudger";
+import {Conference} from "../../../model/conference/conference";
+import {Caching} from "../../../utils/native-api/caching/caching";
 
 Component({
     mixins: [],
@@ -15,6 +17,15 @@ Component({
     props: {
         data: Object,
         isLeaderInDepts: Boolean,// 是否是主管
+        onPackageConfereeInfo: (currentConference) => {
+            console.log('currentConference', currentConference);
+        },
+        onPackageReadInfo: (currentConference) => {
+            console.log('currentConference', currentConference);
+        },
+        onChange: (d) => {
+            console.log(d)
+        }
     },
 
     didMount() {
@@ -24,7 +35,7 @@ Component({
         });
     },
 
-    didUpdate(prevProps, prevData) {
+    async didUpdate(prevProps, prevData) {
         this.data.conference = this.props.data;// 拿到父级传来的conference
         if (this.data.operationGroupLocated) {
             // 已经定位签到
@@ -38,7 +49,6 @@ Component({
                 operationGroup: operationJudger.operationGroup
             });
         }
-
     },
 
     didUnmount() {
@@ -52,12 +62,17 @@ Component({
          */
         async locationCheckCurrentConference() {
             let positioning = new PositioningCheckIn(this.data.conference);
-            console.log('this.data.conference', this.data.conference);
-            console.log('positioning', positioning);
             await positioning.checkIn();
+
+            const currentConference = await Conference.getConferenceDetail(this.props.data.id, Caching.getStorageSync('user'));
+            this.props.onPackageConfereeInfo(currentConference);
+            this.props.onPackageReadInfo(currentConference);
+
             this.setData({
                 operationGroupLocated: positioning.operationGroup.operationGroup
             });
+            // console.log('operationGroupLocated', this.data.operationGroupLocated);
+
         },
 
         /**
@@ -81,7 +96,7 @@ Component({
          * 纪要
          */
         summary() {
-            Navigate.navigateTo(`${PageUrlConstant.conferenceSummary}?mid=` + this.data.conference.id);
+            Navigate.navigateTo(`${PageUrlConstant.conferenceSummary}?conference=` + JSON.stringify(this.data.conference));
         },
 
         /**
@@ -95,16 +110,10 @@ Component({
          * 发送钉
          */
         notice() {
-            // console.log(this.data.conference)
-            // let userIdArr = Conference.extractUserId(this.data.conference.conferee);// 全部参会人员id
-            // console.log(userIdArr);
             let useridArr = [];
             this.data.readInfo[1].forEach(user => {
                 useridArr.push(user.userid);
             });
-            // console.log('useridArr');
-            // console.log(useridArr);
-            // console.log('useridArr');
             Ding.createNoticeDing({
                 users: useridArr,
                 corpId: app.globalData.corpId,

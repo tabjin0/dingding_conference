@@ -1,12 +1,10 @@
 .note-container {
     width: 100%;
-    height: 700rpx;
     margin-bottom: 32rpx;
     background-color: #ffffff;
 }
 
 .note {
-    /* height: 100%; */
     padding-left: 32rpx;
     height: 190rpx;
     padding-top: 22rpx;

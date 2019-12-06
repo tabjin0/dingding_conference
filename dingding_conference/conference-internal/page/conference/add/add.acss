@@ -1,5 +1,4 @@
 @import "../../templates/collapse/collapse.acss";
-
 page {
     margin-bottom: 150rpx;
     font-family: "Microsoft YaHei";
@@ -25,6 +24,7 @@ page {
     color: rgba(0, 0, 7, 1);
     line-height: 35rpx;
     margin-top: 22rpx;
+    word-wrap: break-word;
 }
 
 .time-title {
@@ -58,6 +58,10 @@ page {
     margin-bottom: 32rpx;
 }
 
+.meeting-room-container {
+    position: relative;
+}
+
 .meeting-room-label {
     background-color: #fff;
     font-size: 28rpx;
@@ -76,20 +80,23 @@ page {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 30rpx;
 }
 
 .radio-item-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-top: 30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
 }
 
 .radio {
+    height: 30rpx;
     margin-right: 30rpx;
+    margin-bottom: 15rpx;
     font-size: 28rpx;
     color: rgba(0, 0, 7, 1);
-    line-height: 28rpx;
 }
 
 .add-room {
@@ -121,7 +128,6 @@ page {
 
 .participant-number {
     position: absolute;
-    line-height: 94rpx;
     top: 0;
     right: 73rpx;
 }

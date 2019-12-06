@@ -29,7 +29,6 @@
 .party-organization-info-right {
     position: absolute;
     right: 0;
-
     height: 32rpx;
     font-size: 34rpx;
     font-family: "PingFang SC";
@@ -42,7 +41,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
     margin-left: 16rpx;
     margin-top: 30rpx;
     /*margin-bottom: 20rpx;*/
@@ -57,7 +55,6 @@
     line-height: 34rpx;
     background-color: rgba(212, 0, 41, 1);
     padding: 14rpx 20rpx 13rpx 21rpx;
-
 }
 
 .total-static {
@@ -103,4 +100,8 @@
     color: rgba(164, 164, 164, 1);
     line-height: 30rpx;
     margin: 0rpx 20rpx 29rpx 20rpx;
+}
+
+.theme-tex {
+    word-break: break-all;
 }

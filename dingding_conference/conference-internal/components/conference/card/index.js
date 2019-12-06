@@ -1,5 +1,6 @@
 // components/conference/card/index.js
 import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
 
 Component({
     /**
@@ -40,7 +41,7 @@ Component({
          */
         toConferenceDetail(e) {
             let mid = e.currentTarget.dataset.conference.id;
-            Navigate.navigateTo('/page/conference/detail/detail?mid=' + mid);
+            Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + mid);
         },
     }
 })

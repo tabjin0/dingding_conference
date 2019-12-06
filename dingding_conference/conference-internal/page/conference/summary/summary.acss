@@ -1,103 +1,39 @@
 page {
-    margin-bottom: 85 rpx;
+    background: rgba(255, 255, 255, 1);
 }
 
 .summary-container {
-    width: 100%;
-    height: 700 rpx;
     background: rgba(255, 255, 255, 1);
-    margin-bottom: 32 rpx;
+    margin-bottom: 200rpx;
+    padding: 30rpx 30rpx 0 30rpx;
 }
 
 .title {
-    width: 200 rpx;
-    height: 35 rpx;
-    font-size: 34 rpx;
+    width: 200rpx;
+    height: 35rpx;
+    font-size: 34rpx;
     font-family: Microsoft YaHei;
     font-weight: 400;
     color: rgba(0, 0, 7, 1);
-    line-height: 35 rpx;
-}
-
-.summary-title {
-    margin-left: 30 rpx;
-    margin-top: 37 rpx;
+    line-height: 35rpx;
 }
 
 .summary {
-    height: 700 rpx;
-    font-size: 34 rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(0, 0, 7, 1);
-    line-height: 35 rpx;
-    margin-left: 28 rpx;
-    margin-top: 22 rpx;
+    margin-top: 22rpx;
+    margin-bottom: 200rpx;
 }
 
 .submit-button-container {
-    width: 474 rpx;
-    height: 94 rpx;
+    width: 474rpx;
+    height: 94rpx;
     position: fixed;
     left: 50%;
-    bottom: 57 rpx;
-    margin-left: -237 rpx;
+    bottom: 57rpx;
+    margin-left: -237rpx;
 }
 
 .submit-button {
     background: rgba(240, 149, 77, 1);
     border-radius: 6px;
     color: #FFFFFF !important;
-}
-
-
-/*选择图片View*/
-
-.addImv {
-    margin: 20 rpx 20 rpx;
-    height: 200 rpx;
-    background-color: #EEEEEE;
-    border: 1px dashed gray;
-    display: flex;
-    align-items: center;
-    padding: 0 20 rpx;
-}
-
-/*添加图片*/
-
-.addImv .chooseView {
-    width: 160 rpx;
-    height: 160 rpx;
-    background-color: #ffffff;
-    margin-left: 10 rpx;
-    border: 1px solid lightgray;
-    text-align: center;
-    line-height: 180 rpx;
-}
-
-.addImv .chooseImv {
-    width: 50 rpx;
-    height: 50 rpx;
-}
-
-/*已选择的图片*/
-
-.addImv .upFile {
-    margin-left: 10 rpx;
-    width: 160 rpx;
-    height: 160 rpx;
-    position: relative;
-}
-
-.addImv .upFile .itemImv {
-    width: 100%;
-    height: 100%;
-}
-
-.addImv .upFile .closeImv {
-    position: absolute;
-    right: 0 rpx;
-    top: 0 rpx;
-    width: 50 rpx;
-    height: 50 rpx;
 }

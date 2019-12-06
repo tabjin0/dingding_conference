@@ -1,3 +1,4 @@
 {
-  "defaultTitle": "会议室编辑"
+  "defaultTitle": "新增会议室",
+  "pullRefresh": false
 }

@@ -96,6 +96,8 @@ Page({
         });
 
         that.getAgendaArray();
+
+        that.chooseLocation();
     },
 
     async getAgendaArray() {
@@ -251,13 +253,16 @@ Page({
      * @returns {Promise<void>}
      */
     async chooseLocation() {
+        this.setData({
+            meetingRoomShow: true
+        })
 
         // 选择会议室
         const meetingRoomList = await MeetingRoom.getMeetingRoom(Caching.getStorageSync('orgId'));
 
         if (!Common.isEmpty(meetingRoomList)) {
             if (this._checkMeetingRoomLocationIsEmpty(meetingRoomList)) {// 会议室数据异常仅报异常，至于会议室数据严格校验放在会议室新增部分
-                InterAction.fnShowToast(`数据室异常，存在空数据，请联系管理员校验数据`, InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
+                // InterAction.fnShowToast(`数据室异常，存在空数据，请联系管理员校验数据`, InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             }
             this.setData({// 不管会议室数据有误异常，都要展示
                 meetingRoom: meetingRoomList,
@@ -282,7 +287,6 @@ Page({
             'conference.roomId': meetingRoomId,
             'conference.address': meetingRoomName
         });
-
     },
 
     /**

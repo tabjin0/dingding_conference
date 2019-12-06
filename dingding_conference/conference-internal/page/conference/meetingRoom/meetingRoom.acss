@@ -1,18 +1,18 @@
+page {
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(0, 0, 7, 1);
+}
+
 .name-container {
     width: 100%;
-    /*height: 229rpx;*/
     background: rgba(255, 255, 255, 1);
     padding-bottom: 32rpx;
 }
 
 .title {
-    width: 200rpx;
     height: 35rpx;
     font-size: 34rpx;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: rgba(0, 0, 7, 1);
-    line-height: 35rpx;
 }
 
 .name-title {
@@ -27,19 +27,19 @@
 }
 
 .location-container {
-    width: 100%;
-    /*height: 94rpx;*/
     background: rgba(255, 255, 255, 1);
     margin-top: 32rpx;
     margin-bottom: 32rpx;
-    padding-top: 32rpx;
-    padding-bottom: 32rpx;
+    padding: 30rpx;
 }
 
-.location-title {
-    margin-left: 30rpx;
-}
+.location-title {}
 
+.address {
+    font-size: 34rpx;
+    margin-top: 30rpx;
+    word-wrap: break-word;
+}
 
 .submit-button-container {
     width: 474rpx;

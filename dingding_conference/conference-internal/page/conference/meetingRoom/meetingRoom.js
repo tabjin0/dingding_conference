@@ -1,6 +1,6 @@
-import {MeetingRoom} from "../../../model/conference/meetingRoom";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
-import {Caching} from "../../../utils/native-api/caching/caching";
+import { MeetingRoom } from "../../../model/conference/meetingRoom";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
+import { Caching } from "../../../utils/native-api/caching/caching";
 
 const app = getApp();
 
@@ -17,6 +17,7 @@ Page({
 
   onLoad(e) {
     this.webViewContext = dd.createWebViewContext('web-view-1');
+    this.chooseLocation();
 
   },
 
@@ -38,12 +39,12 @@ Page({
           location: `${res.longitude},${res.latitude}`
         });
 
-        dd.openLocation({
-          longitude: res.longitude,
-          latitude: res.latitude,
-          name: res.address,
-          address: res.address,
-        });
+        // dd.openLocation({
+        //   longitude: res.longitude,
+        //   latitude: res.latitude,
+        //   name: res.address,
+        //   address: res.address,
+        // });
       },
       fail() {
 
@@ -63,7 +64,6 @@ Page({
   },
 
   async formSubmit(e) {
-    console.log(e);
     let name = e.detail.value.name;
     let location = e.detail.value.location;
     if (app.isNull(name) || name.length > 5) {
@@ -72,16 +72,10 @@ Page({
       InterAction.fnShowToast('fail', '请到指定地点定位会议室', 2000);
     } else {
       const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location, Caching.getStorageSync('orgId'));
-      console.log(res);
-      if (res.code === 1) {
-        InterAction.fnShowToast('success', '编辑会议室成功，请重新点击地点刷新会议室', 2000);
-        dd.navigateBack({
-          delta: 1
-        })
-      } else {
-        InterAction.fnAlert('抱歉', '编辑会议室失败', '好的');
-      }
+      InterAction.fnShowToast('success', '新增会议室成功，请重新点击地点刷新会议室', 2000);
+      dd.navigateBack({
+        delta: 1
+      })
     }
-
   }
 });

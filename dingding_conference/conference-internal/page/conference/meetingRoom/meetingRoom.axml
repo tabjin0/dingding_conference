@@ -7,8 +7,8 @@
       </view>
     </view>
     <view class="location-container" onTap="chooseLocation">
-      <view class="title location-title">地点</view>
-      <view>{{conference.address}}</view>
+      <view class="title location-title">当前位置（点击重新定位）</view>
+      <view hidden="{{conference.address==null||conference.address==''}}" class="address">{{conference.address}}</view>
       <textarea style="display:none;" name="location" maxlength="-1" placeholder="{{location}}" value="{{location}}"></textarea>
     </view>
     <view class="submit-button-container">
@@ -17,4 +17,3 @@
     </view>
   </form>
 </view>
-

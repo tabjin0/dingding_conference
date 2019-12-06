@@ -8,7 +8,7 @@
     </view>
     <view class="row-line"></view>
     <view class="info-inner-container">
-        <text selectable="true">{{word}}</text>
+        <text class="word" selectable="true">{{word}}</text>
     </view>
 
     <view class="image-container">

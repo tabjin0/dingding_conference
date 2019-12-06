@@ -15,14 +15,21 @@ page {
     align-items: center;
 }
 
+.theme-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .img1 {
     width: 30rpx;
     height: 28rpx;
+    margin-right: 5rpx;
 }
 
 .img2 {
     width: 30rpx;
     height: 28rpx;
+    margin-right: 5rpx;
 }
 
 .theme-text {
@@ -31,7 +38,8 @@ page {
     font-family: "PingFang SC";
     font-weight: 500;
     color: rgba(0, 0, 7, 1);
-    margin-left: 16rpx;
+    /* margin-left: 16rpx; */
+    padding-right: 16rpx;
 }
 
 .time-inner-container {

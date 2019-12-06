@@ -28,43 +28,43 @@ class AddConferenceInfo {
     }
 
     dataCheck() {
-        if (Common.isNull(this.uid)) {
+        if (!this.uid) {
             InterAction.fnShowToast('未获取到用户，请重启小程序', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.theme)) {
+        if (!this.theme) {
             InterAction.fnShowToast('主题不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.address)) {
+        if (!this.address) {
             InterAction.fnShowToast('地址不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.time)) {
+        if (!this.time) {
             InterAction.fnShowToast('时间不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.info)) {
+        if (!this.info) {
             InterAction.fnShowToast('内容不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.conferee)) {
+        if (!this.conferee) {
             InterAction.fnShowToast('参加人员不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.topic)) {
+        if (!this.topic) {
             InterAction.fnShowToast('议题不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.roomId)) {
+        if (!this.roomId) {
             InterAction.fnShowToast('地点不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.orgId)) {
+        if (!this.orgId) {
             InterAction.fnShowToast('部门不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
-        if (Common.isNull(this.open)) {
+        if (!this.open) {
             InterAction.fnShowToast('是否公开不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }

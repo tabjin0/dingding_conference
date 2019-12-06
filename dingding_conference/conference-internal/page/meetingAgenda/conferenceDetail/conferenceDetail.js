@@ -100,8 +100,8 @@ Page({
     });
 
     this.checkCurrentIsInParticipator(currentConference, userId);// 判断当前用户是否在参加人员中
-    this.packageConfereeInfo(currentConference);// 包装参会人员信息
-    this.packageReadInfo(currentConference);// 包装阅读人员信息
+    this.onPackageConfereeInfo(currentConference);// 包装参会人员信息
+    this.onPackageReadInfo(currentConference);// 包装阅读人员信息
   },
 
   /**
@@ -182,7 +182,7 @@ Page({
   /**
    * 包装会议参会信息 ok
    */
-  packageConfereeInfo(currentConference) {
+  onPackageConfereeInfo(currentConference) {
     const conferee = currentConference.conferee;
     let confereeArray = []; // 参会信息数组
     let attended = [];      // 已参加人员
@@ -221,7 +221,7 @@ Page({
   /**
    * 包装阅读情况 ok
    */
-  packageReadInfo(currentConference) {
+  onPackageReadInfo(currentConference) {
     const read = currentConference.msg;
     let readArr = [];       // 通知阅读情况数组
     readArr.push(currentConference.msg.read);// readArr[0]
@@ -253,8 +253,8 @@ Page({
    * @param e
    */
   swiperParticipantChange(e) {
-    // console.log('触发会议人员轮播');
-    // console.log(e);
+    console.log('触发会议人员轮播');
+    console.log(e);
     this.setData({
       swiperParticipantCurrent: e.detail.current
     })

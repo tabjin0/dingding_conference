@@ -39,9 +39,9 @@
                            a:for-item="list_item">
                         <view class="conference-statistic-item">
                             <view class="conference-statistic-item-theme">
-                                <text>{{list_item.theme}}</text>
+                                <text class="theme-text">{{list_item.theme}}</text>
                             </view>
-                            <view class="conference-statistic-item-time">会议时间 : {{list_item.create_time}}</view>
+                            <view class="conference-statistic-item-time">会议时间 : {{list_item.time}}</view>
                             <view class="conference-statistic-item-time">参与度 : {{list_item.stat}}</view>
                         </view>
                     </block>
