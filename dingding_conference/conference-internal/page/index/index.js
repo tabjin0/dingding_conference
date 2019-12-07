@@ -42,8 +42,7 @@ Page({
     },
 
     async onLoad() {
-
-
+        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
     },
 
     async onShow() {
@@ -65,14 +64,14 @@ Page({
      * 初始化页面数据
      */
     async initData() {
-        const currentUser = Caching.getStorageSync('currentUser');
-        if (!currentUser) { // 缓存中没有currentUser
-            const currentUserOnline = await FreeLogin.currentUser();// 用户登录并进入缓存
-            Caching.setStorageSync('currentUser', currentUserOnline)
-        }
+
+        const currentUserOnline = await FreeLogin.currentUser();// 用户登录并进入缓存
+        console.log('index page currentUser', currentUserOnline);
+        Caching.setStorageSync('currentUser', currentUserOnline);
 
         this.initConferenceData();// 获取会议列表
-        Navigate.setNavigationBar(`${Caching.getStorageSync('currentUser').basicCurrentUserInfo.orgName}会议`, '#D40029');
+        const orgName = currentUserOnline.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUserOnline.basicCurrentUserInfo.orgName;
+        Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
         this.setData({
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
         });

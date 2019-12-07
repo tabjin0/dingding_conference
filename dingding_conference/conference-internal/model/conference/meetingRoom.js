@@ -2,10 +2,10 @@
  * 会议室模型
  */
 
-import {Http} from "../../utils/http";
-import {ApiUrlConstant} from "../../config/ApiUrlConstant";
-import {InterAction} from "../../utils/native-api/interface/interaction";
-import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
+import { Http } from "../../utils/http";
+import { ApiUrlConstant } from "../../config/ApiUrlConstant";
+import { InterAction } from "../../utils/native-api/interface/interaction";
+import { InteractionEnum } from "../../utils/native-api/interface/InteractionEnum";
 
 class MeetingRoom {
     /**
@@ -14,14 +14,12 @@ class MeetingRoom {
      * @param location 经纬度字符串
      * @returns {Promise<*>}
      */
-    static async addOrUpdateMeetingRoom(name, location, orgId) {
+    static async addOrUpdateMeetingRoom(name, location) {
         const res = await Http.request({
             url: `5db14749b1854`,
             data: {
                 name: name,
                 location: location,
-                orgId: orgId,
-                // id:
             }
         });
         if (res.code === 1) {
@@ -40,7 +38,6 @@ class MeetingRoom {
         return await Http.request({
             url: `5db147f53eb0f`,
             data: {
-                orgId: orgId,
                 roomId: roomId
             }
         })
@@ -50,12 +47,10 @@ class MeetingRoom {
      * 获取会议室列表
      * @returns {Promise<*>}
      */
-    static async getMeetingRoom(orgId) {
+    static async getMeetingRoom() {
         const res = await Http.request({
             url: `${ApiUrlConstant.GET_MEETING_ROOM}`,
-            data: {
-                orgId: orgId
-            }
+            data: {}
         });
         console.log('res', res);
         if (res.code === 1) {

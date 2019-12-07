@@ -1,9 +1,7 @@
 import {System} from "../../../model/authentication/system";
 import {FreeLogin} from "../../../model/authentication/FreeLogin";
-import {Storage} from "../../../utils/storage";
 import {Statistic} from "../../../model/statistical/statistic";
 import {Caching} from "../../../utils/native-api/caching/caching";
-import {Department} from "../../../model/department/department";
 import {PartyMember} from "../../../model/organization/partyMember";
 
 const app = getApp();
@@ -13,10 +11,17 @@ Page({
         conferenceStatistic: []
     },
     async onLoad() {
+
     },
 
     async onShow() {
-        await this.initData();
+        if (app.globalData.checkLogin) {
+            return;
+        } else {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+            await this.initData();
+        }
     },
 
     async onPullDownRefresh() {
@@ -44,8 +49,10 @@ Page({
         const userId = Caching.getStorageSync('user');
         const departmentId = Caching.getStorageSync('department');
 
-        const conferenceStatistic = await Statistic.conferenceStatistic(userId, Caching.getStorageSync('orgId'));
-        const partyMemberList = await PartyMember.getPartyMemberInfo(Caching.getStorageSync('orgId'));
+        const conferenceStatistic = await Statistic.conferenceStatistic(userId);
+        const partyMemberList = await PartyMember.getPartyMemberInfo();
+        console.log('conferenceStatistic', conferenceStatistic);
+        console.log('partyMemberList', partyMemberList);
 
         this.setData({
             conferenceStatistic: conferenceStatistic,

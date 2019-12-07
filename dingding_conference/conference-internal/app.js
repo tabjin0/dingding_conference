@@ -13,15 +13,17 @@ App({
         // console.log('SDKVersion', dd.SDKVersion);
         this.globalData.corpId = options.query.corpId;
 
-        // 1. 可以将用户相关登录提取到这边，这边尤其需要涉及到部门，因为头部title需要更改
-        if (!Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();// 用户登录并进入缓存
-            Caching.setStorageSync('currentUser', currentUser)
-            console.log('app currentUser', currentUser);
+        const currentUser = await FreeLogin.currentUser();
+        if(currentUser){
+            Caching.setStorageSync('currentUser',);// 用户登录并进入缓存
+            this.globalData.checkLogin = true;
+        }else {
+            this.globalData.checkLogin = false;
         }
 
+        // console.log('app currentUser', currentUser);
+        // this.globalData.currentUser = currentUser;
 
-        // 2. 版本校验提醒
         const version = await VersionController.isAppNewVersion(`${config.currentVersion}`);
 
     },
@@ -32,7 +34,8 @@ App({
         console.log('App Hide');
     },
     globalData: {
-        corpId: ''
+        corpId: '',
+        checkLogin: false,
     },
 
 

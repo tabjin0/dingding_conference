@@ -1,5 +1,6 @@
 import {PartyMember} from "../../../model/organization/partyMember";
 import {Caching} from "../../../utils/native-api/caching/caching";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
 const app = getApp();
 
@@ -16,6 +17,12 @@ Page({
     },
 
     async onShow() {
+        if (app.globalData.checkLogin) {
+            return;
+        } else {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
         await this.initData();
     },
 

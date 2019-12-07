@@ -5,6 +5,7 @@
 import {Http} from "../../utils/http";
 import {Storage} from "../../utils/storage";
 import {InterAction} from "../../utils/native-api/interface/interaction";
+import {Caching} from "../../utils/native-api/caching/caching";
 
 class User {
 
@@ -90,6 +91,13 @@ class User {
         const userDepartment = await Http.request({
             url: ``,
         })
+    }
+
+    static removeAllCacheSync() {
+        Caching.removeStorageSync()
+        {
+
+        }
     }
 }
 

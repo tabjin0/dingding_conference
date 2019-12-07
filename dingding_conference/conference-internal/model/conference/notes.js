@@ -3,9 +3,9 @@
  */
 
 
-import {Http} from "../../utils/http";
-import {InterAction} from "../../utils/native-api/interface/interaction";
-import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
+import { Http } from "../../utils/http";
+import { InterAction } from "../../utils/native-api/interface/interaction";
+import { InteractionEnum } from "../../utils/native-api/interface/InteractionEnum";
 
 class Notes {
     static async submitNotes(noteInfo) {// 接收一个回调

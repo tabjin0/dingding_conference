@@ -4,20 +4,6 @@
       <view class="title summary-title">会议纪要</view>
       <textarea name="summary" class="summary" maxlength="-1" auto-height="true" placeholder="会议纪要内容" value="{{summary}}"></textarea>
     </view>
-    <!--<view onTap="chooseImage">选择图片</view>-->
-    <!--<view class="addImv">-->
-    <!--            &lt;!&ndash;这个是已经选好的图片&ndash;&gt;-->
-    <!--<block a:for="{{imgArr}}" a:key="key">-->
-    <!--<view class="upFile" bindtap="showImage" style="border-radius: 5px" data-id="{{index}}">-->
-    <!--<image class="itemImv" src="{{item}}"></image>-->
-    <!--<image class="closeImv" src="../../images/delete.png" mode="scaleToFill" catchtap="deleteImv" data-id="{{index}}"></image>-->
-    <!--</view>-->
-    <!--</block>-->
-    <!--            &lt;!&ndash;这个是选择图片&ndash;&gt;-->
-    <!--<view class="chooseView" bindtap="chooseImage" style="border-radius: 5px" a:if="{{chooseViewShow}}">-->
-    <!--<image class="chooseImv" src="../../images/addImage.png"></image>-->
-    <!--</view>-->
-    <!--</view>-->
     <view class="submit-button-container">
       <button class="submit-button" size="default" type="default" form-type="submit">提交纪要
       </button>

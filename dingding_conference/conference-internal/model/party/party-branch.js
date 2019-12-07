@@ -1,8 +1,8 @@
 /**
  * 党支部业务模型
  */
-import {Storage} from "../../utils/storage";
-import {Http} from "../../utils/http";
+import { Storage } from "../../utils/storage";
+import { Http } from "../../utils/http";
 
 class PartyBranch {
     // TODO
@@ -35,13 +35,10 @@ class PartyBranch {
      * @param corpId 组织id
      * @returns {Promise<*>}
      */
-    static async getPartyMemberInfo(orgId) {
+    static async getPartyMemberInfo() {
         const partyMemberInfo = await Http.request({
             url: `5da9611d462d8`,
-            data: {
-                orgId
-                // userid: userid
-            }
+            data: {}
         });
         return partyMemberInfo.data;
     }

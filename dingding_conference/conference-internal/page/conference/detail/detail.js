@@ -48,7 +48,9 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(param) {
+    async onLoad(param) {
+        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
+
         let mid = param.mid;
         console.log('mid', mid);
         this.setData({

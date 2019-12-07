@@ -26,13 +26,11 @@ Page({
   },
 
   chooseLocation() {
-    var that = this;
-
     // 定位
     dd.getLocation({
       success(res) {
         console.log(res);
-        that.setData({
+        this.setData({
           'conference.address': res.address,// 地址
           'conference.longitude': res.longitude,// 经度(钉钉接口模拟器这边有问题)
           'conference.latitude': res.latitude,// 纬度
@@ -53,10 +51,8 @@ Page({
   },
 
   meetingRoom(e) {
-    console.log(e);
-    var that = this;
-    var meetingRoom = e.target.dataset.meetingRoom;
-    console.log(meetingRoom);
+    let that = this;
+    let meetingRoom = e.target.dataset.meetingRoom;
     that.setData({
       'conference.address': meetingRoom
     });

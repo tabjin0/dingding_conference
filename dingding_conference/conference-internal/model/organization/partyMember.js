@@ -1,9 +1,9 @@
 /**
  * 党员模型
  */
-import {Http} from "../../utils/http";
-import {InterAction} from "../../utils/native-api/interface/interaction";
-import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
+import { Http } from "../../utils/http";
+import { InterAction } from "../../utils/native-api/interface/interaction";
+import { InteractionEnum } from "../../utils/native-api/interface/InteractionEnum";
 
 class PartyMember {
     /**
@@ -11,13 +11,10 @@ class PartyMember {
      * @param corpId 组织id
      * @returns {Promise<*>}
      */
-    static async getPartyMemberInfo(orgId) {
+    static async getPartyMemberInfo() {
         const res = await Http.request({
             url: `5da9611d462d8`,
-            data: {
-                orgId
-                // userid: userid
-            }
+            data: {}
         });
         if (res.code === 1) {
             return res.data;

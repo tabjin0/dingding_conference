@@ -1,6 +1,6 @@
-import {Common} from "../../utils/tabjin-utils/common";
-import {InterAction} from "../../utils/native-api/interface/interaction";
-import {InteractionEnum} from "../../utils/native-api/interface/InteractionEnum";
+import { Common } from "../../utils/tabjin-utils/common";
+import { InterAction } from "../../utils/native-api/interface/interaction";
+import { InteractionEnum } from "../../utils/native-api/interface/InteractionEnum";
 
 class AddConferenceInfo {
     uid;// 创建者的用户id
@@ -12,7 +12,7 @@ class AddConferenceInfo {
     topic;// 会议议题
     roomId;// 会议室ID
     orgId;// 党支部id
-    open;// 是否公开，1：公开，0：不公开
+    open = 1;// 是否公开，1：公开，0：不公开
 
     constructor(uid, theme, address, time, info, conferee, topic, roomId, orgId, open) {
         this.uid = uid;
@@ -62,10 +62,6 @@ class AddConferenceInfo {
         }
         if (!this.orgId) {
             InterAction.fnShowToast('部门不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
-            return false;
-        }
-        if (!this.open) {
-            InterAction.fnShowToast('是否公开不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
         return true;

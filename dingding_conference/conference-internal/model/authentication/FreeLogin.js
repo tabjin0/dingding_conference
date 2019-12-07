@@ -23,8 +23,7 @@ class FreeLogin {
      * @returns {Promise<void>}
      */
     static async _initCurrentUser(authCode) {
-        // 031554171329564922
-        if (!Common.isObjectNull(Caching.getStorageSync('current'))) {
+        if (!Common.isObjectNull(Caching.getStorageSync('currentUser'))) {
             const currentUser = await User.getCurrentUser(authCode); // 网络获取钉钉返回的当前用户信息 ok
             // 部门
             let department = currentUser.department[0];
