@@ -9,7 +9,7 @@
             <view class="priority-container remind">
                 <view class="conference-priority">会议提醒</view>
             </view>
-            <tabjin-card conferenceList="{{nowConferenceList}}" infoOmitted="{{false}}"
+            <tabjin-card dataList="{{nowConferenceList}}" toUrl="{{conferenceDetail}}" infoOmitted="{{false}}"
                          hideInfo="{{false}}" hideStatus="{{true}}">
             </tabjin-card>
         </view>
@@ -19,7 +19,7 @@
             <view class="priority-container preparatory">
                 <view class="conference-priority">预备会议</view>
             </view>
-            <tabjin-card conferenceList="{{futureConferenceList}}" infoOmitted="{{false}}"
+            <tabjin-card dataList="{{futureConferenceList}}" toUrl="{{conferenceDetail}}"  infoOmitted="{{false}}"
                          hideInfo="{{true}}" hideStatus="{{true}}">
             </tabjin-card>
         </view>
@@ -28,7 +28,7 @@
         <view class="conference-list" hidden="{{!isShowPastConferenceList}}">
             <view class="priority-container history">历史会议
             </view>
-            <tabjin-card conferenceList="{{pastConferenceList}}" infoOmitted="{{false}}"
+            <tabjin-card dataList="{{pastConferenceList}}" toUrl="{{conferenceDetail}}"  infoOmitted="{{false}}"
                          hideInfo="{{true}}" hideStatus="{{false}}">
             </tabjin-card>
         </view>

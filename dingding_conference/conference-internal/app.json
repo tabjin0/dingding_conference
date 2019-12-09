@@ -13,7 +13,8 @@
     "page/conference/meetingRoom/meetingRoom",
     "page/conference/photo/photo",
     "page/conference/takeOff/takeOff",
-    "page/meetingAgenda/conferenceDetail/conferenceDetail"
+    "page/meetingAgenda/conferenceDetail/conferenceDetail",
+    "page/conference/noteEdit/noteEdit"
   ],
   "window": {
     "enableWK": "YES",

@@ -15,7 +15,7 @@ Page({
     },
 
     async onShow() {
-        if (!app.globalData.checkLogin) {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
         }

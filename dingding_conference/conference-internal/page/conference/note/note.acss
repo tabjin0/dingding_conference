@@ -1,27 +1,49 @@
-.note-container {
-    width: 100%;
-    margin-bottom: 32rpx;
+page{
     background-color: #ffffff;
 }
 
+.note-container {
+    background-color: #ffffff;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+}
+
 .note {
-    padding-left: 32rpx;
-    height: 190rpx;
-    padding-top: 22rpx;
-    padding-right: 32rpx;
+    background-color: #F7F7F7;
+    padding: 0 !important;
+    min-height: 300rpx;
 }
 
 .submit-button-container {
-    width: 474rpx;
-    height: 94rpx;
-    position: fixed;
-    left: 50%;
-    bottom: 57rpx;
-    margin-left: -237rpx;
+    margin-bottom: 30rpx;
 }
 
 .submit-button {
+    margin: 0 auto;
+    width: 474rpx;
     background: rgba(240, 149, 77, 1);
     border-radius: 6px;
     color: #FFFFFF !important;
+}
+
+.note-list-container{
+    background-color: #FFFFFF;
+    padding: 30rpx;
+}
+
+.priority-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 174rpx;
+    height: 56rpx;
+    border-radius: 4rpx;
+    text-align: center;
+    font-size: 30rpx;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    background-color: #E0614C;
+    margin-bottom: 15rpx;
 }

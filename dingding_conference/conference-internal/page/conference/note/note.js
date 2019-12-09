@@ -4,7 +4,9 @@ import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {NoteInfo} from "../../../model/conference/NoteInfo";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
+const app = getApp();
 Page({
     data: {
         conference: null,
@@ -17,13 +19,35 @@ Page({
         });
     },
 
+    async onShow() {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
+        this._initCurrentConferenceUserNote();
+    },
+
+    /**
+     * 初始化当前会议的用户笔记列表
+     * @returns {Promise<void>}
+     */
+    async _initCurrentConferenceUserNote() {
+        const userId = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
+        const noteList = await Notes.getUserNoteList(this.data.mid, userId);
+        this.setData({
+            noteList: noteList.data,
+        });
+    },
+
     async formSubmit(e) {
         const mid = this.data.mid;
-        const uid = Caching.getStorageSyncByKey('user');
+        console.log('uid',Caching.getStorageSync('currentUser'));
+        const uid = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
         const text = e.detail.value.text;
         const img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
 
         const noteInfo = new NoteInfo(mid, uid, text, img);
+        console.log('noteInfo', noteInfo);
         if (noteInfo.dateCheck()) {
             const addNoteRes = await Notes.submitNotes(noteInfo);
             InterAction.fnShowToast('提交成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);

@@ -36,9 +36,6 @@ class TakeOff {
         if (leaveReason) {
             this.leaveReason = leaveReason;
         }
-        console.log('this.currentConference', this.currentConference);
-        console.log('this.leaveType', this.leaveType);
-        console.log('this.leaveReason', this.leaveReason);
         this._takeOff();
     }
 

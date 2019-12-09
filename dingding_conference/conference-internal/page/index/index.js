@@ -1,10 +1,10 @@
-import { Storage } from "../../utils/storage";
-import { ApiAccessToken } from "../../model/authentication/apiAccessToken";
-import { Conference } from "../../model/conference/conference";
-import { Navigate } from "../../utils/native-api/interface/navigate";
-import { PageUrlConstant } from "../../config/pageUrlConstant";
-import { Caching } from "../../utils/native-api/caching/caching";
-import { FreeLogin } from "../../model/authentication/FreeLogin";
+import {Storage} from "../../utils/storage";
+import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
+import {Conference} from "../../model/conference/conference";
+import {Navigate} from "../../utils/native-api/interface/navigate";
+import {PageUrlConstant} from "../../config/pageUrlConstant";
+import {Caching} from "../../utils/native-api/caching/caching";
+import {FreeLogin} from "../../model/authentication/FreeLogin";
 
 const app = getApp();
 
@@ -42,10 +42,14 @@ Page({
     },
 
     async onLoad() {
-        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
+        if (!app.globalData.checkLogin) {
+            const currentUserOnline = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUserOnline);
+        }
     },
 
     async onShow() {
+        // this.removeCache();
         await this.initData();
 
         const res = await ApiAccessToken.initAccessToken();
@@ -55,15 +59,36 @@ Page({
      * 下拉刷新
      */
     async onPullDownRefresh() {
-        this.initData();// 重新初始化会议列表
+        this.removeCache();
+        // await this.initData();// 重新初始化会议列表
         dd.stopPullDownRefresh();
+    },
+
+    removeCache() {
+        try {
+            Caching.removeStorageSync('AccessToken');
+            Caching.removeStorageSync('AccessTokenTime');
+            Caching.removeStorageSync('currentUser');
+            Caching.removeStorageSync('department');
+            Caching.removeStorageSync('dev_id');
+            Caching.removeStorageSync('isLeaderInDepts');
+            Caching.removeStorageSync('orgId');
+            Caching.removeStorageSync('orgName');
+            Caching.removeStorageSync('user');
+        } catch (err) {
+            console.log('err', err);
+        }
     },
 
     /**
      * 初始化页面数据
      */
     async initData() {
-        if (!app.globalData.checkLogin) {
+        // if (!app.globalData.checkLogin) {
+        //     const currentUserOnline = await FreeLogin.currentUser();
+        //     Caching.setStorageSync('currentUser', currentUserOnline);
+        // }
+        if (!Caching.getStorageSync('currentUser')) {
             const currentUserOnline = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUserOnline);
         }

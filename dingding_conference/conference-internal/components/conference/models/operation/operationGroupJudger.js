@@ -71,8 +71,7 @@ class OperationGroupJudger {
                 // 禁用党员签到按钮
                 commonOperation[1].status = OperationButtonStatus.DISALLOW;
                 commonOperation[1].name = '已请假禁止签到';
-                // TODO 签到按钮改为灰
-                commonOperation[1].img = `${ImgUrl.CHECKIN}`;
+                commonOperation[1].img = `${ImgUrl.CHECKINGRAY}`;
                 break;
         }
         return {

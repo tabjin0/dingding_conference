@@ -1,0 +1,34 @@
+/* components/conference/card/index.wxss */
+
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Microsoft YaHei;
+}
+
+.card-item {
+  border: 1px solid rgba(216, 216, 216, 0.6);
+  border-radius: 6rpx;
+  margin-bottom: 30rpx;
+  padding: 15rpx;
+}
+
+.text {
+  width: 626rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+  word-break: break-all;
+  /* 多余文字点点点 */
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+
+.time {
+  height: 25rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: rgba(222, 126, 48, 1);
+  margin-top: 27rpx;
+}

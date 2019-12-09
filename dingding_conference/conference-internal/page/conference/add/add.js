@@ -9,6 +9,7 @@ import { AddConferenceInfo } from "../../../model/conference/AddConferenceInfo";
 import { Conference } from "../../../model/conference/conference";
 import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
 import { Common } from "../../../utils/tabjin-utils/common";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
@@ -101,9 +102,12 @@ Page({
         that.chooseLocation();
     },
 
-    onShow() {
+    async onShow() {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
         this.getAgendaArray();
-
         this.chooseLocation();
     },
 

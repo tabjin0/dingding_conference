@@ -14,7 +14,7 @@
     </view>
 
     <view class="submit-button-container">
-      <button class="submit-button" size="default" type="default" form-type="submit">保存
+      <button class="submit-button" size="default" type="default" form-type="submit">提交
       </button>
     </view>
   </form>

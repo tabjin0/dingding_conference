@@ -1,8 +1,10 @@
-import { InterAction as Interaction } from "../../../utils/native-api/interface/interaction";
-import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
-import { Summary } from "../../../model/conference/summary";
-import { SummaryInfo } from "../../../model/conference/SummaryInfo";
-import { Navigate } from "../../../utils/native-api/interface/navigate";
+import {InterAction as Interaction} from "../../../utils/native-api/interface/interaction";
+import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
+import {Summary} from "../../../model/conference/summary";
+import {SummaryInfo} from "../../../model/conference/SummaryInfo";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
 Page({
     data: {
@@ -16,6 +18,13 @@ Page({
             mid: conference.id,
             summary: conference.summary == null ? '' : conference.summary
         });
+    },
+
+    async onShow() {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
     },
 
     async formSubmit(e) {

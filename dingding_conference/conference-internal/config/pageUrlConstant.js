@@ -5,6 +5,7 @@ const PageUrlConstant = {
     myOrganization: "/page/organization/myOrganization/myOrganization",
     partyBranchSingleMember: "/page/organization/singleMember/singleMember",
     conferenceNote: "/page/conference/note/note",
+    conferenceNoteEdit: "/page/conference/noteEdit/noteEdit",
     conferenceSummary: "/page/conference/summary/summary",
     // conferenceDetail: "/page/conference/detail/detail",
     conferenceDetail: "/page/meetingAgenda/conferenceDetail/conferenceDetail",

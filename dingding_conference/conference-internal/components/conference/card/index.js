@@ -1,16 +1,16 @@
 // components/conference/card/index.js
-import {Navigate} from "../../../utils/native-api/interface/navigate";
-import {PageUrlConstant} from "../../../config/pageUrlConstant";
+import { Navigate } from "../../../utils/native-api/interface/navigate";
+import { PageUrlConstant } from "../../../config/pageUrlConstant";
 
 Component({
     /**
      * 组件的属性列表
      */
     props: {
-        conferenceList: Array,
+        dataList: Array,
         infoOmitted: Boolean,
         hideInfo: Boolean,
-        hideStatus: Boolean
+        hideStatus: Boolean,
     },
 
     /**

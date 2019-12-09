@@ -3,6 +3,8 @@ import {Upload} from "../../../model/conference/upload";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
 Page({
     data: {
@@ -50,8 +52,11 @@ Page({
 
     },
 
-    onShow() {
-        // console.log(param);
+    async onShow() {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
     },
 
     /**

@@ -1,12 +1,12 @@
-import { Conference } from "../../../model/conference/conference";
-import { Storage } from "../../../utils/storage";
-import { System } from "../../../model/authentication/system";
-import { FreeLogin } from "../../../model/authentication/FreeLogin";
-import { InterAction } from "../../../utils/native-api/interface/interaction";
-import { PageUrlConstant } from "../../../config/pageUrlConstant";
-import { Caching } from "../../../utils/native-api/caching/caching";
-import { DetailUtil } from "./detail-util";
-import { Common } from "../../../utils/tabjin-utils/common";
+import {Conference} from "../../../model/conference/conference";
+import {Storage} from "../../../utils/storage";
+import {System} from "../../../model/authentication/system";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {DetailUtil} from "./detail-util";
+import {Common} from "../../../utils/tabjin-utils/common";
 
 const app = getApp();
 Page({
@@ -61,7 +61,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     async onShow() {
-        if (!app.globalData.checkLogin) {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
         }
@@ -71,14 +71,18 @@ Page({
             currentConferenceMid: mid,
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
         })
-            ;
+        ;
     },
 
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: async function () {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
         let mid = this.data.currentConferenceMid;
         this.initData(mid);
         this.setData({

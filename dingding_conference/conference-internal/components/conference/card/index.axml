@@ -1,7 +1,7 @@
 <!--components/conference/card/index.wxml-->
 
 <view class="outer-container">
-    <block a:for="{{conferenceList}}" a:key="{{index}}">
+    <block a:for="{{dataList}}" a:key="{{index}}">
         <!-- 会议内容 -->
         <view class="card-item" data-conference="{{item}}" onTap="toConferenceDetail">
             <view class="conference">

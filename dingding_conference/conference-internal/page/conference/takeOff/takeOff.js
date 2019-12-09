@@ -1,6 +1,8 @@
 import {Common} from "../../../utils/tabjin-utils/common";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {TakeOff} from "../../../components/conference/models/TakeOff";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
 const app = getApp();
 
@@ -20,6 +22,13 @@ Page({
         this.setData({
             conference: conference
         });
+    },
+
+    async onShow() {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
     },
 
     /**

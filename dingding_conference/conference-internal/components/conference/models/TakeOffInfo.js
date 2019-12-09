@@ -1,8 +1,10 @@
 /**
  * 签到信息模型
  */
-import {Common} from "../../../utils/tabjin-utils/common";
-import {CheckInException} from "../../../exception/exception";
+import { Common } from "../../../utils/tabjin-utils/common";
+import { CheckInException } from "../../../exception/exception";
+import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
 
 class TakeOffInfo {
     mid;
@@ -40,16 +42,15 @@ class TakeOffInfo {
             return false;
         }
         if (!this.leaveType) {
-            console.log(`${CheckInException.LEAVETYPE_NULL}`);
+            InterAction.fnShowToast('请假类型不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
         if (!this.leaveReason) {
-            console.log(`${CheckInException.LEAVEREASON_NULL}`);
+            InterAction.fnShowToast('请假理由不能为空', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
             return false;
         }
         return true;
     }
-
 }
 
 export {
