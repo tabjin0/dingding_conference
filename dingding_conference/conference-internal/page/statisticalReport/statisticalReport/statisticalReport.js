@@ -15,13 +15,11 @@ Page({
     },
 
     async onShow() {
-        if (app.globalData.checkLogin) {
-            return;
-        } else {
+        if (!app.globalData.checkLogin) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            await this.initData();
         }
+        await this.initData();
     },
 
     async onPullDownRefresh() {

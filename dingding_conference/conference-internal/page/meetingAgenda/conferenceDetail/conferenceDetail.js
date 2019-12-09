@@ -1,12 +1,12 @@
-import {Conference} from "../../../model/conference/conference";
-import {Storage} from "../../../utils/storage";
-import {System} from "../../../model/authentication/system";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
-import {PageUrlConstant} from "../../../config/pageUrlConstant";
-import {Caching} from "../../../utils/native-api/caching/caching";
-import {DetailUtil} from "./detail-util";
-import {Common} from "../../../utils/tabjin-utils/common";
+import { Conference } from "../../../model/conference/conference";
+import { Storage } from "../../../utils/storage";
+import { System } from "../../../model/authentication/system";
+import { FreeLogin } from "../../../model/authentication/FreeLogin";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
+import { PageUrlConstant } from "../../../config/pageUrlConstant";
+import { Caching } from "../../../utils/native-api/caching/caching";
+import { DetailUtil } from "./detail-util";
+import { Common } from "../../../utils/tabjin-utils/common";
 
 const app = getApp();
 Page({
@@ -49,7 +49,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad(param) {
-        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
 
         let mid = param.mid;
         console.log('mid', mid);
@@ -61,21 +60,25 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow() {
+    async onShow() {
+        if (!app.globalData.checkLogin) {
+            const currentUser = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        }
         let mid = this.data.currentConferenceMid;
         this.initData(mid);
         this.setData({
             currentConferenceMid: mid,
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
         })
-        ;
+            ;
     },
 
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
         let mid = this.data.currentConferenceMid;
         this.initData(mid);
         this.setData({

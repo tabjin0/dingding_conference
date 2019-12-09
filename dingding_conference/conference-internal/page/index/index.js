@@ -1,10 +1,10 @@
-import {Storage} from "../../utils/storage";
-import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
-import {Conference} from "../../model/conference/conference";
-import {Navigate} from "../../utils/native-api/interface/navigate";
-import {PageUrlConstant} from "../../config/pageUrlConstant";
-import {Caching} from "../../utils/native-api/caching/caching";
-import {FreeLogin} from "../../model/authentication/FreeLogin";
+import { Storage } from "../../utils/storage";
+import { ApiAccessToken } from "../../model/authentication/apiAccessToken";
+import { Conference } from "../../model/conference/conference";
+import { Navigate } from "../../utils/native-api/interface/navigate";
+import { PageUrlConstant } from "../../config/pageUrlConstant";
+import { Caching } from "../../utils/native-api/caching/caching";
+import { FreeLogin } from "../../model/authentication/FreeLogin";
 
 const app = getApp();
 
@@ -46,8 +46,7 @@ Page({
     },
 
     async onShow() {
-        // dd.showLoading({content: '加载中...'}); // ok
-        this.initData();// 重新初始化会议列表
+        await this.initData();
 
         const res = await ApiAccessToken.initAccessToken();
     },
@@ -64,13 +63,13 @@ Page({
      * 初始化页面数据
      */
     async initData() {
-
-        const currentUserOnline = await FreeLogin.currentUser();// 用户登录并进入缓存
-        console.log('index page currentUser', currentUserOnline);
-        Caching.setStorageSync('currentUser', currentUserOnline);
-
+        if (!app.globalData.checkLogin) {
+            const currentUserOnline = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUserOnline);
+        }
+        const currentUser = Caching.getStorageSync('currentUser');
         this.initConferenceData();// 获取会议列表
-        const orgName = currentUserOnline.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUserOnline.basicCurrentUserInfo.orgName;
+        const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;
         Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
         this.setData({
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
