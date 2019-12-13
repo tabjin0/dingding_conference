@@ -4,7 +4,7 @@ const config = {
     apiUpload: 'https://www.yzcommunity.cn/dolphin/public/index.php/index/index/uploadImg',
     apiUpload2: 'https://www.yzcommunity.cn/dolphin/public/index.php/index/index/uploadPartyImg',
     currentVersion: '0.0.45',
-    orgPid: 7,
+    orgPid: 1,
 };
 
 // ES6方式导出

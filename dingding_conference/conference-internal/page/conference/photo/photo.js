@@ -1,11 +1,12 @@
-import {Summary} from "../../../model/conference/summary";
-import {Upload} from "../../../model/conference/upload";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
-import {Navigate} from "../../../utils/native-api/interface/navigate";
-import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
-import {Caching} from "../../../utils/native-api/caching/caching";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import { Summary } from "../../../model/conference/summary";
+import { Upload } from "../../../model/conference/upload";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
+import { Navigate } from "../../../utils/native-api/interface/navigate";
+import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
+import { Caching } from "../../../utils/native-api/caching/caching";
+import { FreeLogin } from "../../../model/authentication/FreeLogin";
 
+const app = getApp();
 Page({
     data: {
         filePaths: null,
@@ -53,6 +54,10 @@ Page({
     },
 
     async onShow() {
+        await this.initUser();
+    },
+
+    async initUser() {
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
@@ -84,8 +89,9 @@ Page({
                 let flag = that.data.uploadFlag;
                 console.log('totalImgIdArr开始')
                 console.log(totalImgIdArr)
+                 InterAction.fnShowLoading('上传中');
                 for (let i = 0; i < res.filePaths.length; i++) {
-                    InterAction.fnShowLoading('上传中')
+                   
                     let img = await Upload.uploadImg(res.filePaths[i], 'img');
                     InterAction.fnHideLoading();
                     let imgObj = JSON.parse(img.data);

@@ -27,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/page/meetingAgenda/conferenceDetail" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../workspace/wx-conference" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -68,7 +68,8 @@
       <updated>1575255066441</updated>
       <workItem from="1575255069332" duration="93640000" />
       <workItem from="1575623488073" duration="5785000" />
-      <workItem from="1575876443746" duration="2034000" />
+      <workItem from="1575876443746" duration="14768000" />
+      <workItem from="1576033643057" duration="4220000" />
     </task>
     <servers />
   </component>
@@ -87,6 +88,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="567" y="277" key="FileChooserDialogImpl" timestamp="1576035180495">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="567" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576035180495" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

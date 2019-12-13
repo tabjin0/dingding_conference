@@ -1,3 +1,0 @@
-let DepartmentConstant = {
-    orgId:
-}

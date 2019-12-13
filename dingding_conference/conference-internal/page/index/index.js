@@ -42,14 +42,11 @@ Page({
     },
 
     async onLoad() {
-        if (!app.globalData.checkLogin) {
-            const currentUserOnline = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUserOnline);
-        }
+
     },
 
     async onShow() {
-        // this.removeCache();
+        await this.initUser();
         await this.initData();
 
         const res = await ApiAccessToken.initAccessToken();
@@ -60,7 +57,7 @@ Page({
      */
     async onPullDownRefresh() {
         this.removeCache();
-        // await this.initData();// 重新初始化会议列表
+        await this.initData();// 重新初始化会议列表
         dd.stopPullDownRefresh();
     },
 
@@ -84,10 +81,6 @@ Page({
      * 初始化页面数据
      */
     async initData() {
-        // if (!app.globalData.checkLogin) {
-        //     const currentUserOnline = await FreeLogin.currentUser();
-        //     Caching.setStorageSync('currentUser', currentUserOnline);
-        // }
         if (!Caching.getStorageSync('currentUser')) {
             const currentUserOnline = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUserOnline);
@@ -99,6 +92,13 @@ Page({
         this.setData({
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
         });
+    },
+
+    async initUser() {
+        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+            const currentUserOnline = await FreeLogin.currentUser();
+            Caching.setStorageSync('currentUser', currentUserOnline);
+        }
     },
 
     /** 初始化会议数据 */

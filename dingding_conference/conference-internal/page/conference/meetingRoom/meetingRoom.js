@@ -23,6 +23,10 @@ Page({
     },
 
     async onShow() {
+        await this.initUser();
+    },
+
+    async initUser() {
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
@@ -38,11 +42,12 @@ Page({
     },
 
     chooseLocation() {
+        let that = this;
         // 定位
         dd.getLocation({
             success(res) {
                 console.log(res);
-                this.setData({
+                that.setData({
                     'conference.address': res.address,// 地址
                     'conference.longitude': res.longitude,// 经度(钉钉接口模拟器这边有问题)
                     'conference.latitude': res.latitude,// 纬度

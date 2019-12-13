@@ -20,11 +20,15 @@ Page({
     },
 
     async onShow() {
+        await this.initUser();
+        this._initCurrentConferenceUserNote();
+    },
+
+    async initUser() {
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
         }
-        this._initCurrentConferenceUserNote();
     },
 
     /**
@@ -41,10 +45,10 @@ Page({
 
     async formSubmit(e) {
         const mid = this.data.mid;
-        console.log('uid',Caching.getStorageSync('currentUser'));
+        console.log('uid', Caching.getStorageSync('currentUser'));
         const uid = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
         const text = e.detail.value.text;
-        const img = 'https://www.baidu.com/img/bd_logo1.png?qua=high&where=super';
+        const img = ' ';
 
         const noteInfo = new NoteInfo(mid, uid, text, img);
         console.log('noteInfo', noteInfo);

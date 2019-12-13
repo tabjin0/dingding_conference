@@ -25,6 +25,10 @@ Page({
     },
 
     async onShow() {
+        await this.initUser();
+    },
+
+    async initUser() {
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
@@ -64,15 +68,11 @@ Page({
         this.setData({
             leaveReason: e.detail.value.leaveReason
         })
-
-
         let currentConference = this.data.conference;
 
         let isTakeOff = 0;// 请假失败
 
         const takeOff = await new TakeOff(currentConference, this.data.leaveType, this.data.leaveReason);
-        console.log('takeOff', takeOff);
-
     },
 
     /**

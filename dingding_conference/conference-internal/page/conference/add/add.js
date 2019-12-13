@@ -1,14 +1,14 @@
-import { MeetingRoom } from "../../../model/conference/meetingRoom";
-import { Agenda } from "../../../model/conference/agenda";
-import { Department } from "../../../model/department/department";
-import { InterAction } from "../../../utils/native-api/interface/interaction";
-import { Navigate } from "../../../utils/native-api/interface/navigate";
-import { PageUrlConstant } from "../../../config/pageUrlConstant";
-import { Caching } from "../../../utils/native-api/caching/caching";
-import { AddConferenceInfo } from "../../../model/conference/AddConferenceInfo";
-import { Conference } from "../../../model/conference/conference";
-import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
-import { Common } from "../../../utils/tabjin-utils/common";
+import {MeetingRoom} from "../../../model/conference/meetingRoom";
+import {Agenda} from "../../../model/conference/agenda";
+import {Department} from "../../../model/department/department";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {AddConferenceInfo} from "../../../model/conference/AddConferenceInfo";
+import {Conference} from "../../../model/conference/conference";
+import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
+import {Common} from "../../../utils/tabjin-utils/common";
 import {FreeLogin} from "../../../model/authentication/FreeLogin";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
@@ -97,18 +97,21 @@ Page({
             dateTime1: obj1.dateTime
         });
 
-        that.getAgendaArray();
-
-        that.chooseLocation();
+        // that.getAgendaArray();
+        // that.chooseLocation();
     },
 
     async onShow() {
+        await this.initUser();
+        this.getAgendaArray();
+        this.chooseLocation();
+    },
+
+    async initUser() {
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
         }
-        this.getAgendaArray();
-        this.chooseLocation();
     },
 
     async getAgendaArray() {
@@ -127,7 +130,7 @@ Page({
      * 选择会议地点
      * @param e
      */
-    radioChange: function(e) {
+    radioChange: function (e) {
         console.log('你选择的框架是：');
         console.log(e);
         this.setData({
@@ -173,16 +176,16 @@ Page({
     },
 
     changeDate(e) {
-        this.setData({ date: e.detail.value });
+        this.setData({date: e.detail.value});
     },
     changeTime(e) {
-        this.setData({ time: e.detail.value });
+        this.setData({time: e.detail.value});
     },
     changeDateTime(e) {
-        this.setData({ dateTime: e.detail.value });
+        this.setData({dateTime: e.detail.value});
     },
     changeDateTime1(e) {
-        this.setData({ dateTime1: e.detail.value });
+        this.setData({dateTime1: e.detail.value});
     },
     changeDateTimeColumn(e) {
         let arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
@@ -209,7 +212,7 @@ Page({
     },
 
     handleTitleTap(e) {
-        const { index } = e.currentTarget.dataset;
+        const {index} = e.currentTarget.dataset;
         const panels = this.data.collapseData.panels;
         // android does not supprt Array findIndex
         // panels[index].expanded = !panels[index].expanded;
@@ -334,7 +337,7 @@ Page({
             requiredDepartments: [],        //必选部门（不可取消选中状态）
             permissionType: "GLOBAL",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
             responseUserOnly: false,        //返回人，或者返回人和部门
-            success: async function(res) {
+            success: async function (res) {
                 console.log("res");
                 console.log(res);
                 console.log(JSON.stringify(res));
@@ -398,7 +401,7 @@ Page({
                     chooseParticipantId: chooseParticipantId.join(',')
                 })
             },
-            fail: function(err) {
+            fail: function (err) {
             }
         });
     },
