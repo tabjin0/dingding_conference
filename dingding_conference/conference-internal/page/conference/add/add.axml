@@ -26,7 +26,7 @@
                 </view>
                 <view class="flex-row" style="display:none;">
                     <textarea name="address" maxlength="-1" onInput="conferenceAddressInput" class="" placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>
-                    <input style="display:none;" name="roomId" value="{{conference.roomId}}" style="width: 100%;"></input>
+                    <input style="display:none;" name="roomId" value="{{conference.roomId}}"></input>
                 </view>
                 <view hidden="{{!meetingRoomShow}}" class="flex-column radio-group-container">
                     <radio-group name="radio" class="radio-group" onChange="radioChange">

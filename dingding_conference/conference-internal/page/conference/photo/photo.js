@@ -89,9 +89,8 @@ Page({
                 let flag = that.data.uploadFlag;
                 console.log('totalImgIdArr开始')
                 console.log(totalImgIdArr)
-                 InterAction.fnShowLoading('上传中');
+                InterAction.fnShowLoading('上传中');
                 for (let i = 0; i < res.filePaths.length; i++) {
-                   
                     let img = await Upload.uploadImg(res.filePaths[i], 'img');
                     InterAction.fnHideLoading();
                     let imgObj = JSON.parse(img.data);
