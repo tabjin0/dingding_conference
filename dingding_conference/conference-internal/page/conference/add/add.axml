@@ -22,7 +22,8 @@
                     <view style="display:none;margin-left: auto;">{{conference.address}}</view>
                 </view>
                 <view class="add-room" hidden="{{!meetingRoomShow}}">
-                    <text class="add-room-text" onTap="bookMeetingRoom">新增</text>
+<!--                    <text class="add-room-text" onTap="bookMeetingRoom">新增</text>-->
+                    <image class="add-room-img" onTap="bookMeetingRoom" src="/resources/meetingRoom/add.png"></image>
                 </view>
                 <view class="flex-row" style="display:none;">
                     <textarea name="address" maxlength="-1" onInput="conferenceAddressInput" class="" placeholder="轻触选择会议室" value="{{conference.address}}" style="width: 100%;"></textarea>

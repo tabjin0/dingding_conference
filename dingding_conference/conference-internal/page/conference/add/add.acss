@@ -52,6 +52,8 @@ page {
     line-height: 35rpx;
 }
 
+
+
 .agenda-container {
     margin-bottom: 32rpx;
 }
@@ -79,6 +81,11 @@ page {
     /* border-radius: 5rpx; */
     /* box-sizing: border-box; */
     /* padding: 10rpx; */
+}
+
+.add-room-img {
+    width: 100rpx;
+    height: 60rpx;
 }
 
 .meeting-room-label {

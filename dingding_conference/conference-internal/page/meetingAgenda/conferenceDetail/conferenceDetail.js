@@ -1,12 +1,12 @@
-import {Conference} from "../../../model/conference/conference";
-import {Storage} from "../../../utils/storage";
-import {System} from "../../../model/authentication/system";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
-import {PageUrlConstant} from "../../../config/pageUrlConstant";
-import {Caching} from "../../../utils/native-api/caching/caching";
-import {DetailUtil} from "./detail-util";
-import {Common} from "../../../utils/tabjin-utils/common";
+import { Conference } from "../../../model/conference/conference";
+import { Storage } from "../../../utils/storage";
+import { System } from "../../../model/authentication/system";
+import { FreeLogin } from "../../../model/authentication/FreeLogin";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
+import { PageUrlConstant } from "../../../config/pageUrlConstant";
+import { Caching } from "../../../utils/native-api/caching/caching";
+import { DetailUtil } from "./detail-util";
+import { Common } from "../../../utils/tabjin-utils/common";
 
 const app = getApp();
 Page({
@@ -50,10 +50,11 @@ Page({
      */
     async onLoad(param) {
 
-        let mid = param.mid;
-        console.log('mid', mid);
+        let conference = JSON.parse(param.conference);
+        console.log('conference', conference)
         this.setData({
-            currentConferenceMid: mid
+            currentConference: conference,
+            currentConferenceMid: conference.id
         });
     },
 
@@ -64,6 +65,7 @@ Page({
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+            app.globalData.checkLogin = true;
         }
         let mid = this.data.currentConferenceMid;
         this.initData(mid);
@@ -71,7 +73,7 @@ Page({
             currentConferenceMid: mid,
             isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
         })
-        ;
+            ;
     },
 
 
@@ -82,6 +84,7 @@ Page({
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+            app.globalData.checkLogin = true;
         }
         let mid = this.data.currentConferenceMid;
         this.initData(mid);
@@ -185,6 +188,7 @@ Page({
             title: '支部会议详情',
             desc: '展示支部会议详情',
             path: `${PageUrlConstant.conferenceDetail}?conference=` + JSON.stringify(this.data.currentConference),
+            // path: `${PageUrlConstant.conferenceDetail}?mid=` + this.data.currentConferenceMid,
         };
     },
 

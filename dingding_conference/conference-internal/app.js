@@ -13,19 +13,14 @@ App({
         // console.log('SDKVersion', dd.SDKVersion);
         this.globalData.corpId = options.query.corpId;
 
-        if(Caching.getStorageSync('currentUser')){
+        this.globalData.checkLogin = false;
+        if (Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser',);// 用户登录并进入缓存
             this.globalData.checkLogin = true;
-        }else {
+        } else {
             this.globalData.checkLogin = false;
         }
-
-        // console.log('app currentUser', currentUser);
-        // this.globalData.currentUser = currentUser;
-
-        // const version = await VersionController.isAppNewVersion(`${config.currentVersion}`);
-
     },
     async onShow() {
     },

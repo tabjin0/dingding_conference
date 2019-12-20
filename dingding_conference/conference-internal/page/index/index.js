@@ -81,11 +81,14 @@ Page({
      * 初始化页面数据
      */
     async initData() {
-        if (!Caching.getStorageSync('currentUser')) {
-            const currentUserOnline = await FreeLogin.currentUser();
+        let currentUser;
+        let currentUserOnline;
+        if (!app.globalData.checkLogin) {
+            currentUserOnline = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUserOnline);
+            app.globalData.checkLogin = true;
         }
-        const currentUser = Caching.getStorageSync('currentUser');
+        currentUser = Caching.getStorageSync('currentUser') ? Caching.getStorageSync('currentUser') : currentUserOnline;
         this.initConferenceData();// 获取会议列表
         const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;
         Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
@@ -98,6 +101,7 @@ Page({
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUserOnline = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUserOnline);
+            app.globalData.checkLogin = true;
         }
     },
 
@@ -121,27 +125,6 @@ Page({
             isShowNowConferenceList: nowConferenceList.length == 0 ? false : true,
             isShowFutureConferenceList: futureConferenceList.length == 0 ? false : true,
             isShowPastConferenceList: pastConferenceList.length == 0 ? false : true,
-        });
-    },
-
-
-    /**
-     * 跳转到会议详情
-     * @param e
-     */
-    toConferenceDetail(e) {
-        console.log('e');
-        console.log(e);
-        let conference = e.target.dataset.conference;
-        let mid = conference.id;
-        dd.navigateTo({
-            url: '/page/meetingAgenda/conferenceDetail/conferenceDetail?mid=' + mid,
-            success: (res) => {
-                console.log(res);
-            },
-            fail: (res) => {
-                console.log(res);
-            }
         });
     },
 

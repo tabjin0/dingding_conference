@@ -40,8 +40,8 @@ Component({
          * @param e
          */
         toConferenceDetail(e) {
-            let mid = e.currentTarget.dataset.conference.id;
-            Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + mid);
+            let conference = e.currentTarget.dataset.conference;
+            Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?conference=` + JSON.stringify(conference));
         },
     }
 })

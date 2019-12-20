@@ -2,6 +2,7 @@ import {MeetingRoom} from "../../../model/conference/meetingRoom";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
 
 const app = getApp();
 
@@ -30,6 +31,7 @@ Page({
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+            app.globalData.checkLogin = true;
         }
     },
 
@@ -37,6 +39,7 @@ Page({
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+            app.globalData.checkLogin = true;
         }
         console.log('重新加载')
     },
@@ -80,15 +83,15 @@ Page({
         let name = e.detail.value.name;
         let location = e.detail.value.location;
         if (app.isNull(name) || name.length > 5) {
-            InterAction.fnShowToast('fail', '请输入会议室名称', 2000);
+            InterAction.fnShowToast('请输入会议室名称', 'fail', 2000);
         } else if (app.isNull(location)) {
-            InterAction.fnShowToast('fail', '请到指定地点定位会议室', 2000);
+            InterAction.fnShowToast('请到指定地点定位会议室', 'fail', 2000);
         } else {
-            const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location, Caching.getStorageSync('orgId'));
-            InterAction.fnShowToast('success', '新增会议室成功，请重新点击地点刷新会议室', 2000);
-            dd.navigateBack({
-                delta: 1
-            })
+            const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location);
+            InterAction.fnShowToast('新增会议室成功', 'success', 2000);
+            setTimeout(function () {
+                Navigate.navigateBack(1);
+            }, 2000);
         }
     }
 });

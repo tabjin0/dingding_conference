@@ -50,6 +50,7 @@ Page({
      */
     async onLoad(param) {
         Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
+        app.globalData.checkLogin = true;
 
         let mid = param.mid;
         console.log('mid', mid);
@@ -92,6 +93,7 @@ Page({
         if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
             const currentUser = await FreeLogin.currentUser();
             Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+            app.globalData.checkLogin = true;
         }
         const userId = Caching.getStorageSync('user');
         const currentConference = await Conference.getConferenceDetail(mid, userId);

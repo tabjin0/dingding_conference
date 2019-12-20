@@ -27,21 +27,21 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../workspace/wx-conference" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\department" />
-      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\authentication" />
-      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\conference" />
-      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\organization" />
-      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\utils\tabjin-utils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\page\meetingAgenda\conferenceDetail" />
       <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\conference" />
       <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\page\conference" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\resources\meetingRoom" />
+      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\resources" />
+      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\department" />
+      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\authentication" />
+      <recent name="E:\work\dingding_conference\dingding_conference\dingding_conference\conference-internal\model\conference" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -69,7 +69,9 @@
       <workItem from="1575255069332" duration="93640000" />
       <workItem from="1575623488073" duration="5785000" />
       <workItem from="1575876443746" duration="14768000" />
-      <workItem from="1576033643057" duration="4220000" />
+      <workItem from="1576033643057" duration="7341000" />
+      <workItem from="1576571920546" duration="21000" />
+      <workItem from="1576831543124" duration="874000" />
     </task>
     <servers />
   </component>
@@ -90,10 +92,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="567" y="277" key="FileChooserDialogImpl" timestamp="1576035180495">
+    <state x="567" y="277" key="FileChooserDialogImpl" timestamp="1576571939771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="567" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576035180495" />
+    <state x="567" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576571939771" />
+    <state x="713" y="256" width="647" height="528" key="find.popup" timestamp="1576832442092">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="713" y="256" width="647" height="528" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576832442092" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
