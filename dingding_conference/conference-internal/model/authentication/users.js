@@ -92,13 +92,6 @@ class User {
             url: ``,
         })
     }
-
-    static removeAllCacheSync() {
-        Caching.removeStorageSync()
-        {
-
-        }
-    }
 }
 
 export {

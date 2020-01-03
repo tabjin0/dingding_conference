@@ -42,14 +42,17 @@ Page({
     },
 
     async onLoad() {
-
-    },
-
-    async onShow() {
         await this.initUser();
         await this.initData();
 
         const res = await ApiAccessToken.initAccessToken();
+    },
+
+    async onShow() {
+        // await this.initUser();
+        // await this.initData();
+        //
+        // const res = await ApiAccessToken.initAccessToken();
     },
 
     /**
@@ -83,11 +86,12 @@ Page({
     async initData() {
         let currentUser;
         let currentUserOnline;
-        if (!app.globalData.checkLogin) {
-            currentUserOnline = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUserOnline);
-            app.globalData.checkLogin = true;
-        }
+        // if (!app.globalData.checkLogin) {
+        //     currentUserOnline = await FreeLogin.currentUser();
+        //     Caching.setStorageSync('currentUser', currentUserOnline);
+        //     app.globalData.checkLogin = true;
+        // }
+        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());
         currentUser = Caching.getStorageSync('currentUser') ? Caching.getStorageSync('currentUser') : currentUserOnline;
         this.initConferenceData();// 获取会议列表
         const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;

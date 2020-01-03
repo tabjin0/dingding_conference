@@ -41,7 +41,7 @@ Component({
          */
         toConferenceDetail(e) {
             let conference = e.currentTarget.dataset.conference;
-            Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?conference=` + JSON.stringify(conference));
+            Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + conference.id);
         },
     }
 })

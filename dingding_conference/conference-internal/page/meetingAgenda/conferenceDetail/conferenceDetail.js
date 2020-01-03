@@ -49,63 +49,67 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad(param) {
-
-        let conference = JSON.parse(param.conference);
-        console.log('conference', conference)
+        console.log('onload');
+        this.init(parseInt(param.mid));
+        const currentConference = await Conference.getConferenceDetail(param.mid, Storage.getStorageSyncByKey('user'));
         this.setData({
-            currentConference: conference,
-            currentConferenceMid: conference.id
+            currentConference: currentConference,
+            currentConferenceMid: parseInt(param.mid),
         });
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    async onShow() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
-        let mid = this.data.currentConferenceMid;
-        this.initData(mid);
-        this.setData({
-            currentConferenceMid: mid,
-            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
-        })
-            ;
-    },
+    // async onShow() {
+    //     console.log('onshow');
+    //     this.init(this.data.currentConferenceMid);
+    //     this.setData({
+    //         isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
+    //     });
+    // },
 
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: async function () {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
-        let mid = this.data.currentConferenceMid;
-        this.initData(mid);
+        this.init(this.data.currentConferenceMid);
         this.setData({
-            currentConferenceMid: mid
+            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
         });
         dd.stopPullDownRefresh();
     },
 
     /**
+     * 
+     */
+    async init(mid) {
+        // if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+        //     const currentUser = await FreeLogin.currentUser();
+        //     Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+        //     app.globalData.checkLogin = true;
+        // }
+        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
+        this.initData(mid);
+    },
+
+    /**
      * 初始化页面信息
+     * 会议信息
      * @returns {Promise<void>}
      */
     async initData(mid) {
+        console.log('mid', mid)
         const userId = Storage.getStorageSyncByKey('user');
         const currentConference = await Conference.getConferenceDetail(mid, userId);
+        console.log('initData', currentConference);
         let imgArr = [];
         for (let i = 0; i < currentConference.imgs.length; i++) {
             imgArr.push(currentConference.imgs[i].path);
         }
         this.setData({
+            currentConferenceMid: currentConference.id,
             conference: currentConference,
             imgArr: imgArr,
             imgObjArr: currentConference.imgs
@@ -228,7 +232,7 @@ Page({
         this.setData({
             confereeInfo: confereeArray
         });
-        console.log('confereeArray', confereeArray);
+        // console.log('confereeArray', confereeArray);
     },
 
     /**
@@ -244,7 +248,7 @@ Page({
             readInfo: readArr,
             isUnreadNull: isUnreadNull
         });
-        console.log('readInfo', readArr);
+        // console.log('readInfo', readArr);
     },
 
     /**
