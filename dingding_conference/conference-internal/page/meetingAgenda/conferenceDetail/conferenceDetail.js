@@ -1,12 +1,13 @@
-import { Conference } from "../../../model/conference/conference";
-import { Storage } from "../../../utils/storage";
-import { System } from "../../../model/authentication/system";
-import { FreeLogin } from "../../../model/authentication/FreeLogin";
-import { InterAction } from "../../../utils/native-api/interface/interaction";
-import { PageUrlConstant } from "../../../config/pageUrlConstant";
-import { Caching } from "../../../utils/native-api/caching/caching";
-import { DetailUtil } from "./detail-util";
-import { Common } from "../../../utils/tabjin-utils/common";
+import {Conference} from "../../../model/conference/conference";
+import {Storage} from "../../../utils/storage";
+import {System} from "../../../core/authentication/system";
+import {FreeLogin} from "../../../core/authentication/FreeLogin";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {DetailUtil} from "./detail-util";
+import {Common} from "../../../utils/tabjin-utils/common";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
 
 const app = getApp();
 Page({
@@ -75,22 +76,11 @@ Page({
      */
     onPullDownRefresh: async function () {
         this.init(this.data.currentConferenceMid);
-        this.setData({
-            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
-        });
         dd.stopPullDownRefresh();
     },
 
-    /**
-     * 
-     */
     async init(mid) {
-        // if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-        //     const currentUser = await FreeLogin.currentUser();
-        //     Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-        //     app.globalData.checkLogin = true;
-        // }
-        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());// 用户登录并进入缓存
+        await CheckLogin.fnRecheck();
         this.initData(mid);
     },
 
@@ -109,6 +99,7 @@ Page({
             imgArr.push(currentConference.imgs[i].path);
         }
         this.setData({
+            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts'),
             currentConferenceMid: currentConference.id,
             conference: currentConference,
             imgArr: imgArr,

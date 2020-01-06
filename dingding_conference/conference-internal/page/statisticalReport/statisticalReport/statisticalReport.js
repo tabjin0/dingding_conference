@@ -1,8 +1,9 @@
-import {System} from "../../../model/authentication/system";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import {System} from "../../../core/authentication/system";
+import {FreeLogin} from "../../../core/authentication/FreeLogin";
 import {Statistic} from "../../../model/statistical/statistic";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {PartyMember} from "../../../model/organization/partyMember";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
 
 const app = getApp();
 
@@ -11,33 +12,24 @@ Page({
         conferenceStatistic: []
     },
     async onLoad() {
-
-    },
-
-    async onShow() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
+        await CheckLogin.fnRecheck();
         await this.initData();
     },
+
+    //
+    // async onShow() {
+    //     if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+    //         const currentUser = await FreeLogin.currentUser();
+    //         Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+    //         app.globalData.checkLogin = true;
+    //     }
+    //
+    // },
 
     async onPullDownRefresh() {
+        await CheckLogin.fnRecheck();
         await this.initData();
         dd.stopPullDownRefresh();
-    },
-
-    async initUser() {
-        const authCode = await System.loginSystem();// 获取钉钉免登授权码
-        const currentUser = await FreeLogin.freeLogin(authCode.authCode, app.globalData.corpId);// 用户登录并进入缓存
-        this.setData({
-            // isAdmin: currentUser.currentUser.isAdmin,
-            // isLeaderInDepts: currentUser.currentUser.isLeaderInDepts
-            isAdmin: Caching.getStorageSync('isAdmin'),
-            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
-        });
-        return currentUser;
     },
 
     /**
@@ -46,25 +38,14 @@ Page({
      */
     async initData() {
         const userId = Caching.getStorageSync('user');
-        const departmentId = Caching.getStorageSync('department');
 
         const conferenceStatistic = await Statistic.conferenceStatistic(userId);
         const partyMemberList = await PartyMember.getPartyMemberInfo();
-        console.log('conferenceStatistic', conferenceStatistic);
-        console.log('partyMemberList', partyMemberList);
 
         this.setData({
             conferenceStatistic: conferenceStatistic,
             partyBranchMemberNum: partyMemberList.total // 党员数量
         });
-    },
-
-    /**
-     * 初始化党支部党员数量
-     * @private
-     */
-    async _initPartyMemberNum() {
-        const partyMemberList = await PartyMember.getPartyMemberInfo(1);
     },
 
     onReady() {

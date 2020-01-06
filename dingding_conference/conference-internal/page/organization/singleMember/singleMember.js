@@ -9,13 +9,9 @@ Page({
     },
     onLoad(param) {
         let singleMember = JSON.parse(param.single);
-        console.log('singleMember')
-        console.log(singleMember)
         this.data.singleMember = singleMember;
         this.data.gender = singleMember.gender;
     },
 
-    onPullDownRefresh() {
-        dd.stopPullDownRefresh();
-    },
+
 });

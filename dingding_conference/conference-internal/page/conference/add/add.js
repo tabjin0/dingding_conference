@@ -9,7 +9,8 @@ import {AddConferenceInfo} from "../../../model/conference/AddConferenceInfo";
 import {Conference} from "../../../model/conference/conference";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
 import {Common} from "../../../utils/tabjin-utils/common";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import {FreeLogin} from "../../../core/authentication/FreeLogin";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
 
 let dateTimePicker = require('/utils/date/dateTimePicker.js');
 const app = getApp();
@@ -70,7 +71,11 @@ Page({
         isOpen: true,// 默认公开
     },
 
-    onLoad() {
+    async onLoad() {
+        await CheckLogin.fnRecheck();
+        this.getAgendaArray();
+        this.chooseLocation();
+
         let that = this;
         // 获取完整的年月日 时分秒，以及默认显示的数组
         let obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
@@ -101,19 +106,19 @@ Page({
         // that.chooseLocation();
     },
 
-    async onShow() {
-        await this.initUser();
-        this.getAgendaArray();
-        this.chooseLocation();
-    },
+    // async onShow() {
+    //     // await this.initUser();
+    //     // this.getAgendaArray();
+    //     // this.chooseLocation();
+    // },
 
-    async initUser() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
-    },
+    // async initUser() {
+    //     if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+    //         const currentUser = await FreeLogin.currentUser();
+    //         Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+    //         app.globalData.checkLogin = true;
+    //     }
+    // },
 
     async getAgendaArray() {
         let agendaContent = [];

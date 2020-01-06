@@ -11,6 +11,7 @@ import {TakeOffInfo} from "./TakeOffInfo";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
 import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {LocationUtilsCustomized} from "../../../utils/tabjin-utils/location";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
 
 class TakeOff {
     currentConference;
@@ -83,14 +84,13 @@ class TakeOff {
             leaveType,
             leaveReason
         );
-        console.log('takeOffInfo', takeOffInfo);
         if (takeOffInfo.dataIntrospection()) {
             // 签到对象包装成功，发送CheckIn对象进行签到
             const takeOffRes = await CheckIn.submitCheckInInfo(takeOffInfo);
-            console.log('takeOffRes', takeOffRes);
             InterAction.fnShowToast('请假成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
             setTimeout(function () {
-                Navigate.navigateBack(1);// 返回上一个页面
+                // Navigate.navigateBack(1);// 返回上一个页面
+                Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + currentConference.id);
             }, 2000);
         }
     }

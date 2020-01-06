@@ -2,8 +2,8 @@ import {VersionController} from "./model/version/VersionController";
 import {config} from "./config/config";
 import {Navigate} from "./utils/native-api/interface/navigate";
 import {InitPartyBranchInfo} from "./page/organization/InitPartyBranchInfo";
-import {System} from "./model/authentication/system";
-import {FreeLogin} from "./model/authentication/FreeLogin";
+import {System} from "./core/authentication/system";
+import {FreeLogin} from "./core/authentication/FreeLogin";
 import {Caching} from "./utils/native-api/caching/caching";
 
 App({
@@ -13,21 +13,15 @@ App({
         // console.log('SDKVersion', dd.SDKVersion);
         this.globalData.corpId = options.query.corpId;
 
-        this.globalData.checkLogin = false;
-        if (Caching.getStorageSync('currentUser')) {
+        this.globalData.checkLogin = false;// 默认未登录
+        if (!this.globalData.checkLogin) {
             const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser',);// 用户登录并进入缓存
             this.globalData.checkLogin = true;
         } else {
             this.globalData.checkLogin = false;
         }
     },
-    async onShow() {
-    },
 
-    onHide() {
-        console.log('App Hide');
-    },
     globalData: {
         corpId: '',
         checkLogin: false,

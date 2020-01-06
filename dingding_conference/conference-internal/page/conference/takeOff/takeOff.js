@@ -2,7 +2,8 @@ import {Common} from "../../../utils/tabjin-utils/common";
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {TakeOff} from "../../../components/conference/models/TakeOff";
 import {Caching} from "../../../utils/native-api/caching/caching";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import {FreeLogin} from "../../../core/authentication/FreeLogin";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
 
 const app = getApp();
 
@@ -15,7 +16,9 @@ Page({
         isTake: 'wa'
     },
 
-    onLoad(param) {
+    async onLoad(param) {
+        await CheckLogin.fnRecheck();
+
         let conference = JSON.parse(param.conference);
         console.log('从会议详情界面携带的数据为：' + conference);
         console.log(conference);
@@ -24,17 +27,17 @@ Page({
         });
     },
 
-    async onShow() {
-        await this.initUser();
-    },
-
-    async initUser() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
-    },
+    // async onShow() {
+    //     await this.initUser();
+    // },
+    //
+    // async initUser() {
+    //     if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+    //         const currentUser = await FreeLogin.currentUser();
+    //         Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+    //         app.globalData.checkLogin = true;
+    //     }
+    // },
 
     /**
      * 选择请假类型

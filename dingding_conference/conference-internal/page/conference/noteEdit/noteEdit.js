@@ -3,10 +3,12 @@ import { Notes } from "../../../model/conference/notes";
 import { InterAction } from "../../../utils/native-api/interface/interaction";
 import { Navigate } from "../../../utils/native-api/interface/navigate";
 import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
 
 Page({
   data: {},
-  onLoad(params) {
+  async onLoad(params) {
+    await CheckLogin.fnRecheck();
     this.setData({
       note: JSON.parse(params.note)
     });

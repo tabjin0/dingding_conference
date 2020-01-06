@@ -1,10 +1,12 @@
 import {Storage} from "../../utils/storage";
-import {ApiAccessToken} from "../../model/authentication/apiAccessToken";
+import {ApiAccessToken} from "../../core/authentication/apiAccessToken";
 import {Conference} from "../../model/conference/conference";
 import {Navigate} from "../../utils/native-api/interface/navigate";
 import {PageUrlConstant} from "../../config/pageUrlConstant";
 import {Caching} from "../../utils/native-api/caching/caching";
-import {FreeLogin} from "../../model/authentication/FreeLogin";
+import {FreeLogin} from "../../core/authentication/FreeLogin";
+import {InterAction} from "../../utils/native-api/interface/interaction";
+import {CheckLogin} from "../../core/authentication/CheckLogin";
 
 const app = getApp();
 
@@ -19,14 +21,7 @@ let url = domain + '/login';
 
 Page({
     data: {
-        corpId: '',
-        authCode: '',
-        administrator: '',
-        userId: '',
-        userName: '',
-        isAdmin: false,// 默认不是管理员
         isLeaderInDepts: false,// 默认不是部门主管
-        hideList: true,
 
         hasMeeting: false,
 
@@ -37,19 +32,15 @@ Page({
         isShowNowConferenceList: false,// 默认不显示当前会议列表
         isShowFutureConferenceList: false,// 默认不显示预备会议列表
         isShowPastConferenceList: false,// 默认不显示历史会议列表
-
-        isNeedCheckIn: true,// 默认需要签到
     },
 
     async onLoad() {
-        await this.initUser();
         await this.initData();
 
-        const res = await ApiAccessToken.initAccessToken();
+        // const res = await ApiAccessToken.initAccessToken();
     },
 
     async onShow() {
-        // await this.initUser();
         // await this.initData();
         //
         // const res = await ApiAccessToken.initAccessToken();
@@ -59,7 +50,7 @@ Page({
      * 下拉刷新
      */
     async onPullDownRefresh() {
-        this.removeCache();
+        // this.removeCache();
         await this.initData();// 重新初始化会议列表
         dd.stopPullDownRefresh();
     },
@@ -81,33 +72,24 @@ Page({
     },
 
     /**
-     * 初始化页面数据
+     * 初始化页面骨架数据
      */
     async initData() {
-        let currentUser;
-        let currentUserOnline;
-        // if (!app.globalData.checkLogin) {
-        //     currentUserOnline = await FreeLogin.currentUser();
-        //     Caching.setStorageSync('currentUser', currentUserOnline);
-        //     app.globalData.checkLogin = true;
-        // }
-        Caching.setStorageSync('currentUser', await FreeLogin.currentUser());
-        currentUser = Caching.getStorageSync('currentUser') ? Caching.getStorageSync('currentUser') : currentUserOnline;
-        this.initConferenceData();// 获取会议列表
-        const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;
-        Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
-        this.setData({
-            isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
-        });
-    },
-
-    async initUser() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUserOnline = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUserOnline);
-            app.globalData.checkLogin = true;
+        await CheckLogin.fnRecheck();
+        const currentUser = Caching.getStorageSync('currentUser');
+        if (currentUser) {
+            const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;
+            Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
+            this.setData({
+                isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
+            });
+            // 获取会议列表
+            this.initConferenceData();
+        } else {
+            InterAction.fnShowToast('初始化页面失败', 'none', 2000);
         }
     },
+
 
     /** 初始化会议数据 */
     async initConferenceData() {

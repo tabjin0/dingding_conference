@@ -4,7 +4,8 @@ import { InterAction } from "../../../utils/native-api/interface/interaction";
 import { Navigate } from "../../../utils/native-api/interface/navigate";
 import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
 import { Caching } from "../../../utils/native-api/caching/caching";
-import { FreeLogin } from "../../../model/authentication/FreeLogin";
+import { FreeLogin } from "../../../core/authentication/FreeLogin";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
 
 const app = getApp();
 Page({
@@ -30,7 +31,9 @@ Page({
         totalImgIdArr: [],
 
     },
-    onLoad(param) {
+    async onLoad(param) {
+        await CheckLogin.fnRecheck();
+
         console.log('param', param);
         let imgArrEx = JSON.parse(param.imgArr);
         console.log('imgArrEx', imgArrEx);
@@ -53,17 +56,17 @@ Page({
 
     },
 
-    async onShow() {
-        await this.initUser();
-    },
-
-    async initUser() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
-    },
+    // async onShow() {
+    //     await this.initUser();
+    // },
+    //
+    // async initUser() {
+    //     if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+    //         const currentUser = await FreeLogin.currentUser();
+    //         Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+    //         app.globalData.checkLogin = true;
+    //     }
+    // },
 
     /**
      * 选择图片

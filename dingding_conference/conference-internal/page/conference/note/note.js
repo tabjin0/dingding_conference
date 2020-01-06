@@ -4,7 +4,9 @@ import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {NoteInfo} from "../../../model/conference/NoteInfo";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
-import {FreeLogin} from "../../../model/authentication/FreeLogin";
+import {FreeLogin} from "../../../core/authentication/FreeLogin";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
+import {PageUrlConstant} from "../../../config/pageUrlConstant";
 
 const app = getApp();
 Page({
@@ -17,20 +19,22 @@ Page({
         this.setData({
             mid: params.mid
         });
-    },
-
-    async onShow() {
-        await this.initUser();
+        await CheckLogin.fnRecheck();
         this._initCurrentConferenceUserNote();
     },
 
-    async initUser() {
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-            const currentUser = await FreeLogin.currentUser();
-            Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-            app.globalData.checkLogin = true;
-        }
-    },
+    // async onShow() {
+    //     await this.initUser();
+    //     this._initCurrentConferenceUserNote();
+    // },
+
+    // async initUser() {
+    //     if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+    //         const currentUser = await FreeLogin.currentUser();
+    //         Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
+    //         app.globalData.checkLogin = true;
+    //     }
+    // },
 
     /**
      * 初始化当前会议的用户笔记列表
@@ -57,7 +61,8 @@ Page({
             const addNoteRes = await Notes.submitNotes(noteInfo);
             InterAction.fnShowToast('提交成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
             setTimeout(function () {
-                Navigate.navigateBack(1);
+                // Navigate.navigateBack(1);
+                Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + mid);
             }, 2000);
         }
     }
