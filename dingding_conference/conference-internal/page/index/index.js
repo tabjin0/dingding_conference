@@ -35,13 +35,13 @@ Page({
     },
 
     async onLoad() {
-        await this.initData();
+        // await this.initData();
 
         // const res = await ApiAccessToken.initAccessToken();
     },
 
     async onShow() {
-        // await this.initData();
+        await this.initData();
         //
         // const res = await ApiAccessToken.initAccessToken();
     },

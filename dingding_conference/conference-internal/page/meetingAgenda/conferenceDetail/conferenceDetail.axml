@@ -85,23 +85,24 @@
                     </block>
                 </view>
                 <!-- 阅读人员信息 -->
-                <view class="participant read-outer-container">
+                <view class="participant">
                     <swiper current="{{swiperNoticeReadCurrent}}" onChange="swiperNoticeReadChange">
-                        <block a:for="{{readInfo}}" a:for-index="read_info_index" a:for-item="read_info_item">
-                            <view class="read-inner-container">
+                        <block a:for="{{readInfo}}" a:for-index="read_info_index"
+                               a:for-item="read_info_item">
+<!--                            <view class="read-inner-container">-->
                                 <swiper-item a:if="{{read_info_item.length > 0}}"
                                              class="flex-row conferee-info-container">
                                     <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
                                         <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
                                     </view>
                                 </swiper-item>
-                            </view>
+<!--                            </view>-->
                         </block>
                     </swiper>
-<!--                    <view a:if="{{swiperNoticeReadCurrent === 1 && isUnreadNull === false && isLeaderInDepts === true}}"-->
-<!--                          class="notice">-->
-<!--                        <text onTap="notice">提醒阅读</text>-->
-<!--                    </view>-->
+                    <!--                    <view a:if="{{swiperNoticeReadCurrent === 1 && isUnreadNull === false && isLeaderInDepts === true}}"-->
+                    <!--                          class="notice">-->
+                    <!--                        <text onTap="notice">提醒阅读</text>-->
+                    <!--                    </view>-->
                 </view>
             </view>
             <!-- 会议纪要 -->

@@ -172,7 +172,10 @@ Page({
         if (addConferenceInfo.dataCheck()) {
             const addConferenceRes = await Conference.addConference(addConferenceInfo);
             InterAction.fnShowToast('新增成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
-            Navigate.navigateBack(1);
+            setTimeout(function () {
+                // Navigate.navigateBack(1);
+                Navigate.switchTab(`${PageUrlConstant.index}`);
+            }, 2000);
         }
     },
 

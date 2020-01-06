@@ -6,6 +6,16 @@ import {promisic} from "../../utils";
 
 class Navigate {
     /**
+     * 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+     * @param url {string} 需要跳转的 tabBar 页面的路径 (代码包路径)（需在 app.json 的 tabBar 字段定义的页面），路径后不能带参数。
+     */
+    static async switchTab(url) {
+        return await promisic(dd.switchTab)({
+            url: url
+        });
+    }
+
+    /**
      * 保留当前页面，跳转到应用内的某个指定页面，可以使用 dd.navigateBack 返回到原来页面。
      * 注意：页面最大深度为5，即可连续调用 5 次 navigateTo
      * dd.navigateTo 和 dd.redirectTo 不允许跳转到 tabbar 页面；如果需要跳转到 tabbar 页面，请使用 dd.switchTab。
