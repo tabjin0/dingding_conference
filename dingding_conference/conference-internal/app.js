@@ -27,15 +27,6 @@ App({
         checkLogin: false,
     },
 
-
-    // 构建全局议题对象对象(ID，议题名称)
-    agenda(itemId, agendaName) {
-        var agendaItem = new Object;
-        agendaItem.itemId = itemId;
-        agendaItem.agendaName = agendaName;
-        return agendaItem;
-    },
-
     getDate() {
         var myDate = new Date();
         //获取当前年

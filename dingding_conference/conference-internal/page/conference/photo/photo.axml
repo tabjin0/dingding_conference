@@ -3,7 +3,7 @@
   <view class="image-container">
     <!--                    <view class="image-title">图片</view>   -->
     <view class="upload-img-container">
-      <block a:for="{{imgArr}}" a:key="key">
+      <block a:for="{{imgArr}}" a:key="index">
         <view class="upload-img" onTap="showImage" style="border-radius: 5rpx" data-id="{{index}}">
           <image class="img-item" src="{{item}}"></image>
           <!--                    <image class="closeImv {{isAdmin==true?closeImv:'hide'}}"-->
