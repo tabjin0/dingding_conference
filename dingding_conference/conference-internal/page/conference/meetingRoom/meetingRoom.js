@@ -1,9 +1,11 @@
-import {MeetingRoom} from "../../../model/conference/meetingRoom";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
-import {Caching} from "../../../utils/native-api/caching/caching";
-import {FreeLogin} from "../../../core/authentication/FreeLogin";
-import {Navigate} from "../../../utils/native-api/interface/navigate";
-import {CheckLogin} from "../../../core/authentication/CheckLogin";
+import { MeetingRoom } from "../../../model/conference/meetingRoom";
+import { InterAction } from "../../../utils/native-api/interface/interaction";
+import { Caching } from "../../../utils/native-api/caching/caching";
+import { FreeLogin } from "../../../core/authentication/FreeLogin";
+import { Navigate } from "../../../utils/native-api/interface/navigate";
+import { CheckLogin } from "../../../core/authentication/CheckLogin";
+import { PageUrlConstant } from "../../../config/pageUrlConstant";
+
 
 const app = getApp();
 
@@ -22,6 +24,7 @@ Page({
         this.webViewContext = dd.createWebViewContext('web-view-1');
         await CheckLogin.fnRecheck();
         this.chooseLocation();
+        console.log('e', e);
 
     },
 
@@ -91,8 +94,8 @@ Page({
         } else {
             const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location);
             InterAction.fnShowToast('新增会议室成功', 'success', 2000);
-            setTimeout(function () {
-                Navigate.navigateBack(1);
+            setTimeout(function() {
+                Navigate.navigateTo(`${PageUrlConstant.addConference}`);
             }, 2000);
         }
     }

@@ -3,8 +3,6 @@ import { Upload } from "../../../model/conference/upload";
 import { InterAction } from "../../../utils/native-api/interface/interaction";
 import { Navigate } from "../../../utils/native-api/interface/navigate";
 import { InteractionEnum } from "../../../utils/native-api/interface/InteractionEnum";
-import { Caching } from "../../../utils/native-api/caching/caching";
-import { FreeLogin } from "../../../core/authentication/FreeLogin";
 import { CheckLogin } from "../../../core/authentication/CheckLogin";
 import { PageUrlConstant } from "../../../config/pageUrlConstant";
 
@@ -35,8 +33,6 @@ Page({
     },
 
     async onLoad(param) {
-        
-
         console.log('param', param);
         this.setData({
             param: param
@@ -60,8 +56,6 @@ Page({
             totalImgIdArr: totalImgIdArr,
             mid: param.mid
         });
-
-
     },
 
     async onShow() {
@@ -89,7 +83,6 @@ Page({
             });
         }
     },
-
 
     /**
      * 选择图片
@@ -176,7 +169,6 @@ Page({
         this.chooseViewShow();
     },
 
-
     /**
      * 是否隐藏图片选择
      */
@@ -191,7 +183,6 @@ Page({
             })
         }
     },
-
 
     /**
      * 显示图片

@@ -44,7 +44,7 @@
       },
       {
         "pagePath": "page/statisticalReport/statisticalReport/statisticalReport",
-        "name": "数据统计",
+        "name": "我的",
         "icon": "/resources/icon/tabBar/icon3_1.png",
         "activeIcon": "/resources/icon/tabBar/icon3_2.png"
       }
