@@ -1,3 +1,8 @@
 {
-  "defaultTitle": "数据统计"
+  "defaultTitle": "我的",
+  "usingComponents": {
+    "t-grid": "/tab-ui/grid/grid",
+    "t-grid-item": "/tab-ui/grid-item/grid-item",
+    "t-card": "/tab-ui/layout/card/card"
+  }
 }

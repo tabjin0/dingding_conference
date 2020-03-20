@@ -14,7 +14,8 @@
     "page/conference/photo/photo",
     "page/conference/takeOff/takeOff",
     "page/meetingAgenda/conferenceDetail/conferenceDetail",
-    "page/conference/noteEdit/noteEdit"
+    "page/conference/noteEdit/noteEdit",
+    "page/test/test"
   ],
   "window": {
     "enableWK": "YES",

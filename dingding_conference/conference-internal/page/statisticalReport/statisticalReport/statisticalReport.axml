@@ -1,52 +1,32 @@
-<view>
-    <view class="out-container">
-        <view class="party-organization-info-container">
-            <view class="party-organization-info">
-                <view class="party-organization-info-title">党员数量</view>
-                <view class="party-organization-info-right">{{partyBranchMemberNum}}</view>
+<view class="container">
+    <t-grid class="t-grid" rowNum="3" show-col-border="{{true}}" gridList="{{gridList}}" onTabTap="onTapGrid">
+        <t-grid-item key="{{index}}" slot="grid-item" slot-scope="props">
+            <!-- 测试grid-item组件 -->
+            <!--<view class="">index:{{props.item.index}} ok</view>-->
+            <!--<view class="">key:{{props.item.key}}</view>-->
+            <!--<view class="">wizard:{{props.item.cell.value.wizard}}</view>-->
+            <!--<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583321005685&di=8a717ca17d04129143e8c3660307034b&imgtype=0&src=http%3A%2F%2Fimg.tukexw.com%2Fimg%2Fb8ea89c84253ff8c.jpg" class="image" mode="scaleToFill" lazy-load="true"></image>-->
+            <!-- 测试卡片card组件 -->
+            <!--<t-card type="cover"-->
+            <!-- image="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1640641727,833901922&fm=26&gp=0.jpg"-->
+            <!-- title="新疆精选苹果title"-->
+            <!-- position="left">-->
+            <!--            &lt;!&ndash; 此处为content &ndash;&gt;-->
+            <!--<view class="content">-->
+            <!--                新疆苹果,又名塞威氏苹果,蔷微科,落叶乔木。原产新疆西部天山北山麓,-->
+            <!--                主要集中分布于伊犁河谷果子沟,新源县境内的那拉提野果林,巩留的莫合-->
+            <!--                林场,垂直分布区域海拔在1000～1300m的山顶、山坡、河谷区域。-->
+            <!--</view>-->
+            <!--</t-card>-->
+            <view class="grid-item">
+                <text class="grid-item-year">{{props.item.cell.year}}</text>
+                <text class="grid-item-month">{{props.item.cell.month}}</text>
+                <text class="grid-item-name">党费缴纳</text>
+                <view class="grid-item-status">
+                    <!-- {{props.item.cell.status}} -->
+                    <text class="grid-item-status-text">{{props.item.cell.status}}</text>
+                </view>
             </view>
-<!--            <view class="party-organization-info">-->
-<!--                <view class="party-organization-info-title">会议总参与度</view>-->
-<!--                <view class="party-organization-info-right">{{conferenceStatistic.stat}}</view>-->
-<!--            </view>-->
-        </view>
-
-        <!--    <canvas id="Canvas2" style="width:100%;height:360px;"></canvas>-->
-        <!--    <canvas-->
-        <!--            id="canvas"-->
-        <!--            class="canvas"-->
-        <!--            onTouchStart="log"-->
-        <!--            onTouchMove="log"-->
-        <!--            onTouchEnd="log"-->
-        <!--    />-->
-    </view>
-    <view class="out-container">
-        <!-- 会议列表 -->
-        <view class="conference-statistic-container">
-            <block a:for="{{conferenceStatistic}}" a:for-index="conferenceStatistic_index"
-                   a:for-item="conferenceStatistic_item">
-                <view class="conference-statistic-loactionA flex-row">
-                    <view class="year-month">
-                        <text>{{conferenceStatistic_item.date}}</text>
-                    </view>
-                    <view class="total-static flex-row">
-                        <image class="icon" mode="scaleToFill" src="/resources/icon/common/statistic.png"></image>
-                        <view class="total-static-number">{{conferenceStatistic_item.stat}}</view>
-                    </view>
-                </view>
-                <view class="conference-statistic-item-container">
-                    <block a:for="{{conferenceStatistic_item.list}}" a:for-index="list_index"
-                           a:for-item="list_item">
-                        <view class="conference-statistic-item">
-                            <view class="conference-statistic-item-theme">
-                                <text class="theme-text">{{list_item.theme}}</text>
-                            </view>
-                            <view class="conference-statistic-item-time">会议时间 : {{list_item.time}}</view>
-                            <view class="conference-statistic-item-time">参与度 : {{list_item.stat}}</view>
-                        </view>
-                    </block>
-                </view>
-            </block>
-        </view>
-    </view>
+        </t-grid-item>
+    </t-grid>
 </view>

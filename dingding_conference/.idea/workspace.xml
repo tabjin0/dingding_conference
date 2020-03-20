@@ -2,15 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc11a55-32c4-4f23-b2f0-d047396c9def" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid-item/grid-item.acss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid-item/grid-item.axml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid-item/grid-item.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid-item/grid-item.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid/grid.acss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid/grid.axml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid/grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid/grid.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/mixins/hover.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editor.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editor.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/add/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/add/add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/meetingRoom/meetingRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/meetingRoom/meetingRoom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/photo/photo.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/photo/photo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/components/conference/card-note/card-note.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/components/conference/card-note/card-note.acss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/noteEdit/noteEdit.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/noteEdit/noteEdit.acss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,69 +39,20 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>GetLocation</find>
-      <find>bind</find>
-      <find>a:key=&quot;{{index}}&quot;</find>
-      <find>Inter</find>
-      <find>getDistance</find>
-      <find>getFlatternDistance</find>
-      <find>123</find>
-      <find>initData</find>
-      <find>chooseViewShow</find>
-      <find>filePaths</find>
-      <find>_initCurrentOperationStatus</find>
-      <find>currentUserId</find>
-      <find>meeting-room-container</find>
-      <find>radio-container</find>
-      <find>获取支部</find>
-      <find>nowConferenceList</find>
-      <find>isNeedCheckIn</find>
-      <find>hasMeeting</find>
-      <find>hideList</find>
-      <find>isAdmin</find>
-      <find>userName</find>
-      <find>userId</find>
-      <find>administrator</find>
-      <find>corpId</find>
-      <find>authCode</find>
-      <find>JSON.parse</find>
-      <find>initUser</find>
-      <find>Navigate.navigateBack(1)</find>
-      <find>navigateTo</find>
-      <find>switchTab</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>catchTap</replace>
-      <replace>&quot;</replace>
-      <replace>conference_priority_item</replace>
-      <replace>time</replace>
-      <replace>swiperParticipantCurrent</replace>
-      <replace>upload-img-container</replace>
-      <replace>initConferenceData</replace>
-      <replace>dd.httpRequest</replace>
-      <replace>httpRequest</replace>
-      <replace>headers</replace>
-      <replace>ddRequest</replace>
-      <replace>let</replace>
-      <replace>rpx</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/conference/page/meetingAgenda/addConference</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1WCLwePv7aveyrMLdMlZmEzAZdO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -156,11 +121,22 @@
       <workItem from="1578648873539" duration="71000" />
       <workItem from="1578648962364" duration="121000" />
       <workItem from="1579277117196" duration="720000" />
-      <workItem from="1583284573522" duration="726000" />
+      <workItem from="1583284573522" duration="28308000" />
+      <workItem from="1583897252732" duration="599000" />
+      <workItem from="1584674595186" duration="216000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="251" y="399" key="CommitChangelistDialog2" timestamp="1583311072612">
+      <screen x="42" y="22" width="1878" height="1178" />
+    </state>
+    <state x="251" y="399" key="CommitChangelistDialog2/42.22.1878.1178@42.22.1878.1178" timestamp="1583311072612" />
   </component>
 </project>

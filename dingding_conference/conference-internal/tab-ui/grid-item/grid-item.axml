@@ -1,0 +1,7 @@
+<!-- 宫格共包含 2 个组件： grid 、 grid-item ，这两个组件必须配合使用。 -->
+<!-- grid-item 用于设置每一个宫格元素的内容及事件。 -->
+<slot></slot>
+<!--<view class="t-grid-item t-grid-item-class grid-item" onTap="tabGridItem">-->
+<!--    &lt;!&ndash; key一致，必填 &ndash;&gt;-->
+<!--    <slot name="{{key}}" cell="{{cell}}"></slot>-->
+<!--</view>-->

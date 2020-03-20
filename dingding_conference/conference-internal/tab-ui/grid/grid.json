@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-grid-item": "../grid-item/grid-item"
+  }
+}

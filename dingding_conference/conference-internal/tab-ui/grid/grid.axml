@@ -1,0 +1,17 @@
+<!-- 宫格共包含 2 个组件： grid 、 grid-item ，这两个组件必须配合使用。 -->
+<!-- grid-item 用于设置每一个宫格元素的内容及事件。 -->
+<!--grid组件-->
+<view class="t-grid t-class" onTap="tapGrid">
+    <view onTap="tapGridItem"
+          hover-class="{{isHover?'t-grid-hover':''}}"
+          hover-start-time="20"
+          hover-stay-time="50"
+          data-grid-index="{{item.index}}"
+          class="t-grid-item-container t-grid-class {{index%rowNum !== rowNum-1 &&(showBorder||showColBorder)? 'side-grid':''}} {{(index<gridItems.length-(gridItems.length%rowNum||rowNum)) &&(showBorder||showRowBorder)? 'center-grid':''}}"
+          a:for="{{gridItems}}" key="{{item.key}}"
+          style="min-width:{{100/rowNum}}%;">
+<!--        item.index: {{item.index}} 测试ok -->
+        <!-- 待插入若干grid-item -->
+        <slot name="grid-item" item="{{item}}"></slot>
+    </view>
+</view>
