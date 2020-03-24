@@ -72,3 +72,19 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
 }
+
+.tabui-grid-item-finished-class {
+    background: #D2FFE1;
+}
+
+.tabui-grid-item-unfinished-class {
+    background: #FFF1E1;
+}
+
+.grid-item .tabui-status-finished-class {
+    background: #5BBB41;
+}
+
+.grid-item .tabui-status-unfinished-class {
+    background: #FBA239;
+}

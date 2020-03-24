@@ -1,6 +1,7 @@
 page {
     background-color: rgba(247, 247, 247, 1);
-    padding-bottom: 190rpx;
+    margin-bottom: 110rpx;
+    /*position: relative;*/
 }
 
 .outer-container {
@@ -381,4 +382,40 @@ button {
     /*background-color: #de453d !important;*/
     /*border: 1rpx solid #de453d !important;*/
     color: black !important;
+}
+
+.right-tip-summary {
+    position: fixed;
+    bottom: 258rpx;
+    width: 96rpx;
+    height: 83rpx;
+    right: 0rpx;
+    background: #eeeeee;
+    font-size: 28rpx;
+    color: #D40029;
+    text-align: center;
+    line-height: 83rpx;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.right-tip-photo {
+    position: fixed;
+    bottom: 148rpx;
+    width: 96rpx;
+    height: 83rpx;
+    right: 0rpx;
+    background: #eeeeee;
+    font-size: 28rpx;
+    color: #D40029;
+    text-align: center;
+    line-height: 83rpx;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.bottom-tabbar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }

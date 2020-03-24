@@ -24,6 +24,7 @@ class CheckIn {
         if (res.code === 1) {
             return res.data;
         } else {
+            console.log(res)
             InterAction.fnShowToast(`${res.msg}`, InteractionEnum.DD_SHOW_TOAST_TYPE_fail, InteractionEnum.DD_SHOW_TOAST_DURATION);
         }
     }

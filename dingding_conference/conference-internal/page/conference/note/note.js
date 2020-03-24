@@ -4,7 +4,6 @@ import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {NoteInfo} from "../../../model/conference/NoteInfo";
 import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
-import {FreeLogin} from "../../../core/authentication/FreeLogin";
 import {CheckLogin} from "../../../core/authentication/CheckLogin";
 import {PageUrlConstant} from "../../../config/pageUrlConstant";
 
@@ -15,9 +14,10 @@ Page({
         currentUserId: null,
     },
     async onLoad(params) {
-        console.log('params', params);
+        let currentConference = JSON.parse(params.conference);
+        console.log('note:', currentConference);
         this.setData({
-            mid: params.mid
+            mid: currentConference.id
         });
         await CheckLogin.fnRecheck();
         this._initCurrentConferenceUserNote();

@@ -89,14 +89,14 @@
                     <swiper current="{{swiperNoticeReadCurrent}}" onChange="swiperNoticeReadChange">
                         <block a:for="{{readInfo}}" a:for-index="read_info_index"
                                a:for-item="read_info_item">
-<!--                            <view class="read-inner-container">-->
-                                <swiper-item a:if="{{read_info_item.length > 0}}"
-                                             class="flex-row conferee-info-container">
-                                    <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
-                                        <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
-                                    </view>
-                                </swiper-item>
-<!--                            </view>-->
+                            <!--                            <view class="read-inner-container">-->
+                            <swiper-item a:if="{{read_info_item.length > 0}}"
+                                         class="flex-row conferee-info-container">
+                                <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
+                                    <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>
+                                </view>
+                            </swiper-item>
+                            <!--                            </view>-->
                         </block>
                     </swiper>
                     <!--                    <view a:if="{{swiperNoticeReadCurrent === 1 && isUnreadNull === false && isLeaderInDepts === true}}"-->
@@ -112,9 +112,19 @@
         </view>
     </view>
 </view>
+
+<view a:if="{{isLeaderInDepts}}" class="right-tip-summary" onTap="toSummary">纪要</view>
+<view a:if="{{isLeaderInDepts}}" class="right-tip-photo" onTap="toPhoto">照片</view>
+
+<!--底部按钮-->
+<view class="bottom-tabbar">
+    <tabui-tabbar list="{{tabBarList}}" onTabChange="detailTabBar"></tabui-tabbar>
+</view>
+
+
 <!-- 底部按钮 -->
-<tabjin-operation data="{{conference}}"
-                  isLeaderInDepts="{{isLeaderInDepts}}"
-                  onPackageConfereeInfo="onPackageConfereeInfo"
-                  onPackageReadInfo="onPackageReadInfo">
-</tabjin-operation>
+<!--<tabjin-operation data="{{conference}}"-->
+<!--                  isLeaderInDepts="{{isLeaderInDepts}}"-->
+<!--                  onPackageConfereeInfo="onPackageConfereeInfo"-->
+<!--                  onPackageReadInfo="onPackageReadInfo">-->
+<!--</tabjin-operation>-->

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "tabjin-word-card": "/components/conference/card-detail-word/index",
-    "tabjin-operation": "/components/conference/operation-detail-page/operation-detail-page"
+    "tabjin-operation": "/components/conference/operation-detail-page/operation-detail-page",
+    "tabui-tabbar": "/tab-ui/navigation/tabbar/tabbar"
   }
 }

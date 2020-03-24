@@ -1,5 +1,6 @@
 page {
     position: relative;
+    /*overflow: hidden;*/
 }
 
 .take-off-container {

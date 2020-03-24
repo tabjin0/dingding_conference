@@ -2,12 +2,12 @@ import {Conference} from "../../../model/conference/conference";
 import {Storage} from "../../../utils/storage";
 import {System} from "../../../core/authentication/system";
 import {FreeLogin} from "../../../core/authentication/FreeLogin";
-import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {PageUrlConstant} from "../../../config/pageUrlConstant";
 import {Caching} from "../../../utils/native-api/caching/caching";
-import {DetailUtil} from "./detail-util";
 import {Common} from "../../../utils/tabjin-utils/common";
 import {CheckLogin} from "../../../core/authentication/CheckLogin";
+import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
 
 const app = getApp();
 Page({
@@ -44,6 +44,30 @@ Page({
         imgArr: [],
         chooseViewShow: true,
         imgObjArr: [],
+
+        tabBarList: [
+            {
+                icon_name: "checkin",
+                icon: "",
+                activeIcon: "",
+                text: '签到',
+                pagePath: "/page/conference/checkIn/checkIn",
+            },
+            {
+                icon_name: "calendar",
+                icon: "",
+                activeIcon: "",
+                text: '请假',
+                pagePath: `${PageUrlConstant.takeOff}`,
+            },
+            {
+                icon_name: "note",
+                activeIcon: "",
+                icon: "",
+                text: '笔记',
+                pagePath: `${PageUrlConstant.conferenceNote}`,
+            }
+        ]
     },
 
     /**
@@ -57,6 +81,7 @@ Page({
             currentConference: currentConference,
             currentConferenceMid: parseInt(param.mid),
         });
+
     },
 
     /**
@@ -90,7 +115,8 @@ Page({
      * @returns {Promise<void>}
      */
     async initData(mid) {
-        console.log('mid', mid)
+        // console.log('mid', mid);
+        // console.log(`123,`, Caching.getStorageSync('isLeaderInDepts'));
         const userId = Storage.getStorageSyncByKey('user');
         const currentConference = await Conference.getConferenceDetail(mid, userId);
         console.log('initData', currentConference);
@@ -309,4 +335,29 @@ Page({
             })
         });
     },
+
+    toSummary() {
+        Navigate.navigateTo(`${PageUrlConstant.conferenceSummary}?conference=` + JSON.stringify(this.data.conference));
+    },
+
+    toPhoto() {
+        // console.log(`this.data:`, this.data)
+        let imgArr = this.data.conference.imgs;
+        let mid = this.data.conference.id;
+        Navigate.navigateTo(`${PageUrlConstant.photo}?imgArr=` + JSON.stringify(imgArr) + '&mid=' + mid);
+    },
+
+    /**
+     * 处理tabbar相关
+     * @param e
+     */
+    detailTabBar(e) {
+        const currentIndex = e;
+        const signType = this.data.conference.sign_type;
+        if (signType == 2 && currentIndex == 1) {
+            InterAction.fnShowToast(`已签到，无法请假`, 'none', 1500);
+        } else {
+            Navigate.navigateTo(`${this.data.tabBarList[currentIndex].pagePath}?conference=` + JSON.stringify(this.data.conference));
+        }
+    }
 })

@@ -18,13 +18,14 @@
             <!--                林场,垂直分布区域海拔在1000～1300m的山顶、山坡、河谷区域。-->
             <!--</view>-->
             <!--</t-card>-->
-            <view class="grid-item">
+            <view class="grid-item {{ props.item.cell.status == 0 ? 'tabui-grid-item-finished-class' : 'tabui-grid-item-unfinished-class' }}">
                 <text class="grid-item-year">{{props.item.cell.year}}</text>
                 <text class="grid-item-month">{{props.item.cell.month}}</text>
                 <text class="grid-item-name">党费缴纳</text>
-                <view class="grid-item-status">
+                <view class="grid-item-status {{ props.item.cell.status == 0 ? 'tabui-status-finished-class' : 'tabui-status-unfinished-class' }}">
                     <!-- {{props.item.cell.status}} -->
-                    <text class="grid-item-status-text">{{props.item.cell.status}}</text>
+                    <text a:if="{{props.item.cell.status == 0}}" class="grid-item-status-text">已缴纳</text>
+                    <text a:if="{{props.item.cell.status == 2}}" class="grid-item-status-text">未缴纳</text>
                 </view>
             </view>
         </t-grid-item>

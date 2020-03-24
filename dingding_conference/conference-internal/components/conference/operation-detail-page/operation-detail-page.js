@@ -88,6 +88,7 @@ Component({
          */
         toPhoto() {
             let imgArr = this.data.conference.imgs;
+            console.log(`this.data.conference.imgs: `, this.data.conference.imgs)
             let mid = this.data.conference.id;
             Navigate.navigateTo(`${PageUrlConstant.photo}?imgArr=` + JSON.stringify(imgArr) + '&mid=' + mid);
         },

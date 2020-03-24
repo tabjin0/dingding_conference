@@ -33,7 +33,7 @@ Page({
     },
 
     async onLoad(param) {
-        console.log('param', param);
+        console.log('param:', param);
         this.setData({
             param: param
         });
@@ -60,7 +60,7 @@ Page({
 
     async onShow() {
         await CheckLogin.fnRecheck();
-        
+
         if (this.data.param) {
             let imgArrEx = JSON.parse(this.data.param.imgArr);
             console.log('imgArrEx', imgArrEx);

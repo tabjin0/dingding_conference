@@ -1,3 +1,54 @@
+@font-face {
+    font-family: "t-iconfont";
+    src: url('//at.alicdn.com/t/font_1566318_euktytbkr3s.eot');
+    src: url('//at.alicdn.com/t/font_1566318_euktytbkr3s.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1566318_euktytbkr3s.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1566318_euktytbkr3s.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1566318_euktytbkr3s.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1566318_euktytbkr3s.svg#wx-dianshang') format('svg');
+}
+
+.t-iconfont {
+    font-family: "wx-dianshang" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.t-icon-checkin:before {
+    content: "\e000";
+}
+
+.t-icon-calendar:before {
+    content: "\e001";
+}
+
+.t-icon-note:before {
+    content: "\e002";
+}
+
+.t-icon-icongouwuchekong:before {
+    content: "\e604";
+}
+
+.t-icon-icongouwuche:before {
+    content: "\e603";
+}
+
+.t-icon-icongouwuche1:before {
+    content: "\e602";
+}
+
+.t-icon-iconicon1:before {
+    content: "\e601";
+}
+
+.t-icon-iconicon_home:before {
+    content: "\e600";
+}
+
+
 page {
     background-color: #F7F7F7;
 }
@@ -37,7 +88,7 @@ text {
     align-items: center;
 }
 
-.page-section-btns>view {
+.page-section-btns > view {
     flex: 1;
     height: 84rpx;
     display: flex;
@@ -46,7 +97,7 @@ text {
     color: #49a9ee;
 }
 
-.page-section-btns>view+view {
+.page-section-btns > view + view {
     border-left: 1px solid #ddd;
 }
 

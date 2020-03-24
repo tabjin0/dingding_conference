@@ -16,7 +16,7 @@ Page({
     async onLoad(params) {
         await CheckLogin.fnRecheck();
         const conference = JSON.parse(params.conference);
-        console.log('con', conference)
+        // console.log('con', conference)
         this.setData({
             mid: conference.id,
             summary: conference.summary == null ? '' : conference.summary
