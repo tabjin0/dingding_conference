@@ -249,20 +249,24 @@ page {
 }
 
 .conferee-info-container {
-    width: 100%;
+    width: 700rpx !important;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.conferee-info-item {
+.conferee-info-container .conferee-info-item {
     height: 50rpx;
-    background-color: rgba(229, 245, 253, 1);
-    border: 1rpx solid rgba(54, 66, 250, 1);
+    background-color: #E5F5FD;
+    border: 1rpx solid #3642FA;
     border-radius: 5rpx;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     margin: 10rpx;
     padding: 2rpx 10rpx;
+}
+
+.conferee-info-container .conferee-info-item .conferee-info-item-tag {
+    color: #000000 !important;
 }
 
 .conferee-info-item-name {

@@ -1,3 +1,17 @@
-<view>
-  New Component
+<view style="display: flex">
+    <view class="t-tag {{ type==='touch' ? ' t-tag-touch' : ''}} {{ plain ? 't-tag-plain-' + size : 't-tag-' + size }} {{ disabled ? 't-tag-disabled' : ''}} {{ select ? 'select t-select-class' : 't-class' }} {{ plain ? 't-tag-plain' : ''}} {{ 't-tag-' + size + '-' + shape }}"
+          style="{{ height ? 'line-height:' + height + 'rpx;height:' + height + 'rpx;' : ''}}{{ plain ? 'color:' + fontColor + ';border-color:' + fontColor : ';background-color:' + bgColor + ';color:' + fontColor + ';font-size:' + fontSize + 'rpx;' + 'font-weight:' + fontWeight + ';'}}"
+          onTap="handleTap">
+        <view class="{{ location === 'left' ? 'content' : 'content-t' }}" style="{{iconName?'line-height:0':''}}">
+            <t-icon a:if="{{icon}}" name="{{iconName}}" size="{{iconSize}}" color="{{iconColor}}"
+                    style="{{location=='left'?'margin-right:5rpx':'margin-left:5rpx'}}">
+            </t-icon>
+            <image a:if="{{image}}" src="{{image}}" class="{{'tag-image-'+size}} t-image-class"
+                   style="{{location=='left'?'margin-right:5rpx':'margin-left:5rpx'}}"
+                   mode="scaleToFill"
+                   lazy-load="true">
+            </image>
+            <slot></slot>
+        </view>
+    </view>
 </view>

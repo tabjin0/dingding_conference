@@ -1,3 +1,6 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "tabui-dd-icon": "../../base/icon/icon"
+  }
 }
