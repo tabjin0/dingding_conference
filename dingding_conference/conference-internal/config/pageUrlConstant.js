@@ -11,7 +11,8 @@ const PageUrlConstant = {
     conferenceDetail: "/page/meetingAgenda/conferenceDetail/conferenceDetail",
     meetingRoom: "/page/conference/meetingRoom/meetingRoom",
     photo: "/page/conference/photo/photo",
-    takeOff: "/page/conference/takeOff/takeOff"
+    takeOff: "/page/conference/takeOff/takeOff",
+    partyBranchInfo: "/page/organization/partyBranchInfo/partyBranchInfo"
 }
 
 export {

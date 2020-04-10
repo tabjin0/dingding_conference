@@ -86,10 +86,11 @@ Page({
 
     async formSubmit(e) {
         let name = e.detail.value.name;
+        console.log(`name:`,name)
         let location = e.detail.value.location;
-        if (app.isNull(name) || name.length > 5) {
+        if (name=='') {
             InterAction.fnShowToast('请输入会议室名称', 'fail', 2000);
-        } else if (app.isNull(location)) {
+        } else if (location=='') {
             InterAction.fnShowToast('请到指定地点定位会议室', 'fail', 2000);
         } else {
             const res = await MeetingRoom.addOrUpdateMeetingRoom(name, location);

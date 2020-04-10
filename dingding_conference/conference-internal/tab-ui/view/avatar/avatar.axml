@@ -1,0 +1,27 @@
+<view class="t-avatar {{ text || _isHaveUserNickName ? 't-placement-' + placement: ''}}" onTap="tapAvatar">
+    <!-- 有头像地址/图标/图片路径 -->
+    <view a:if="{{_isHaveUserAvatarUrl || icon || src}}"
+          class="t-avatar-image {{ shape ? 't-' + shape : ''}} t-class"
+          style="width:{{size}}rpx;height:{{size}}rpx;">
+        <!-- 若通过微信开放能力拿到头像 -->
+        <!-- <open-data wx:if="{{_isHaveUserAvatarUrl}}" type="userAvatarUrl"/>这边是微信的开放数据，可以直接通过userAvatarUrl获取到用户头像之类的</open-data> -->
+        <!-- 有图标 -->
+        <t-icon a:if="{{icon}}"
+                name="{{icon}}"
+                size="{{ iconSize || size*0.6 }}"
+                color="{{ iconColor || '#ffffff' }}"></t-icon>
+        <!-- 有图片 -->
+        <image a:elif="{{src}}" src="{{src}}" mode="{{mode}}" class=""
+               style="width:{{size}}rpx;height:{{size}}rpx;">
+        </image>
+    </view>
+    <!--  有文本或昵称  -->
+    <view a:if="{{ text || _isHaveUserNickName }}"
+          class="t-avatar-text t-text-class">
+        <!-- 能拿到微信昵称 -->
+        <!-- <open-data wx:if="{{_isHaveUserNickName}}" type="userNickName"/> -->
+        <!-- 有文字 -->
+        <text a:if="{{text}}" style="width:{{size*1.3}}rpx;text-align: center;{{textNameSize ? 'font-size:' + textNameSize + 'rpx;' : ''}}">{{text}}</text>
+        <text a:if="{{desc}}" style="text-align: center;{{textDescSize ? 'font-size:' + textDescSize + 'rpx;' : ''}}">{{desc}}</text>
+    </view>
+</view>

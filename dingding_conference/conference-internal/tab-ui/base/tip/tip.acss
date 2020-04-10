@@ -1,0 +1,25 @@
+.tab-tip-container-class {
+    width: inherit;
+    height: 56rpx;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.tab-tip-border-left {
+    flex-direction: row;
+}
+
+.tab-tip-border-right {
+    flex-direction: row-reverse;
+}
+
+.tab-tip-vertical-line-class {
+    width: 12rpx;
+    height: 100%;
+}
+
+.tab-tip-text {
+    margin: 12rpx;
+}
+

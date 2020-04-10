@@ -16,7 +16,10 @@
     "page/meetingAgenda/conferenceDetail/conferenceDetail",
     "page/conference/noteEdit/noteEdit",
     "page/test/test",
-    "page/conference/checkIn/checkIn"
+    "page/conference/checkIn/checkIn",
+    "page/me/me/me",
+    "page/organization/partyBranchInfo/partyBranchInfo",
+    "page/organization/partyTeam/partyTeam"
   ],
   "window": {
     "enableWK": "YES",
@@ -45,12 +48,15 @@
         "activeIcon": "/resources/icon/tabBar/icon2_2.png"
       },
       {
-        "pagePath": "page/statisticalReport/statisticalReport/statisticalReport",
+        "pagePath": "page/me/me/me",
         "name": "我的",
         "icon": "/resources/icon/tabBar/icon3_1.png",
         "activeIcon": "/resources/icon/tabBar/icon3_2.png"
       }
     ]
   },
-  "debug": true
+  "debug": true,
+  "usingComponents": {
+    "f2": "@antv/my-f2"
+  }
 }

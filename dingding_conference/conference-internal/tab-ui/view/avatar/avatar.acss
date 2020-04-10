@@ -1,0 +1,86 @@
+.t-avatar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t-avatar-image {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    overflow: hidden;
+}
+.t-avatar-text {
+    display: inline-block;
+    height: max-content;
+    width: max-content;
+    font-size: 28rpx;
+    color: #45526b;
+    line-height: 30rpx;
+}
+
+open-data {
+    width: 100%;
+    height: 100%
+}
+
+.t-avatar-text open-data, .t-avatar-text text {
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+
+.t-square {
+    border-radius: 8rpx;
+}
+
+.t-circle {
+    border-radius: 50%;
+}
+
+.t-placement-left, .t-placement-right {
+    justify-content: center;
+    align-items: center;
+}
+
+.t-placement-left {
+    margin-right: 24rpx;
+    flex-direction: row-reverse;
+}
+
+.t-avatar-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.t-placement-left .t-avatar-text {
+    margin-right: 24rpx;
+}
+
+.t-placement-right {
+    flex-direction: row;
+}
+
+.t-placement-right .t-avatar-text {
+    margin-left: 24rpx;
+}
+
+.t-placement-top {
+    flex-direction: column-reverse;
+}
+
+.t-placement-top .t-avatar-text {
+    margin-bottom: 24rpx;
+}
+
+.t-placement-bottom {
+    flex-direction: column;
+}
+
+.t-placement-bottom .t-avatar-text {
+    margin-top: 24rpx;
+}
+
+

@@ -3,8 +3,8 @@ Page({
         singleMember: null,
         gender: '男',
         headImg: [
-            '/resources/icon/organiztion/male.png',
-            '/resources/icon/organiztion/female.png',
+            '/resources/icon/organization/male.png',
+            '/resources/icon/organization/female.png',
         ]
     },
     onLoad(param) {

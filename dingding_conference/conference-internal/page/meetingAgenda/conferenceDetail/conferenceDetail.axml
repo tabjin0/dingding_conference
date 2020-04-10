@@ -41,9 +41,9 @@
                 </view>
             </view>
             <!-- 会议内容 -->
-            <tabjin-word-card word="{{conference.info}}">
+            <tabui-dd-photo-grid word="{{conference.info}}">
                 <text slot="title">会议内容</text>
-            </tabjin-word-card>
+            </tabui-dd-photo-grid>
             <!-- 会议参加人员 -->
             <view class="outer-container">
                 <!-- 参加状态 -->
@@ -64,8 +64,10 @@
                             <swiper-item class="conferee-info-container">
                                 <block class="" a:for="{{conferee_info_item}}">
                                     <view class="conferee-info-item">
-<!--                                        <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>-->
-                                        <tabui-dd-tag name="{{item.name}}" type="reading" fontColor="#000" fontSize="30" fontWeight="bolder" bgColor="#E5F5FD">{{item.name}}</tabui-dd-tag>
+                                        <!--<text selectable="true" class="conferee-info-item-name">{{item.name}}</text>-->
+                                        <tabui-dd-tag name="{{item.name}}" type="reading" fontColor="#000" fontSize="30"
+                                                      fontWeight="bolder" bgColor="#E5F5FD">{{item.name}}
+                                        </tabui-dd-tag>
                                     </view>
                                 </block>
                             </swiper-item>
@@ -90,15 +92,15 @@
                     <swiper current="{{swiperNoticeReadCurrent}}" onChange="swiperNoticeReadChange">
                         <block a:for="{{readInfo}}" a:for-index="read_info_index"
                                a:for-item="read_info_item">
-                            <!--                            <view class="read-inner-container">-->
                             <swiper-item a:if="{{read_info_item.length > 0}}"
                                          class="flex-row conferee-info-container">
                                 <view class="flex-row conferee-info-item" a:for="{{read_info_item}}">
-<!--                                    <text selectable="true" class="conferee-info-item-name">{{item.name}}</text>-->
-                                    <tabui-dd-tag name="{{item.name}}" type="reading" fontColor="#000" fontSize="30" fontWeight="bolder" bgColor="#E5F5FD">{{item.name}}</tabui-dd-tag>
+                                    <!--<text selectable="true" class="conferee-info-item-name">{{item.name}}</text>-->
+                                    <tabui-dd-tag name="{{item.name}}" type="reading" fontColor="#000" fontSize="30"
+                                                  fontWeight="bolder" bgColor="#E5F5FD">{{item.name}}
+                                    </tabui-dd-tag>
                                 </view>
                             </swiper-item>
-                            <!--                            </view>-->
                         </block>
                     </swiper>
                     <!--                    <view a:if="{{swiperNoticeReadCurrent === 1 && isUnreadNull === false && isLeaderInDepts === true}}"-->
@@ -108,9 +110,9 @@
                 </view>
             </view>
             <!-- 会议纪要 -->
-            <tabjin-word-card word="{{conference.summary}}" imgArr="{{imgArr}}">
+            <tabui-dd-photo-grid word="{{conference.summary}}" imgArr="{{imgArr}}">
                 <text slot="title">会议纪要</text>
-            </tabjin-word-card>
+            </tabui-dd-photo-grid>
         </view>
     </view>
 </view>
