@@ -12,7 +12,9 @@ const PageUrlConstant = {
     meetingRoom: "/page/conference/meetingRoom/meetingRoom",
     photo: "/page/conference/photo/photo",
     takeOff: "/page/conference/takeOff/takeOff",
-    partyBranchInfo: "/page/organization/partyBranchInfo/partyBranchInfo"
+    partyBranchInfo: "/page/organization/partyBranchInfo/partyBranchInfo",
+    partyActiveMember: "/page/organization/partyActiveMember/partyActiveMember",
+    electionSituationOfPartyBranch: "/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch"
 }
 
 export {

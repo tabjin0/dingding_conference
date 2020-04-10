@@ -35,4 +35,6 @@ require('../../page/test/test?hash=c48e2f8d9efa3931f2bd78b7f6c346355ce0bad7');
 require('../../page/conference/checkIn/checkIn?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../page/me/me/me?hash=8830bce7ad90b2d54e1e67898b6b3ffc0dc4c9fe');
 require('../../page/organization/partyBranchInfo/partyBranchInfo?hash=90b0fc9cc939aff1b2818af4f69d865fa3d52101');
-require('../../page/organization/partyTeam/partyTeam?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../page/organization/partyTeam/partyTeam?hash=9e4a338be3e535bd9f3f099aa3eb9c03c75042b5');
+require('../../page/organization/partyActiveMember/partyActiveMember?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');

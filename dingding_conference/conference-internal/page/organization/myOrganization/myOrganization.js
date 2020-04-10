@@ -26,6 +26,7 @@ Page({
         }, {
             img: "/resources/icon/organization/member4.png",
             name: "入党积极分子名册",
+            url: PageUrlConstant.partyActiveMember
         }, {
             img: "/resources/icon/organization/member5.png",
             name: "流入党员情况",
@@ -43,6 +44,7 @@ Page({
         workManage: [{
             img: "/resources/icon/organization/work1.png",
             name: "党支部改选情况",
+            url: PageUrlConstant.electionSituationOfPartyBranch
         }, {
             img: "/resources/icon/organization/work2.png",
             name: "党支部任期目标",

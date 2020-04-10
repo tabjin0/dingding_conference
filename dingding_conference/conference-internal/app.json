@@ -19,7 +19,9 @@
     "page/conference/checkIn/checkIn",
     "page/me/me/me",
     "page/organization/partyBranchInfo/partyBranchInfo",
-    "page/organization/partyTeam/partyTeam"
+    "page/organization/partyTeam/partyTeam",
+    "page/organization/partyActiveMember/partyActiveMember",
+    "page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch"
   ],
   "window": {
     "enableWK": "YES",
