@@ -1,10 +1,6 @@
-import { System } from "../../../core/authentication/system";
-import { FreeLogin } from "../../../core/authentication/FreeLogin";
-import { Statistic } from "../../../model/statistical/statistic";
-import { Caching } from "../../../utils/native-api/caching/caching";
-import { PartyMember } from "../../../model/organization/partyMember";
-import { CheckLogin } from "../../../core/authentication/CheckLogin";
-import { PartyMemberDues } from "../../..//model/party-member-dues/partyMemberDues";
+import {Caching} from "../../../utils/native-api/caching/caching";
+import {CheckLogin} from "../../../core/authentication/CheckLogin";
+import {PartyMemberDues} from "../../..//model/party-member-dues/partyMemberDues";
 
 const app = getApp();
 
@@ -30,6 +26,7 @@ Page({
      */
     async initData() {
         const userId = Caching.getStorageSync('user');
+        console.log(`user`, userId);
         const duesInfo = await PartyMemberDues.getDuesInfo(userId);
         this.setData({
             gridList: duesInfo

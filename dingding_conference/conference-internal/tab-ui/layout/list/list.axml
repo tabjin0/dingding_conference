@@ -43,7 +43,7 @@
     <!--文字-->
     <view class="t-text">
         <view class="t-content t-content-class"
-              style="{{titleColor ? 'color: #3963BC;' : 'color:' + titleColor + ';'}}">{{title}}
+              style="{{!titleColor ? 'color: #3963BC;' : 'color:' + titleColor + ';'}}">{{title}}
         </view>
         <view a:if="{{desc}}" class="t-desc t-desc-class">{{desc}}</view>
     </view>

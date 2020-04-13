@@ -37,6 +37,7 @@ Component({
          * @param gridList 实际上就是若干grid-item组成的数组
          */
         initGrids(gridList) {
+            console.log(`gridList`, gridList);
             // 这边由于钉钉小程序的组件通信比较讨厌，直接将grid-item整合在grid组件中，不分离了，因为拿不到若干grid-item实例对象
             // let items = this.getRelationNodes('../grid-item/grid-item');// 微信直接获取分离的关系组件，钉钉不存在这种机制
             if (this.data.childNum === gridList.length) return;
@@ -55,7 +56,7 @@ Component({
         },
 
         tapGridItem(e) {
-            const { gridIndex } = e.target.dataset;
+            const {gridIndex} = e.target.dataset;
             this.setData({
                 currentIndex: gridIndex,
                 currentCell: this.data.gridItems[gridIndex].cell

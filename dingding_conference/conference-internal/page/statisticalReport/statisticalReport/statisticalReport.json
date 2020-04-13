@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "我的",
+  "defaultTitle": "党费缴纳",
   "usingComponents": {
     "t-grid": "/tab-ui/grid/grid",
     "t-grid-item": "/tab-ui/grid-item/grid-item",

@@ -14,7 +14,10 @@ const PageUrlConstant = {
     takeOff: "/page/conference/takeOff/takeOff",
     partyBranchInfo: "/page/organization/partyBranchInfo/partyBranchInfo",
     partyActiveMember: "/page/organization/partyActiveMember/partyActiveMember",
-    electionSituationOfPartyBranch: "/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch"
+    electionSituationOfPartyBranch: "/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch",
+    partyMembers: "/page/organization/partyMembers/partyMembers",
+    singleMember: "/page/organization/singleMember/singleMember"
+
 }
 
 export {

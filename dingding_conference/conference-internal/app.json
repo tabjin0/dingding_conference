@@ -21,7 +21,8 @@
     "page/organization/partyBranchInfo/partyBranchInfo",
     "page/organization/partyTeam/partyTeam",
     "page/organization/partyActiveMember/partyActiveMember",
-    "page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch"
+    "page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch",
+    "page/organization/partyMembers/partyMembers"
   ],
   "window": {
     "enableWK": "YES",

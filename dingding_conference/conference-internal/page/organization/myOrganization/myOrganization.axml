@@ -1,29 +1,3 @@
-<!--<view>-->
-<!--    <view class="name-container">-->
-<!--        <image class="name-img" mode="scaleToFill" src="/resources/wodezhibu/logo.png"></image>-->
-<!--        <text class="name-text">{{partyBranchName==null?'党支部':partyBranchName}}</text>-->
-<!--    </view>-->
-
-<!--    <view class="member-container">-->
-<!--        <block a:for="{{organizationPartyMember}}" a:for-index="organizationPartyMember_index"-->
-<!--               a:for-item="organizationPartyMember_item">-->
-<!--            <view class="flex-column single-member" data-singleMember="{{organizationPartyMember_item}}"-->
-<!--                  onTap="toSingleMember">-->
-<!--                <view class="avatar">-->
-<!--                    <image a:if='{{organizationPartyMember_item.headImg}}' class="avatar"-->
-<!--                           src="{{organizationPartyMember_item.headImg}}" mode="scaleToFill"></image>-->
-<!--                    <image a:if='{{!organizationPartyMember_item.headImg}}' class="avatar"-->
-<!--                           src="{{organizationPartyMember_item.gender=='女'?defaultAvatar[1]:defaultAvatar[0]}}"-->
-<!--                           mode="scaleToFill"></image>-->
-<!--                </view>-->
-<!--                <text class="single-member-name">{{organizationPartyMember_item.name}}</text>-->
-<!--                <text class="single-member-position">{{organizationPartyMember_item.partyPosts ==-->
-<!--                    ''?organizationPartyMember_item.partyCategory:organizationPartyMember_item.partyPosts}}-->
-<!--                </text>-->
-<!--            </view>-->
-<!--        </block>-->
-<!--    </view>-->
-<!--</view>-->
 
 <!--党员信息-->
 <view class="container">

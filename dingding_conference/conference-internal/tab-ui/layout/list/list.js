@@ -9,7 +9,7 @@ Component({
         iconSize: '28',// 列表组件中icon的大小
         image: '',// 列表组件中图片资源
         title: '',// 列表组件中左侧文本的内容
-        titleColor: '#3963BC',// 列表组件中左侧文本颜色
+        titleColor: '',// 列表组件中左侧文本颜色
         desc: String,// 列表组件中左侧描述文本的内容
         // 标签相关
         tagPosition: 'left',// 标签显示的位置,right/left
