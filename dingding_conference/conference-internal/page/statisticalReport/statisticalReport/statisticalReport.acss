@@ -1,3 +1,7 @@
+page {
+    overflow: hidden;
+}
+
 .container {
     margin: 0 auto;
     /* padding-top: 40rpx;

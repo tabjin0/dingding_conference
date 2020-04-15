@@ -26,7 +26,6 @@ Page({
      */
     async initData() {
         const userId = Caching.getStorageSync('user');
-        console.log(`user`, userId);
         const duesInfo = await PartyMemberDues.getDuesInfo(userId);
         this.setData({
             gridList: duesInfo
@@ -37,6 +36,4 @@ Page({
     onTapGrid(e) {
         console.log('页面onTapGrid:', e);
     }
-
-
 })

@@ -35,8 +35,7 @@ class PartyMember {
                 userid: userId
             }
         });
-        console.log(`getPartyMemberDetail`, res);
-        if (res.data === 1) {
+        if (res.code === 1) {
             return res.data;
         } else {
             // InterAction.fnShowToast('获取党员详情', InteractionEnum.DD_SHOW_TOAST_TYPE_EXCEPTION, InteractionEnum.DD_SHOW_TOAST_DURATION);
