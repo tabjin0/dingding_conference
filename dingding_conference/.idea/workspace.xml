@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cdc11a55-32c4-4f23-b2f0-d047396c9def" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editor.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/organization/partyMember.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/organization/partyMember.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.axml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +103,7 @@
       <workItem from="1583284573522" duration="28308000" />
       <workItem from="1583897252732" duration="599000" />
       <workItem from="1584674595186" duration="44240000" />
-      <workItem from="1585482631333" duration="68141000" />
+      <workItem from="1585482631333" duration="68365000" />
     </task>
     <task id="LOCAL-00001" summary="v 1.0.1 新增-我的">
       <created>1584676420264</created>
@@ -169,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586766960949</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="v 1.0.2 我的支部-4个子页（概况、党员名册、入党积极分子名册、党支部改选情况） 我的">
+      <created>1586935156690</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586935156690</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,21 +189,21 @@
       <screen x="40" y="22" width="1880" height="1178" />
     </state>
     <state x="288" y="284" key="#com.intellij.execution.impl.EditConfigurationsDialog/40.22.1880.1178@40.22.1880.1178" timestamp="1586425584916" />
-    <state x="251" y="399" key="CommitChangelistDialog2" timestamp="1586766960829">
+    <state x="251" y="399" key="CommitChangelistDialog2" timestamp="1586935156420">
       <screen x="42" y="22" width="1878" height="1178" />
     </state>
     <state x="249" y="399" key="CommitChangelistDialog2/40.22.1880.1178@40.22.1880.1178" timestamp="1586507249791" />
     <state x="250" y="399" key="CommitChangelistDialog2/41.22.1879.1178@41.22.1879.1178" timestamp="1585057899744" />
-    <state x="251" y="399" key="CommitChangelistDialog2/42.22.1878.1178@42.22.1878.1178" timestamp="1586766960829" />
+    <state x="251" y="399" key="CommitChangelistDialog2/42.22.1878.1178@42.22.1878.1178" timestamp="1586935156420" />
     <state x="613" y="564" key="RollbackChangesDialog" timestamp="1586418097575">
       <screen x="40" y="22" width="1880" height="1178" />
     </state>
     <state x="613" y="564" key="RollbackChangesDialog/40.22.1880.1178@40.22.1880.1178" timestamp="1586418097575" />
-    <state x="644" y="322" key="Vcs.Push.Dialog.v2" timestamp="1586767053135">
+    <state x="644" y="322" key="Vcs.Push.Dialog.v2" timestamp="1586935441436">
       <screen x="42" y="22" width="1878" height="1178" />
     </state>
     <state x="643" y="322" key="Vcs.Push.Dialog.v2/41.22.1879.1178@41.22.1879.1178" timestamp="1585057911061" />
-    <state x="644" y="322" key="Vcs.Push.Dialog.v2/42.22.1878.1178@42.22.1878.1178" timestamp="1586767053135" />
+    <state x="644" y="322" key="Vcs.Push.Dialog.v2/42.22.1878.1178@42.22.1878.1178" timestamp="1586935441436" />
     <state x="646" y="369" width="703" height="486" key="find.popup" timestamp="1586767413513">
       <screen x="42" y="22" width="1878" height="1178" />
     </state>
