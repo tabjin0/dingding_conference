@@ -1,0 +1,37 @@
+.t-grid {
+    display: flex;
+    width: inherit;
+    flex-wrap: wrap;
+}
+
+.t-grid .t-grid-item-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    border-color: #ededed;
+    border-width: 0;
+}
+
+.t-grid .center-grid {
+    border-bottom-width: 2rpx;
+}
+
+.t-grid .side-grid {
+    border-right-width: 2rpx;
+}
+
+.t-grid-hover {
+    opacity: .8;
+}
+
+.t-grid .t-grid-item-container .t-grid-item {
+    max-width: inherit;
+    max-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

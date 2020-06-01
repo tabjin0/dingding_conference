@@ -1,10 +1,14 @@
 import {PageUrlConstant} from "../../../config/pageUrlConstant";
 import {Navigate} from "../../../utils/native-api/interface/navigate";
+import {PartyBranch} from "../../../model/party/party-branch";
+import {InterAction} from "../../../utils/native-api/interface/interaction";
+import {Caching} from "../../../utils/native-api/caching/caching";
 
 const app = getApp();
 
 Page({
     data: {
+        menuList: [],
         partyMemberInfos: [{
             img: "/resources/icon/organization/member1.png",
             name: "党支部情况",
@@ -63,6 +67,7 @@ Page({
     },
 
     async onLoad() {
+        await this._init();
     },
 
     // async onShow() {
@@ -70,17 +75,37 @@ Page({
     //     await this.initData();
     // },
 
+    async _init() {
+        await this._initMenu();
+    },
+
+    async _initMenu() {
+        const menuList = await PartyBranch.getMenu(2);
+        console.log(`menuList`, menuList);
+        this.setData({
+            menuList: menuList
+        });
+    },
+
     /**
      * 下拉刷新
      */
     async onPullDownRefresh() {
-        await this.initData();
+        this.setData({
+            menuList: []
+        })
+        await this._init();
         dd.stopPullDownRefresh();
     },
 
-    onTapGrid(e) {
+    async onTapGrid(e) {
         console.log(`e`, e);
-        Navigate.navigateTo(e.cell.url);
+        if (e.cell.url) {
+            await Navigate.navigateTo(`/page/organization/webView/webView?url=` + e.cell.url + 'type/2/orgId/' + await Caching.getStorageSync('orgId'));
+        } else {
+            InterAction.fnShowToast('暂无数据', 'none', 1500);
+        }
+
     },
 
     onTapGridPartyInfo(e) {

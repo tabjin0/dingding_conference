@@ -25,3 +25,7 @@ page {
     word-wrap: break-word !important;
 }
 
+.t-avatar-text {
+    margin-bottom: 24rpx !important;
+}
+

@@ -1,0 +1,14 @@
+<view class="realm-container">
+    <open-avatar userId="manager4926" nickName="" size="normal"></open-avatar>
+    <tab-dd-input label="日期" hideLabel="{{false}}" showRow="{{true}}" required="{{true}}" type="text"
+                  focus="{{true}}" clear="{{true}}" labelWidth="260"></tab-dd-input>
+    <tab-dd-input label="实际缴费金额" hideLabel="{{false}}" showRow="{{true}}" required="{{true}}" type="text"
+                  focus="{{true}}" clear="{{true}}" labelWidth="260"></tab-dd-input>
+    <tab-dd-input label="月交纳党费基数" hideLabel="{{false}}" showRow="{{true}}" required="{{true}}" type="text"
+                  focus="{{true}}" clear="{{true}}" labelWidth="260"></tab-dd-input>
+    <tab-dd-input label="月应交党费金额" hideLabel="{{false}}" showRow="{{true}}" required="{{true}}" type="text"
+                  focus="{{true}}" clear="{{true}}" labelWidth="260"></tab-dd-input>
+    <view class="realm-button" onTap="button">
+        <tab-dd-button type="default" size="medium" shape="circle" bgColor="#D40029">提交</tab-dd-button>
+    </view>
+</view>

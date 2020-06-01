@@ -1,0 +1,11 @@
+<!--弹出框-->
+<view class="container-popup {{ show? 'popup-show' : '' }} {{'tabui-popup-' + contentAlign}}"
+      style="z-index: {{zIndex}};" onTouchMove="doNothingMove">
+    <view class="container-bg tabui-bg-class"></view>
+    <view class="popup-content {{ show ? contentAlign : '' }} popup-fade-{{ show ? contentAlign : '' }}-active-{{ animation }}"
+          onTap="onPopupTap">
+        <view class="" catchTap="doNothingTap">
+            <slot></slot>
+        </view>
+    </view>
+</view>

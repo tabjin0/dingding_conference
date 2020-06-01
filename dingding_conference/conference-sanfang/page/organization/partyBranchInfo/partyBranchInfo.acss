@@ -1,0 +1,31 @@
+page {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.container {
+    margin-top: 30rpx;
+}
+
+.member-summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-summary .num {
+    font-size: 44rpx;
+    margin-top: 40rpx;
+}
+
+.member-summary .which {
+    font-size: 28rpx;
+    color: #848484;
+    margin-top: 20rpx;
+}
+
+.f2-chart {
+    width: 100rpx;
+    height: 500rpx;
+}
+
+

@@ -1,8 +1,8 @@
 /**
  * 党支部业务模型
  */
-import { Storage } from "../../utils/storage";
-import { Http } from "../../utils/http";
+import {Storage} from "../../utils/storage";
+import {Http} from "../../utils/http";
 
 class PartyBranch {
     // TODO
@@ -41,6 +41,25 @@ class PartyBranch {
             data: {}
         });
         return partyMemberInfo.data;
+    }
+
+    /**
+     * 党支部菜单列表
+     * @param appType {int}
+     * @returns {Promise<*>}
+     */
+    static async getMenu(appType) {
+        const res = await Http.request({
+            url: `5e8e7aaf31d9d`,
+            data: {
+                app_type: appType
+            }
+        });
+        if (res.code === 1) {
+            return res.data;
+        } else {
+            console.log(`获取党支部菜单失败`);
+        }
     }
 
 }

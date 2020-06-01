@@ -1,0 +1,27 @@
+page {
+    background-color: #F2F2F2;
+}
+
+.container {
+    padding: 30rpx 20rpx;
+    background: #FFFFFF;
+}
+
+.tip {
+    margin-bottom: 30rpx;
+}
+
+
+.t-grid-item-container {
+}
+
+.t-avatar-text {
+    width: inherit !important;
+    height: 70rpx;
+}
+
+.t-avatar-text text {
+    word-break: break-all !important;
+    word-wrap: break-word !important;
+}
+

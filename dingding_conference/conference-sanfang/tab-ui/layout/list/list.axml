@@ -1,0 +1,71 @@
+<view class="t-list t-class" hover-class="{{isHover ? 't-list-hover':''}}" hover-start-time="20" hover-stay-time="50"
+      style="{{gap?'padding:0'+ gap + 'rpx;':''}} {{leftGap?'padding-left:'+ leftGap +'rpx;':''}} {{rightGap?'padding-right:'+ rightGap +'rpx;':''}}"
+      onTap="tapCell" data-url="{{url}}" data-link-type="{{linkType}}">
+    <!--left-->
+    <view class="left-section">
+        <!--slot自定义左侧内容-->
+        <slot name="left-section"></slot>
+        <!--left 有徽标-->
+        <t-dd-badge a:if="{{(badgeCount > 0 || dotBadge) && badgePosition === 'left'}}" value="{{badgeCount}}"
+                    dot="{{dotBadge}}" maxCount="{{badgeMaxCount}}" numberType="{{badgeCountType}}">
+            <template is="cell-left-main"
+                      data="{{image,icon,title,desc,tagContent,tagPosition,tagColor,tagShape,tagPlain}}"></template>
+        </t-dd-badge>
+        <!--left 无徽标-->
+        <template a:else is="cell-left-main"
+                  data="{{image,icon,title,titleColor,desc,tagContent,tagPosition,tagColor,tagShape,tagPlain}}"></template>
+    </view>
+
+    <!--right-->
+    <view class="right-section t-right-class"><!--slot自定义右侧内容-->
+        <slot name="right-section"/>
+        <!--right 有徽标-->
+        <t-dd-badge a:if="{{(badgeCount > 0 || dotBadge ) && badgePosition === 'right'}}" class="badge-right"
+                    value="{{badgeCount}}" dot="{{dotBadge}}" maxCount="{{badgeMaxCount}}"
+                    numberType="{{badgeCountType}}">
+            <template is="cell-right-main"
+                      data="{{rightDesc,tagContent,tagPosition,isLink,tagColor,tagShape,tagPlain}}"></template>
+        </t-dd-badge>
+        <!-- right 无徽标-->
+        <template a:else is="cell-right-main"
+                  data="{{rightDesc,tagContent,tagPosition,isLink,tagColor,tagShape,tagPlain}}"></template>
+    </view>
+</view>
+
+<!--列表左边部分-->
+<template name="cell-left-main">
+    <!--有图片-->
+    <image a:if="{{image}}" src="{{image}}" mode="aspectFit|aspectFill|widthFix" lazy-load="true"
+           class="t-image t-image-class"></image>
+    <!--有图标-->
+    <t-dd-icon a:if="{{icon}}" name="{{icon}}" size="{{iconSize}}" color="{{iconColor}}"
+               class="t-icon t-icon-class"></t-dd-icon>
+    <!--文字-->
+    <view class="t-text">
+        <view class="t-content t-content-class"
+              style="{{!titleColor ? 'color: #3963BC;' : 'color:' + titleColor + ';'}}">{{title}}
+        </view>
+        <view a:if="{{desc}}" class="t-desc t-desc-class">{{desc}}</view>
+    </view>
+    <!--标签：有内容、位置为左、非镂空-->
+    <t-dd-tag a:if="{{tagContent && tagPosition === 'left' && !tagPlain}}" size="mini" shape="{{tagShape}}"
+              bgColor="{{tagColor}}" class="cell-tag">{{tagContent}}
+    </t-dd-tag>
+    <!--标签：有内容、位置为左、镂空-->
+    <t-dd-tag a:elif="{{tagContent && tagPosition === 'left' && tagPlain}}" size="mini" shape="{{tagShape}}"
+              plain="{{tagPlain}}" font-color="{{tagColor}}" class="cell-tag">{{tagContent}}
+    </t-dd-tag>
+</template>
+
+<!--列表右边部分-->
+<template name="cell-right-main">
+    <!--属性内容-->
+    <t-dd-tag a:if="{{tagContent && tagPosition === 'right' && !tagPlain }}" size="mini" shape="{{tagShape}}"
+              bg-color="{{tagColor}}" class="cell-tag">{{tagContent}}
+    </t-dd-tag>
+    <t-dd-tag a:if="{{tagContent && tagPosition === 'right' && tagPlain }}" size="mini" shape="{{tagShape}}"
+              plain="{{tagPlain}}" font-color="{{tagColor}}" class="cell-tag">{{tagContent}}
+    </t-dd-tag>
+    <view a:if="{{rightDesc}}" class="t-text">{{rightDesc}}</view>
+    <t-dd-icon a:if="{{isLink}}" name="home" class="t-arrow"></t-dd-icon>
+</template>

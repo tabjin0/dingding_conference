@@ -1,0 +1,11 @@
+<view class="t-badge" onTap="handleTap">
+    <slot></slot>
+    <block a:if="{{show}}">
+        <!-- 是红点徽标 -->
+        <view a:if="{{dot}}" class="t-badge-dot t-class t-self-class"></view>
+        <!-- 不是红点徽标 -->
+        <view a:else class="{{'t-badge-content-' + shape}} t-badge-content t-class t-self-class">
+            {{finalCount}}
+        </view>
+    </block>
+</view>

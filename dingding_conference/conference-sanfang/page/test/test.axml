@@ -1,0 +1,3 @@
+<view>
+    <tabui-tabbar list="{{tabBarList}}" onTabChange="detailTabBar"></tabui-tabbar>
+</view>

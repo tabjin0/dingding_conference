@@ -1,0 +1,11 @@
+<view class="outer-container">
+  <block a:for="{{dataList}}">
+    <!-- 笔记内容 -->
+    <view class="card-item" data-note="{{item}}" onTap="toNoteEdit">
+      <view class="conference">
+        <view class="text">{{item.text}}</view>
+        <view class="time">时间 : {{item.update_time}}</view>
+      </view>
+    </view>
+  </block>
+</view>

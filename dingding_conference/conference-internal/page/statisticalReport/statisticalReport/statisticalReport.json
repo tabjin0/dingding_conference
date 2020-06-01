@@ -3,6 +3,8 @@
   "usingComponents": {
     "t-grid": "/tab-ui/grid/grid",
     "t-grid-item": "/tab-ui/grid-item/grid-item",
-    "t-card": "/tab-ui/layout/card/card"
+    "t-card": "/tab-ui/layout/card/card",
+    "tabui-dd-popup": "/tab-ui/view/popup/popup",
+    "jin-realm": "/components/realm/realm"
   }
 }

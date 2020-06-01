@@ -1,0 +1,83 @@
+page {
+    background: #f7f7f7;
+    overflow: hidden;
+}
+
+.user-info {
+    width: 662rpx;
+    min-height: 587rpx;;
+    background: #ffffff;
+    box-shadow: 0rpx 7rpx 16rpx 0rpx rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 100rpx;
+    padding-left: 55rpx;
+    padding-right: 55rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.user-info .avatar {
+    position: relative;
+    top: -120rpx;
+    margin: 0 auto;
+}
+
+.user-info .party-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+.user-info .party-info .each {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info .party-info .each .name {
+    font-size: 25rpx;
+    color: #000000;
+    margin-top: 26rpx;
+}
+
+.user-info .party-info .each .text {
+    font-size: 31rpx;
+    color: #000000;
+}
+
+
+.party-tools {
+    width: 662rpx;
+    min-height: 323rpx;
+    background: #ffffff;
+    box-shadow: 0rpx 7rpx 16rpx 0rpx rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin: 40rpx auto;
+    padding: 30rpx 62rpx;
+}
+
+.party-tools .title {
+    font-size: 29rpx;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.party-tools .operation {
+    margin-top: 30rpx;
+}
+
+.t-placement-bottom .t-avatar-text {
+    /*margin-top: 0 !important;*/
+}
+
+.t-placement-bottom .t-avatar-text text {
+}
+
+

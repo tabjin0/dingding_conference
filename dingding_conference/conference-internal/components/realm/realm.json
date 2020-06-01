@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tab-dd-input": "/tab-ui/form/input/input",
+    "tab-dd-button": "/tab-ui/base/button/button"
+  }
+}

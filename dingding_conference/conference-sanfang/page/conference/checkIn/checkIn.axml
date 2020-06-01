@@ -1,0 +1,23 @@
+<view>
+    <view class="start-time" onTap="abc">会议时间 {{currentConference.update_time}}</view>
+    <!--    <view class="check-in-time">-->
+    <!--        <text a:if="{{checkInTime}}" class="">签到时间</text>-->
+    <!--        <text class="">{{checkInTime}}</text>-->
+    <!--    </view>-->
+    <view class="check-in-container">
+        <view class="check-in-btn" onTap="onCheckIn">
+            <view class="check-in-text">
+                <text a:if="{{currentConference.sign_type == 0}}" class="text">请签到</text>
+                <text a:if="{{currentConference.sign_type == 1}}" class="text">已签到</text>
+                <text a:if="{{currentConference.sign_type == 2}}" class="text">迟到</text>
+                <text a:if="{{currentConference.sign_type == 3}}" class="text">已请假</text>
+                <!--                <text class="count-down">倒计时</text>-->
+            </view>
+        </view>
+        <view class="location-container">
+            <text class="location-address">{{currentConference.address}}</text>
+            <text decode="{{true}}" space="{{true}}"></text>
+            <text class="location-relocation" onTap="relocation">重新定位</text>
+        </view>
+    </view>
+</view>

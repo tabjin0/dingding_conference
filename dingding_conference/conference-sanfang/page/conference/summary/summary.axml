@@ -1,0 +1,12 @@
+<view>
+  <form onSubmit="formSubmit" onReset="formReset">
+    <view class="summary-container">
+      <view class="title summary-title">会议纪要</view>
+      <textarea name="summary" class="summary" maxlength="-1" auto-height="true" placeholder="会议纪要内容" value="{{summary}}"></textarea>
+    </view>
+    <view class="submit-button-container">
+      <button class="submit-button" size="default" type="default" form-type="submit">提交纪要
+      </button>
+    </view>
+  </form>
+</view>

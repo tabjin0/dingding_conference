@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "党小组划分",
+  "usingComponents": {
+    "tab-dd-grid": "/tab-ui/grid/grid",
+    "tab-dd-grid-item": "/tab-ui/grid-item/grid-item",
+    "tab-dd-avatar": "/tab-ui/view/avatar/avatar",
+    "tab-dd-tip": "/tab-ui/base/tip/tip"
+  }
+}

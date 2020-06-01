@@ -1,0 +1,22 @@
+.name-container {
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+}
+
+.name-container .name-img {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 16rpx;
+}
+
+.name-container .name-text {
+    font-size: 34rpx;
+}
+
+.member-container {
+    /*margin-top: 40rpx;*/
+}
+
+.t-avatar {
+    margin-top: 40rpx;
+}

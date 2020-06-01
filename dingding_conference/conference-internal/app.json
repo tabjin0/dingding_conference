@@ -22,7 +22,8 @@
     "page/organization/partyTeam/partyTeam",
     "page/organization/partyActiveMember/partyActiveMember",
     "page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch",
-    "page/organization/partyMembers/partyMembers"
+    "page/organization/partyMembers/partyMembers",
+    "page/organization/webView/webView"
   ],
   "window": {
     "enableWK": "YES",

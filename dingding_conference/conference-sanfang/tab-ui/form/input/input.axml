@@ -1,0 +1,41 @@
+<!-- input组件 -->
+<label class="form-item {{disabled ? 'disabled' : ''}} tabui-class form-item-{{labelLayout}}"
+       style="width:{{width}}rpx;">
+    <view a:if="{{disabled}}" class="mask"></view>
+    <view class="row" hidden="{{ showRow ? '' : 'hidden' }}" style="width:{{width}}rpx;"></view>
+    <view a:if="{{label && !labelCustom}}" hidden="{{hideLabel}}"
+          class="form-label tab-label-class form-label-{{labelLayout}}"
+          style="{{labelLayout !== 'top' ? 'width:' + labelWidth + 'rpx;' : ''}} height:{{labelLayout == 'top' ? labelWidth + 'rpx;' : '' }}">
+        <text class="">
+            <text a:if="{{required}}" class="text-require">*</text>
+            {{label}}
+            <text a:if="{{colon}}">：</text>
+        </text>
+    </view>
+    <view a:else hidden="{{hiddenLabel}}" class="form-label tab-label-class form-label-{{labelLayout}}"
+          style="{{labelLayout !== 'top' ? 'width:' + labelWidth + 'rpx;' : ''}} height:{{labelLayout == 'top' ? labelWidth + 'rpx;' : '' }}">
+        <slot name="left"></slot>
+    </view>
+
+    <!-- 小程序表单组件 -->
+    <input value="{{value}}"
+           name="{{name}}"
+           class="input {{hideLabel ? 'hideLabel' : ''}}"
+           style=""
+           type="{{type}}"
+           password="{{type==='password'}}"
+           placeholder="{{placeholder}}"
+           disabled="{{disabled}}"
+           maxlength="{{maxLength}}"
+           onInput="handleInputChange"
+           onConfirm="handleInputConfirm"
+           onFocus="handleInputFocus"
+           onBlur="handleInputBlur" />
+    <view a:if="{{clear && value}}" onTap="onClearTap" class="close">
+        <view class="close-icon">
+            <tab-dd-icon name="close" color="#fff" size="16"></tab-dd-icon>
+        </view>
+    </view>
+    <slot name="right"></slot>
+    <!--  添加错误提示  -->
+</label>

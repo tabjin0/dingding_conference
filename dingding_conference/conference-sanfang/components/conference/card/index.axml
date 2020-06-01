@@ -1,0 +1,26 @@
+<!--components/conference/card/index.wxml-->
+
+<view class="outer-container">
+    <block a:for="{{dataList}}" a:key="{{index}}">
+        <!-- 会议内容 -->
+        <view class="card-item" data-conference="{{item}}" onTap="toConferenceDetail">
+            <view class="conference">
+                <view class="theme">{{item.theme}}</view>
+                <view class="topic" a:for="{{item.topic}}"
+                      a:for-index="topic_index" a:for-item="topic_item">
+                    <text>议题 : {{topic_item.name}}</text>
+                </view>
+                <view class="" hidden="{{hideInfo}}">
+                    <text selectable="true" class="info {{infoOmitted==true?'infoOmitted':''}}"> 内容 :\n {{item.info}}
+                    </text>
+                </view>
+                <view class="time">时间 : {{item.time}}</view>
+                <view class="address">地点 : {{item.address}}</view>
+                <view class="history-status {{item.sign_type_txt==''?hide:''}}" hidden="{{hideStatus}}">
+                    {{item.sign_type_txt}}
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+

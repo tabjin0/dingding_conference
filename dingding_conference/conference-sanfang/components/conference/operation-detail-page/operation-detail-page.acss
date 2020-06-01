@@ -1,0 +1,46 @@
+.operation-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.circle-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding-bottom: 30rpx;
+}
+
+.operation-item-container {
+    opacity: 0.8;
+    width: 156rpx;
+    height: 160rpx;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+button {
+    padding: 0 !important;
+    box-sizing: border-box;
+    line-height: 150rpx;
+}
+
+.operation-item {
+    position: relative;
+    border-radius: 50%;
+    color: black !important;
+}
+
+.operation-item-img {
+    width: 156rpx;
+    height: 160rpx;
+    position: absolute;
+    left: -2rpx;
+}

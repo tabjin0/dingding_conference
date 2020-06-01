@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "入党积极分子名册",
+  "usingComponents": {
+    "tab-dd-list": "/tab-ui/layout/list/list"
+  }
+}

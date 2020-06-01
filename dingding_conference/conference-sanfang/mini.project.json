@@ -1,0 +1,6 @@
+{
+  "axmlStrictCheck": true,
+  "node_modules_es6_whitelist": [
+    "@antv/my-f2"
+  ]
+}

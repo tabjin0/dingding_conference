@@ -1,0 +1,45 @@
+<view>
+    <!-- 基本信息 -->
+    <view class="user-info">
+        <view class="avatar">
+            <tab-dd-avatar class="" src="{{userInfo.headImg}}" size="150" placement="bottom" text="{{userInfo.name}}"
+                           textNameSize="36" desc="{{userInfo.branchName}}" textDescSize="29"></tab-dd-avatar>
+        </view>
+
+        <view class="party-info">
+            <view class="each">
+                <text class="text">{{!userInfo.partyCategory ? '--' : userInfo.partyCategory}}</text>
+                <text class="name">党员状态</text>
+            </view>
+            <view class="each">
+                <text class="text">{{userInfo.partyStanding ? userInfo.partyStanding + '年' : '--'}}</text>
+                <text class="name">党龄</text>
+            </view>
+            <view class="each">
+                <text class="text">{{userInfo.partyPosts ? userInfo.partyPosts : '--'}}</text>
+                <text class="name">党内职务</text>
+            </view>
+        </view>
+        <view class="">
+            <tab-dd-list title="工作岗位" titleColor="#3963BC" onListDataChange="getListData">
+                <text slot="right-section" class="">{{userInfo.ocupertino ? userInfo.ocupertino : '--'}}</text>
+            </tab-dd-list>
+            <tab-dd-list title="转正时间" titleColor="#3963BC" onListDataChange="getListData">
+                <text slot="right-section" class="">{{userInfo.formalTime ? userInfo.formalTime : '--'}}</text>
+            </tab-dd-list>
+        </view>
+    </view>
+
+    <!--工具栏-->
+    <view class="party-tools">
+        <view class="title">党建工具</view>
+        <view class="operation">
+            <tab-dd-grid gridList="{{partyToolsList}}" rowNum="5" show-col-border="{{true}}" onTabTap="onTapGrid">
+                <tab-dd-grid-item key="{{index}}" slot="grid-item" slot-scope="props">
+                    <tab-dd-avatar src="{{props.item.cell.img}}" size="80" placement="bottom"
+                                   text="{{props.item.cell.name}}"></tab-dd-avatar>
+                </tab-dd-grid-item>
+            </tab-dd-grid>
+        </view>
+    </view>
+</view>

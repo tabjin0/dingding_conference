@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-dd-icon": "../../base/icon/icon",
+    "t-dd-badge": "../../view/badge/badge",
+    "t-dd-tag": "../../view/tag/tag"
+  }
+}

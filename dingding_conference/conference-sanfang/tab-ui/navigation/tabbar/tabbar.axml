@@ -1,0 +1,13 @@
+<view class="tabui-tabbar">
+    <block a:for="{{tabBar}}">
+        <view class="tabui-tabbar-item"
+              data-tabBar-index="{{item.index}}" onTap="tapTabBarItem">
+            <tabui-icon name="{{item.cell.icon_name}}" size="50"
+                        color="{{item.index == currentIndex ? activeColor : color}}"
+                        activeColor="{{activeColor}}"></tabui-icon>
+            <text class="tabui-tabbar-item-text}}" style="color: {{item.index == currentIndex ? activeColor : color}}">
+                {{item.cell.text}}
+            </text>
+        </view>
+    </block>
+</view>

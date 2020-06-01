@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "tabui-tabbar": "/tab-ui/navigation/tabbar/tabbar"
+    }
+}

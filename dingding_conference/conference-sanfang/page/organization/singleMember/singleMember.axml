@@ -1,0 +1,36 @@
+<view class="out-container">
+    <view class="locationA">
+        <text class="locationA-text">{{singleMember.name}}</text>
+    </view>
+    <view class="locationB">
+        <text class="locationB-text">{{singleMember.partyPosts}}</text>
+        <view class="locationB-1">
+            <image class="locationB-1-face-icon" mode="scaleToFill" src="/resources/icon/organiztion/face.png"></image>
+            <text class="locationB-1-text">个人资料</text>
+        </view>
+    </view>
+    <view class="locationC">
+        <image a:if="{{!singleMember.headImg}}" class="locationC-head-img" mode="aspectFill"
+               src="{{singleMember.gender == '男'?headImg[0]:headImg[1]}}"></image>
+        <image a:if="{{singleMember.headImg}}" class="locationC-head-img" mode="aspectFill"
+               src="{{singleMember.headImg}}"></image>
+    </view>
+    <view class="locationD">
+        <view class="locationD-basic-info">
+            <text class="locationD-basic-info-item">姓名 : {{singleMember.name}}</text>
+            <text class="locationD-basic-info-item">性别 : {{singleMember.gender}}</text>
+            <text class="locationD-basic-info-item">民族 : {{singleMember.nation}}</text>
+            <text class="locationD-basic-info-item">出生年月 : {{singleMember.birthDay}}</text>
+        </view>
+        <view class="locationD-detail-info">
+            <text class="locationD-detail-info-item">所在党支部 : {{singleMember.branchName}}</text>
+            <text class="locationD-detail-info-item">党员类别 : {{singleMember.partyCategory}}</text>
+            <text class="locationD-detail-info-item">入党申请时间 : {{singleMember.applyTime}}</text>
+            <text class="locationD-detail-info-item">确定积极分子时间 : {{singleMember.activeTime}}</text>
+            <text class="locationD-detail-info-item">转为预备党员时间 : {{singleMember.readyTime}}</text>
+            <text class="locationD-detail-info-item">转为正式党员时间 : {{singleMember.formalTime}}</text>
+            <text class="locationD-detail-info-item">工作单位 : {{singleMember.ocupertino}}</text>
+            <text class="locationD-detail-info-item">家庭住址 : {{singleMember.familyAddress}}</text>
+        </view>
+    </view>
+</view>

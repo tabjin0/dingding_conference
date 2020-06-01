@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "党费缴纳",
+  "usingComponents": {
+    "t-grid": "/tab-ui/grid/grid",
+    "t-grid-item": "/tab-ui/grid-item/grid-item",
+    "t-card": "/tab-ui/layout/card/card",
+    "tabui-dd-popup": "/tab-ui/view/popup/popup",
+    "test": "/components/test/test",
+    "jin-realm": "/components/realm/realm"
+  }
+}

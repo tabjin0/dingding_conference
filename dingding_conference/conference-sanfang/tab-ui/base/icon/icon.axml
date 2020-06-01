@@ -1,0 +1,4 @@
+<view class="t-class t-self-class t-icon {{name===''?'':'t-icon-'+name}}"
+      style="{{ size ? 'font-size:' + size + 'rpx;' : ''}}{{color ? 'color:' + color + ';' : ''}}{{ isActive ? 'color:' + activeColor + ';' : 'color:' + color + ';' }}"
+      onTap="tapIcon">
+</view>

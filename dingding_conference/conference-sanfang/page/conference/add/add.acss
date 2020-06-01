@@ -1,0 +1,190 @@
+@import "../../templates/collapse/collapse.acss";
+
+page {
+    margin-bottom: 150rpx;
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+}
+
+.outer-container {
+    background: rgba(255, 255, 255, 1);
+    margin-bottom: 32rpx;
+    padding: 30rpx;
+}
+
+.title {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    line-height: 35rpx;
+}
+
+.theme {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    line-height: 35rpx;
+    margin-top: 22rpx;
+    word-wrap: break-word;
+}
+
+.time-title {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    line-height: 35rpx;
+}
+
+.time-date {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    line-height: 35rpx;
+    margin-left: auto;
+}
+
+.time {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    margin-left: 28rpx;
+    margin-top: 22rpx;
+}
+
+.location-title {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    line-height: 35rpx;
+}
+
+
+
+.agenda-container {
+    margin-bottom: 32rpx;
+}
+
+.meeting-room-container {
+    position: relative;
+}
+
+.add-room {
+    position: absolute;
+    top: -10rpx;
+    right: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30rpx;
+}
+
+.add-room-text {
+    font-size: 34rpx;
+    color: rgba(0, 0, 7, 1);
+    /* background-color: rgba(229, 245, 253, 1);
+    border: 1rpx solid rgba(54, 66, 250, 1); */
+    /* border-radius: 5rpx; */
+    /* box-sizing: border-box; */
+    /* padding: 10rpx; */
+}
+
+.add-room-img {
+    width: 100rpx;
+    height: 60rpx;
+}
+
+.meeting-room-label {
+    background-color: #fff;
+    font-size: 28rpx;
+    margin-right: 12rpx;
+}
+
+.radio-group-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30rpx;
+}
+
+.radio-item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.radio-container {
+    margin-right: 15rpx;
+    /*margin-bottom: 15rpx;*/
+}
+
+.radio {
+    font-size: 28rpx;
+    color: rgba(0, 0, 7, 1);
+    margin-right: 15rpx;
+    margin-bottom: 15rpx;
+}
+
+.participant-container {
+    position: relative;
+}
+
+.more {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.checkbox-text {
+    
+}
+
+.participant-number {
+    position: absolute;
+    top: 0;
+    right: 73rpx;
+}
+
+.isOpen-container {
+    font-size: 34rpx;
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    color: #2f2f2f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.isOpen-text {
+    /*margin-left: auto;*/
+}
+
+.isOpen-switch {
+    margin-left: auto;
+}
+
+.submit-button-container {
+    width: 474rpx;
+    height: 94rpx;
+    position: fixed;
+    left: 50%;
+    bottom: 57rpx;
+    margin-left: -237rpx;
+}
+
+.submit-button {
+    background: rgba(240, 149, 77, 1);
+    border-radius: 6px;
+    color: #FFFFFF !important;
+}

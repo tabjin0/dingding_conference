@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "我的",
+  "usingComponents": {
+    "tab-dd-avatar": "/tab-ui/view/avatar/avatar",
+    "tab-dd-list": "/tab-ui/layout/list/list",
+    "tab-dd-grid": "/tab-ui/grid/grid",
+    "tab-dd-grid-item": "/tab-ui/grid-item/grid-item"
+  }
+}

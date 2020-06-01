@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "会议笔记",
+  "pullRefresh": false,
+  "usingComponents": {
+    "tabjin-card-note": "/components/conference/card-note/card-note"
+  }
+}

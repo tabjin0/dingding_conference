@@ -1,0 +1,34 @@
+<view>
+  <!-- 会议纪要图片 -->
+  <view class="image-container">
+    <!--                    <view class="image-title">图片</view>   -->
+    <view class="upload-img-container">
+      <block a:for="{{imgArr}}" a:key="index">
+        <view class="upload-img" onTap="showImage" style="border-radius: 5rpx" data-id="{{index}}">
+          <image class="img-item" src="{{item}}"></image>
+          <!--                    <image class="closeImv {{isAdmin==true?closeImv:'hide'}}"-->
+          <image class="closeImv"
+                 src="/resources/icon/common/delete.png" mode="scaleToFill"
+                 catchTap="deleteImv" data-id="{{index}}"></image>
+        </view>
+      </block>
+      <!--这个是已经选好的图片-->
+      <!--            <block a:for="{{imgArr}}" a:key="key">-->
+      <!--                <view class="upload-img" onTap="showImage" style="border-radius: 5rpx" data-id="{{index+imgArrExLength}}">-->
+      <!--                    <image class="img-item" src="{{item}}"></image>-->
+      <!--                    &lt;!&ndash;                    <image class="closeImv {{isAdmin==true?closeImv:'hide'}}"&ndash;&gt;-->
+      <!--                    <image class="closeImv"-->
+      <!--                           src="/resources/icon/common/delete.png" mode="scaleToFill"-->
+      <!--                           catchTap="deleteImv" data-id="{{index+imgArrExLength}}"></image>-->
+      <!--                </view>-->
+      <!--            </block>-->
+      <view class="chooseView" onTap="chooseImage" style="border-radius: 5px" a:if="{{chooseViewShow}}">
+        <image class="chooseImv" src="/resources/icon/common/add.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="submit-button-container">
+    <button class="submit-button" size="default" type="default" form-type="submit" onTap="submitImg">提交
+    </button>
+  </view>
+</view>

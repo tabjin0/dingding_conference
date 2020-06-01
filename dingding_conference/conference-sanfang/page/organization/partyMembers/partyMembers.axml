@@ -1,0 +1,18 @@
+<view>
+    <view class="name-container">
+        <image class="name-img" mode="scaleToFill" src="/resources/wodezhibu/logo.png"></image>
+        <text class="name-text">{{partyBranchName==null?'党支部':partyBranchName}}</text>
+    </view>
+
+    <view class="member-container">
+        <tab-dd-grid gridList="{{organizationPartyMember}}" rowNum="4" show-col-border="{{true}}" onTabTap="onTapGrid">
+            <tab-dd-grid-item slot="grid-item" slot-scope="props">
+                <tab-dd-avatar
+                        src="{{props.item.cell.headImg ? props.item.cell.headImg : organizationPartyMember_item.gender=='女'?defaultAvatar[1]:defaultAvatar[0]}}"
+                        text="{{props.item.cell.name}}" textNameSize="30"
+                        desc="{{props.item.cell.partyCategory}}" textDescSize="28"
+                        placement="bottom"></tab-dd-avatar>
+            </tab-dd-grid-item>
+        </tab-dd-grid>
+    </view>
+</view>

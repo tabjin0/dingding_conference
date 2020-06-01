@@ -1,0 +1,18 @@
+.tabui-tabbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 18rpx;
+    padding-bottom: 12rpx;
+    background: #ECECEC;
+}
+
+.tabui-tabbar .tabui-tabbar-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.tabui-tabbar .tabui-tabbar-item .tabui-tabbar-item-text {
+    font-size: 21rpx;
+}

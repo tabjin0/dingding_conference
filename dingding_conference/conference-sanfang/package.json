@@ -1,0 +1,14 @@
+{
+  "name": "conference",
+  "version": "0.1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tabjin",
+  "license": "ISC",
+  "dependencies": {
+    "@antv/my-f2": "^2.1.0"
+  }
+}

@@ -1,0 +1,42 @@
+<!--党员概况-->
+<view class="container">
+    <tab-dd-tip text="党员概况" fontSize="36" lineColor="#ED292A"></tab-dd-tip>
+    <tab-dd-grid gridList="{{memberSummary}}" rowNum="4">
+        <tab-dd-grid-item slot="grid-item" slot-scope="props">
+            <view class="member-summary">
+                <text class="num">{{props.item.cell.num}}</text>
+                <text class="which">{{props.item.cell.name}}</text>
+            </view>
+        </tab-dd-grid-item>
+    </tab-dd-grid>
+</view>
+
+<!--年龄分布-->
+<view class="container">
+    <tab-dd-tip text="年龄分布" fontSize="36" lineColor="#ED292A"></tab-dd-tip>
+        <view class="container">
+            <f2 class="f2-chart" onInit="onInitChart"></f2>
+        </view>
+<!--    <image src="/resources/1.jpg" style="width: 100%;" class="" mode="scaleToFill" lazy-load="true"></image>-->
+</view>
+
+<!--文化程度-->
+<view class="container">
+    <tab-dd-tip text="文化程度" fontSize="36" lineColor="#ED292A"></tab-dd-tip>
+        <view class="container">
+            <f2 class="f2-chart" onInit="onInitPieChart"></f2>
+        </view>
+<!--    <image src="/resources/2.jpg" style="width: 100%;" class="" mode="scaleToFill" lazy-load="true"></image>-->
+
+</view>
+
+<!--入党时间-->
+<view class="container">
+    <tab-dd-tip text="入党时间" fontSize="36" lineColor="#ED292A"></tab-dd-tip>
+    <!--    <view class="container">-->
+    <!--        <f2 class="f2-chart" onInit="onInitBarChart"></f2>-->
+    <!--    </view>-->
+    <image src="/resources/3.jpg" style="width: 100%;" class="" mode="scaleToFill" lazy-load="true"></image>
+</view>
+
+

@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "page/index/index",
+    "page/statisticalReport/statisticalReport/statisticalReport",
+    "page/templates/labelTemplate/labelTemplate",
+    "page/templates/collapse/collapse",
+    "page/organization/myOrganization/myOrganization",
+    "page/organization/singleMember/singleMember",
+    "page/conference/add/add",
+    "page/conference/note/note",
+    "page/conference/summary/summary",
+    "page/conference/detail/detail",
+    "page/conference/meetingRoom/meetingRoom",
+    "page/conference/photo/photo",
+    "page/conference/takeOff/takeOff",
+    "page/meetingAgenda/conferenceDetail/conferenceDetail",
+    "page/conference/noteEdit/noteEdit",
+    "page/test/test",
+    "page/conference/checkIn/checkIn",
+    "page/me/me/me",
+    "page/organization/partyBranchInfo/partyBranchInfo",
+    "page/organization/partyTeam/partyTeam",
+    "page/organization/partyActiveMember/partyActiveMember",
+    "page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch",
+    "page/organization/partyMembers/partyMembers"
+  ],
+  "window": {
+    "enableWK": "YES",
+    "enableDSL": true,
+    "defaultTitle": "会议管理",
+    "backgroundColor": "#F5F5F9",
+    "pullRefresh": true,
+    "allowsBounceVertical": true,
+    "titleBarColor": "#D40029"
+  },
+  "tabBar": {
+    "textColor": "#808080",
+    "selectedColor": "#D40029",
+    "backgroundColor": "#F5F5F8",
+    "items": [
+      {
+        "pagePath": "page/index/index",
+        "name": "支部会议",
+        "icon": "/resources/icon/tabBar/icon1_1.png",
+        "activeIcon": "/resources/icon/tabBar/icon1_2.png"
+      },
+      {
+        "pagePath": "page/organization/partyMembers/partyMembers",
+        "name": "我的支部",
+        "icon": "/resources/icon/tabBar/icon2_1.png",
+        "activeIcon": "/resources/icon/tabBar/icon2_2.png"
+      },
+      {
+        "pagePath": "page/me/me/me",
+        "name": "我的",
+        "icon": "/resources/icon/tabBar/icon3_1.png",
+        "activeIcon": "/resources/icon/tabBar/icon3_2.png"
+      }
+    ]
+  },
+  "debug": true,
+  "usingComponents": {
+    "f2": "@antv/my-f2"
+  }
+}

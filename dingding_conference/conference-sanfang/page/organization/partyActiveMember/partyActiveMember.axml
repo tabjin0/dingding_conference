@@ -1,0 +1,19 @@
+<view class='table-module'>
+    <!-- 左侧固定 -->
+    <view class='left-policy-type'>
+        <view class='empty-box' style="font-size:28rpx;color:rebeccapurple;font-weight:bolder">名字</view>
+        <view a:for="{{nameList}}" class='left-col-list' a:key="{{index}}">
+            <view style="font-size:28rpx;color:rebeccapurple;font-weight:bolder">{{item.name}}</view>
+        </view>
+    </view>
+    <!-- 右侧表格滚动 -->
+    <scroll-view class="scroll-box" scroll-x="true">
+        <view class="scroll-view-item" a:for="{{infosList}}" a:for-index="bigindex" a:key="{{index}}">
+            <view class='company-name'>{{item.name}}</view>
+            <view a:for="{{item.list}}" a:for-item="cell" data-bigindex="{{bigindex}}" data-index='{{index}}'
+                  class='price-box' a:key="{{index2}}">
+                <view class="price" a:if="{{cell.price != '缺货'}}">{{cell.name}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

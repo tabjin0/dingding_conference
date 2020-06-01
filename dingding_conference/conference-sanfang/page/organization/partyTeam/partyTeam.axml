@@ -1,0 +1,27 @@
+<view>
+    <view class="tip">
+        <tab-dd-tip text="党小组名称" fontSize="30" lineColor="#ED292A"></tab-dd-tip>
+    </view>
+    <view class="">
+        <tab-dd-grid gridList="{{partyMemberInfos}}" rowNum="4" show-col-border="{{true}}" onTabTap="onTapGrid">
+            <tab-dd-grid-item slot="grid-item" slot-scope="props">
+                <tab-dd-avatar src="{{props.item.cell.img}}" size="100" placement="bottom"
+                               text="{{props.item.cell.name}}" textNameSize="22"></tab-dd-avatar>
+            </tab-dd-grid-item>
+        </tab-dd-grid>
+    </view>
+</view>
+
+<view>
+    <view class="tip">
+        <tab-dd-tip text="党小组名称" fontSize="30" lineColor="#ED292A"></tab-dd-tip>
+    </view>
+    <view class="">
+        <tab-dd-grid gridList="{{partyMemberInfos}}" rowNum="4" show-col-border="{{true}}" onTabTap="onTapGrid">
+            <tab-dd-grid-item slot="grid-item" slot-scope="props">
+                <tab-dd-avatar src="{{props.item.cell.img}}" size="100" placement="bottom"
+                               text="{{props.item.cell.name}}" textNameSize="22"></tab-dd-avatar>
+            </tab-dd-grid-item>
+        </tab-dd-grid>
+    </view>
+</view>

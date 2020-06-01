@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabjin-word-card": "/components/conference/photo-grid/photo-grid",
+    "tabjin-operation": "/components/conference/operation-detail-page/operation-detail-page"
+  }
+}

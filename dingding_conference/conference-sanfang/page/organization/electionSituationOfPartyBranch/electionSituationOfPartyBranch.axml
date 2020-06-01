@@ -1,0 +1,56 @@
+<view class="container">
+    <block a:for="{{infos}}">
+        <tab-dd-list title="{{item.name}}" titleColor="#999999" leftGap="32" rightGap="35">
+            <view class="" slot="right-section">{{item.info}}</view>
+        </tab-dd-list>
+    </block>
+</view>
+
+<view class="container last">
+    <view class="tip">
+        <tab-dd-tip text="上届党支部成员变动情况" fontSize="30" lineColor="#ED292A"></tab-dd-tip>
+    </view>
+    <view class="table">
+        <!-- 标题-->
+        <view class="title">
+            <block a:for="{{last.titles}}">
+                <view class="text">{{item}}</view>
+            </block>
+        </view>
+
+        <view class="info">
+            <block a:for="{{last.info}}">
+                <view class="item">
+                    <view class="text">{{item.name}}</view>
+                    <view class="text">{{item.position}}</view>
+                    <view class="text">{{item.reason}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+
+<view class="container new">
+    <view class="tip">
+        <tab-dd-tip text="新一届支部委员会情况" fontSize="30" lineColor="#ED292A"></tab-dd-tip>
+    </view>
+    <view class="table">
+        <view class="title">
+            <block a:for="{{new.titles}}">
+                <view class="text">{{item}}</view>
+            </block>
+        </view>
+
+        <view class="info">
+            <block a:for="{{new.info}}">
+                <view class="item">
+                    <view class="text">{{item.name}}</view>
+                    <view class="text">{{item.age}}</view>
+                    <view class="text">{{item.degree}}</view>
+                    <view class="text">{{item.position}}</view>
+                    <view class="text">{{item.division}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

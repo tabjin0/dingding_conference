@@ -1,0 +1,20 @@
+.realm-container {
+    padding: 30rpx;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    max-height: 1000rpx;
+    min-height: 600rpx;
+    width: 750rpx;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+
+.realm-button {
+    width: 200rpx;
+    margin: 0 auto;
+}

@@ -1,0 +1,66 @@
+page {
+    position: relative;
+    padding: 30rpx;
+}
+
+.start-time {
+    font-size: 28rpx;
+    color: gray;
+    margin-bottom: 15rpx;
+
+}
+
+.check-in-time {
+    font-size: 36rpx;
+    font-weight: bolder;
+}
+
+.check-in-container {
+    /*background: lightgreen;*/
+    width: 600rpx;
+    height: 600rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-in-container .check-in-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250rpx;
+    height: 250rpx;
+    background: #38ADFF;
+    border-radius: 50%;
+}
+
+.check-in-container .check-in-btn .check-in-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.check-in-container .check-in-btn .check-in-text .text {
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.location-container {
+    margin-top: 30rpx;
+    font-size: 22rpx;
+}
+
+.location-container .location-address {
+    color: #666666;
+    margin-right: 5rpx;
+}
+
+.location-container .location-relocation {
+    color: #38ADFF;
+}
