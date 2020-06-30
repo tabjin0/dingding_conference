@@ -43,7 +43,6 @@ Component({
         handleTap() {
             if (this.data.disabled || this.data.loading) return false;
             console.log(`handleButtonTap`);
-            InterAction.fnShowToast('123', 'none', 1500);
         },
 
         handleTap2() {

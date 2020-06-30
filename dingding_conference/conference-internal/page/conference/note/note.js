@@ -37,13 +37,29 @@ Page({
         totalImgIdArr: [],
     },
     async onLoad(params) {
-        let currentConference = JSON.parse(params.conference);
-        console.log('note:', currentConference);
-        this.setData({
-            mid: currentConference.id
-        });
-        await CheckLogin.fnRecheck();
-        this._initCurrentConferenceUserNote();
+        if (params.conference) {
+            let currentConference = JSON.parse(params.conference);
+            console.log('note:', currentConference);
+            this.setData({
+                mid: currentConference.id
+            });
+            await CheckLogin.fnRecheck();
+            this._initCurrentConferenceUserNote();
+        }
+
+        this.initWriteImage(params);
+    },
+
+    initWriteImage(param) {
+        let pngString = null;
+        if (param.pngDataUrl) {
+            // pngString = JSON.parse(param.pngDataUrl);
+            pngString = dd.getStorageSync({key: 'pngString'}).data;
+            console.log(`pngData pngString`, pngString);
+            this.setData({
+                pngUrl: pngString.pngString ? pngString.pngString : ''
+            });
+        }
     },
 
     // async onShow() {
@@ -191,7 +207,12 @@ Page({
                 that._initCurrentConferenceUserNote();
             }, 2000);
         }
-    }
+    },
+    //
+    // tapText(e) {
+    //     console.log(`tapText`);
+    //     dd.navigateTo({url: '/page/conference/write/write'});
+    // }
 })
 
 

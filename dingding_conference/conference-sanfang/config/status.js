@@ -3,7 +3,9 @@
  * Created by Tabjin 2020-05-25-17-34
  */
 const Status = {
-    partyDuePayed: 0,
+    partyDueNotPay: 0,// 党费未缴纳
+    partyDuePayed: 1,// 党费已缴纳
+    partyDueNotStartPay: 0,// 党费未开始缴纳
 
 }
 export {

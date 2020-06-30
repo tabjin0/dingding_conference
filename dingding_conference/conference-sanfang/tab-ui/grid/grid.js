@@ -89,6 +89,5 @@ Component({
                 cell: this.data.currentCell
             })
         }
-
     },
 });

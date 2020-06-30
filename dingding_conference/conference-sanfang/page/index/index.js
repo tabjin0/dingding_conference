@@ -38,15 +38,17 @@ Page({
     },
 
     async onShow() {
+        dd.showLoading({content: '加载中...'});
         await this.initData();
         // const res = await ApiAccessToken.initAccessToken();
+        dd.hideLoading();
     },
 
     /**
      * 下拉刷新
      */
     async onPullDownRefresh() {
-        // this.removeCache();
+        await this.removeCache();
         await this.initData();// 重新初始化会议列表
         dd.stopPullDownRefresh();
     },
@@ -67,15 +69,19 @@ Page({
         }
     },
 
+    async initUser() {
+        await CheckLogin.fnRecheck();
+    },
+
     /**
      * 初始化页面骨架数据
      */
     async initData() {
-        await CheckLogin.fnRecheck();
+        await this.initUser();
         const currentUser = Caching.getStorageSync('currentUser');
         if (currentUser) {
             const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;
-            Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
+            await Navigate.setNavigationBar(`${orgName}`, '#D40029');
             this.setData({
                 isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
             });

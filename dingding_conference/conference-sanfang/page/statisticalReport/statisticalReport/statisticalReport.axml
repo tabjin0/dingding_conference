@@ -8,9 +8,10 @@
                 <view class="grid-item-status {{ props.item.cell.status == 0 ? 'tabui-status-finished-class' : 'tabui-status-unfinished-class' }} {{props.item.cell.month < currentMonth && props.item.cell.status != 0 ? 'tabui-status-unreach-date-class' : '' }}"
                       onTap="change">
                     <!-- {{props.item.cell.status}} -->
-                    <text a:if="{{props.item.cell.status == 0}}" class="grid-item-status-text">已缴纳</text>
+                    <text a:if="{{props.item.cell.status == 0}}" class="grid-item-status-text">未缴纳</text>
+                    <text a:if="{{props.item.cell.status == 1}}" class="grid-item-status-text">已缴纳</text>
                     <text a:if="{{props.item.cell.status == 2}}" class="grid-item-status-text" style="background: {{}}">
-                        未缴纳
+                        未开始缴纳
                     </text>
                 </view>
             </view>
@@ -20,6 +21,6 @@
 
 <tabui-dd-popup show="{{showPopup}}" contentAlign="bottom" locked="{{false}}" onPopupChange="tapPopup">
     <view class="realm">
-        <jin-realm></jin-realm>
+        <jin-realm now="{{now}}" onTabRealmChange="onTabRealmChange"></jin-realm>
     </view>
 </tabui-dd-popup>

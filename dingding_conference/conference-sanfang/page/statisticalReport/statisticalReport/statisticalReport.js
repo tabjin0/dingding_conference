@@ -14,15 +14,18 @@ Page({
         currentMonth: '',
         showPopup: false,
     },
+
     async onLoad() {
+    },
+
+    async onShow() {
         await CheckLogin.fnRecheck();
         await this.initData();
         this.initDate();
     },
 
     async onPullDownRefresh() {
-        await CheckLogin.fnRecheck();
-        await this.initData();
+        await this.onShow();
         dd.stopPullDownRefresh();
     },
 
@@ -33,11 +36,13 @@ Page({
     async initData() {
         const userId = Caching.getStorageSync('user');
         const duesInfo = await PartyMemberDues.getDuesInfo(userId);
+        console.log(`duesInfo:`, duesInfo);
         for (let i = 0; i < duesInfo.length; i++) {
             duesInfo[i].month = duesInfo[i].month.replace('月', '');
         }
         this.setData({
-            gridList: duesInfo
+            gridList: duesInfo,
+            test: 444
         });
     },
 
@@ -45,20 +50,35 @@ Page({
         const userId = await Caching.getStorageSync('user');
         let nowDate = new Date();
         let partyDuesInfo = new PartyDuesInfo(userId, nowDate.toLocaleDateString(), 50, 4, 30);
-        // console.log(`partyDuesInfo:`, partyDuesInfo);
+        const date = e.cell.year + '年' + e.cell.month + '月';
+        console.log(`partyDuesInfo:`, partyDuesInfo);
         console.log(`e`, e)
         if (e.cell.status === Status.partyDuePayed) {
             InterAction.fnShowToast('党费已缴纳', 'success', 1500);
         } else {
+            this.setData({
+                currentCell: e,
+                now: date
+            });
+
             dd.tabjin.showPopup({
                 zIndex: 777,
                 animation: 'show',
                 contentAlign: 'bottom',
                 locked: false
             });
-            // TODO
-            const duesInfo = await PartyMemberDues.getDuesInfo(userId);
         }
+    },
+
+    async onTabRealmChange(e) {
+        console.log(`onTabRealmChange e`, e);
+        const userId = await Caching.getStorageSync('user');
+        const currentCell = this.data.currentCell;
+        const date = currentCell.cell.year + '-' + currentCell.cell.month;
+        const duesInfo = await PartyMemberDues.getDuesInfo(userId, date, 50, 4, 30);
+        console.log(`duesInfo`, duesInfo);
+        dd.tabjin.hidePopup();
+        await this.onShow();
     },
 
     initDate() {
@@ -75,18 +95,4 @@ Page({
     tapPopup(e) {
         console.log(`tapPopup`, e);
     },
-
-    tapTrue() {
-        this.setData({
-            showPopup: true
-        });
-        console.log(`tapTrue this.data.showPopup`, this.data.showPopup);
-    },
-
-    tapFalse() {
-        this.setData({
-            showPopup: false
-        });
-        console.log(`tapFalse this.data.showPopup`, this.data.showPopup);
-    }
 })

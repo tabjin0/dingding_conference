@@ -47,11 +47,13 @@ Component({
 
         },
 
-        handleInputFocus() {
+        handleInputFocus(e) {
+            this._popDataFocus(e);
         },
 
         handleInputBlur(e) {
             console.log(`handleInputBlur`, e.detail.value);
+            this._popDataBlur(e.detail.value);
         },
 
         onClearTap(event) {
@@ -63,11 +65,15 @@ Component({
         },
 
         _popDataInput(e) {
-            this.props.onInputChange(e);
+            // this.props.onInputChange(e);
         },
 
         _popDataFocus(e) {
-            this.props.onInputChange(e);
+            // this.props.onInputFocus(e);
+        },
+
+        _popDataBlur(e) {
+            this.props.onInputBlur(e);
         },
 
         _popDataClear(e) {

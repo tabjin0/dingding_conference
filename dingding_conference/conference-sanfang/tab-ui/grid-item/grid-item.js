@@ -5,10 +5,7 @@ Component({
     },
     props: {
         key: String,// grid-item显示所需，必填
-        cell: {// 用于存放gridItem数据
-            type: Object,
-            value: {}
-        },
+        cell: {},// 用于存放gridItem数据
         onTabItemTap: (e) => console.log(e),
 
     },

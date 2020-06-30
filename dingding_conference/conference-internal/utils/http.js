@@ -16,8 +16,10 @@ class Http {
             data: Object.assign(
                 data,
                 {
-                    orgId: Caching.getStorageSync('orgId') == null ? NaN : Caching.getStorageSync('orgId'),
-                    orgPid: config.orgPid
+
+                    orgId: await Caching.getStorageSync('orgId') == null ? NaN : await Caching.getStorageSync('orgId'),
+                    orgPid: config.orgPid,
+                    corpId: dd.corpId ? dd.corpId : ''
                 }
             ),
             dataType,

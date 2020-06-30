@@ -33,8 +33,8 @@ class FreeLogin {
             basicCurrentUserInfo: currentUser,
             isLeaderInDepts: isLeaderInDepts
         });
-        await Caching.setStorageSync('department', currentUser.department[0])
-        await Caching.setStorageSync('isLeaderInDepts', isLeaderInDepts[department]);
+        await Caching.setStorageSync('department', currentUser.department[0]);
+        await Caching.setStorageSync('isLeaderInDepts', isLeaderInDepts[department] || currentUser.isAdmin);
         await Caching.setStorageSync('user', currentUser.userid);// ok
         await Caching.setStorageSync('orgId', currentUser.orgId);
         await Caching.setStorageSync('orgName', currentUser.orgName);

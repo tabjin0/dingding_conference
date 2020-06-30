@@ -1,9 +1,12 @@
 <view>
     <form class="form" onSubmit="formSubmit" onReset="formReset">
         <!--笔记内容-->
-        <view class="note-container">
-            <textarea class="note" name="text" auto-height="true" maxlength="-1" placeholder="会议笔记..." value="{{noteText}}"></textarea>
+        <view class="note-container" onTap="tapText">
+            <textarea class="note" name="text" auto-height="true" maxlength="-1" placeholder="会议笔记..."
+                      value="{{noteText}}"></textarea>
         </view>
+
+        <image src="{{pngUrl}}" lazy-load="false" onError="imgOnError" onLoad="imgOnLoad"></image>
 
         <!-- 会议纪要图片 -->
         <view class="image-container">

@@ -22,7 +22,7 @@
         <!-- <open-data wx:if="{{_isHaveUserNickName}}" type="userNickName"/> -->
         <!-- 有文字 -->
         <text a:if="{{text}}"
-              style="width:{{size*1.3}}rpx;text-align: center;{{textNameSize ? 'font-size:' + textNameSize + 'rpx;' : ''}}">
+              style="width:{{size*1.3}}rpx;text-align: center;{{textNameSize ? 'font-size:' + textNameSize + 'rpx;' : ''}}margin: 0 auto;">
             {{text}}
         </text>
         <text a:if="{{desc}}"

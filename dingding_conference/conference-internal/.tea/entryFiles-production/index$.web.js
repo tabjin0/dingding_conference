@@ -44,3 +44,4 @@ require('../../page/organization/partyActiveMember/partyActiveMember?hash=5edeeb
 require('../../page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch?hash=d03ff4ff87c1fc9ddde794944d1e3088752ad6b5');
 require('../../page/organization/partyMembers/partyMembers?hash=9e4a338be3e535bd9f3f099aa3eb9c03c75042b5');
 require('../../page/organization/webView/webView?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../page/conference/write/write?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');

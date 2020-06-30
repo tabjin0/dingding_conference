@@ -1,24 +1,12 @@
 import {Storage} from "../../utils/storage";
-import {ApiAccessToken} from "../../core/authentication/apiAccessToken";
 import {Conference} from "../../model/conference/conference";
 import {Navigate} from "../../utils/native-api/interface/navigate";
 import {PageUrlConstant} from "../../config/pageUrlConstant";
 import {Caching} from "../../utils/native-api/caching/caching";
-import {FreeLogin} from "../../core/authentication/FreeLogin";
 import {InterAction} from "../../utils/native-api/interface/interaction";
 import {CheckLogin} from "../../core/authentication/CheckLogin";
 
 const app = getApp();
-
-
-//内网穿透工具介绍:
-// https://open-doc.dingtalk.com/microapp/debug/ucof2g
-//替换成开发者后台设置的安全域名
-// let domain = "http://127.0.0.1:8888";
-let domain = "http://tabjin.vaiwan.com";//这边不需要加端口
-
-let url = domain + '/login';
-
 Page({
     data: {
         isLeaderInDepts: false,// 默认不是部门主管
@@ -79,7 +67,7 @@ Page({
         const currentUser = Caching.getStorageSync('currentUser');
         if (currentUser) {
             const orgName = currentUser.basicCurrentUserInfo.orgName == undefined ? '支部' : currentUser.basicCurrentUserInfo.orgName;
-            Navigate.setNavigationBar(`${orgName}会议`, '#D40029');
+            Navigate.setNavigationBar(`${orgName}`, '#D40029');
             this.setData({
                 isLeaderInDepts: Caching.getStorageSync('isLeaderInDepts')
             });

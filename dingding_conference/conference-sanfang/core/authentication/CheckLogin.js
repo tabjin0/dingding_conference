@@ -9,7 +9,7 @@ const app = getApp();
 class CheckLogin {
     static async fnRecheck() {
         let currentUserOnline;
-        if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
+        if (!app.globalData.checkLogin || !await Caching.getStorageSync('currentUser')) {
             currentUserOnline = await FreeLogin.currentUser();
             app.globalData.checkLogin = true;
         }

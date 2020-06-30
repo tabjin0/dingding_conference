@@ -17,8 +17,7 @@ class Http {
                 data,
                 {
                     orgId: await Caching.getStorageSync('orgId') == null ? NaN : await Caching.getStorageSync('orgId'),
-                    orgPid: config.orgPid,
-                    corpId: dd.corpId
+                    corpId: dd.corpId ? dd.corpId : ''
                 }
             ),
             dataType,

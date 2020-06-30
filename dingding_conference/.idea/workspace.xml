@@ -2,422 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc11a55-32c4-4f23-b2f0-d047396c9def" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/conference-internal/components/realm/realm.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/components/realm/realm.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/components/realm/realm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/components/realm/realm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/config/status.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/model/party-member-dues/PartyDuesInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/page/organization/webView/webView.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/page/organization/webView/webView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/page/organization/webView/webView.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/resources/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/mixins/rules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/popup/popup.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/popup/popup.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/popup/popup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/popup/popup.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.idea/conference-internal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/configuration/mini-program.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/configuration/node-package-manager.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/editor.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/editorTabs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-development/config$.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-development/importScripts$.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-development/index$.web.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-development/index$.worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/config$.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/importScripts$.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.web.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/layout.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/recent.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/recentlyTouched.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/.tea/workbench.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/app.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card-note/card-note.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card-note/card-note.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card-note/card-note.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card-note/card-note.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card/index.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card/index.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/card/index.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/PositioningCheckIn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/TakeOff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/TakeOffInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/checkInInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/operation/enum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/operation/operation-group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/models/operation/operationGroupJudger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/operation-detail-page/operation-detail-page.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/operation-detail-page/operation-detail-page.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/operation-detail-page/operation-detail-page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/operation-detail-page/operation-detail-page.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/photo-grid/photo-grid.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/photo-grid/photo-grid.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/photo-grid/photo-grid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/conference/photo-grid/photo-grid.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/department/DepartmentInit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/tabjin-ui/button/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/tabjin-ui/button/index.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/tabjin-ui/button/index.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/components/tabjin-ui/button/index.wxss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/config/ApiUrlConstant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/config/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/config/imgConstant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/config/pageUrlConstant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/config/status.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/CheckLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/FreeLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/apiAccessToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/system.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/exception/exception.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/mini.project.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/AddConferenceInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/CheckIn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/NoteInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/SummaryInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/agenda.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/conference.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/meetingRoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/notes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/notice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/participator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/positionCaculator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/summary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/conference/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/date.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/department/department.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/ding.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/dingPlate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/location.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/organization/partyMember.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/party-member-dues/PartyDuesInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/party-member-dues/partyMemberDues.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/party/party-branch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/statistical/statistic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/user/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/model/version/VersionController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/add/add.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/add/add.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/add/add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/add/add.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/checkIn/checkIn.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/checkIn/checkIn.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/checkIn/checkIn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/checkIn/checkIn.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/detail/detail-util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/detail/detail.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/detail/detail.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/detail/detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/detail/detail.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/meetingRoom/meetingRoom.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/meetingRoom/meetingRoom.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/meetingRoom/meetingRoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/meetingRoom/meetingRoom.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/note/note.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/note/note.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/note/note.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/note/note.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/noteEdit/noteEdit.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/noteEdit/noteEdit.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/noteEdit/noteEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/noteEdit/noteEdit.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/photo/photo.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/photo/photo.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/photo/photo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/photo/photo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/summary/summary.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/summary/summary.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/summary/summary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/summary/summary.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/takeOff/takeOff.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/takeOff/takeOff.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/takeOff/takeOff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/conference/takeOff/takeOff.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/me/me/me.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/me/me/me.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/me/me/me.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/me/me/me.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/meetingAgenda/conferenceDetail/conferenceDetail.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/meetingAgenda/conferenceDetail/conferenceDetail.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/meetingAgenda/conferenceDetail/conferenceDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/meetingAgenda/conferenceDetail/conferenceDetail.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/meetingAgenda/conferenceDetail/detail-util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/InitPartyBranchInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/electionSituationOfPartyBranch/electionSituationOfPartyBranch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/myOrganization/myOrganization.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/myOrganization/myOrganization.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/myOrganization/myOrganization.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/myOrganization/myOrganization.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyActiveMember/partyActiveMember.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyActiveMember/partyActiveMember.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyActiveMember/partyActiveMember.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyActiveMember/partyActiveMember.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyBranchInfo/partyBranchInfo.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyBranchInfo/partyBranchInfo.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyBranchInfo/partyBranchInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyBranchInfo/partyBranchInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyMembers/partyMembers.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyMembers/partyMembers.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyMembers/partyMembers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyMembers/partyMembers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyTeam/partyTeam.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyTeam/partyTeam.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyTeam/partyTeam.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/partyTeam/partyTeam.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/singleMember/singleMember.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/singleMember/singleMember.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/singleMember/singleMember.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/organization/singleMember/singleMember.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/collapse/collapse.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/collapse/collapse.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/collapse/collapse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/collapse/collapse.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/labelTemplate/labelTemplate.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/labelTemplate/labelTemplate.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/labelTemplate/labelTemplate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/templates/labelTemplate/labelTemplate.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/test/test.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/test/test.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/test/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/page/test/test.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-checkIn-gray.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-checkIn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-checkIned.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-late.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-note.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-takeOff-gray.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-takeOff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/button-takeOffed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-adress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-adress2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-adress3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-text2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-text3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-time.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-time2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo-time3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/conferenceDetial/照片单张.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/biaoqing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/canjia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/didian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/ding.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/fujian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/huiyi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/leida.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/lianxiren.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/liexia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/liexiren.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/miaoshucopy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/shangchuan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/shezhi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/shijian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/shoucang2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/xiangce.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/addConference/yaoqing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/common/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/common/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/common/female.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/common/male.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/common/statistic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/face.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/face2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/female.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/male.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/member8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/organization/work8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/chart-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/chart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/huiyiyiti-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/huiyiyiti.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/icon1_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/icon1_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/icon2_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/icon2_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/icon3_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/icon3_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/shenbao-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/shenbao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/ziyuan-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/icon/tabBar/ziyuan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/index/noMeeting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/me/dangfei.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/meetingRoom/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/testIcon/th.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/testIcon/th1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/wodezhibu/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/wodezhibu/logo2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/wodezhibu/何凤鸣.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/wodezhibu/何凤鸣2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/wodezhibu/王芳芳.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/resources/wodezhibu/王芳芳2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/icon/icon.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/icon/icon.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/icon/icon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/icon/icon.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/tip/tip.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/tip/tip.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/tip/tip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/tip/tip.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/card/card.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/card/card.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/card/card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/card/card.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/list/list.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/list/list.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/list/list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/layout/list/list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/mixins/hover.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/mixins/rules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/navigation/tabbar/tabbar.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/navigation/tabbar/tabbar.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/navigation/tabbar/tabbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/navigation/tabbar/tabbar.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/avatar/avatar.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/avatar/avatar.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/avatar/avatar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/avatar/avatar.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/badge/badge.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/badge/badge.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/badge/badge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/badge/badge.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/popup/popup.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/popup/popup.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/popup/popup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/popup/popup.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/tag/tag.acss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/tag/tag.axml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/tag/tag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/view/tag/tag.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/MD5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/date/dateTimePicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/location.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/caching/caching.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/device/systemInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/InteractionEnum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/canvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/date-picker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/interaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/keyboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/navigate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/pull-down-refresh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/scroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/selector-query.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/interface/tarbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/native-api/location/location.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/storage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/tabjin-utils/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/tabjin-utils/location.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/tabjin-utils/string/replace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/tabjin-utils/uploadDownLoad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conference-sanfang/utils/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/configuration/mini-program.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editor.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/editorTabs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/importScripts$.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/importScripts$.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.web.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/recentlyTouched.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/config/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/core/authentication/FreeLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/core/authentication/FreeLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/core/authentication/system.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/core/authentication/system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/conference/NoteInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/conference/NoteInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/conference/meetingRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/conference/meetingRoom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/conference/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/conference/notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/conference/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/conference/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/model/party/party-branch.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/party/party-branch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/add/add.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/add/add.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/add/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/add/add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/meetingRoom/meetingRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/meetingRoom/meetingRoom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/note/note.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/note/note.acss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/config/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/config/status.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/note/note.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/note/note.axml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/note/note.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/note/note.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/myOrganization/myOrganization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.acss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/templates/collapse/collapse.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/templates/collapse/collapse.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/resources/icon/tabBar/icon3_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/resources/icon/tabBar/icon3_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/resources/icon/tabBar/icon3_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/resources/icon/tabBar/icon3_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/base/button/button.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/organization/webView/webView.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/base/button/button.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/base/button/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/base/button/button.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/grid/grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/tab-ui/grid/grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.axml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/utils/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/utils/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/importScripts$.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/importScripts$.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.web.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/config/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/config/status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/core/authentication/CheckLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/CheckLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/core/authentication/FreeLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/FreeLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/model/party-member-dues/partyMemberDues.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/model/party-member-dues/partyMemberDues.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/page/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/utils/http.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -520,7 +137,14 @@
       <workItem from="1584674595186" duration="44240000" />
       <workItem from="1585482631333" duration="96036000" />
       <workItem from="1588727536936" duration="27450000" />
-      <workItem from="1590111833627" duration="8273000" />
+      <workItem from="1590111833627" duration="15530000" />
+      <workItem from="1591366666656" duration="301000" />
+      <workItem from="1591540236582" duration="1041000" />
+      <workItem from="1591862575628" duration="2909000" />
+      <workItem from="1592143831062" duration="601000" />
+      <workItem from="1592207803782" duration="1392000" />
+      <workItem from="1592471169333" duration="4836000" />
+      <workItem from="1592986106083" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="v 1.0.1 新增-我的">
       <created>1584676420264</created>
@@ -592,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586935448558</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="v 1.0.2 我的支部-4个子页（概况、党员名册、入党积极分子名册、党支部改选情况） 我的">
+      <created>1590976405942</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1590976405942</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,25 +244,27 @@
       <screen x="40" y="22" width="1880" height="1178" />
     </state>
     <state x="288" y="284" key="#com.intellij.execution.impl.EditConfigurationsDialog/40.22.1880.1178@40.22.1880.1178" timestamp="1586425584916" />
-    <state x="251" y="399" key="CommitChangelistDialog2" timestamp="1586935446613">
+    <state x="251" y="399" key="CommitChangelistDialog2" timestamp="1590976405204">
       <screen x="42" y="22" width="1878" height="1178" />
     </state>
     <state x="249" y="399" key="CommitChangelistDialog2/40.22.1880.1178@40.22.1880.1178" timestamp="1586507249791" />
     <state x="250" y="399" key="CommitChangelistDialog2/41.22.1879.1178@41.22.1879.1178" timestamp="1585057899744" />
-    <state x="251" y="399" key="CommitChangelistDialog2/42.22.1878.1178@42.22.1878.1178" timestamp="1586935446613" />
+    <state x="251" y="399" key="CommitChangelistDialog2/42.22.1878.1178@42.22.1878.1178" timestamp="1590976405204" />
     <state x="613" y="564" key="RollbackChangesDialog" timestamp="1586418097575">
       <screen x="40" y="22" width="1880" height="1178" />
     </state>
     <state x="613" y="564" key="RollbackChangesDialog/40.22.1880.1178@40.22.1880.1178" timestamp="1586418097575" />
-    <state x="644" y="322" key="Vcs.Push.Dialog.v2" timestamp="1586935592297">
-      <screen x="42" y="22" width="1878" height="1178" />
+    <state x="615" y="311" key="Vcs.Push.Dialog.v2" timestamp="1593482156901">
+      <screen x="0" y="22" width="1920" height="1136" />
     </state>
+    <state x="615" y="311" key="Vcs.Push.Dialog.v2/0.22.1920.1136@0.22.1920.1136" timestamp="1593482156901" />
     <state x="643" y="322" key="Vcs.Push.Dialog.v2/41.22.1879.1178@41.22.1879.1178" timestamp="1585057911061" />
-    <state x="644" y="322" key="Vcs.Push.Dialog.v2/42.22.1878.1178@42.22.1878.1178" timestamp="1586935592297" />
-    <state x="646" y="369" width="816" height="550" key="find.popup" timestamp="1590647812285">
-      <screen x="42" y="22" width="1878" height="1178" />
+    <state x="644" y="322" key="Vcs.Push.Dialog.v2/42.22.1878.1178@42.22.1878.1178" timestamp="1590976412941" />
+    <state x="618" y="357" width="835" height="531" key="find.popup" timestamp="1592985812598">
+      <screen x="0" y="22" width="1920" height="1136" />
     </state>
-    <state x="646" y="369" width="816" height="550" key="find.popup/42.22.1878.1178@42.22.1878.1178" timestamp="1590647812285" />
+    <state x="618" y="357" width="835" height="531" key="find.popup/0.22.1920.1136@0.22.1920.1136" timestamp="1592985812598" />
+    <state x="646" y="369" width="816" height="550" key="find.popup/42.22.1878.1178@42.22.1878.1178" timestamp="1591581942835" />
     <state x="813" y="396" width="670" height="676" key="search.everywhere.popup" timestamp="1590114062365">
       <screen x="42" y="22" width="1878" height="1178" />
     </state>
