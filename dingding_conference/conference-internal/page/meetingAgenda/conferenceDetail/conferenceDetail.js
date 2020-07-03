@@ -381,5 +381,10 @@ Page({
             console.log(`跳转页面`);
             Navigate.navigateTo(`${this.data.tabBarList[currentIndex].pagePath}?conference=` + JSON.stringify(this.data.conference));
         }
+        // if (currentIndex == 2) {
+        //     this.setData({
+        //         'tabBarList[2].pagePath': `${PageUrlConstant.conferenceNote}?mid=${this.data.currentConferenceMid}`
+        //     });
+        // }
     }
 })

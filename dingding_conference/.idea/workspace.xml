@@ -2,39 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc11a55-32c4-4f23-b2f0-d047396c9def" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/conference-internal/resources/me/head.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/layout/album/album.acss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/layout/album/album.axml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/layout/album/album.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-internal/tab-ui/layout/album/album.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.web.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-development/index$.worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.web.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/.tea/entryFiles-production/index$.worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/components/conference/card-note/card-note.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/components/conference/card-note/card-note.axml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/config/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/config/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/config/status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/model/conference/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/model/conference/notes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/note/note.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/note/note.axml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/page/conference/note/note.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/conference/note/note.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/statisticalReport/statisticalReport/statisticalReport.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/page/meetingAgenda/conferenceDetail/conferenceDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.acss" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.acss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/tab-ui/view/avatar/avatar.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-internal/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/utils/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-internal/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-internal/utils/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/importScripts$.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/importScripts$.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.web.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.web.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/.tea/entryFiles-production/index$.worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/components/realm/realm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/config/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/config/status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/core/authentication/CheckLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/CheckLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/core/authentication/FreeLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/core/authentication/FreeLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/model/party-member-dues/partyMemberDues.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/model/party-member-dues/partyMemberDues.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-sanfang/page/index/index.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.axml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-sanfang/page/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.axml" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/page/statisticalReport/statisticalReport/statisticalReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/base/button/button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/form/input/input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid-item/grid-item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/tab-ui/grid/grid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-sanfang/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference-sanfang/utils/http.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,26 +52,26 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/conference-internal/tab-ui/form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/conference-internal/resources/me" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/conference-internal/tab-ui/form" />
-      <recent name="$PROJECT_DIR$/conference-internal/tab-ui/base" />
-      <recent name="$PROJECT_DIR$/conference-internal/config" />
-      <recent name="$PROJECT_DIR$/conference-internal/components" />
-      <recent name="$PROJECT_DIR$/conference-internal/tab-ui/mixins" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/conference-internal/resources/icon/organization" />
       <recent name="$PROJECT_DIR$/conference-internal/resources/icon/organiztion" />
       <recent name="$PROJECT_DIR$/conference-internal/components/conference/card-detail-word" />
       <recent name="$PROJECT_DIR$/conference-internal/components/conference/photo-grid" />
       <recent name="$PROJECT_DIR$/conference-internal/model/user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/conference-internal/resources/me" />
+      <recent name="$PROJECT_DIR$/conference-internal/tab-ui/form" />
+      <recent name="$PROJECT_DIR$/conference-internal/tab-ui/base" />
+      <recent name="$PROJECT_DIR$/conference-internal/config" />
+      <recent name="$PROJECT_DIR$/conference-internal/components" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -145,6 +130,7 @@
       <workItem from="1592207803782" duration="1392000" />
       <workItem from="1592471169333" duration="4836000" />
       <workItem from="1592986106083" duration="13000" />
+      <workItem from="1593482044112" duration="11180000" />
     </task>
     <task id="LOCAL-00001" summary="v 1.0.1 新增-我的">
       <created>1584676420264</created>
@@ -223,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590976405942</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="v 1.0.2">
+      <created>1593482194084</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593482194084</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,33 +230,39 @@
     <MESSAGE value="v 1.0.2 我的支部-党支部情况静态" />
     <MESSAGE value="v 1.0.2 我的支部-入党积极分子名册静态页面" />
     <MESSAGE value="v 1.0.2 我的支部-4个子页（概况、党员名册、入党积极分子名册、党支部改选情况） 我的" />
-    <option name="LAST_COMMIT_MESSAGE" value="v 1.0.2 我的支部-4个子页（概况、党员名册、入党积极分子名册、党支部改选情况） 我的" />
+    <MESSAGE value="v 1.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v 1.0.2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="288" y="284" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586425584916">
       <screen x="40" y="22" width="1880" height="1178" />
     </state>
     <state x="288" y="284" key="#com.intellij.execution.impl.EditConfigurationsDialog/40.22.1880.1178@40.22.1880.1178" timestamp="1586425584916" />
-    <state x="251" y="399" key="CommitChangelistDialog2" timestamp="1590976405204">
-      <screen x="42" y="22" width="1878" height="1178" />
+    <state x="214" y="386" key="CommitChangelistDialog2" timestamp="1593482193846">
+      <screen x="0" y="22" width="1920" height="1136" />
     </state>
+    <state x="214" y="386" key="CommitChangelistDialog2/0.22.1920.1136@0.22.1920.1136" timestamp="1593482193846" />
     <state x="249" y="399" key="CommitChangelistDialog2/40.22.1880.1178@40.22.1880.1178" timestamp="1586507249791" />
     <state x="250" y="399" key="CommitChangelistDialog2/41.22.1879.1178@41.22.1879.1178" timestamp="1585057899744" />
     <state x="251" y="399" key="CommitChangelistDialog2/42.22.1878.1178@42.22.1878.1178" timestamp="1590976405204" />
+    <state x="247" y="106" key="DiffContextDialog" timestamp="1593482210892">
+      <screen x="0" y="22" width="1920" height="1136" />
+    </state>
+    <state x="247" y="106" key="DiffContextDialog/0.22.1920.1136@0.22.1920.1136" timestamp="1593482210892" />
     <state x="613" y="564" key="RollbackChangesDialog" timestamp="1586418097575">
       <screen x="40" y="22" width="1880" height="1178" />
     </state>
     <state x="613" y="564" key="RollbackChangesDialog/40.22.1880.1178@40.22.1880.1178" timestamp="1586418097575" />
-    <state x="615" y="311" key="Vcs.Push.Dialog.v2" timestamp="1593482156901">
+    <state x="615" y="311" key="Vcs.Push.Dialog.v2" timestamp="1593482376143">
       <screen x="0" y="22" width="1920" height="1136" />
     </state>
-    <state x="615" y="311" key="Vcs.Push.Dialog.v2/0.22.1920.1136@0.22.1920.1136" timestamp="1593482156901" />
+    <state x="615" y="311" key="Vcs.Push.Dialog.v2/0.22.1920.1136@0.22.1920.1136" timestamp="1593482376143" />
     <state x="643" y="322" key="Vcs.Push.Dialog.v2/41.22.1879.1178@41.22.1879.1178" timestamp="1585057911061" />
     <state x="644" y="322" key="Vcs.Push.Dialog.v2/42.22.1878.1178@42.22.1878.1178" timestamp="1590976412941" />
-    <state x="618" y="357" width="835" height="531" key="find.popup" timestamp="1592985812598">
+    <state x="618" y="357" width="1024" height="701" key="find.popup" timestamp="1593653748919">
       <screen x="0" y="22" width="1920" height="1136" />
     </state>
-    <state x="618" y="357" width="835" height="531" key="find.popup/0.22.1920.1136@0.22.1920.1136" timestamp="1592985812598" />
+    <state x="618" y="357" width="1024" height="701" key="find.popup/0.22.1920.1136@0.22.1920.1136" timestamp="1593653748919" />
     <state x="646" y="369" width="816" height="550" key="find.popup/42.22.1878.1178@42.22.1878.1178" timestamp="1591581942835" />
     <state x="813" y="396" width="670" height="676" key="search.everywhere.popup" timestamp="1590114062365">
       <screen x="42" y="22" width="1878" height="1178" />

@@ -53,6 +53,8 @@ open-data {
 .t-avatar-text {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    word-break: break-word;
 }
 
 .t-placement-left .t-avatar-text {

@@ -15,7 +15,7 @@ class Notes {
      * @returns {Promise<*>}
      */
     static async submitNotes(noteInfo) {// 接收一个回调
-        const res = await Http.request({
+        const res = await Http.requestPost({
             url: '5d8ed78cae8b4',
             data: {
                 mid: noteInfo.mid,

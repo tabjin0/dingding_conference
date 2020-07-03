@@ -6,7 +6,8 @@
                       value="{{noteText}}"></textarea>
         </view>
 
-        <image src="{{pngUrl}}" lazy-load="false" onError="imgOnError" onLoad="imgOnLoad"></image>
+        <image a:if="{{isShowWritePng & pngUrl != ''}}" src="{{pngUrl}}" lazy-load="false" onError="imgOnError"
+               onLoad="imgOnLoad"></image>
 
         <!-- 会议纪要图片 -->
         <view class="image-container">

@@ -1,11 +1,14 @@
 <view class="outer-container">
-  <block a:for="{{dataList}}">
-    <!-- 笔记内容 -->
-    <view class="card-item" data-note="{{item}}" onTap="toNoteEdit">
-      <view class="conference">
-        <view class="text">{{item.text}}</view>
-        <view class="time">时间 : {{item.update_time}}</view>
-      </view>
-    </view>
-  </block>
+    <block a:for="{{dataList}}">
+        <!-- 笔记内容 -->
+        <view class="card-item" data-note="{{item}}" onTap="toNoteEdit">
+            <view class="conference">
+                <view class="text" a:if="{{item.text.length <= 1000}}">{{item.text}}</view>
+                <image src="{{item.text}}" a:if="{{item.text.length > 1000}}" class="" mode="scaleToFill"
+                       lazy-load="true"></image>
+
+                <view class="time">时间 : {{item.update_time}}</view>
+            </view>
+        </view>
+    </block>
 </view>

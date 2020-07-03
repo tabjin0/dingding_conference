@@ -32,6 +32,35 @@ class Http {
         return res.data;
     }
 
+    static async requestPost({
+                                 url,
+                                 data = {},
+                                 dataType = 'json',
+                                 method = 'POST',
+                                 headers
+                             }) {// 传入对象
+        const res = await promisic(dd.httpRequest)({
+            url: `${config.apiBaseUrl}${url}`,// 因为apiBaseUrl是一个固定的配置
+            method,
+            data: Object.assign(
+                data,
+                {
+
+                    orgId: await Caching.getStorageSync('orgId') == null ? NaN : await Caching.getStorageSync('orgId'),
+                    orgPid: config.orgPid,
+                    corpId: dd.corpId ? dd.corpId : ''
+                }
+            ),
+            dataType,
+            headers: {
+                // 'Content-Type': 'application/json',
+                'version': 'v3.0',
+                'access-token': ''
+            },
+        });
+        return res.data;
+    }
+
     static async request2({
                               url,
                               data = {},

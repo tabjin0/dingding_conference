@@ -1,11 +1,8 @@
 import {InterAction} from "../../../utils/native-api/interface/interaction";
 import {Notes} from "../../../model/conference/notes";
-import {Navigate} from "../../../utils/native-api/interface/navigate";
 import {Caching} from "../../../utils/native-api/caching/caching";
 import {NoteInfo} from "../../../model/conference/NoteInfo";
-import {InteractionEnum} from "../../../utils/native-api/interface/InteractionEnum";
 import {CheckLogin} from "../../../core/authentication/CheckLogin";
-import {PageUrlConstant} from "../../../config/pageUrlConstant";
 import {Upload} from "../../../model/conference/upload";
 
 const app = getApp();
@@ -15,27 +12,20 @@ Page({
         currentUserId: null,
 
         noteText: '',
+        pngUrl: '',
+        isShowWritePng: true,
 
         filePaths: null,
         imgArrEx: [],
         imgArrExLength: 0,
-        imgArr: [
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-            // 'http://pic36.photophoto.cn/20150702/0025008195115642_b.jpg',
-        ],
+        imgArr: [],
         chooseViewShow: true,
         uploadFlag: true,// 默认上传成功
 
         totalImgArr: [],
         totalImgIdArr: [],
     },
+
     async onLoad(params) {
         if (params.conference) {
             let currentConference = JSON.parse(params.conference);
@@ -43,11 +33,32 @@ Page({
             this.setData({
                 mid: currentConference.id
             });
-            await CheckLogin.fnRecheck();
-            this._initCurrentConferenceUserNote();
+            Caching.setStorageSync('mid', currentConference.id);
         }
+        this.setData({
+            params: params
+        })
+    },
 
-        this.initWriteImage(params);
+    async onShow() {
+        InterAction.fnShowLoading('加载中');
+        await this._init();
+        InterAction.fnHideLoading();
+    },
+
+    async _init() {
+        await this._initUser();
+        this._initData();
+        this.initWriteImage(this.data.params);
+    },
+
+    async _initUser() {
+        await CheckLogin.fnRecheck();
+    },
+
+    async _initData() {
+        Caching.setStorageSync('mid', Caching.getStorageSync('mid'));
+        await this._initCurrentConferenceUserNote();
     },
 
     initWriteImage(param) {
@@ -62,18 +73,72 @@ Page({
         }
     },
 
-    // async onShow() {
-    //     await this.initUser();
-    //     this._initCurrentConferenceUserNote();
-    // },
 
-    // async initUser() {
-    //     if (!app.globalData.checkLogin || !Caching.getStorageSync('currentUser')) {
-    //         const currentUser = await FreeLogin.currentUser();
-    //         Caching.setStorageSync('currentUser', currentUser);// 用户登录并进入缓存
-    //         app.globalData.checkLogin = true;
+    // async formSubmit(e) {
+    //     let that = this;
+    //     const mid = this.data.mid ? this.data.mid : Caching.getStorageSync('mid');
+    //     console.log('uid', Caching.getStorageSync('currentUser'));
+    //     const uid = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
+    //     const text = e.detail.value.text;
+    //     let imgsStr = ' ';
+    //     if (this.data.totalImgIdArr.length > 0) {// 有图片才能上传
+    //         imgsStr = this.data.totalImgIdArr.join(',');
+    //     }
+    //     const orgId = Caching.getStorageSync('orgId');
+    //
+    //     const noteInfo = new NoteInfo(mid, uid, text, imgsStr, orgId);
+    //     console.log('noteInfo', noteInfo);
+    //     if (noteInfo.dateCheck()) {
+    //         const addNoteRes = await Notes.submitNotes(noteInfo);
+    //         InterAction.fnShowToast('提交成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
+    //         this.setData({
+    //             noteText: ''
+    //         });
+    //         setTimeout(function () {
+    //             // Navigate.navigateBack(1);
+    //             // Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + mid);
+    //             // 跳转改刷新
+    //             that._initCurrentConferenceUserNote();
+    //         }, 2000);
     //     }
     // },
+
+    async formSubmit(e) {
+        let that = this;
+        const mid = this.data.mid ? this.data.mid : Caching.getStorageSync('mid');
+        console.log('uid', Caching.getStorageSync('currentUser'));
+        const uid = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
+        const text = e.detail.value.text ? e.detail.value.text : this.data.pngUrl;
+        let imgsStr = ' ';
+        if (this.data.totalImgIdArr.length > 0) {// 有图片才能上传
+            imgsStr = this.data.totalImgIdArr.join(',');
+        }
+        const orgId = Caching.getStorageSync('orgId');
+
+        const noteInfo = new NoteInfo(mid, uid, text, imgsStr, orgId);
+        console.log('noteInfo', noteInfo);
+        if (noteInfo.dateCheck()) {
+            InterAction.fnShowLoading('加载中');
+            const addNoteRes = await Notes.submitNotes(noteInfo);
+            this.setData({
+                noteText: '',
+                isShowWritePng: false
+            });
+            setTimeout(() => {
+                // Navigate.navigateBack(1);
+                // Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + mid);
+                // 跳转改刷新
+                that._initCurrentConferenceUserNote();
+            }, 2000);
+            InterAction.fnHideLoading();
+            InterAction.fnShowToast('提交成功', 'success', 2000);
+        }
+    },
+
+    tapText(e) {
+        console.log(`tapText`);
+        dd.navigateTo({url: '/page/conference/write/write'});
+    },
 
     /**
      * 初始化当前会议的用户笔记列表
@@ -81,10 +146,13 @@ Page({
      */
     async _initCurrentConferenceUserNote() {
         const userId = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
-        const noteList = await Notes.getUserNoteList(this.data.mid, userId);
-        this.setData({
-            noteList: noteList.data,
-        });
+        const noteList = await Notes.getUserNoteList(this.data.mid ? this.data.mid : Caching.getStorageSync('mid'), userId);
+        console.log(`noteList`, noteList);
+        if (noteList) {
+            this.setData({
+                noteList: noteList.data.reverse(),
+            });
+        }
     },
 
     /**
@@ -138,7 +206,7 @@ Page({
                     } else {
                         flag = false;
                         InterAction.fnAlert('抱歉', `图片${totalImgIdArr.length + i + 1}拉取失败，请删除并重新选择`, '好的');
-                        InterAction.fnShowToast()
+                        // InterAction.fnShowToast()
                     }
                 }
                 ;
@@ -180,39 +248,7 @@ Page({
         }
     },
 
-    async formSubmit(e) {
-        let that = this;
-        const mid = this.data.mid;
-        console.log('uid', Caching.getStorageSync('currentUser'));
-        const uid = Caching.getStorageSync('currentUser').basicCurrentUserInfo.userid;
-        const text = e.detail.value.text;
-        let imgsStr = ' ';
-        if (this.data.totalImgIdArr.length > 0) {// 有图片才能上传
-            imgsStr = this.data.totalImgIdArr.join(',');
-        }
-        const orgId = Caching.getStorageSync('orgId');
 
-        const noteInfo = new NoteInfo(mid, uid, text, imgsStr, orgId);
-        console.log('noteInfo', noteInfo);
-        if (noteInfo.dateCheck()) {
-            const addNoteRes = await Notes.submitNotes(noteInfo);
-            InterAction.fnShowToast('提交成功', InteractionEnum.DD_SHOW_TOAST_TYPE_SUCCESS, InteractionEnum.DD_SHOW_TOAST_DURATION);
-            this.setData({
-                noteText: ''
-            });
-            setTimeout(function () {
-                // Navigate.navigateBack(1);
-                // Navigate.navigateTo(`${PageUrlConstant.conferenceDetail}?mid=` + mid);
-                // 跳转改刷新
-                that._initCurrentConferenceUserNote();
-            }, 2000);
-        }
-    },
-    //
-    // tapText(e) {
-    //     console.log(`tapText`);
-    //     dd.navigateTo({url: '/page/conference/write/write'});
-    // }
 })
 
 

@@ -23,7 +23,7 @@ Page({
     data: {
         isLeaderInDepts: false,// 默认不是部门主管
 
-        hasMeeting: false,
+        noMeeting: false,
 
         nowConferenceList: null,// 当前会议
         futureConferenceList: null,// 预备会议
@@ -104,9 +104,9 @@ Page({
         const nowConferenceList = conferenceListByUserId.now;// 当前会议
         const futureConferenceList = conferenceListByUserId.future;// 预备会议
         const pastConferenceList = conferenceListByUserId.past;// 当前用户历史会议
-        const ishasMeeting = nowConferenceList.length == 0 && futureConferenceList.length == 0 && pastConferenceList.length == 0;
+        const noMeeting = nowConferenceList.length == 0 && futureConferenceList.length == 0 && pastConferenceList.length == 0;
         this.setData({
-            hasMeeting: ishasMeeting,
+            noMeeting: noMeeting,
             nowConferenceList: nowConferenceList,// 当前会议
             futureConferenceList: futureConferenceList,// 预备会议
             pastConferenceList: pastConferenceList,// 当前用户历史会议

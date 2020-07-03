@@ -1,9 +1,9 @@
 <view class="out-container">
-    <view class="noMeeting" hidden="{{!hasMeeting}}">
+    <view class="noMeeting" a:if="{{noMeeting}}">
         <image src="/resources/index/noMeeting.png" class="noMeetingImg" mode="scaleToFill" lazy-load="true"></image>
     </view>
 
-    <view class="container" hidden="{{hasMeeting}}">
+    <view class="container" a:if="{{!noMeeting}}">
         <!-- 会议提醒 -->
         <view class="conference-list" hidden="{{!isShowNowConferenceList}}">
             <view class="priority-container remind">

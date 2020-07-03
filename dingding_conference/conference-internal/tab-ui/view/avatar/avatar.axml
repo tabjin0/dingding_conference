@@ -17,7 +17,8 @@
     </view>
     <!--  有文本或昵称  -->
     <view a:if="{{ text || _isHaveUserNickName }}"
-          class="t-avatar-text t-text-class">
+          class="t-avatar-text t-text-class"
+          style="margin-top:{{_isHaveUserAvatarUrl || icon || src ? '60rpx;' : '50rpx;'}}">
         <!-- 能拿到微信昵称 -->
         <!-- <open-data wx:if="{{_isHaveUserNickName}}" type="userNickName"/> -->
         <!-- 有文字 -->
